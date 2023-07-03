@@ -20,6 +20,8 @@
 
 #### [GitLab Maven 仓库](gitlab/maven-configuration.md)
 
+#### [GitLab Docker 容器镜像仓库](gitlab/docker-configuration.md)
+
 ### GitLab Runner
 
 #### [CentOS 安装 GitLab Runner](gitlab-runner/centos-install.md)
@@ -51,3 +53,7 @@
 ### Kubernetes（k8s） UI
 
 #### [kubernetes（k8s）Dashboard 安装](k8s-ui/dashboard-install.md)
+
+### Nexus 私库
+
+#### [Docker 容器 Nexus 配置 SSL/https](nexus/https-configuration.md)
