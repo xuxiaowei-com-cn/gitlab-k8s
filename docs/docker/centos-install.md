@@ -2,7 +2,7 @@
 
 ## 文档
 
-1. [在CentOS上安装Docker Engine]([https://docs.docker.com/engine/install/centos/](https://docs.docker.com/engine/install/centos/))
+1. [在CentOS上安装Docker Engine](https://docs.docker.com/engine/install/centos/)
 
 ## 说明
 

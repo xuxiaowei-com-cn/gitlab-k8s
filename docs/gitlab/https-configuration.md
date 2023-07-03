@@ -3,7 +3,7 @@
 # 参考文档
 
 1. [https://stackoverflow.com/questions/72711633/how-to-solve-this-errror-certificate-relies-on-legacy-common-name-field-use-sa](https://stackoverflow.com/questions/72711633/how-to-solve-this-errror-certificate-relies-on-legacy-common-name-field-use-sa)
-2. [自签名证书或自定义证书颁发机构]([https://docs.gitlab.cn/runner/configuration/tls-self-signed.html](https://docs.gitlab.cn/runner/configuration/tls-self-signed.html))
+2. [自签名证书或自定义证书颁发机构](https://docs.gitlab.cn/runner/configuration/tls-self-signed.html)
 
 # 说明
 
