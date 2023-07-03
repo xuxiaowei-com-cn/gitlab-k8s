@@ -18,6 +18,10 @@
 
 #### [GitLab 配置 SSL/https](gitlab/https-configuration.md)
 
+### GitLab Runner
+
+#### [CentOS 安装 GitLab Runner](gitlab-runner/centos-install.md)
+
 ### Docker
 
 #### [Centos 安装 Docker](docker/centos-install.md)
