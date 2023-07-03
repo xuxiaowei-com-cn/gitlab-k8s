@@ -19,7 +19,7 @@
 
 ## 说明
 
-1. GitLab Runner 注册到 GitLab 的操作请参见上面章节中的[CentOS 安装 GitLab Runner](../gitlab-runner/centos-install.md)
+1. GitLab Runner 注册到 GitLab 的操作请参见上面章节中的[CentOS 安装 GitLab Runner](d)
    ，只需要将**流水线的执行器**设置成**kubernetes**即可，然后执行流水线，会出现问题，按照下方内容去解决
 2. 本文采用遇见什么错误，增加对应的配置来介绍 GitLab Runner、kubernetes 的配置
 
