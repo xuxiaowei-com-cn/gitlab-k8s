@@ -15,3 +15,5 @@
 ### GitLab
 
 #### [CentOS 7.9 中安装 GitLab](gitlab/centos-7.9-install.md)
+
+#### [GitLab 配置 SSL/https](gitlab/https-configuration.md)
