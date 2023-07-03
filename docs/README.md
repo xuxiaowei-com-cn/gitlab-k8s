@@ -9,3 +9,9 @@
 ### [GitLab Runner 导读](guide/gitlab-runner.md)
 
 ### [kubernetes（k8s） 导读](guide/k8s.md)
+
+## 安装配置
+
+### GitLab
+
+#### [CentOS 7.9 中安装 GitLab](gitlab/centos-7.9-install.md)
