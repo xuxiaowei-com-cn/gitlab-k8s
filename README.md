@@ -26,11 +26,11 @@
 
 #### [kubernetes（k8s）配置](gitlab-runner/k8s-configuration.md)
 
-#### [Cache S3 配置](gitlab-runner/cache-s3-configuration.md)
+#### [Cache 配置 S3](gitlab-runner/cache-s3-configuration.md)
 
 ### GitLab Pages
 
-#### [GitLab Pages 配置 https](gitlab/pages-https-configuration.md)
+#### [GitLab Pages 配置 SSL/https](gitlab/pages-https-configuration.md)
 
 ### Docker
 

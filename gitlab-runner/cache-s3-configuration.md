@@ -1,4 +1,4 @@
-# GitLab Runner Cache S3 配置
+# GitLab Runner Cache 配置 S3
 
 1. 支持 MinIO
 2. 支持 阿里云 OSS 对象储存

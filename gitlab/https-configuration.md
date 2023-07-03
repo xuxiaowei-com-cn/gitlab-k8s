@@ -1,4 +1,4 @@
-# GitLab 配置 https
+# GitLab 配置 SSL/https
 
 # 参考文档
 

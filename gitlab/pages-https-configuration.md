@@ -1,4 +1,4 @@
-# GitLab Pages 配置 https
+# GitLab Pages 配置 SSL/https
 
 # 文档
 
@@ -15,7 +15,7 @@
 
 # 说明
 
-1. 证书申请请看上文：[配置 GitLab https](figuration.md)
+1. 证书申请请看上文：[GitLab 配置 https](https-configuration.md)
 
 2. 根据上方文档中的说明，**要求如下**
     1. GitLab 使用域名 [http://example.com](http://example.com/) ，GitLab Pages
