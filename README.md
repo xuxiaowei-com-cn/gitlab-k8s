@@ -38,6 +38,8 @@
 
 #### [Kubernetes（k8s）安装](k8s/centos-install.md)
 
+#### [Metrics Server 安装](k8s/metrics-server-install.md)
+
 ### Kubernetes PV
 
 #### [CentOS 7 中安装 NFS](pv/centos-7-nfs-install.md)
