@@ -10,7 +10,7 @@
     2. [gitlab-ee](https://docs.gitlab.com/runner/configuration/tls-self-signed.html)
 3. 配置 Runner
     1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/jh/ci/runners/configure_runners.html)
-    2. [gitlab-ee](https://docs.gitlab.com/ee/ci/runners/configure_runners.html))
+    2. [gitlab-ee](https://docs.gitlab.com/ee/ci/runners/configure_runners.html)
 4. [gitlab runner 最新版手动下载](https://gitlab-runner-downloads.s3.amazonaws.com/latest/index.html)
     1. [v15.6.0 手动下载](https://gitlab-runner-downloads.s3.amazonaws.com/v15.6.0/index.html)
 5. 自签名证书或自定义证书颁发机构
