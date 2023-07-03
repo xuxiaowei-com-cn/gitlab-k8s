@@ -152,7 +152,7 @@
 8. 安装 Containerd、Docker
    **Docker 不是必须的，k8s 1.24.0 开始使用 Containerd 替代 Docker，但还是推荐安装 Docker，原因：在k8s中构建Docker镜像时使用，需要在GitLab
    Runner 中配置如下，详情参见：
-   **[https://www.yuque.com/xuxiaowei-com-cn/gitlab-k8s/gitlab-runner-k8s](https://www.yuque.com/xuxiaowei-com-cn/gitlab-k8s/gitlab-runner-k8s)
+   **[GitLab Runner、kubernetes（k8s）配置](../gitlab-runner/k8s-configuration.md)**
 
     ```shell
     [[runners]]
