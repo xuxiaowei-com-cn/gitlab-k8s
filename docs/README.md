@@ -24,7 +24,7 @@
 
 ### GitLab Pages
 
-#### [GitLab Pages 配置 https](gitlab/pages-https.md)
+#### [GitLab Pages 配置 https](gitlab/pages-https-configuration.md)
 
 ### Docker
 

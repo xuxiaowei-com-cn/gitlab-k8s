@@ -15,7 +15,7 @@
 
 # 说明
 
-1. 证书申请请看上文：[配置 GitLab https](https://www.yuque.com/xuxiaowei-com-cn/gitlab-k8s/fmdqe3g99t8re0pv)
+1. 证书申请请看上文：[配置 GitLab https](../gitlab/https-configuration.md)
 
 2. 根据上方文档中的说明，**要求如下**
     1. GitLab 使用域名 [http://example.com](http://example.com/) ，GitLab Pages
@@ -103,7 +103,7 @@
             ```
     5. 域名
 
-   ![image.png](static/pages-https-1.png)
+   ![image.png](static/pages-https-configuration-1.png)
 
 3. 修改 gitlab.rb 文件
 
