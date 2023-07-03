@@ -38,6 +38,10 @@
 
 #### [Kubernetes（k8s）安装](k8s/centos-install.md)
 
+### Kubernetes PV
+
+#### [CentOS 7 中安装 NFS](pv/centos-7-nfs-install.md)
+
 ### Kubernetes（k8s） UI
 
 #### [kubernetes（k8s）Dashboard 安装](k8s-ui/dashboard-install.md)
