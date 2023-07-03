@@ -22,6 +22,8 @@
 
 #### [CentOS 安装 GitLab Runner](gitlab-runner/centos-install.md)
 
+#### [kubernetes（k8s）配置](gitlab-runner/k8s-configuration.md)
+
 ### GitLab Pages
 
 #### [GitLab Pages 配置 https](gitlab/pages-https-configuration.md)
