@@ -151,8 +151,8 @@
 
 8. 安装 Containerd、Docker
    **Docker 不是必须的，k8s 1.24.0 开始使用 Containerd 替代 Docker，但还是推荐安装 Docker，原因：在k8s中构建Docker镜像时使用，需要在GitLab
-   Runner 中配置如下，详情参见：
-   **[GitLab Runner、kubernetes（k8s）配置](../gitlab-runner/k8s-configuration.md)**
+   Runner 中配置如下，详情参见：**
+   [GitLab Runner、kubernetes（k8s）配置](../gitlab-runner/k8s-configuration.md)
 
     ```shell
     [[runners]]
@@ -438,7 +438,7 @@
 17. 控制面板：配置网络，选择 Calico 配置，归档文档：[https://docs.tigera.io/archive/](https://docs.tigera.io/archive/)
 
     | Kubernetes 版本       | Calico 版本                        | Calico 文档                                                                                                                                                       | Calico 配置                                                                                                                                                                    |
-    |---------------------|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+                |---------------------|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | 1.18、1.19、1.20      | 3.18                             | [https://docs.tigera.io/archive/v3.18/getting-started/kubernetes/requirements](https://docs.tigera.io/archive/v3.18/getting-started/kubernetes/requirements)    | [https://docs.tigera.io/archive/v3.18/manifests/calico.yaml](https://docs.tigera.io/archive/v3.18/manifests/calico.yaml)                                                     |
     | 1.19、1.20、1.21      | 3.19                             | [https://docs.tigera.io/archive/v3.19/getting-started/kubernetes/requirements](https://docs.tigera.io/archive/v3.19/getting-started/kubernetes/requirements)    | [https://docs.tigera.io/archive/v3.19/manifests/calico.yaml](https://docs.tigera.io/archive/v3.19/manifests/calico.yaml)                                                     |
     | 1.19、1.20、1.21      | 3.20                             | [https://docs.tigera.io/archive/v3.20/getting-started/kubernetes/requirements](https://docs.tigera.io/archive/v3.20/getting-started/kubernetes/requirements)    | [https://docs.tigera.io/archive/v3.20/manifests/calico.yaml](https://docs.tigera.io/archive/v3.20/manifests/calico.yaml)                                                     |
