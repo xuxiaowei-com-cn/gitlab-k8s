@@ -40,6 +40,8 @@
 
 #### [Metrics Server 安装](k8s/metrics-server-install.md)
 
+#### [Kube Prometheus 普罗米修斯 安装](k8s/kube-prometheus-install.md)
+
 ### Kubernetes PV
 
 #### [CentOS 7 中安装 NFS](pv/centos-7-nfs-install.md)
