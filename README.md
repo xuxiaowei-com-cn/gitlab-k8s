@@ -18,6 +18,8 @@
 
 #### [GitLab 配置 SSL/https](gitlab/https-configuration.md)
 
+#### [GitLab Maven 仓库](gitlab/maven-configuration.md)
+
 ### GitLab Runner
 
 #### [CentOS 安装 GitLab Runner](gitlab-runner/centos-install.md)
