@@ -7,8 +7,8 @@
 3. 不同 Kubernetes Dashboard 支持的 Kubernetes 版本不同，可查看 Kubernetes Dashboard
    发版日志中的说明：[https://github.com/kubernetes/dashboard/releases](https://github.com/kubernetes/dashboard/releases)
    ，下面列举最近几版的版本支持（仅列举了 **完全支持的版本范围**）
-4. **国内GitCode镜像仓库
-   **：[https://gitcode.net/mirrors/kubernetes/dashboard](https://gitcode.net/mirrors/kubernetes/dashboard)
+4. **国内GitCode镜像仓库**：
+    1. [https://gitcode.net/mirrors/kubernetes/dashboard](https://gitcode.net/mirrors/kubernetes/dashboard)
 5. 使用网址如下：只需要换一下标签名
     1. [https://gitcode.net/mirrors/kubernetes/dashboard/-/raw/v2.7.0/aio/deploy/recommended.yaml](https://gitcode.net/mirrors/kubernetes/dashboard/-/raw/v2.7.0/aio/deploy/recommended.yaml)
 
