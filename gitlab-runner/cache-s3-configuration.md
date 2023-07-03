@@ -10,11 +10,11 @@
 2. 本文配置 GitLab Runner 的缓存类型为 s3，使用的软件是 `MinIO`、`阿里云 OSS 对象储存`、`天翼云 OOS 对象储存`。
 3. 本文的目的是在 GitLab Runner 执行完成时，通过配置流水线中的缓存，将 Maven依赖、Node依赖等，上传到 minio中，在下次执行流水线时，GitLab
    Runner 会自动下载上次缓存的文件并解压，提高流水线构建的速度。
-4. [使用 MinIO]([https://docs.gitlab.cn/runner/configuration/speed_up_job_execution.html#%E4%BD%BF%E7%94%A8-minio](https://docs.gitlab.cn/runner/configuration/speed_up_job_execution.html#%E4%BD%BF%E7%94%A8-minio))
-5. [分布式 Runner 缓存]([https://docs.gitlab.cn/runner/configuration/autoscale.html#distributed-runners-caching](https://docs.gitlab.cn/runner/configuration/autoscale.html#distributed-runners-caching))
+4. [使用 MinIO](https://docs.gitlab.cn/runner/configuration/speed_up_job_execution.html#%E4%BD%BF%E7%94%A8-minio)
+5. [分布式 Runner 缓存](https://docs.gitlab.cn/runner/configuration/autoscale.html#distributed-runners-caching)
 6. GitLab Runner 高级配置
-    1. [极狐 GitLab 中文文档]([https://docs.gitlab.cn/runner/configuration/advanced-configuration.html](https://docs.gitlab.cn/runner/configuration/advanced-configuration.html))
-    2. [gitlab-ee]([https://docs.gitlab.com/runner/configuration/advanced-configuration.html](https://docs.gitlab.com/runner/configuration/advanced-configuration.html))
+    1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/runner/configuration/advanced-configuration.html)
+    2. [gitlab-ee](https://docs.gitlab.com/runner/configuration/advanced-configuration.html)
 
 ## 安装 minio
 

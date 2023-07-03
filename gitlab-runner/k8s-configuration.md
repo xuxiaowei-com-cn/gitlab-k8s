@@ -2,20 +2,20 @@
 
 ## 资料
 
-1. [kubernetes]([https://docs.gitlab.com/runner/install/kubernetes](https://docs.gitlab.com/runner/install/kubernetes))
-    1. [极狐 GitLab 中文文档]([https://docs.gitlab.cn/runner/install/kubernetes](https://docs.gitlab.cn/runner/install/kubernetes))
-2. [高级配置]([https://docs.gitlab.com/runner/configuration/advanced-configuration.html](https://docs.gitlab.com/runner/configuration/advanced-configuration.html))
-    1. [极狐 GitLab 中文文档]([https://docs.gitlab.cn/runner/configuration/advanced-configuration.html](https://docs.gitlab.cn/runner/configuration/advanced-configuration.html))
-3. [添加额外主机别名]([https://docs.gitlab.com/runner/executors/kubernetes.html#adding-extra-host-aliases](https://docs.gitlab.com/runner/executors/kubernetes.html#adding-extra-host-aliases))
-    1. [极狐 GitLab 中文文档]([https://docs.gitlab.cn/runner/executors/kubernetes.html#%E6%B7%BB%E5%8A%A0%E9%A2%9D%E5%A4%96%E4%B8%BB%E6%9C%BA%E5%88%AB%E5%90%8D](https://docs.gitlab.cn/runner/executors/kubernetes.html#%E6%B7%BB%E5%8A%A0%E9%A2%9D%E5%A4%96%E4%B8%BB%E6%9C%BA%E5%88%AB%E5%90%8D))
-4. [Pod 的 DNS 配置]([https://docs.gitlab.com/runner/executors/kubernetes.html#pods-dns-config](https://docs.gitlab.com/runner/executors/kubernetes.html#pods-dns-config))
-    1. [极狐 GitLab 中文文档]([https://docs.gitlab.cn/runner/executors/kubernetes.html#pod-%E7%9A%84-dns-%E9%85%8D%E7%BD%AE](https://docs.gitlab.cn/runner/executors/kubernetes.html#pod-%E7%9A%84-dns-%E9%85%8D%E7%BD%AE))
-5. [GitLab Runner 的 Kubernetes 执行器]([https://docs.gitlab.com/runner/executors/kubernetes.html](https://docs.gitlab.com/runner/executors/kubernetes.html))
-    1. [极狐 GitLab 中文文档]([https://docs.gitlab.cn/runner/executors/kubernetes.html](https://docs.gitlab.cn/runner/executors/kubernetes.html))
-6. [Docker 执行器]([https://docs.gitlab.com/runner/executors/docker.html](https://docs.gitlab.com/runner/executors/docker.html))
-    1. [极狐 GitLab 中文文档]([https://docs.gitlab.cn/runner/executors/docker.html](https://docs.gitlab.cn/runner/executors/docker.html))
-7. [通过特权模式使用 Docker-in-Docker]([https://docs.gitlab.com/runner/executors/docker.html#use-docker-in-docker-with-privileged-mode](https://docs.gitlab.com/runner/executors/docker.html#use-docker-in-docker-with-privileged-mode))
-    1. [极狐 GitLab 中文文档]([https://docs.gitlab.cn/runner/executors/docker.html#%E9%80%9A%E8%BF%87%E7%89%B9%E6%9D%83%E6%A8%A1%E5%BC%8F%E4%BD%BF%E7%94%A8-docker-in-docker](https://docs.gitlab.cn/runner/executors/docker.html#%E9%80%9A%E8%BF%87%E7%89%B9%E6%9D%83%E6%A8%A1%E5%BC%8F%E4%BD%BF%E7%94%A8-docker-in-docker))
+1. [kubernetes](https://docs.gitlab.com/runner/install/kubernetes)
+    1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/runner/install/kubernetes)
+2. [高级配置](https://docs.gitlab.com/runner/configuration/advanced-configuration.html)
+    1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/runner/configuration/advanced-configuration.html)
+3. [添加额外主机别名](https://docs.gitlab.com/runner/executors/kubernetes.html#adding-extra-host-aliases)
+    1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/runner/executors/kubernetes.html#%E6%B7%BB%E5%8A%A0%E9%A2%9D%E5%A4%96%E4%B8%BB%E6%9C%BA%E5%88%AB%E5%90%8D)
+4. [Pod 的 DNS 配置](https://docs.gitlab.com/runner/executors/kubernetes.html#pods-dns-config)
+    1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/runner/executors/kubernetes.html#pod-%E7%9A%84-dns-%E9%85%8D%E7%BD%AE)
+5. [GitLab Runner 的 Kubernetes 执行器](https://docs.gitlab.com/runner/executors/kubernetes.html)
+    1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/runner/executors/kubernetes.html)
+6. [Docker 执行器](https://docs.gitlab.com/runner/executors/docker.html)
+    1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/runner/executors/docker.html)
+7. [通过特权模式使用 Docker-in-Docker](https://docs.gitlab.com/runner/executors/docker.html#use-docker-in-docker-with-privileged-mode)
+    1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/runner/executors/docker.html#%E9%80%9A%E8%BF%87%E7%89%B9%E6%9D%83%E6%A8%A1%E5%BC%8F%E4%BD%BF%E7%94%A8-docker-in-docker)
 
 ## 说明
 
