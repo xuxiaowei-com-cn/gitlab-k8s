@@ -29,3 +29,7 @@
 ### Docker
 
 #### [Centos 安装 Docker](docker/centos-install.md)
+
+### Kubernetes（k8s）
+
+#### [Kubernetes（k8s）安装](k8s/centos-install.md)
