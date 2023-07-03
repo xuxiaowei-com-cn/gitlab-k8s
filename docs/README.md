@@ -6,4 +6,6 @@
 
 ### [GitLab 导读](guide/gitlab.md)
 
-### [k8s 导读](guide/k8s.md)
+### [GitLab Runner 导读](guide/gitlab-runner.md)
+
+### [kubernetes（k8s） 导读](guide/k8s.md)
