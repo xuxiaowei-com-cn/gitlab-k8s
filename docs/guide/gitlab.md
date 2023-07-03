@@ -2,9 +2,9 @@
 
 ## 资料
 
-1. [DevOps 工具布局一览]([https://gitlab.cn/devops-tools/](https://gitlab.cn/devops-tools/))
-2. [极狐GitLab vs GitHub]([https://gitlab.cn/devops-tools/github-vs-gitlab/](https://gitlab.cn/devops-tools/github-vs-gitlab/))
-3. [极狐GitLab vs GitLab vs GitHub vs Gitee]([https://gitlab.cn/comparison/](https://gitlab.cn/comparison/))
+1. [DevOps 工具布局一览](https://gitlab.cn/devops-tools/)
+2. [极狐GitLab vs GitHub](https://gitlab.cn/devops-tools/github-vs-gitlab/)
+3. [极狐GitLab vs GitLab vs GitHub vs Gitee](https://gitlab.cn/comparison/)
 
 ## 介绍
 
