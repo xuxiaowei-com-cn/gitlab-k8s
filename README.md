@@ -60,6 +60,8 @@
 
 #### [Cache 配置 S3](gitlab-runner/cache-s3-configuration.md)
 
+#### [Docker-in-Docker（未完成）](gitlab-runner/docker-in-docker-configuration.md)
+
 ### GitLab 依赖机器人 dependabot-gitlab
 
 #### [docker compose 安装](dependabot-gitlab/dependabot-gitlab-install.md)
