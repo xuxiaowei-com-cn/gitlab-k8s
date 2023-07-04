@@ -84,6 +84,22 @@
 
 #### [Ingress 安装](k8s/ingress-install.md)
 
+#### Kubernetes（k8s） Availability 高可用
+
+##### [导读](k8s/availability/guide.md)
+
+##### [前提条件](k8s/availability/prerequisite.md)
+
+##### [etcd 高可用集群（非必须）](k8s/availability/etcd-install.md)
+
+##### [VIP（HAProxy、keepalived）](k8s/availability/vip.md)
+
+##### [利用 kubeadm 创建高可用集群-堆叠（Stacked） etcd 拓扑](k8s/availability/stacked-etcd.md)
+
+##### [利用 kubeadm 创建高可用集群-外部 etcd 拓扑](k8s/availability/external-etcd.md)
+
+##### [NFS 高可用（未完成）](k8s/availability/nfs.md)
+
 #### Kubernetes（k8s） UI
 
 ##### [kubernetes（k8s）Dashboard 安装](k8s/ui/dashboard-install.md)
