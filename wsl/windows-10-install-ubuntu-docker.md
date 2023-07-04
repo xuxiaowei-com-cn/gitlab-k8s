@@ -2,9 +2,9 @@
 
 ## 说明
 
-1. [使用 WSL 在 Windows 上安装 Linux]([https://learn.microsoft.com/zh-cn/windows/wsl/install](https://learn.microsoft.com/zh-cn/windows/wsl/install))
-2. [旧版 WSL 的手动安装步骤]([https://learn.microsoft.com/zh-cn/windows/wsl/install-manual](https://learn.microsoft.com/zh-cn/windows/wsl/install-manual))
-3. [Ubuntu安装docker]([https://docs.docker.com/engine/install/ubuntu/](https://docs.docker.com/engine/install/ubuntu/))
+1. [使用 WSL 在 Windows 上安装 Linux](https://learn.microsoft.com/zh-cn/windows/wsl/install)
+2. [旧版 WSL 的手动安装步骤](https://learn.microsoft.com/zh-cn/windows/wsl/install-manual)
+3. [Ubuntu安装docker](https://docs.docker.com/engine/install/ubuntu/)
 
 ## 配置
 
