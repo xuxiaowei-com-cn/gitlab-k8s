@@ -88,7 +88,29 @@
 
 ##### [kubernetes（k8s）Dashboard 安装](k8s/ui/dashboard-install.md)
 
+#### Volumes 挂载卷/储存卷
+
+##### [挂载卷/储存卷 介绍](k8s/volumes/volumes-intro.md)
+
+##### 将资源对象映射为储存卷
+
+###### [ConfigMap](k8s/volumes/resource-mapping/configmap.md)
+
+###### [Secret](k8s/volumes/resource-mapping/secret.md)
+
+###### [Downward API](k8s/volumes/resource-mapping/downward-api.md)
+
+###### [Projected Volume 投射卷](k8s/volumes/resource-mapping/projected-volume.md)
+
+##### Node 本地储存卷
+
+###### [EmptyDir 空目录](k8s/volumes/local/empty-dir.md)
+
+###### [HostPath 宿主机路径](k8s/volumes/local/host-path.md)
+
 #### Kubernetes（k8s） PV
+
+##### [Persistent Volume 持久卷（未完成）](k8s/pv/persistent-volume.md)
 
 ##### [CentOS 7 中安装 NFS](k8s/pv/centos-7-nfs-install.md)
 
