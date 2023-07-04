@@ -18,6 +18,8 @@
 
 #### [GitLab 配置 SSL/https](gitlab/https-configuration.md)
 
+#### [GitLab Pages 配置 SSL/https](gitlab/pages-https-configuration.md)
+
 #### [GitLab Maven 仓库](gitlab/maven-configuration.md)
 
 #### [GitLab Docker 容器镜像仓库](gitlab/docker-configuration.md)
@@ -32,10 +34,6 @@
 
 #### [Cache 配置 S3](gitlab-runner/cache-s3-configuration.md)
 
-### GitLab Pages
-
-#### [GitLab Pages 配置 SSL/https](gitlab/pages-https-configuration.md)
-
 ### Docker
 
 #### [Centos 安装 Docker](docker/centos-install.md)
@@ -48,13 +46,13 @@
 
 #### [Kube Prometheus 普罗米修斯 安装](k8s/kube-prometheus-install.md)
 
-### Kubernetes PV
+#### Kubernetes（k8s） UI
 
-#### [CentOS 7 中安装 NFS](pv/centos-7-nfs-install.md)
+##### [kubernetes（k8s）Dashboard 安装](k8s/ui/dashboard-install.md)
 
-### Kubernetes（k8s） UI
+#### Kubernetes（k8s） PV
 
-#### [kubernetes（k8s）Dashboard 安装](k8s-ui/dashboard-install.md)
+##### [CentOS 7 中安装 NFS](k8s/pv/centos-7-nfs-install.md)
 
 ### Nexus 私库
 
