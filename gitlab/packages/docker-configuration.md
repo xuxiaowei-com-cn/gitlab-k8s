@@ -114,7 +114,7 @@
 5. 访问 `项目地址/container_registry` ，如果返回的不是 `404` 说明已经配置好了
     1. 如果使用域名，则需要添加DNS（或修改本地 hosts）
     2. 如果是自己生成的证书，使用时需要忽略证书验证：参见：
-        1. [Docker 容器 Nexus 配置 SSL/https](../../nexus/https-configuration.md)
+        1. [Docker 容器 Nexus 配置 SSL/https](/nexus/docker-https-configuration.md)
 6. GitLab Docker 容器镜像库凭证（公开项目拉取镜像无需凭证）
    其中 `$CI_REGISTRY` 是 GitLab `registry_external_url` 设置的域名，可访问 `项目地址/container_registry` 看到
     1. 用户名/密码
@@ -156,7 +156,7 @@
        docker login -u <username> -p <access_token> $CI_REGISTRY
        ```
 
-7. 域名证书验证失败：参见：[Docker 容器 Nexus 配置 SSL/https](../../nexus/https-configuration.md)
+7. 域名证书验证失败：参见：[Docker 容器 Nexus 配置 SSL/https](/nexus/docker-https-configuration.md)
    先在宿主机上信任域名，然后使用挂载卷映射 `/etc/docker/certs.d` 到容器内即可
 
     ```shell

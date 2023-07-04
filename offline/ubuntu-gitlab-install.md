@@ -2,13 +2,13 @@
 
 ## 说明
 
-1. 离线安装的原理参见：[离线安装：导读](guide.md)
+1. 离线安装的原理参见：[离线安装：导读](/offline/guide.md)
 2. 使用的是 [ubuntu-20.04.6-live-server-amd64](https://releases.ubuntu.com/20.04/ubuntu-20.04.6-live-server-amd64.iso)
     1. 其中 live-server 代表最小化，无桌面。
     2. 系统安装时，全称无互联网网络，即：未更新。
     3. 本文使用虚拟机操作。
     4. 本文使用的 gitlab 域名为：[http://gitlab.example.com](http://gitlab.example.com)
-    5. 本文以 gitlab-ee 企业版为例（区别参见：[GitLab 导读](../guide/gitlab.md)），会安装两遍
+    5. 本文以 gitlab-ee 企业版为例（区别参见：[GitLab 导读](/guide/gitlab.md)），会安装两遍
 
         1. 第一遍有网，用于下载依赖、备份依赖、安装测试等
         2. 第二遍断网，使用第一遍备份的依赖，进行安装

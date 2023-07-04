@@ -4,7 +4,7 @@
 
 1. [https://hub.docker.com/r/sonatype/nexus3](https://hub.docker.com/r/sonatype/nexus3)
 2. Docker 安装
-    1. [CentOS 安装 Docker](../docker/centos-install.md)
+    1. [CentOS 安装 Docker](/docker/centos-install.md)
 
 ## 安装
 

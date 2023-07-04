@@ -130,7 +130,7 @@
            无法验证的情况**
         2. **如果使用Nginx代理Nexus，在配置Nginx中SSL时，需要 .crt、.key 证书**
         3. **如果使用配置Nexus中SSL时，需要 .jks 证书**
-        4. [GitLab https 配置](../gitlab/https-configuration.md) 中的证书申请
+        4. [GitLab https 配置](/gitlab/https-configuration.md) 中的证书申请
            （内涵颁布给域名、IP，证书类型为：**.crt、.key**）
         5. 本文上方的生成域名的类型为：**.jks**
 

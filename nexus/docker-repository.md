@@ -40,7 +40,7 @@
 7. 拉取镜像（使用域名）
    如果出现 Error response from daemon:
    Get "[https://nexus.example.com:8000/v2/":](https://nexus.example.com:8000/v2/":) x509: certificate signed by unknown
-   authority，请参考 [私库搭建2：Nexus 配置 Docker 版 https](docker-https-configuration.md) 进行证书信任
+   authority，请参考 [私库搭建2：Nexus 配置 Docker 版 https](/nexus/docker-https-configuration.md) 进行证书信任
 
    ```shell
    docker pull nexus.example.com:8000/library/maven:3.6.3-jdk-8
