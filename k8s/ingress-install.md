@@ -1,6 +1,6 @@
 # Ingress 安装
 
-# 说明
+## 说明
 
 1. [Ingress](https://kubernetes.io/zh-cn/docs/concepts/services-networking/ingress/)
     1. 是对集群中服务的外部访问进行管理的 API 对象，典型的访问方式是 HTTP
@@ -23,7 +23,7 @@
     1. 注意：无需从 v1.8.0 升级至 v1.8.1，因为：controller-v1.8.0、controller-v1.8.1 的
        deploy/static/provider/cloud/deploy.yaml、deploy/static/provider/baremetal/deploy.yaml 完全相同
 
-# 配置
+## 配置
 
 1. 手动下载镜像（国内可能无法访问 registry.k8s.io 域名，本人准备了 ingress-nginx 的 controller-v1.8.0 标签 的镜像），初始化
    k8s ingress-nginx
