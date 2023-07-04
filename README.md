@@ -22,6 +22,8 @@
 
 #### [GitLab Docker 容器镜像仓库](gitlab/docker-configuration.md)
 
+#### [GitLab npm 仓库（未完成）](gitlab/npm-configuration.md)
+
 ### GitLab Runner
 
 #### [CentOS 安装 GitLab Runner](gitlab-runner/centos-install.md)
