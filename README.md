@@ -154,6 +154,32 @@
 
 #### [npm 私库 自定义配置（未完成）](nexus/npm-repository.md)
 
+### 离线安装
+
+#### [导读](offline/guide.md)
+
+#### [在 CentOS 7.9 上离线安装 GitLab](offline/centos-7-gitlab-install.md)
+
+#### [在 CentOS 上离线安装 Docker（未完成）](offline/centos-docker-install.md)
+
+#### [在 CentOS 上离线安装 GitLab Runner（未完成）](offline/centos-7-gitlab-runner-install.md)
+
+#### [在 CentOS 上离线安装 kubernetes（k8s）](offline/centos-k8s-install.md)
+
+#### [kubernetes（k8s）Dashboard 离线安装（未完成）](offline/k8s-dashboard-install.md)
+
+#### [GitLab Runner、kubernetes（k8s）离线配置（未完成）](offline/gitlab-runner-k8s.md)
+
+#### [在 乌班图 Ubuntu 上离线安装 GitLab](offline/ubuntu-gitlab-install.md)
+
+#### [在 乌班图 Ubuntu 上离线安装 Docker（未完成）](offline/ubuntu-docker-install.md)
+
+#### [在 乌班图 Ubuntu 上离线安装 GitLab Runner（未完成）](offline/ubuntu-gitlab-runnner-install.md)
+
+#### [在 乌班图 Ubuntu 上离线安装 kubernetes（k8s）（未完成）](offline/ubuntu-k8s-innstall.md)
+
+#### [在 乌班图 Ubuntu 上离线安装 Nginx](offline/ubuntu-nginx-install.md)
+
 ### WSL
 
 #### [Windows 10 WSL Ubuntu 运行 Docker](wsl/windows-10-install-ubuntu-docker.md)
