@@ -2,7 +2,7 @@
 
 ## 说明
 
-1. 离线安装的原理参见：[离线安装：导读](guide.md)
+1. 离线安装的原理参见：[离线安装：导读](/offline/guide.md)
 2. 使用的是 [ubuntu-20.04.6-live-server-amd64](https://releases.ubuntu.com/20.04/ubuntu-20.04.6-live-server-amd64.iso)
     1. 其中 live-server 代表最小化，无桌面。
     2. 系统安装时，全称无互联网网络，即：未更新。
