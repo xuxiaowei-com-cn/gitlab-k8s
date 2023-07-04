@@ -88,6 +88,12 @@
 
 ##### [CentOS 7 中安装 NFS](k8s/pv/centos-7-nfs-install.md)
 
+#### Kubernetes（k8s） CSI
+
+##### [kubernetes（k8s） CSI 插件列表](k8s/csi/csi-list.md)
+
+##### [阿里云 Kubernetes OSS CSI 插件（未完成）](k8s/csi/aliyun-oss-csi-configuration.md)
+
 ### Nexus 私库
 
 #### [Docker 容器 Nexus 配置 SSL/https](nexus/https-configuration.md)
