@@ -2,7 +2,7 @@
 
 ## 说明
 
-1. [GitLab Runner Cache 配置 S3（minio）](https://www.yuque.com/xuxiaowei-com-cn/gitlab-k8s/gitlab-runner-cache-s3-minio)
+1. [GitLab Runner Cache 配置 S3（MinIO）](../gitlab-runner/cache-s3-configuration.md)
 2. 并不是非要使用 S3 来配置 Blob Stores 才行，学习时可以直接使用 File。S3 储存的好处在于方便迁移、容灾、备份等等。阿里、腾讯等对象存储均支持
    S3 协议，故可将 Nexus 与云厂商的对象存储或自己搭建S3结合使用，提高数据可靠性、安全性。
 3. 阿里云 OSS 对象储存作者未能完成配置（2023-06-29）

@@ -24,7 +24,7 @@
 
 6. 使用代理仓库下载依赖
 
-   使用方式参见：[私库搭建3：Maven 私库](https://www.yuque.com/xuxiaowei-com-cn/gitlab-k8s/private-maven)
+   使用方式参见：[私库搭建3：Maven 私库](use-maven-repository.md)
 
    ![image.png](static/maven-repository-6.png)
 
