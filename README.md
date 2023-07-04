@@ -20,11 +20,13 @@
 
 #### [GitLab Pages 配置 SSL/https](gitlab/pages-https-configuration.md)
 
-#### [GitLab Maven 仓库](gitlab/maven-configuration.md)
+#### GitLab Packages 仓库
 
-#### [GitLab Docker 容器镜像仓库](gitlab/docker-configuration.md)
+##### [GitLab Maven 仓库](gitlab/packages/maven-configuration.md)
 
-#### [GitLab npm 仓库（未完成）](gitlab/npm-configuration.md)
+##### [GitLab Docker 容器镜像仓库](gitlab/packages/docker-configuration.md)
+
+##### [GitLab npm 仓库（未完成）](gitlab/packages/npm-configuration.md)
 
 ### GitLab Runner
 
