@@ -1,6 +1,6 @@
 # GitLab Docker 容器镜像仓库
 
-# 文档
+## 文档
 
 1. GitLab 容器镜像库
     1. [gitlab-jh 中文文档](https://docs.gitlab.cn/jh/user/packages/container_registry/)
@@ -18,7 +18,7 @@
     1. [gitlab-jh 中文文档](https://docs.gitlab.cn/jh/user/packages/container_registry/reduce_container_registry_storage.html)
     2. [gitlab-ee](https://docs.gitlab.com/ee/user/packages/container_registry/reduce_container_registry_storage.html)
 
-# 说明
+## 说明
 
 1. 在 [GitLab](https://jihulab.com/) 等
    商业 GitLab 中可直接使用
@@ -60,7 +60,7 @@
    最终生成了：ca.crt、ca.key、ca.srl、server.crt、server.csr、server.key，其中 **server.crt** 和 **server.key** 就是 Nginx
    使用的证书
 
-# 配置
+## 配置
 
 1. 设置 容器镜像库 域名
 

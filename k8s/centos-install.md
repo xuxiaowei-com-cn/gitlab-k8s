@@ -33,7 +33,7 @@
 
 <iframe src="//player.bilibili.com/player.html?aid=268082510&bvid=BV1zY41167aa&cid=1042231549&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="height: 500px;"></iframe>
 
-# 安装
+## 安装
 
 1. 安装所需工具
 
@@ -720,7 +720,7 @@
     可以看到：**重启前后 pod/nginx-deployment-* IP 发生了变化，service/nginx-service 的 IP 与 端口没有发生变化，可在后面使用
     service/nginx-service 的 端口（即：外部访问时，使用的是 service/nginx-service 的 端口）**
 
-# CentOS 命令自动补充
+## CentOS 命令自动补充
 
 1. 安装 bash-completion
 
@@ -741,7 +741,7 @@
     source ~/.bashrc
     ```
 
-# Token 相关命令
+## Token 相关命令
 
 1. 控制平面节点上运行以下命令来获取令牌
 
@@ -755,7 +755,7 @@
     kubeadm token create
     ```
 
-# 相关命令
+## 相关命令
 
 1. 查看更多信息
 
@@ -827,7 +827,7 @@
     kubectl get rolebinding --all-namespaces -o wide
     ```
 
-# 错误说明
+## 错误说明
 
 1. 提示：/proc/sys/net/bridge/bridge-nf-call-iptables
 

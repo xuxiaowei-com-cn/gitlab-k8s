@@ -1,6 +1,6 @@
 # Docker 容器 Nexus 配置 SSL/https
 
-# 文档
+## 文档
 
 1. [SSL证书指南](https://support.sonatype.com/hc/en-us/articles/213465768-SSL-Certificate-Guide)
 2. [windows/keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html)
@@ -13,7 +13,7 @@
     4. [百度云SSL(https)证书免费申请](https://console.bce.baidu.com/cas/#/cas/purchased/common/list)
 6. [使用证书验证存储库客户端](https://docs.docker.com/engine/security/certificates/)
 
-# 配置
+## 配置
 
 1. 配置前的说明
     1. **/some/dir/nexus-data/** 为 Nexus 储存数据的目录

@@ -1,11 +1,11 @@
 # GitLab 配置 SSL/https
 
-# 参考文档
+## 参考文档
 
 1. [https://stackoverflow.com/questions/72711633/how-to-solve-this-errror-certificate-relies-on-legacy-common-name-field-use-sa](https://stackoverflow.com/questions/72711633/how-to-solve-this-errror-certificate-relies-on-legacy-common-name-field-use-sa)
 2. [自签名证书或自定义证书颁发机构](https://docs.gitlab.cn/runner/configuration/tls-self-signed.html)
 
-# 说明
+## 说明
 
 1. GitLab https 使用的是 nginx 实现的
 2. **本文使用的域名是IP 192.168.80.14（原因：如果使用域名，必须拥有这个域名的所有权，并增加解析才可以，要不然在 Docker
@@ -14,7 +14,7 @@
    检出代码、推送代码会失败，原因是无法验证证书的有效性，可以使用名 **`**git config --global http.sslVerify false**`**
    禁用ssl的验证**
 
-# 生成证书
+## 生成证书
 
 1. 如果有域名，可以使用域名申请免费的证书，下载 Nginx 证书即可
     1. [阿里云SSL(https)证书免费申请](https://yundun.console.aliyun.com/?p=cas#/certExtend/buy)
@@ -57,7 +57,7 @@
 5. 最终生成了：ca.crt、ca.key、ca.srl、server.crt、server.csr、server.key，其中 **server.crt **和 **server.key** 就是 Nginx
    使用的证书
 
-# 配置https
+## 配置https
 
 1. 安装 vim
 

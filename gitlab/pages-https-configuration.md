@@ -1,6 +1,6 @@
 # GitLab Pages 配置 SSL/https
 
-# 文档
+## 文档
 
 1. [GitLab 页面管理](https://docs.gitlab.com/ee/administration/pages/)
     1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/jh/administration/pages/)
@@ -13,7 +13,7 @@
 5. [https://blog.csdn.net/weixin_39926613/article/details/116840085](https://blog.csdn.net/weixin_39926613/article/details/116840085)
 6. [自签名证书或自定义证书颁发机构](https://docs.gitlab.cn/runner/configuration/tls-self-signed.html)
 
-# 说明
+## 说明
 
 1. 证书申请请看上文：[GitLab 配置 https](https-configuration.md)
 
