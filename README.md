@@ -96,6 +96,10 @@
 
 ##### [阿里云 Kubernetes OSS CSI 插件（未完成）](k8s/csi/aliyun-oss-csi-configuration.md)
 
+#### helm
+
+##### [helm 安装配置（未完成）](k8s/helm/helm-install.md)
+
 ### Nexus 私库
 
 #### [Docker 容器 Nexus 配置 SSL/https](nexus/https-configuration.md)
