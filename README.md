@@ -82,6 +82,8 @@
 
 #### [Pod、Deployment、Service（未完成）](k8s/pod-deployment-service.md)
 
+#### [Ingress 安装](k8s/ingress-install.md)
+
 #### Kubernetes（k8s） UI
 
 ##### [kubernetes（k8s）Dashboard 安装](k8s/ui/dashboard-install.md)
