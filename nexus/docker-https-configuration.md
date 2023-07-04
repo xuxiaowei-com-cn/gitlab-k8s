@@ -1,4 +1,4 @@
-# Docker 容器 Nexus 配置 SSL/https
+# 私库搭建2：Docker 容器 Nexus 配置 SSL/https
 
 ## 文档
 
@@ -100,7 +100,7 @@
    将 password 修改为你的证书密码
    **虽然官方推荐设置别名 <Set name="certAlias">jetty</Set>，但是由于设置错误会导致无法正常访问 https
    端口，浏览器可能显示的错误内容如下图，如果不清楚别名，可以不设置，不设置不会出现下列错误。**
-   ![image.png](static/https-configuration-1.png)
+   ![image.png](static/docker-https-configuration-1.png)
 
 5. 重启 nexus 容器
 

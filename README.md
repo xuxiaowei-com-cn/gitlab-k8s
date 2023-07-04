@@ -142,7 +142,23 @@
 
 ### Nexus 私库
 
-#### [Docker 容器 Nexus 配置 SSL/https](nexus/https-configuration.md)
+#### [在 Docker 中安装 Nexus](nexus/docker-install-nexus.md)
+
+#### [Docker 容器 Nexus 配置 SSL/https](nexus/docker-https-configuration.md)
+
+#### [使用 Maven 私库](nexus/use-maven-repository.md)
+
+#### [S3 Blob Stores 配置](nexus/s3-blob-stores.md)
+
+#### [Maven 私库 自定义配置](nexus/maven-repository.md)
+
+#### [Docker 私库 自定义配置](nexus/docker-repository.md)
+
+#### [yum 私库 自定义配置](nexus/yum-repository.md)
+
+#### [apt 私库 自定义配置（未完成）](nexus/apt-repository.md)
+
+#### [npm 私库 自定义配置（未完成）](nexus/npm-repository.md)
 
 ### WSL
 
