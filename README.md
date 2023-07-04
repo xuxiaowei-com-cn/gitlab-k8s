@@ -1,16 +1,10 @@
-# GitLab、kubernetes（k8s）知识库
+### 导读
 
-> 为简化开发工作、提高生产率、解决常见问题而生.
+#### [GitLab 导读](guide/gitlab.md)
 
-## 导读
+#### [GitLab Runner 导读](guide/gitlab-runner.md)
 
-### [GitLab 导读](guide/gitlab.md)
-
-### [GitLab Runner 导读](guide/gitlab-runner.md)
-
-### [kubernetes（k8s） 导读](guide/k8s.md)
-
-## 安装配置
+#### [kubernetes（k8s） 导读](guide/k8s.md)
 
 ### GitLab
 
