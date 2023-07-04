@@ -3,6 +3,6 @@
 ## 说明
 
 1. 对象储存
-    1. [gitlab-jh 中文文档]([https://docs.gitlab.cn/jh/administration/object_storage.html](https://docs.gitlab.cn/jh/administration/object_storage.html))
-    2. [gitlab-ee]([https://docs.gitlab.com/ee/administration/object_storage.html](https://docs.gitlab.com/ee/administration/object_storage.html))
+    1. [gitlab-jh 中文文档](https://docs.gitlab.cn/jh/administration/object_storage.html)
+    2. [gitlab-ee](https://docs.gitlab.com/ee/administration/object_storage.html)
 
