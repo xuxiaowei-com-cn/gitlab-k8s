@@ -28,6 +28,30 @@
 
 ##### [GitLab npm 仓库（未完成）](gitlab/packages/npm-configuration.md)
 
+#### GitLab Object Store 对象储存 S3（MinIO）
+
+##### [artifacts 使用对象储存](gitlab/object-store/artifacts-configuration.md)
+
+##### [pages 使用对象储存](gitlab/object-store/pages-configuration.md)
+
+##### [uploads 使用对象储存](gitlab/object-store/uploads-configuration.md)
+
+##### [backup_upload 使用对象储存（未完成）](gitlab/object-store/backup_upload-configuration.md)
+
+##### [ci_secure_files 使用对象储存（未完成）](gitlab/object-store/ci_secure_files-configuration.md)
+
+##### [dependency_proxy 使用对象储存（未完成）](gitlab/object-store/dependency_proxy-configuration.md)
+
+##### [external_diffs 使用对象储存（未完成）](gitlab/object-store/external_diffs-configuration.md)
+
+##### [LFS 使用对象储存（未完成）](gitlab/object-store/lfs-configuration.md)
+
+##### [object_storage 使用对象储存（未完成）](gitlab/object-store/object-store-configuration.md)
+
+##### [packages 使用对象储存（未完成）](gitlab/object-store/packages-configuration.md)
+
+##### [terraform_state 使用对象储存（未完成）](gitlab/object-store/terraform_state-configuration.md)
+
 ### GitLab Runner
 
 #### [CentOS 安装 GitLab Runner](gitlab-runner/centos-install.md)
