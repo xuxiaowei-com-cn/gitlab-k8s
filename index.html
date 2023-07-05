@@ -11,7 +11,7 @@
     <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4.13.1/lib/themes/vue.css"> -->
     <link rel="stylesheet" href="static/npm/docsify@4.13.1/lib/themes/vue.css">
 
-    <link rel="icon" href="static/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="static/favicon.ico" type="image/x-icon"/>
 </head>
 <body>
 <div id="app"></div>
@@ -22,10 +22,16 @@
 <!-- <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github@1.0.3/index.min.js"></script> -->
 <script src="static/npm/docsify-edit-on-github@1.0.3/index.min.js"></script>
 
-<!-- https://www.jsdelivr.com/package/npm/docsify-baidu-tj -->
-<!-- https://github.com/mg0324/docsify-baidu-tj -->
-<!-- <script src="//cdn.jsdelivr.net/npm/docsify-baidu-tj@1.0.2/dist/docsify-baidu-tj.min.js"></script> -->
-<script src="static/npm/docsify-baidu-tj@1.0.2/docsify-baidu-tj.min.js"></script>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        // gitlab-k8s.xuxiaowei.com.cn：2173e1f7d3ce3dce80b34490272e7b79
+        hm.src = "https://hm.baidu.com/hm.js?2173e1f7d3ce3dce80b34490272e7b79";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
 
 <script>
     window.$docsify = {
@@ -43,9 +49,6 @@
                     return window.location.hostname.includes('github') ? '在 GitHub 上编辑' : '在 Gitee 上编辑'
                 })
         ],
-        // 百度统计ID
-        // gitlab-k8s.xuxiaowei.com.cn：2173e1f7d3ce3dce80b34490272e7b79
-        baiduTjId: "2173e1f7d3ce3dce80b34490272e7b79",
     }
 </script>
 
