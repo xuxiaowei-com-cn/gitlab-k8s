@@ -222,18 +222,16 @@
    ```
 
 5. 访问以下地址，用户名：admin，密码：password
-   [http://192.168.80.81:8888/stats](http://192.168.80.81:8888/stats)
 
-   [http://192.168.80.82:8888/stats](http://192.168.80.82:8888/stats)
-
-   [http://192.168.80.83:8888/stats](http://192.168.80.83:8888/stats)
-
-   [http://192.168.80.100:8888/stats](http://192.168.80.100:8888/stats)
+    1. [http://192.168.80.81:8888/stats](http://192.168.80.81:8888/stats)
+    2. [http://192.168.80.82:8888/stats](http://192.168.80.82:8888/stats)
+    3. [http://192.168.80.83:8888/stats](http://192.168.80.83:8888/stats)
+    4. [http://192.168.80.100:8888/stats](http://192.168.80.100:8888/stats)
 
    ![image.png](static/availability-1.png)
 
 6. 测试VIP（在三台机器上安装不同版本的 Nginx，用于测试，方便查看效果，测试完成将删除）
-    1. 安装 Nginx 1.23.__1__（第一台机器：192.168.80.81）
+    1. 安装 Nginx 1.23.<strong><font color="red">1</font></strong>（第一台机器：192.168.80.81）
 
        ```shell
        docker run \
@@ -245,7 +243,7 @@
        --name nginx nginx:1.23.1
        ```
 
-    2. 安装 Nginx 1.23.__2__（第二台机器：192.168.80.82）
+    2. 安装 Nginx 1.23.<strong><font color="red">2</font></strong>（第二台机器：192.168.80.82）
 
         ```shell
         docker run \
@@ -257,7 +255,7 @@
         --name nginx nginx:1.23.2
         ```
 
-    3. 安装 Nginx 1.23.__3__（第三台机器：192.168.80.83）
+    3. 安装 Nginx 1.23.<strong><font color="red">3</font></strong>（第三台机器：192.168.80.83）
 
         ```shell
         docker run \
