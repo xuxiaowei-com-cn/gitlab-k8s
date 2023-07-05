@@ -97,14 +97,14 @@
 
 - Pages
     - [Gitee Pages](https://xuxiaowei-com-cn.gitee.io/gitlab-k8s)
-    - [GitHub Pages](https://xuxiaowei-com-cn.github.io/gitlab-k8s/)
+    - [GitHub Pages](https://xuxiaowei-com-cn.github.io/gitlab-k8s)
 - Repository
-    - [jihulab](https://jihulab.com/xuxiaowei-com-cn/gitlab-k8s/tree/main/docs)
-    - [Gitee](https://gitee.com/xuxiaowei-com-cn/gitlab-k8s/tree/main/docs)
-    - [GitCode](https://gitcode.net/xuxiaowei-com-cn/gitlab-k8s/tree/main/docs)
-    - [GitLink](https://gitlink.org.cn/xuxiaowei-com-cn/gitlab-k8s/tree/main/docs)
-    - [GitLab](https://gitlab.com/xuxiaowei-com-cn/gitlab-k8s/tree/main/docs)
-    - [GitHub](https://github.com/xuxiaowei-com-cn/gitlab-k8s/tree/main/docs)
+    - [jihulab](https://jihulab.com/xuxiaowei-com-cn/gitlab-k8s)
+    - [Gitee](https://gitee.com/xuxiaowei-com-cn/gitlab-k8s)
+    - [GitCode](https://gitcode.net/xuxiaowei-com-cn/gitlab-k8s)
+    - [GitLink](https://gitlink.org.cn/xuxiaowei-com-cn/gitlab-k8s)
+    - [GitLab](https://gitlab.com/xuxiaowei-com-cn/gitlab-k8s)
+    - [GitHub](https://github.com/xuxiaowei-com-cn/gitlab-k8s)
 
 ## 批量添加远端仓库地址
 
