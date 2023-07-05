@@ -1,0 +1,11 @@
+/**
+ * @license
+ *
+ * docsify-plugin-footer/plugin.css v1.0.4
+ * (https://github.com/Sujaykumarh/docsify-plugin-footer/)
+ *
+ * Copyright (c) 2021 Sujaykumar.Hublikar <hello@sujaykumarh.com>
+ * Github (@sujaykumarh)
+ *
+ * Licensed under Apache License, Version 2.0
+ */#customFooter{border-top:1px solid #e5e5e5;margin:auto;max-width:80%;padding-bottom:2rem;padding-top:2rem;width:100%}#customFooter .powered-by{float:right}#customFooter .copyright a{padding-left:5px}#customFooter a{color:var(--primary,#42b983);text-decoration:underline dotted}#customFooter a:hover{color:var(--primary-dark,#2c7554);text-decoration:underline}

@@ -50,6 +50,36 @@
                 })
         ],
     }
+
+    window.$docsify.customPageFooter = {
+        // 用于调试
+        debug: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1',
+
+        // 应该在右侧显示由文档化提供支持
+        // showPoweredBy: true,
+        // 显示版权年份，默认当前年份。
+        copyrightYear: '2023',
+        // 设置为 false 可隐藏默认版权
+        showCopyright: true,
+        // 将此设置为 HTML 字符串以使用自定义 copyrihgt 部分
+        copyright: undefined,
+        // 版权所有者名称
+        copyrightOwnerName: '徐晓伟',
+        // 版权所有者链接（如果有）
+        copyrightOwnerLink: 'https://gitee.com/xuxiaowei-com-cn',
+        // 要在版权所有者部分下方显示的任何 exta 文本
+        copyrightExtra: '' +
+            '<a target="_blank" href="https://jihulab.com/xuxiaowei-com-cn/gitlab-k8s">JiHuLab</a>' +
+            '<a target="_blank" href="https://gitee.com/xuxiaowei-com-cn/gitlab-k8s">Gitee</a>' +
+            // '<a target="_blank" href="https://gitcode.net/xuxiaowei-com-cn/gitlab-k8s">GitCode</a>' +
+            // '<a target="_blank" href="https://gitlink.org.cn/xuxiaowei-com-cn/gitlab-k8s">GitLink</a>' +
+            // '<a target="_blank" href="https://gitlab.com/xuxiaowei-com-cn/gitlab-k8s">GitLab</a>' +
+            '<a target="_blank" href="https://github.com/xuxiaowei-com-cn/gitlab-k8s">GitHub</a>',
+
+        // 在本地存储中构建和存储页脚，以便快速访问
+        useLocalStorage: !(window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'),
+    }
+
 </script>
 
 <!-- Docsify v4 -->
@@ -71,6 +101,13 @@
 <!-- https://www.jsdelivr.com/package/npm/docsify -->
 <!-- <script src="//cdn.jsdelivr.net/npm/docsify@4.13.1/lib/docsify.min.js"></script> -->
 <script src="static/npm/docsify@4.13.1/lib/docsify.min.js"></script>
+
+<!-- https://www.jsdelivr.com/package/npm/@sujaykumarh/docsify-plugin-footer -->
+<!-- https://github.com/Sujaykumarh/docsify-plugin-footer -->
+<!-- <script src="//cdn.jsdelivr.net/npm/@sujaykumarh/docsify-plugin-footer@1.0.4/dist/plugin.min.js"></script> -->
+<!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@sujaykumarh/docsify-plugin-footer@1.0.4/dist/plugin.min.css"> -->
+<script src="static/npm/@sujaykumarh/docsify-plugin-footer@1.0.4/dist/plugin.min.js"></script>
+<link rel="stylesheet" href="static/npm/@sujaykumarh/docsify-plugin-footer@1.0.4/dist/plugin.min.css">
 
 </body>
 </html>
