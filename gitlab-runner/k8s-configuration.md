@@ -145,6 +145,8 @@
     # 创建用户操作命名空间的Token，指定有效时间，单位是秒，315360000s代表10年
     kubectl create token gitlab-runner -n gitlab --duration=315360000s
     
+    vim /etc/gitlab-runner/config.toml
+    
     [runners.kubernetes]
         # service 账户配置
         # 设置 服务授权的名称
