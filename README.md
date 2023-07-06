@@ -190,4 +190,12 @@
 
 #### [Windows 10 WSL Ubuntu 运行 Docker](/wsl/windows-10-install-ubuntu-docker.md)
 
+### 小工具
+
+#### [Windows tcping.exe](/tools/windows-tcping.md)
+
+#### [Windows curl.exe](/tools/windows-curl.md)
+
+#### [Windows tail.exe](/tools/windows-tail.md)
+
 ### [项目说明](/README-repository.md)
