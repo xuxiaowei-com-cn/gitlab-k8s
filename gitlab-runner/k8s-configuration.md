@@ -106,7 +106,7 @@
     
     # 创建角色 gitlab-runner 前，要求命名空间 gitlab 必须存在
     
-    vim role.yaml
+    cat > role.yaml << EOF
     
     apiVersion: rbac.authorization.k8s.io/v1
     kind: Role
@@ -132,6 +132,10 @@
       - apiGroups: ["*"]
         resources: ["configmaps"]
         verbs: ["list", "get", "create", "delete", "update"]
+    
+    EOF
+    
+    cat role.yaml
     
     kubectl apply -f role.yaml
     
