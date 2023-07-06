@@ -2,8 +2,8 @@
 
 ## 说明
 
-- [gitcode]([https://gitcode.net/](https://gitcode.net/)) 是从 gitlab-ce v13.7 更改来的
-- [jihulab]([https://jihulab.com/](https://jihulab.com/)) 是中国版 gitlab
+- [gitcode](https://gitcode.net/) 是从 gitlab-ce v13.7 更改来的
+- [jihulab](https://jihulab.com/) 是中国版 gitlab
 
 ## 分析解决
 
