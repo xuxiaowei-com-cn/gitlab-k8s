@@ -70,6 +70,10 @@
 
 #### [Centos 安装 Docker](/docker/centos-install.md)
 
+#### [Docker 安装 PostgreSQL 15](/docker/postgresql-15-install.md)
+
+#### [Docker 安装 sonarqube](/docker/sonarqube-install.md)
+
 ### Kubernetes（k8s）
 
 #### [Kubernetes（k8s）安装](/k8s/centos-install.md)
@@ -83,6 +87,10 @@
 #### [Pod、Deployment、Service（未完成）](/k8s/pod-deployment-service.md)
 
 #### [Ingress 安装](/k8s/ingress-install.md)
+
+#### [Containerd 镜像配置](/k8s/containerd-mirrors.md)
+
+#### [批量删除 k8s（ctr）使用的历史镜像](/k8s/containerd-rm.md)
 
 #### Kubernetes（k8s） Availability 高可用
 
@@ -197,5 +205,21 @@
 #### [Windows curl.exe](/tools/windows-curl.md)
 
 #### [Windows tail.exe](/tools/windows-tail.md)
+
+### 编译
+
+#### [CentOS、Anolis 龙蜥 源码编译 异常处理](/make/centos.md)
+
+#### [Ubuntu 乌班图 源码编译 异常处理](/make/ubuntu.md)
+
+### 下载
+
+#### [龙蜥 Anolis 下载](/download/anolis.md)
+
+#### [CentOS 下载](/download/centos.md)
+
+#### [MySQL 下载、安装](/download/mysql.md)
+
+#### [乌班图 Ubuntu 下载](/download/ubuntu.md)
 
 ### [项目说明](/README-repository.md)
