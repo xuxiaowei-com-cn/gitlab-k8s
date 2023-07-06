@@ -90,46 +90,44 @@
    假如集群的IP为 192.168.80.14，访问地址为 [https://192.168.80.14:30320](https://192.168.80.14:30320/)
 6. 创建服务帐户
 
-   ```shell
-   vim dashboard-adminuser.yaml
-   ```
-
-   ```shell
-   apiVersion: v1
-   kind: ServiceAccount
-   metadata:
-     name: admin-user
-     namespace: kubernetes-dashboard
-   ```
-
-   ```shell
-   kubectl apply -f dashboard-adminuser.yaml
-   ```
+    ```shell
+    cat > dashboard-adminuser.yaml << EOF
+    apiVersion: v1
+    kind: ServiceAccount
+    metadata:
+      name: admin-user
+      namespace: kubernetes-dashboard
+    
+    EOF
+    
+    cat dashboard-adminuser.yaml
+    
+    kubectl apply -f dashboard-adminuser.yaml
+    ```
 
 7. 创建群集角色绑定
 
-   ```shell
-   vim cluster-admin.yaml
-   ```
-
-   ```shell
-   apiVersion: rbac.authorization.k8s.io/v1
-   kind: ClusterRoleBinding
-   metadata:
-     name: admin-user
-   roleRef:
-     apiGroup: rbac.authorization.k8s.io
-     kind: ClusterRole
-     name: cluster-admin
-   subjects:
-   - kind: ServiceAccount
-     name: admin-user
-     namespace: kubernetes-dashboard
-   ```
-
-   ```shell
-   kubectl apply -f cluster-admin.yaml
-   ```
+    ```shell
+    cat > cluster-admin.yaml << EOF
+    apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRoleBinding
+    metadata:
+      name: admin-user
+    roleRef:
+      apiGroup: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: cluster-admin
+    subjects:
+    - kind: ServiceAccount
+      name: admin-user
+      namespace: kubernetes-dashboard
+    
+    EOF
+    
+    cat cluster-admin.yaml
+    
+    kubectl apply -f cluster-admin.yaml
+    ```
 
 8. 获取持有者令牌
 
