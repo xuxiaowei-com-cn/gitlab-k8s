@@ -10,6 +10,8 @@
 
 #### [CentOS 7.9 中安装 GitLab](/gitlab/centos-7.9-install.md)
 
+#### [疑难解答：龙蜥 Anolis 8 中安装 GitLab](/gitlab/anolis-8-install.md)
+
 #### [GitLab 配置 SSL/https](/gitlab/https-configuration.md)
 
 #### [GitLab Pages 配置 SSL/https](/gitlab/pages-https-configuration.md)
@@ -50,11 +52,15 @@
 
 #### [CentOS 安装 GitLab Runner](/gitlab-runner/centos-install.md)
 
+#### [疑难解答：龙蜥 Anolis 8 中安装 GitLab Runner](/gitlab-runner/anolis-8-install.md)
+
 #### [kubernetes（k8s）配置](/gitlab-runner/k8s-configuration.md)
 
 #### [Cache 配置 S3](/gitlab-runner/cache-s3-configuration.md)
 
 #### [Docker-in-Docker（未完成）](/gitlab-runner/docker-in-docker-configuration.md)
+
+#### [疑难解答：fatal: git fetch-pack: expected shallow list](/gitlab-runner/fatal-git-fetch-pack.md)
 
 ### GitLab 依赖机器人 dependabot-gitlab
 
