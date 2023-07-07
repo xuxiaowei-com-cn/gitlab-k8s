@@ -1,5 +1,7 @@
 # kubernetes（k8s）高可用集群：导读
 
+## 说明
+
 1. Master（Control Plane） 的 kube-apiserver、kube-controller-manager、kube-scheduler 服务至少有3个节点
 2. Master（Control Plane） 启用基于CA认证的HTTPS安全机制
 3. Master（Control Plane） 启用RBAC授权模式
@@ -48,3 +50,19 @@ NFS_2_IP=192.168.80.72
 # 网卡名称
 INTERFACE_NAME=ens33
 ```
+
+## 高可用配置需求参考
+
+1. kubernetes 1.26.2
+2. calico 3.25
+3. kubernetes-dashboard 2.7.0（大概需要 60M，可选）
+4. kube-prometheus 0.12.0（大概需要 2.5G，可选）
+5. metrics-server 0.6.3 高可用（可选）
+6. etcd 3.5.6-0 高可用：内部堆叠
+7. keepalived、haproxy：15M * 3 = 45M
+8. 高可用基础内存合计：三个主节点、四个工作节点、以上 kubernetes 组件，基础内存共消耗共 10.7G
+    - Daemon Sets：1.7G
+    - Deployments：600M
+    - Pods：6G
+    - Replica Sets：600M
+    - Stateful Sets：1.8G
