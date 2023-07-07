@@ -51,7 +51,14 @@ NFS_2_IP=192.168.80.72
 INTERFACE_NAME=ens33
 ```
 
-## 高可用配置需求参考
+## 单机集群配置需求参考
+
+1. kubernetes 1.26.2
+2. calico 3.25
+3. etcd 3.5.6-0 单机
+4. 基础内存合计：使用 CentOS 7.9 最小化安装，包含系统内存消耗，基础内存共消耗 1.2G
+
+## 高可用集群配置需求参考
 
 1. kubernetes 1.26.2
 2. calico 3.25
@@ -60,7 +67,8 @@ INTERFACE_NAME=ens33
 5. metrics-server 0.6.3 高可用（可选）
 6. etcd 3.5.6-0 高可用：内部堆叠
 7. keepalived、haproxy：15M * 3 = 45M
-8. 高可用基础内存合计：三个主节点、四个工作节点、以上 kubernetes 组件，基础内存共消耗 10.7G
+8. 高可用基础内存合计：三个主节点（高可用最少需要三个主节点）、四个工作节点（高可用最少需要两个工作节点）、以上 kubernetes
+   组件，未计算系统内存消耗，基础内存共消耗 10.7G
     - Daemon Sets：1.7G
     - Deployments：600M
     - Pods：6G
