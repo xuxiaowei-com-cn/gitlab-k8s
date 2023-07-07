@@ -208,4 +208,7 @@ openssl req -new -key apiserver-etcd-client.key -out apiserver-etcd-client.csr -
 openssl x509 -req -days 36500 -CA etcd/ca.crt -CAkey etcd/ca.key -CAcreateserial -in apiserver-etcd-client.csr -out apiserver-etcd-client.crt
 
 
+# 生成 Service Account 密钥对：
+openssl genpkey -algorithm RSA -out sa.key
+openssl rsa -pubout -in sa.key -out sa.pub
 ```
