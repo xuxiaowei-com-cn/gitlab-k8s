@@ -62,16 +62,16 @@ INTERFACE_NAME=ens33
 
 1. kubernetes 1.26.2
 2. calico 3.25
-3. kubernetes-dashboard 2.7.0（大概需要 60M，可选）
-4. kube-prometheus 0.12.0（大概需要 2.5G，可选）
+3. kubernetes-dashboard 2.7.0（大概需要 150M，可选）
+4. kube-prometheus 0.12.0（大概需要 5.25G，可选）
 5. metrics-server 0.6.3 高可用（可选）
 6. etcd 3.5.6-0 高可用：内部堆叠
-7. ingress-nginx 1.8.0（大概需要 200M）
+7. ingress-nginx 1.8.0（4个工作节点，每个工作节点运行1个，大概需要 2.68G，可选）
 8. keepalived、haproxy：15M * 3 = 45M
 9. 高可用基础内存合计：三个主节点（高可用最少需要三个主节点）、四个工作节点（高可用最少需要两个工作节点）、以上 kubernetes
-   组件，未计算系统内存消耗，基础内存共消耗 11.6G
-    - Daemon Sets：1.7G
-    - Deployments：800M
-    - Pods：6.5G
-    - Replica Sets：800M
-    - Stateful Sets：1.8G
+   组件，未计算系统内存消耗，基础内存共消耗 14.25G（使用 `kubectl top node` 计算所得，所有节点开机30分钟后统计）
+    - Daemon Sets：1.49G
+    - Deployments：1.39G
+    - Pods：6.38G
+    - Replica Sets：1.38G
+    - Stateful Sets：1.87G
