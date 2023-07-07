@@ -30,8 +30,11 @@ FRONT_PROXY_CLIENT_CN=front-proxy-client
 ETCD_CA_CN=etcd-ca
 ETCD_CA_DNS=etcd-ca
 
-# 使用者、颁发给（使用 etcd-ca.key 颁发 healthcheck-client.crt）
+# 使用者、颁发给（使用 etcd/ca.key 颁发 healthcheck-client.crt）
 KUBE_ETCD_HEALTHCHECK_CLIENT_CN=kube-etcd-healthcheck-client
+
+# 使用者、颁发给（使用 ca.key 颁发 apiserver-etcd-client.crt）
+KUBE_APISERVER_ETCD_CLIENT_CN=kube-apiserver-etcd-client
 
 ```
 
@@ -93,7 +96,7 @@ cat front-proxy-ca-openssl.cnf
 ```
 
 ```shell
-cat > etcd-ca-openssl.cnf << EOF
+cat > etcd/ca-openssl.cnf << EOF
 [req]
 req_extensions = v3_req
 distinguished_name = req_distinguished_name
@@ -106,7 +109,7 @@ DNS.1 = $ETCD_CA_DNS
 
 EOF
 
-cat etcd-ca-openssl.cnf
+cat etcd/ca-openssl.cnf
 ```
 
 ```shell
@@ -184,7 +187,7 @@ openssl x509 -req -days 36500 -CA front-proxy-ca.crt -CAkey front-proxy-ca.key -
 mkdir -p etcd
 openssl genrsa -out etcd/ca.key 2048
 openssl req -new -key etcd/ca.key -out etcd/ca.csr -subj "/CN=$ETCD_CA_CN"
-openssl x509 -req -days 36500 -in etcd/ca.csr -signkey etcd/ca.key -out etcd/ca.crt -extensions v3_req -extfile etcd-ca-openssl.cnf
+openssl x509 -req -days 36500 -in etcd/ca.csr -signkey etcd/ca.key -out etcd/ca.crt -extensions v3_req -extfile etcd/ca-openssl.cnf
 
 openssl genrsa -out etcd/server.key 2048
 openssl req -new -key etcd/server.key -out etcd/server.csr -subj "/CN=$CLUSTER_NAME"
@@ -197,6 +200,12 @@ openssl x509 -req -days 36500 -CA etcd/ca.crt -CAkey etcd/ca.key -CAcreateserial
 openssl genrsa -out etcd/healthcheck-client.key 2048
 openssl req -new -key etcd/healthcheck-client.key -out etcd/healthcheck-client.csr -subj "/CN=$KUBE_ETCD_HEALTHCHECK_CLIENT_CN/O=system:masters"
 openssl x509 -req -days 36500 -CA etcd/ca.crt -CAkey etcd/ca.key -CAcreateserial -in etcd/healthcheck-client.csr -out etcd/healthcheck-client.crt
+
+
+# 生成 API Server-Etcd 客户端相关的证书和密钥对：
+openssl genrsa -out apiserver-etcd-client.key 2048
+openssl req -new -key apiserver-etcd-client.key -out apiserver-etcd-client.csr -subj "/CN=$KUBE_APISERVER_ETCD_CLIENT_CN/O=system:masters"
+openssl x509 -req -days 36500 -CA etcd/ca.crt -CAkey etcd/ca.key -CAcreateserial -in apiserver-etcd-client.csr -out apiserver-etcd-client.crt
 
 
 ```
