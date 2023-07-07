@@ -66,11 +66,12 @@ INTERFACE_NAME=ens33
 4. kube-prometheus 0.12.0（大概需要 2.5G，可选）
 5. metrics-server 0.6.3 高可用（可选）
 6. etcd 3.5.6-0 高可用：内部堆叠
-7. keepalived、haproxy：15M * 3 = 45M
-8. 高可用基础内存合计：三个主节点（高可用最少需要三个主节点）、四个工作节点（高可用最少需要两个工作节点）、以上 kubernetes
-   组件，未计算系统内存消耗，基础内存共消耗 10.7G
+7. ingress-nginx 1.8.0（大概需要 200M）
+8. keepalived、haproxy：15M * 3 = 45M
+9. 高可用基础内存合计：三个主节点（高可用最少需要三个主节点）、四个工作节点（高可用最少需要两个工作节点）、以上 kubernetes
+   组件，未计算系统内存消耗，基础内存共消耗 11.6G
     - Daemon Sets：1.7G
-    - Deployments：600M
-    - Pods：6G
-    - Replica Sets：600M
+    - Deployments：800M
+    - Pods：6.5G
+    - Replica Sets：800M
     - Stateful Sets：1.8G
