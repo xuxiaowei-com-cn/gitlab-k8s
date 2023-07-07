@@ -60,7 +60,7 @@ INTERFACE_NAME=ens33
 5. metrics-server 0.6.3 高可用（可选）
 6. etcd 3.5.6-0 高可用：内部堆叠
 7. keepalived、haproxy：15M * 3 = 45M
-8. 高可用基础内存合计：三个主节点、四个工作节点、以上 kubernetes 组件，基础内存共消耗共 10.7G
+8. 高可用基础内存合计：三个主节点、四个工作节点、以上 kubernetes 组件，基础内存共消耗 10.7G
     - Daemon Sets：1.7G
     - Deployments：600M
     - Pods：6G
