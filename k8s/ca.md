@@ -16,6 +16,10 @@ CLUSTER_IP=10.96.0.1
 # 集群服务器IP，apiserver 使用的 IP
 CLUSTER_SERVER_IP=192.168.80.201
 
+# 使用者、颁发给（使用 ca.key 颁发 apiserver-kubelet-client.crt）
+APISERVER_KUBELET_CLIENT_CN=kube-apiserver-kubelet-client
+
+
 ```
 
 ```shell
@@ -69,6 +73,12 @@ openssl x509 -req -days 36500 -in ca.csr -signkey ca.key -out ca.crt -extensions
 openssl genrsa -out apiserver.key 2048
 openssl req -new -key apiserver.key -out apiserver.csr -subj "/CN=$APISERVER_CN"
 openssl x509 -req -days 36500 -CA ca.crt -CAkey ca.key -CAcreateserial -in apiserver.csr -out apiserver.crt -extensions v3_req -extfile apiserver-openssl.cnf
+
+
+# 生成 API Server-Kubelet 客户端相关的证书和密钥对：
+openssl genrsa -out apiserver-kubelet-client.key 2048
+openssl req -new -key apiserver-kubelet-client.key -out apiserver-kubelet-client.csr -subj "/CN=$APISERVER_KUBELET_CLIENT_CN/O=system:masters"
+openssl x509 -req -days 36500 -CA ca.crt -CAkey ca.key -CAcreateserial -in apiserver-kubelet-client.csr -out apiserver-kubelet-client.crt
 
 
 ```
