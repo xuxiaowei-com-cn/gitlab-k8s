@@ -41,9 +41,6 @@ cat > apiserver-openssl.cnf << EOF
 req_extensions = v3_req
 distinguished_name = req_distinguished_name
 
-[req_distinguished_name]
-CN = Common Name
-
 [v3_req]
 subjectAltName = @alt_names
 
