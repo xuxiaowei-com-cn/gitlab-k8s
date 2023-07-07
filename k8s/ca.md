@@ -96,6 +96,7 @@ cat front-proxy-ca-openssl.cnf
 ```
 
 ```shell
+mkdir -p etcd
 cat > etcd/ca-openssl.cnf << EOF
 [req]
 req_extensions = v3_req
