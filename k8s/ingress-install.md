@@ -177,21 +177,21 @@
                 apiVersion: networking.k8s.io/v1
                 kind: Ingress
                 metadata:
-                name: demo-localhost
-                annotations:
-                  kubernetes.io/ingress.class: nginx
+                  name: demo-localhost
+                  annotations:
+                    kubernetes.io/ingress.class: nginx
                 spec:
-                rules:
-                  - host: demo.localdev.me
-                    http:
-                      paths:
-                        - pathType: Prefix
-                          path: /
-                          backend:
-                            service:
-                              name: demo
-                              port:
-                                number: 80
+                  rules:
+                    - host: demo.localdev.me
+                      http:
+                        paths:
+                          - pathType: Prefix
+                            path: /
+                            backend:
+                              service:
+                                name: demo
+                                port:
+                                  number: 80
         
                 EOF
         
