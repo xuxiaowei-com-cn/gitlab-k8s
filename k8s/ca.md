@@ -1,7 +1,7 @@
 # 生成 Kubernetes（k8s） 证书
 
 ```shell
-# 颁发者
+# 颁发者（颁发 ca.crt）
 CN=kubernetes
 # 使用者可选名称 DNS Name
 CA_DNS=kubernetes
@@ -25,6 +25,13 @@ FRONT_PROXY_CA_DNS=front-proxy-ca
 
 # 使用者、颁发给（使用 front-proxy-ca.key 颁发 front-proxy-client.crt）
 FRONT_PROXY_CLIENT_CN=front-proxy-client
+
+# 颁发者（颁发 etcd 的 ca.crt）
+ETCD_CA_CN=etcd-ca
+ETCD_CA_DNS=etcd-ca
+
+# 使用者、颁发给（使用 etcd-ca.key 颁发 healthcheck-client.crt）
+KUBE_ETCD_HEALTHCHECK_CLIENT_CN=kube-etcd-healthcheck-client
 
 ```
 
@@ -86,6 +93,65 @@ cat front-proxy-ca-openssl.cnf
 ```
 
 ```shell
+cat > etcd-ca-openssl.cnf << EOF
+[req]
+req_extensions = v3_req
+distinguished_name = req_distinguished_name
+
+[v3_req]
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = $ETCD_CA_DNS
+
+EOF
+
+cat etcd-ca-openssl.cnf
+```
+
+```shell
+cat > etcd/server-openssl.cnf << EOF
+[req]
+req_extensions = v3_req
+distinguished_name = req_distinguished_name
+
+[v3_req]
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = $CLUSTER_NAME
+DNS.2 = localhost
+IP.1 = $CLUSTER_SERVER_IP
+IP.2 = 127.0.0.1
+IP.3 = 0000:0000:0000:0000:0000:0000:0000:0001
+
+EOF
+
+cat etcd/server-openssl.cnf
+```
+
+```shell
+cat > etcd/peer-openssl.cnf << EOF
+[req]
+req_extensions = v3_req
+distinguished_name = req_distinguished_name
+
+[v3_req]
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = $CLUSTER_NAME
+DNS.2 = localhost
+IP.1 = $CLUSTER_SERVER_IP
+IP.2 = 127.0.0.1
+IP.3 = 0000:0000:0000:0000:0000:0000:0000:0001
+
+EOF
+
+cat etcd/peer-openssl.cnf
+```
+
+```shell
 # 生成根证书（CA）和密钥对：
 openssl genrsa -out ca.key 2048
 openssl req -new -key ca.key -out ca.csr -subj "/CN=$CN"
@@ -112,6 +178,25 @@ openssl x509 -req -days 36500 -in front-proxy-ca.csr -signkey front-proxy-ca.key
 openssl genrsa -out front-proxy-client.key 2048
 openssl req -new -key front-proxy-client.key -out front-proxy-client.csr -subj "/CN=$FRONT_PROXY_CLIENT_CN"
 openssl x509 -req -days 36500 -CA front-proxy-ca.crt -CAkey front-proxy-ca.key -CAcreateserial -in front-proxy-client.csr -out front-proxy-client.crt
+
+
+# 生成 etcd 相关的证书和密钥对：
+mkdir -p etcd
+openssl genrsa -out etcd/ca.key 2048
+openssl req -new -key etcd/ca.key -out etcd/ca.csr -subj "/CN=$ETCD_CA_CN"
+openssl x509 -req -days 36500 -in etcd/ca.csr -signkey etcd/ca.key -out etcd/ca.crt -extensions v3_req -extfile etcd-ca-openssl.cnf
+
+openssl genrsa -out etcd/server.key 2048
+openssl req -new -key etcd/server.key -out etcd/server.csr -subj "/CN=$CLUSTER_NAME"
+openssl x509 -req -days 36500 -CA etcd/ca.crt -CAkey etcd/ca.key -CAcreateserial -in etcd/server.csr -out etcd/server.crt -extensions v3_req -extfile etcd/server-openssl.cnf
+
+openssl genrsa -out etcd/peer.key 2048
+openssl req -new -key etcd/peer.key -out etcd/peer.csr -subj "/CN=$CLUSTER_NAME"
+openssl x509 -req -days 36500 -CA etcd/ca.crt -CAkey etcd/ca.key -CAcreateserial -in etcd/peer.csr -out etcd/peer.crt -extensions v3_req -extfile etcd/peer-openssl.cnf
+
+openssl genrsa -out etcd/healthcheck-client.key 2048
+openssl req -new -key etcd/healthcheck-client.key -out etcd/healthcheck-client.csr -subj "/CN=$KUBE_ETCD_HEALTHCHECK_CLIENT_CN/O=system:masters"
+openssl x509 -req -days 36500 -CA etcd/ca.crt -CAkey etcd/ca.key -CAcreateserial -in etcd/healthcheck-client.csr -out etcd/healthcheck-client.crt
 
 
 ```
