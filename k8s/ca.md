@@ -19,6 +19,12 @@ CLUSTER_SERVER_IP=192.168.80.201
 # 使用者、颁发给（使用 ca.key 颁发 apiserver-kubelet-client.crt）
 APISERVER_KUBELET_CLIENT_CN=kube-apiserver-kubelet-client
 
+# 颁发者（颁发 front-proxy-ca.crt）
+FRONT_PROXY_CA_CN=front-proxy-ca
+FRONT_PROXY_CA_DNS=front-proxy-ca
+
+# 使用者、颁发给（使用 front-proxy-ca.key 颁发 front-proxy-client.crt）
+FRONT_PROXY_CLIENT_CN=front-proxy-client
 
 ```
 
@@ -63,6 +69,23 @@ cat apiserver-openssl.cnf
 ```
 
 ```shell
+cat > front-proxy-ca-openssl.cnf << EOF
+[req]
+req_extensions = v3_req
+distinguished_name = req_distinguished_name
+
+[v3_req]
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = $FRONT_PROXY_CA_DNS
+
+EOF
+
+cat front-proxy-ca-openssl.cnf
+```
+
+```shell
 # 生成根证书（CA）和密钥对：
 openssl genrsa -out ca.key 2048
 openssl req -new -key ca.key -out ca.csr -subj "/CN=$CN"
@@ -79,6 +102,16 @@ openssl x509 -req -days 36500 -CA ca.crt -CAkey ca.key -CAcreateserial -in apise
 openssl genrsa -out apiserver-kubelet-client.key 2048
 openssl req -new -key apiserver-kubelet-client.key -out apiserver-kubelet-client.csr -subj "/CN=$APISERVER_KUBELET_CLIENT_CN/O=system:masters"
 openssl x509 -req -days 36500 -CA ca.crt -CAkey ca.key -CAcreateserial -in apiserver-kubelet-client.csr -out apiserver-kubelet-client.crt
+
+
+# 生成前置代理（front-proxy）相关的证书和密钥对：
+openssl genrsa -out front-proxy-ca.key 2048
+openssl req -new -key front-proxy-ca.key -out front-proxy-ca.csr -subj "/CN=$FRONT_PROXY_CA_CN"
+openssl x509 -req -days 36500 -in front-proxy-ca.csr -signkey front-proxy-ca.key -out front-proxy-ca.crt -extensions v3_req -extfile front-proxy-ca-openssl.cnf
+
+openssl genrsa -out front-proxy-client.key 2048
+openssl req -new -key front-proxy-client.key -out front-proxy-client.csr -subj "/CN=$FRONT_PROXY_CLIENT_CN"
+openssl x509 -req -days 36500 -CA front-proxy-ca.crt -CAkey front-proxy-ca.key -CAcreateserial -in front-proxy-client.csr -out front-proxy-client.crt
 
 
 ```
