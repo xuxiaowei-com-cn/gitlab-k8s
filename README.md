@@ -92,6 +92,11 @@
 
 #### [批量删除 k8s（ctr）使用的历史镜像](/k8s/containerd-rm.md)
 
+#### [使用 kubeadm 生成 k8s 新证书](k8s/ca-kubeadm.md)
+
+1. 可用于直接更新证书
+2. 可用于 k8s 主节点 IP 切换时重新根据新 IP 生成新证书
+
 #### Kubernetes（k8s） Availability 高可用
 
 ##### [导读](/k8s/availability/guide.md)
