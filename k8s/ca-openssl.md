@@ -4,7 +4,7 @@
 
 1. 不推荐使用此方式，此方式要求对 `openssl` 命令比较了解
 2. 不推荐使用此方式，此方式要求对 k8s 配置文件比较了解
-3. 此方式仅用学习 `openssl` 相关命
+3. 此方式仅用学习 `openssl` 相关命令
 4. k8s ca 原始文件、k8s 配置文件
     1. <a target="_blank" href="/k8s/ca/manifests/kube-apiserver.yaml">/etc/kubernetes/manifests/kube-apiserver.yaml</a>
     2. <a target="_blank" href="/k8s/ca/manifests/kube-controller-manager.yaml">
@@ -47,6 +47,9 @@
     1. <a target="_blank" href="/k8s/ca/admin.conf">/etc/kubernetes/admin.conf</a>
         - clusters.cluster.certificate-authority-data
             1. <a target="_blank" href="/k8s/ca/pki/ca.crt">/etc/kubernetes/pki/ca.crt</a> 文件内容计算 Base64 可得
+                ```shell
+                cat /etc/kubernetes/pki/etcd/ca.crt | base64 -w 0
+                ```
         - users.user.client-certificate-data
             1. 颁发者 CN：kubernetes
             2. 颁发给、使用者 CN：kubernetes-admin
@@ -56,6 +59,9 @@
     2. <a target="_blank" href="/k8s/ca/kubelet.conf">/etc/kubernetes/kubelet.conf</a>
         - clusters.cluster.certificate-authority-data
             1. <a target="_blank" href="/k8s/ca/pki/ca.crt">/etc/kubernetes/pki/ca.crt</a> 文件内容计算 Base64 可得
+                ```shell
+                cat /etc/kubernetes/pki/etcd/ca.crt | base64 -w 0
+                ```
         - users.user.client-certificate-data
             1. 颁发者 CN：kubernetes
             2. 颁发给、使用者 CN：system:kube-controller-manager
@@ -64,9 +70,15 @@
     3. <a target="_blank" href="/k8s/ca/controller-manager.conf">/etc/kubernetes/controller-manager.conf</a>
         - clusters.cluster.certificate-authority-data
             1. <a target="_blank" href="/k8s/ca/pki/ca.crt">/etc/kubernetes/pki/ca.crt</a> 文件内容计算 Base64 可得
+                ```shell
+                cat /etc/kubernetes/pki/etcd/ca.crt | base64 -w 0
+                ```
     4. <a target="_blank" href="/k8s/ca/scheduler.conf">/etc/kubernetes/scheduler.conf</a>
         - clusters.cluster.certificate-authority-data
             1. <a target="_blank" href="/k8s/ca/pki/ca.crt">/etc/kubernetes/pki/ca.crt</a> 文件内容计算 Base64 可得
+                ```shell
+                cat /etc/kubernetes/pki/etcd/ca.crt | base64 -w 0
+                ```
         - users.user.client-certificate-data
             1. 颁发者 CN：kubernetes
             2. 颁发给、使用者 CN：system:kube-scheduler
