@@ -92,6 +92,8 @@
 
 #### [批量删除 k8s（ctr）使用的历史镜像](/k8s/containerd-rm.md)
 
+#### [使用 openssl 生成 k8s 新证书（未完成）](k8s/ca-openssl.md)
+
 #### [使用 kubeadm 生成 k8s 新证书](k8s/ca-kubeadm.md)
 
 1. 可用于直接更新证书
