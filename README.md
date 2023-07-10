@@ -6,6 +6,8 @@
 
 #### [kubernetes（k8s） 导读](/guide/k8s.md)
 
+#### [极狐GitLab 与 码云Gitee 价格对比](/guide/gitlab-gitee.md)
+
 ### GitLab
 
 #### [CentOS 7.9 中安装 GitLab](/gitlab/centos-7.9-install.md)
