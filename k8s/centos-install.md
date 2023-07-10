@@ -166,7 +166,9 @@
           host_path = "/var/run/docker.sock"
     ```
 
-   /etc/containerd/config.toml 中的 SystemdCgroup = true 的优先级高于 /etc/docker/daemon.json 中的 cgroupdriver
+   /etc/containerd/config.toml
+   中的 [SystemdCgroup = true](https://kubernetes.io/zh-cn/docs/setup/production-environment/container-runtimes/#containerd-systemd)
+   的优先级高于 /etc/docker/daemon.json 中的 cgroupdriver
 
     ```shell
     # https://docs.docker.com/engine/install/centos/
@@ -249,6 +251,7 @@
 10. 安装 k8s 1.25.3 所需依赖
 
     ```shell
+    # https://kubernetes.io/zh-cn/docs/setup/production-environment/container-runtimes/
     cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
     overlay
     br_netfilter
@@ -256,15 +259,12 @@
     
     sudo modprobe overlay
     sudo modprobe br_netfilter
-    ```
-
-    ```shell
+    
     # 设置所需的 sysctl 参数，参数在重新启动后保持不变
     cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
     net.bridge.bridge-nf-call-iptables  = 1
     net.bridge.bridge-nf-call-ip6tables = 1
     net.ipv4.ip_forward                 = 1
-    
     EOF
     
     # 应用 sysctl 参数而不重新启动
@@ -272,12 +272,14 @@
     ```
 
     ```shell
+    # https://kubernetes.io/zh-cn/docs/setup/production-environment/container-runtimes/
     # 通过运行以下指令确认 br_netfilter 和 overlay 模块被加载：
     lsmod | grep br_netfilter
     lsmod | grep overlay
     ```
 
     ```shell
+    # https://kubernetes.io/zh-cn/docs/setup/production-environment/container-runtimes/
     # 通过运行以下指令确认 net.bridge.bridge-nf-call-iptables、net.bridge.bridge-nf-call-ip6tables 和 net.ipv4.ip_forward 系统变量在你的 sysctl 配置中被设置为 1：
     sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables net.ipv4.ip_forward
     ```
@@ -360,6 +362,18 @@
 14. 控制面板：初始化
 
     ```shell
+    # 初始化前：列举所有所需的镜像
+    # kubeadm config images list
+    
+    # 初始化前：列举所有所需的镜像，使用阿里云镜像
+    # kubeadm config images list --image-repository=registry.aliyuncs.com/google_containers
+    
+    # 初始化前：拉取所有的镜像
+    # kubeadm config images pull
+    
+    # 初始化前：拉取所有的镜像，使用阿里云镜像
+    # kubeadm config images pull --image-repository=registry.aliyuncs.com/google_containers
+    
     kubeadm init --image-repository=registry.aliyuncs.com/google_containers
     # 指定集群的IP
     # kubeadm init --image-repository=registry.aliyuncs.com/google_containers --apiserver-advertise-address=192.168.80.60
