@@ -72,7 +72,7 @@
         <settings>
           <servers>
             <server>
-                    <!-- 固定值 -->
+              <!-- 固定值 -->
               <id>gitlab-maven</id>
               <configuration>
                 <httpHeaders>
@@ -94,7 +94,7 @@
     ```xml
     <distributionManagement>
         <repository>
-                    <!-- 固定值，与 settings.xml 中的 server id 相同，否则私有仓库无法匹配到秘钥发布 -->
+            <!-- 固定值，与 settings.xml 中的 server id 相同，否则私有仓库无法匹配到秘钥发布 -->
             <id>gitlab-maven</id>
             <!-- 其中数字为项目ID，访问项目地址即可看到 -->
             <!--<url>https://jihulab.com/api/v4/projects/126877/packages/maven</url>-->
