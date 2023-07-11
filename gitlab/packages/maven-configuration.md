@@ -65,8 +65,8 @@
           文件名为 `settings-jihulab.xml`，并在其中增加了国内Maven仓库代理，用于加速依赖下载，发布命令
         - 仅发布二进制：`mvn clean -U package deploy -DskipTests -s settings-jihulab.xml`
         - 发布二进制、源码：`mvn clean -U package source:jar deploy -DskipTests -s settings-jihulab.xml`
-        -
-       发布二进制、源码、javadoc：`mvn clean -U package source:jar javadoc:jar deploy -DskipTests -s settings-jihulab.xml`
+        - 发布二进制、源码、javadoc：
+          `mvn clean -U package source:jar javadoc:jar deploy -DskipTests -s settings-jihulab.xml`
         ```xml
         <settings>
           <servers>
