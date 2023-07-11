@@ -52,6 +52,7 @@
             # 激活缓存的类型为：s3
             Type = "s3"
             # 是否共享缓存
+            # 如果不共享，则会根据 [[runners]] 中的 token 前 8 位创建文件夹，每个 [[runners]] 缓存仅自己能使用
             Shared = false
             [runners.cache.s3]
                 # 缓存服务器的地址+端口
@@ -72,6 +73,7 @@
            # 激活缓存的类型为：s3
            Type = "s3"
            # 是否共享缓存
+           # 如果不共享，则会根据 [[runners]] 中的 token 前 8 位创建文件夹，每个 [[runners]] 缓存仅自己能使用
            Shared = false
            [runners.cache.s3]
              # 缓存服务器的地址+端口
@@ -95,6 +97,7 @@
            # 激活缓存的类型为：s3
            Type = "s3"
            # 是否共享缓存
+           # 如果不共享，则会根据 [[runners]] 中的 token 前 8 位创建文件夹，每个 [[runners]] 缓存仅自己能使用
            Shared = false
            [runners.cache.s3]
              # 缓存服务器的地址+端口
