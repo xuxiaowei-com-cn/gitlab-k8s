@@ -61,9 +61,8 @@
     3. 使用 Maven 中的 CI 作业令牌进行身份验证
         - `settings.xml` 文件中的配置如下
         - 此处使用的是 GitLab Runner 流水线发布 jar 包（其他方式发布时的命令雷同）
-        -
-       示例项目[[my-maven-app](https://jihulab.com/xuxiaowei-com-cn/my-maven-app)](https://jihulab.com/xuxiaowei-com-cn/my-maven-app)
-       中使用自定义 `settings.xml` 文件名为 `settings-jihulab.xml`，并在其中增加了国内Maven仓库代理，用于加速依赖下载，发布命令
+        - 示例项目 [my-maven-app](https://jihulab.com/xuxiaowei-com-cn/my-maven-app) 中使用自定义 `settings.xml`
+          文件名为 `settings-jihulab.xml`，并在其中增加了国内Maven仓库代理，用于加速依赖下载，发布命令
         - 仅发布二进制：`mvn clean -U package deploy -DskipTests -s settings-jihulab.xml`
         - 发布二进制、源码：`mvn clean -U package source:jar deploy -DskipTests -s settings-jihulab.xml`
         -
