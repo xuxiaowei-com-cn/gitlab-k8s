@@ -87,6 +87,7 @@
         1. 方式1：使用命令创建 deployment
 
             ```shell
+            # 使用 -n 指定创建时的命名空间，不指定时默认 default
             kubectl create deployment demo --image=registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/httpd:2.4.57 --port=80
             
             kubectl get deployment
@@ -101,6 +102,8 @@
             kind: Deployment
             metadata:
               name: demo
+              # 此处可使用 namespace 指定命名空间，一旦这里指定了命名空间，下面的 Service 与此命名空间相同
+              # 不指定时默认 default
             spec:
               replicas: 1
               selector:
@@ -131,6 +134,7 @@
         1. 方式1：使用命令创建 Service
 
              ```shell
+             # 使用 -n 指定创建时的命名空间，不指定时默认 default
              kubectl expose deployment demo
              
              kubectl get service
@@ -144,6 +148,8 @@
             kind: Service
             metadata:
               name: demo
+              # 此处可使用 namespace 指定命名空间，一旦这里指定了命名空间，下面的 Service 与此命名空间相同
+              # 不指定时默认 default
             spec:
               selector:
                 app: demo
@@ -165,8 +171,11 @@
             1. 方式1：使用命令创建 ingress
 
                 ```shell
+                # 使用 -n 指定创建时的命名空间，不指定时默认 default
+                # demo 代表 Service 名称，与指定的命名空间相同
+                # 80 代表 Service 内部端口，不是外部暴露的端口
                 kubectl create ingress demo-localhost --class=nginx --rule="demo.localdev.me/*=demo:80"
-         
+                
                 kubectl get ingress
                 ```
 
@@ -178,6 +187,8 @@
                 kind: Ingress
                 metadata:
                   name: demo-localhost
+                  # 此处可使用 namespace 指定命名空间，一旦这里指定了命名空间，下面的 Service 与此命名空间相同
+                  # 不指定时默认 default
                   annotations:
                     kubernetes.io/ingress.class: nginx
                 spec:
@@ -189,8 +200,10 @@
                             path: /
                             backend:
                               service:
+                                # Service 名称，与上方指定的命名空间相同
                                 name: demo
                                 port:
+                                  # 80 代表 Service 内部端口，不是外部暴露的端口
                                   number: 80
         
                 EOF
@@ -205,6 +218,7 @@
         4. 查看 ingress-nginx-controller 端口
 
             ```shell
+            # 使用 -n 指定创建时的命名空间，不指定时默认 default
             kubectl get service ingress-nginx-controller --namespace=ingress-nginx
             ```
 
@@ -277,12 +291,14 @@
     6. 配置证书：使用证书创建 `Secret`
 
         ```shell
+        # 使用 -n 指定创建时的命名空间，不指定时默认 default
         kubectl create secret tls ${CERT_NAME} --key ${KEY_FILE} --cert ${CERT_FILE}
         ```
 
     7. 配置证书：使用 `Secret`
 
         ```shell
+        # 使用 -n 指定创建时的命名空间，不指定时默认 default
         kubectl edit ingress demo-localhost
         ```
 
@@ -291,6 +307,8 @@
         kind: Ingress
         metadata:
           name: demo-localhost
+          # 此处可使用 namespace 指定命名空间，一旦这里指定了命名空间，下面的 Service 与此命名空间相同
+          # 不指定时默认 default
           annotations:
             kubernetes.io/ingress.class: nginx
         spec:
@@ -309,8 +327,10 @@
                     path: /
                     backend:
                       service:
+                        # Service 名称，与上方指定的命名空间相同
                         name: demo
                         port:
+                          # 80 代表 Service 内部端口，不是外部暴露的端口
                           number: 80
         ```
 
@@ -321,17 +341,20 @@
     1. 获取所有的 ingress
 
         ```shell
+        # 使用 -n 指定创建时的命名空间，不指定时默认 default
         kubectl get ingress
         ```
 
     2. 查看详细信息
 
         ```shell
+        # 使用 -n 指定创建时的命名空间，不指定时默认 default
         kubectl describe ingress demo-localhost
         ```
 
     3. 编辑
 
         ```shell
+        # 使用 -n 指定创建时的命名空间，不指定时默认 default
         kubectl edit ingress demo-localhost
         ```
