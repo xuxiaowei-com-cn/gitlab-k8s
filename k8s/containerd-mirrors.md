@@ -186,7 +186,7 @@
 
     ```shell
     # 拉取镜像测试
-    crictl pull docker.io/library/maven:3.6.3-openjdk-17
+    crictl pull docker.io/library/nginx:1.25.1
     
     # 查看拉取的结果
     crictl image
