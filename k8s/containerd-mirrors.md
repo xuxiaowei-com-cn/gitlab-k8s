@@ -41,7 +41,8 @@
     ```shell
           [plugins."io.containerd.grpc.v1.cri".registry.mirrors]
             [plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.io"]
-              endpoint = ["https://hnkfbj7x.mirror.aliyuncs.com", "https://registry-1.docker.io"]
+              # 根据需要，可填写多个，如：["https://hnkfbj7x.mirror.aliyuncs.com", "https://registry-1.docker.io"]
+              endpoint = ["https://hnkfbj7x.mirror.aliyuncs.com"]
     ```
 
 2. 重启服务
