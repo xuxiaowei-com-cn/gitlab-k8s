@@ -22,7 +22,7 @@
 15. Containerd 配置 Docker 加速镜像
     1. [github](https://github.com/containerd/containerd/blob/main/docs/cri/registry.md)
     2. [gitcode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/registry.md)
-16. CRICTL 用户指南
+16. crictl 用户指南
     1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md)
     2. [GitCode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/crictl.md)
 
