@@ -17,11 +17,14 @@
 12. [在CentOS上安装Docker引擎](https://docs.docker.com/engine/install/centos/)
 13. [Pod 网络无法访问排查处理](https://cloud.tencent.com/document/product/457/40332)
 14. 开始使用 Containerd
-     1. [github](https://github.com/containerd/containerd/blob/main/docs/getting-started.md)
-     2. [gitcode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/getting-started.md)
+    1. [github](https://github.com/containerd/containerd/blob/main/docs/getting-started.md)
+    2. [gitcode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/getting-started.md)
 15. Containerd 配置 Docker 加速镜像
-     1. [github](https://github.com/containerd/containerd/blob/main/docs/cri/registry.md)
-     2. [gitcode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/registry.md)
+    1. [github](https://github.com/containerd/containerd/blob/main/docs/cri/registry.md)
+    2. [gitcode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/registry.md)
+16. CRICTL 用户指南
+    1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md)
+    2. [GitCode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/crictl.md)
 
 ## 说明
 
@@ -178,14 +181,19 @@
 
     ```shell
     # https://docs.docker.com/engine/install/centos/
-    # 经过测试，可不安装 docker 也可使 k8s 正常运行
-    # 只需要不安装 docker-ce、docker-ce-cli、docker-compose-plugin 即可
+    # 经过测试，可不安装 docker 也可使 k8s 正常运行：只需要不安装 docker-ce、docker-ce-cli、docker-compose-plugin 即可
     
     # 卸载旧 docker
     sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine
+   
+    # 安装 docker 仓库
     sudo yum install -y yum-utils
     sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    
+    # 搜索 docker 版本
     # yum --showduplicates list docker-ce
+    
+    # 安装 docker
     sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     
     # 启动 docker 时，会启动 containerd
@@ -232,6 +240,21 @@
     
     sudo systemctl status docker.service
     sudo systemctl status containerd.service
+    ```
+
+    ```shell
+    # 开启 crictl 配置（可选）
+    # 参考：
+    # GitHub：https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md
+    # GitCode：https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/crictl.md
+    
+    cat <<EOF > /etc/crictl.yaml
+    runtime-endpoint: unix:///run/containerd/containerd.sock
+    image-endpoint: unix:///run/containerd/containerd.sock
+    timeout: 10
+    debug: true
+    
+    EOF
     ```
 
 9. 添加阿里云 k8s 镜像仓库

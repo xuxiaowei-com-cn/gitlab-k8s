@@ -8,6 +8,15 @@
 
 1. GitLab Runner 执行器可以选择 Docker
 2. GitLab Pages 运行环境需要 Docker
+3. 开始使用 Containerd
+    1. [github](https://github.com/containerd/containerd/blob/main/docs/getting-started.md)
+    2. [gitcode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/getting-started.md)
+4. Containerd 配置 Docker 加速镜像
+    1. [github](https://github.com/containerd/containerd/blob/main/docs/cri/registry.md)
+    2. [gitcode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/registry.md)
+5. CRICTL 用户指南
+    1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md)
+    2. [GitCode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/crictl.md)
 
 ## 视频演示
 
@@ -18,9 +27,20 @@
 1. 安装 Docker
 
     ```shell
-    sudo yum install -y yum-utils device-mapper-persistent-data lvm2
-    sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo 
-    sudo yum install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+    # https://docs.docker.com/engine/install/centos/
+    
+    # 卸载旧 docker
+    sudo yum remove docker docker-client docker-client-latest docker-common docker-latest docker-latest-logrotate docker-logrotate docker-engine
+   
+    # 安装 docker 仓库
+    sudo yum install -y yum-utils
+    sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+    
+    # 搜索 docker 版本
+    # yum --showduplicates list docker-ce
+    
+    # 安装 docker
+    sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     
     sudo systemctl enable docker.service
     sudo systemctl enable docker.socket
