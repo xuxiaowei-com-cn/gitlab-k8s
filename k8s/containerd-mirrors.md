@@ -14,8 +14,16 @@
     1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md)
     2. [GitCode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/crictl.md)
 6. Containerd hosts 配置
-   1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/hosts.md)
-   2. [GitCode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/hosts.md)
+    1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/hosts.md)
+    2. [GitCode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/hosts.md)
+
+7. <font color="red">在 `[plugins."io.containerd.grpc.v1.cri".registry.mirrors]` 中配置 `域名`，仅支持 `crictl`
+   命令</font>
+8. <font color="red">在 `[plugins."io.containerd.grpc.v1.cri".registry]` 中配置 `config_path`，同时支持 `ctr`、`crictl`
+   命令</font>
+    1. 在 `[plugins."io.containerd.grpc.v1.cri".registry]` 中配置 `config_path` 时，需要 文件夹、文件 必须存在，否则命令无法运行
+    2. 在 `[plugins."io.containerd.grpc.v1.cri".registry]` 中配置 `config_path`、
+       在 `[plugins."io.containerd.grpc.v1.cri".registry.mirrors]` 中配置 `域名` 对于 crictl 是等效的
 
 ## 配置 `crictl`
 
@@ -182,13 +190,3 @@
     # 查看拉取的结果
     crictl image
     ```
-
-## 说明
-
-1. <font color="red">在 `[plugins."io.containerd.grpc.v1.cri".registry.mirrors]` 中配置 `域名`，仅支持 `crictl`
-   命令</font>
-2. <font color="red">在 `[plugins."io.containerd.grpc.v1.cri".registry]` 中配置 `config_path`，同时支持 `ctr`、`crictl`
-   命令</font>
-    1. 在 `[plugins."io.containerd.grpc.v1.cri".registry]` 中配置 `config_path` 时，需要 文件夹、文件 必须存在，否则命令无法运行
-    2. 在 `[plugins."io.containerd.grpc.v1.cri".registry]` 中配置 `config_path`、
-       在 `[plugins."io.containerd.grpc.v1.cri".registry.mirrors]` 中配置 `域名` 对于 crictl 是等效的
