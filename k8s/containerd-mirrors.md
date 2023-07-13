@@ -13,128 +13,175 @@
 5. crictl 用户指南
     1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md)
     2. [GitCode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/crictl.md)
+6. Containerd hosts 配置
+   1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/hosts.md)
+   2. [GitCode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/hosts.md)
 
 ## 配置 `crictl`
 
-编辑 `/etc/containerd/config.toml` 文件
+1. 编辑 `/etc/containerd/config.toml` 文件
 
-```shell
-vim /etc/containerd/config.toml
-```
+    ```shell
+    vim /etc/containerd/config.toml
+    ```
 
-在 `[plugins."io.containerd.grpc.v1.cri".registry.mirrors]` 后面添加镜像，注意前面的缩进（空格），配置 docker.io 的示例
+   在 `[plugins."io.containerd.grpc.v1.cri".registry.mirrors]` 后面添加镜像，注意前面的缩进（空格），配置 docker.io 的示例
 
-如果 `/etc/containerd/config.toml` 配置很少，可能需要使用命令 `containerd config default`
-生成默认配置，替换原始的 `/etc/containerd/config.toml` 文件（慎重操作，注意备份历史配置文件）
+   如果 `/etc/containerd/config.toml` 配置很少，可能需要使用命令 `containerd config default`
+   生成默认配置，替换原始的 `/etc/containerd/config.toml` 文件（慎重操作，注意备份历史配置文件）
 
-```shell
-      [plugins."io.containerd.grpc.v1.cri".registry.mirrors]
-        [plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.io"]
-          endpoint = ["https://hnkfbj7x.mirror.aliyuncs.com", "https://registry-1.docker.io"]
-```
+    ```shell
+          [plugins."io.containerd.grpc.v1.cri".registry.mirrors]
+            [plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.io"]
+              endpoint = ["https://hnkfbj7x.mirror.aliyuncs.com", "https://registry-1.docker.io"]
+    ```
 
-重启服务
+2. 重启服务
 
-```shell
-systemctl restart containerd
-```
+    ```shell
+    systemctl restart containerd
+    ```
 
-使用 `crictl` 测试
+3. 检查 `crictl` 配置
 
-```shell
-# 开启 crictl 配置
-# 参考：
-# GitHub：https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md
-# GitCode：https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/crictl.md
+   查看是否配置 crictl
+    ```shell
+    cat /etc/crictl.yaml
+    ```
 
-# 生成配置文件
-cat <<EOF > /etc/crictl.yaml
-runtime-endpoint: unix:///run/containerd/containerd.sock
-image-endpoint: unix:///run/containerd/containerd.sock
-timeout: 10
-debug: true
+   如果没有配置，则执行命令进行配置
+    ```shell
+    # 开启 crictl 配置
+    # 参考：
+    # GitHub：https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md
+    # GitCode：https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/crictl.md
+    
+    # 生成配置文件
+    cat <<EOF > /etc/crictl.yaml
+    runtime-endpoint: unix:///run/containerd/containerd.sock
+    image-endpoint: unix:///run/containerd/containerd.sock
+    timeout: 10
+    debug: true
+    
+    EOF
+    
+    # 查看生成的配置文件
+    cat /etc/crictl.yaml
+    ```
 
-EOF
+   查看配置是否生效
+    ```shell
+    crictl info
+    ```
 
-# 查看生成的配置文件
-cat /etc/crictl.yaml
+4. 使用 `crictl` 测试
 
-# 查看配置是否生效
-crictl info
-
-# 拉取镜像测试
-crictl pull docker.io/library/maven:3.6.3-openjdk-17
-
-# 查看拉取的结果
-crictl image
-```
+    ```shell
+    # 拉取镜像测试
+    crictl pull docker.io/library/maven:3.6.3-openjdk-17
+    
+    # 查看拉取的结果
+    crictl image
+    ```
 
 ## 配置 `ctr`、`crictl`
 
-以加速 docker.io 为例
+1. 以加速 docker.io 为例
 
-创建文件夹
+2. 创建文件夹
 
-```shell
-mkdir -p /etc/containerd/certs.d/docker.io
-```
+    ```shell
+    mkdir -p /etc/containerd/certs.d/docker.io
+    ```
 
-创建配置文件
+3. 创建配置文件
 
-```shell
-cat <<EOF > /etc/containerd/certs.d/docker.io/hosts.toml
-server = "https://docker.io"
-[host."https://hnkfbj7x.mirror.aliyuncs.com"]
-  capabilities = ["pull", "resolve"]
-  # 跳过证书验证
-  skip_verify = true
+    ```shell
+    cat <<EOF > /etc/containerd/certs.d/docker.io/hosts.toml
+    server = "https://docker.io"
+    [host."https://hnkfbj7x.mirror.aliyuncs.com"]
+      capabilities = ["pull", "resolve"]
+      # 跳过证书验证
+      skip_verify = true
+    
+    EOF
+    
+    # 查看生成的配置文件
+    cat /etc/crictl.yaml
+    ```
 
-EOF
+4. 使用 `ctr` 测试
 
-# 查看生成的配置文件
-cat /etc/crictl.yaml
-```
+    ```shell
+    # 拉取镜像
+    ctr --debug i pull --hosts-dir "/etc/containerd/certs.d" docker.io/library/maven:3.6.3-jdk-8
+    
+    # 查看镜像
+    # ctr i list
+    ```
 
-使用 `ctr` 测试
+5. 编辑 `/etc/containerd/config.toml` 文件，使 `crictl` 命令也能生效
 
-```shell
-# 拉取镜像
-ctr --debug i pull --hosts-dir "/etc/containerd/certs.d" docker.io/library/maven:3.6.3-jdk-8
+    ```shell
+    vim /etc/containerd/config.toml
+    ```
 
-# 查看镜像
-# ctr i list
-```
+   修改 `[plugins."io.containerd.grpc.v1.cri".registry]` 的 `config_path`
 
-编辑 `/etc/containerd/config.toml` 文件，使 `crictl` 命令也能生效
+    ```shell
+        [plugins."io.containerd.grpc.v1.cri".registry]
+          # 配置 config_path 时，需要 文件夹、文件 必须存在，否则命令无法运行
+          # plugins."io.containerd.grpc.v1.cri".registry 中的 config_path 与 plugins."io.containerd.grpc.v1.cri".registry.mirrors 对于 crictl 是等效的
+          config_path = "/etc/containerd/certs.d"
+    ```
 
-```shell
-vim /etc/containerd/config.toml
-```
+6. 重启服务
 
-修改 `[plugins."io.containerd.grpc.v1.cri".registry]` 的 `config_path`
+    ```shell
+    systemctl restart containerd
+    ```
 
-```shell
-    [plugins."io.containerd.grpc.v1.cri".registry]
-      # 配置 config_path 时，需要 文件夹、文件 必须存在，否则命令无法运行
-      # plugins."io.containerd.grpc.v1.cri".registry 中的 config_path 与 plugins."io.containerd.grpc.v1.cri".registry.mirrors 对于 crictl 是等效的
-      config_path = "/etc/containerd/certs.d"
-```
+7. 检查 `crictl` 配置
 
-重启服务
+   查看是否配置 crictl
+    ```shell
+    cat /etc/crictl.yaml
+    ```
 
-```shell
-systemctl restart containerd
-```
+   如果没有配置，则执行命令进行配置
+    ```shell
+    # 开启 crictl 配置
+    # 参考：
+    # GitHub：https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md
+    # GitCode：https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/crictl.md
+    
+    # 生成配置文件
+    cat <<EOF > /etc/crictl.yaml
+    runtime-endpoint: unix:///run/containerd/containerd.sock
+    image-endpoint: unix:///run/containerd/containerd.sock
+    timeout: 10
+    debug: true
+    
+    EOF
+    
+    # 查看生成的配置文件
+    cat /etc/crictl.yaml
+    ```
 
-使用 `crictl` 测试
+   查看配置是否生效
+    ```shell
+    crictl info
+    ```
 
-```shell
-# 拉取镜像测试
-crictl pull docker.io/library/maven:3.6.3-openjdk-17
+8. 使用 `crictl` 测试
 
-# 查看拉取的结果
-crictl image
-```
+    ```shell
+    # 拉取镜像测试
+    crictl pull docker.io/library/maven:3.6.3-openjdk-17
+    
+    # 查看拉取的结果
+    crictl image
+    ```
 
 ## 说明
 

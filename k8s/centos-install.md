@@ -25,6 +25,9 @@
 16. crictl 用户指南
     1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md)
     2. [GitCode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/crictl.md)
+17. Containerd hosts 配置
+     1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/hosts.md)
+     2. [GitCode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/hosts.md)
 
 ## 说明
 
