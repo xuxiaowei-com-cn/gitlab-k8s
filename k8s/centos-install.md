@@ -16,6 +16,12 @@
 11. [为容器设置环境变量](https://kubernetes.io/zh-cn/docs/tasks/inject-data-application/define-environment-variable-container/)
 12. [在CentOS上安装Docker引擎](https://docs.docker.com/engine/install/centos/)
 13. [Pod 网络无法访问排查处理](https://cloud.tencent.com/document/product/457/40332)
+14. 开始使用 Containerd
+     1. [github](https://github.com/containerd/containerd/blob/main/docs/getting-started.md)
+     2. [gitcode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/getting-started.md)
+15. Containerd 配置 Docker 加速镜像
+     1. [github](https://github.com/containerd/containerd/blob/main/docs/cri/registry.md)
+     2. [gitcode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/registry.md)
 
 ## 说明
 
