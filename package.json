@@ -1,6 +1,6 @@
 {
-  "name": "gitlab-k-8-s",
-  "version": "0.0.0",
+  "name": "gitlab-k8s",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "pre": "npm install --registry https://registry.npmmirror.com || npm install --registry https://registry.npmjs.org",
