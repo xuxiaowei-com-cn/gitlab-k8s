@@ -78,7 +78,12 @@ const config = {
           },
           {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://gitee.com/xuxiaowei-com-cn/gitlab-k8s',
+            label: 'Gitee',
+            position: 'right',
+          },
+          {
+            href: 'https://github.com/xuxiaowei-com-cn/gitlab-k8s',
             label: 'GitHub',
             position: 'right',
           },
@@ -97,19 +102,23 @@ const config = {
             ],
           },
           {
-            title: '社区',
+            title: '社交',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: '微博',
+                href: 'https://weibo.com/u/2946715617',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'CSDN',
+                href: 'https://xuxiaowei.blog.csdn.net',
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/docusaurus',
+                label: '微信群',
+                href: 'https://work.weixin.qq.com/gm/75cfc47d6a341047e4b6aca7389bdfa8',
+              },
+              {
+                label: '哔哩哔哩',
+                href: 'https://space.bilibili.com/198580655',
               },
             ],
           },
@@ -121,8 +130,8 @@ const config = {
                 to: '/blog',
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                label: '工具箱',
+                href: 'https://xuxiaowei-tools.gitee.io',
               },
             ],
           },
