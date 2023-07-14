@@ -127,7 +127,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © 2023 <a target="_blank" href="http://xuxiaowei.com.cn">徐晓伟工作室</a>`,
       },
       prism: {
         theme: lightCodeTheme,
