@@ -22,6 +22,11 @@ metadata:
 spec:
   containers:
     - name: nginx
+      # 在拉取镜像时的策略
+      # IfNotPresent：默认值，如果选择 IfNotPresent，可缺省 imagePullPolicy。创建容器时，只在本地不存在该镜像时才去拉取。提高容器启动的速度和效率，特别适用于频繁启动和停止的场景。
+      # Always：无论本地是否已存在该镜像，容器都会尝试去拉取最新的镜像。
+      # Never：容器将不会去拉取该镜像，仅依赖于本地已存在的镜像。如果本地不存在该镜像，则容器无法成功启动。
+      imagePullPolicy: IfNotPresent
       image: nginx:1.25.1
       ports:
         - containerPort: 80
@@ -66,6 +71,11 @@ spec:
     spec:
       containers:
         - name: nginx
+          # 在拉取镜像时的策略
+          # IfNotPresent：默认值，如果选择 IfNotPresent，可缺省 imagePullPolicy。创建容器时，只在本地不存在该镜像时才去拉取。提高容器启动的速度和效率，特别适用于频繁启动和停止的场景。
+          # Always：无论本地是否已存在该镜像，容器都会尝试去拉取最新的镜像。
+          # Never：容器将不会去拉取该镜像，仅依赖于本地已存在的镜像。如果本地不存在该镜像，则容器无法成功启动。
+          imagePullPolicy: IfNotPresent
           image: nginx:1.25.0
           ports:
             - containerPort: 80
@@ -98,6 +108,11 @@ metadata:
 spec:
   containers:
     - name: nginx
+      # 在拉取镜像时的策略
+      # IfNotPresent：默认值，如果选择 IfNotPresent，可缺省 imagePullPolicy。创建容器时，只在本地不存在该镜像时才去拉取。提高容器启动的速度和效率，特别适用于频繁启动和停止的场景。
+      # Always：无论本地是否已存在该镜像，容器都会尝试去拉取最新的镜像。
+      # Never：容器将不会去拉取该镜像，仅依赖于本地已存在的镜像。如果本地不存在该镜像，则容器无法成功启动。
+      imagePullPolicy: IfNotPresent
       image: nginx:1.24.0
       ports:
         - containerPort: 80
@@ -161,6 +176,11 @@ spec:
     spec:
       containers:
         - name: nginx
+          # 在拉取镜像时的策略
+          # IfNotPresent：默认值，如果选择 IfNotPresent，可缺省 imagePullPolicy。创建容器时，只在本地不存在该镜像时才去拉取。提高容器启动的速度和效率，特别适用于频繁启动和停止的场景。
+          # Always：无论本地是否已存在该镜像，容器都会尝试去拉取最新的镜像。
+          # Never：容器将不会去拉取该镜像，仅依赖于本地已存在的镜像。如果本地不存在该镜像，则容器无法成功启动。
+          imagePullPolicy: IfNotPresent
           # https://hub.docker.com/_/nginx
           # Nginx 版本
           image: nginx:1.23.4
