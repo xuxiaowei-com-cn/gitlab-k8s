@@ -21,10 +21,10 @@ metadata:
   name: simple-pod-1
 spec:
   containers:
-  - name: nginx
-    image: nginx:1.25.1
-    ports:
-    - containerPort: 80
+    - name: nginx
+      image: nginx:1.25.1
+      ports:
+        - containerPort: 80
 
 EOF
 
@@ -33,6 +33,7 @@ cat simple-pod.yaml
 kubectl apply -f simple-pod.yaml
 
 # 或者 kubectl apply -f https://k8s.io/examples/pods/simple-pod.yaml
+
 ```
 
 | 获取所有的 pod 信息               | `kubectl get pod --all-namespaces -o wide`    |
@@ -64,10 +65,10 @@ spec:
         app: simple-deployment-1
     spec:
       containers:
-      - name: nginx
-        image: nginx:1.25.0
-        ports:
-        - containerPort: 80
+        - name: nginx
+          image: nginx:1.25.0
+          ports:
+            - containerPort: 80
 
 EOF
 
@@ -96,10 +97,10 @@ metadata:
     app: simple-pod-2
 spec:
   containers:
-  - name: nginx
-    image: nginx:1.24.0
-    ports:
-      - containerPort: 80
+    - name: nginx
+      image: nginx:1.24.0
+      ports:
+        - containerPort: 80
 
 ---
 apiVersion: v1
@@ -110,11 +111,11 @@ spec:
   selector:
     app: simple-pod-2
   ports:
-  - name: name-of-service-port
-    protocol: TCP
-    port: 80
-    targetPort: 80
-    nodePort: 32332
+    - name: name-of-service-port
+      protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: 32332
   type: NodePort
 
 EOF
