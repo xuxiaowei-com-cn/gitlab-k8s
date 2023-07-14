@@ -66,7 +66,7 @@ const config = {
       navbar: {
         title: 'GitLab/Kubernetes 知识库',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'GitLab/Kubernetes 知识库 Logo',
           src: 'img/logo.svg',
         },
         items: [
