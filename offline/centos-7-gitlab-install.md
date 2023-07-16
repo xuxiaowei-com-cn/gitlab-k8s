@@ -8,7 +8,7 @@
 
 3. 本文以 CentOS 7.9 最小化安装，gitlab-ee 最新版为例（其他 CentOS、gitlab 版本类似）
 
-4. yum 包准备：可通过查阅 [CentOS 7 中安装 GitLab](/gitlab/centos-7.9-install.md)
+4. yum 包准备：可通过查阅 [CentOS 7 中安装 GitLab](/docs/gitlab/centos-7.9-install.md)
 
    文中的 `yum install ***` 命令在后面添加 `--downloadonly --downloaddir=./下载的文件夹` 下载到指定文件夹中获取。
 

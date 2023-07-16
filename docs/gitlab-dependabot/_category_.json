@@ -1,0 +1,8 @@
+{
+  "label": "GitLab Dependabot",
+  "position": 205,
+  "link": {
+    "type": "generated-index",
+    "description": "GitLab 依赖机器人"
+  }
+}
