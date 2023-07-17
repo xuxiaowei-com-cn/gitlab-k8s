@@ -96,7 +96,7 @@ const config = {
             title: '文档',
             items: [
               {
-                label: 'Tutorial',
+                label: '文档介绍',
                 to: '/docs/intro',
               },
             ],
