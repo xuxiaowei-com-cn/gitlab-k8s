@@ -4,6 +4,8 @@ sidebar_position: 2
 
 # Anolis 8.4 中安装 GitLab
 
+基于 Anolis 龙蜥 8.4 和 GitLab 官方仓库脚本 安装/配置 GitLab
+
 ## 说明与文档
 
 1. 龙蜥官网：[https://openanolis.cn/](https://openanolis.cn/)

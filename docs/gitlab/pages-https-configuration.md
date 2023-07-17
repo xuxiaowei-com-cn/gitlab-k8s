@@ -4,6 +4,8 @@ sidebar_position: 4
 
 # GitLab Pages 配置 SSL/https
 
+配置 GitLab Pages 域名的 SSL 证书，以实现开启静态页面的功能
+
 ## 文档
 
 1. [GitLab 页面管理](https://docs.gitlab.com/ee/administration/pages/)

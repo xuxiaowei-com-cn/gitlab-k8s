@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # fatal: git fetch-pack: expected shallow list
 
-GitLab Runner CI/CD 在 CentOS/Anolis 中使用 shell 执行器时，出现：fatal: git fetch-pack: expected shallow list
+GitLab Runner CI/CD 使用 shell 执行器时，git 版本过低的问题
 
 ## 说明
 

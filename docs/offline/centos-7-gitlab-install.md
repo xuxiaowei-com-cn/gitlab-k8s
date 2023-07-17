@@ -8,7 +8,7 @@ sidebar_position: 2
 
 1. 离线安装的原理参见：[离线安装：导读](/docs/offline/guide.md)
 
-2. 离线安装的示例参见：[在 CentOS 上离线安装 kubernetes（k8s）](/docs/offline/centos-k8s-install.md)
+2. 离线安装的示例参见：[在 CentOS 上离线安装 Kubernetes（k8s）](/docs/offline/centos-k8s-install.md)
 
 3. 本文以 CentOS 7.9 最小化安装，gitlab-ee 最新版为例（其他 CentOS、gitlab 版本类似）
 

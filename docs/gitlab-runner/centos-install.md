@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # CentOS 安装 GitLab Runner
 
+基于 CentOS 和 GitLab 官方仓库脚本 安装/配置 GitLab Runner
+
 ## 文档
 
 1. 安装 GitLab Runner

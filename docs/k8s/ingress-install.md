@@ -4,6 +4,8 @@ sidebar_position: 6
 
 # Ingress 安装
 
+基于域名进行反向代理，支持配置 SSL（https）
+
 ## 说明
 
 1. [Ingress](https://kubernetes.io/zh-cn/docs/concepts/services-networking/ingress/)

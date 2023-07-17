@@ -4,14 +4,14 @@ sidebar_position: 5
 
 # k8s 高可用集群4：利用 kubeadm 创建高可用集群-堆叠（Stacked） etcd 拓扑
 
-kubernetes（k8s）高可用集群4：利用 kubeadm 创建高可用集群-堆叠（Stacked） etcd 拓扑
+Kubernetes（k8s）高可用集群4：利用 kubeadm 创建高可用集群-堆叠（Stacked） etcd 拓扑
 
 ## 说明
 
 1. **本文使用“堆叠（Stacked） etcd 拓扑”，即：不需要自建etcd高可用集群，不需要**
-    1. [kubernetes（k8s）高可用集群2：etcd 高可用集群（非必须）](/docs/k8s-availability/etcd-install.md)**
+    1. [Kubernetes（k8s）高可用集群2：etcd 高可用集群（非必须）](/docs/k8s-availability/etcd-install.md)**
 2. **如需使用“外部 etcd 拓扑”，即：自建etcd高可用集群，请参考：**
-    1. [kubernetes（k8s）高可用集群5：利用 kubeadm 创建高可用集群-外部 etcd 拓扑](/docs/k8s-availability/stacked-etcd.md)
+    1. [Kubernetes（k8s）高可用集群5：利用 kubeadm 创建高可用集群-外部 etcd 拓扑](/docs/k8s-availability/stacked-etcd.md)
 3. 使用两种 etcd 拓展时的区别
    由于两种方式操作时，仅存在首个 Master（Control Plane）初始化命令的区别，故仅提供更复杂的“外部 etcd
    拓扑”（自建etcd高可用集群）的具体文章步骤，本文仅介绍区别。

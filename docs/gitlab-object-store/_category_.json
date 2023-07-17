@@ -3,6 +3,6 @@
   "position": 202,
   "link": {
     "type": "generated-index",
-    "description": "GitLab 对象储存使用说明等"
+    "description": "GitLab 相关数据/文件使用对象储存的相关配置"
   }
 }

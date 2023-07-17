@@ -4,6 +4,8 @@ sidebar_position: 10
 
 # 使用 kubeadm 生成 Kubernetes（k8s） 新证书
 
+续期证书、更改 IP 时重新生成证书与配置文件
+
 1. 可用于直接更新证书
 2. 可用于 k8s 主节点 IP 切换时重新根据新 IP 生成新证书
 

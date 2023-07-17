@@ -4,6 +4,8 @@ sidebar_position: 4
 
 # 极狐GitLab 与 码云Gitee 价格对比
 
+极狐GitLab 与 码云Gitee 商业版产品价格与限制
+
 ## 说明
 
 1. 此处的 GitLab 指的是国内版 GitLab：[极狐 GitLab](https://jihulab.com)

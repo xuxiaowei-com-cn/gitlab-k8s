@@ -4,6 +4,8 @@ sidebar_position: 2
 
 # Anolis 8 安装 GitLab Runner
 
+基于 Anolis 龙蜥 8 和 GitLab 官方仓库脚本 安装/配置 GitLab Runner
+
 ## 说明
 
 1. 原理参见上文 [龙蜥 Anolis 8 中安装 GitLab](/docs/gitlab/anolis-8.4-install.md)

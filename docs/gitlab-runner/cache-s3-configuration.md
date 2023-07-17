@@ -2,9 +2,11 @@
 sidebar_position: 4
 ---
 
-# GitLab Runner Cache 配置
+# GitLab Runner Cache 缓存配置
 
-1. 支持 S3 协议
+GitLab Runner Cache 缓存 支持 S3 标准协议，如：OSS、OOS 等等
+
+1. 支持 S3 标准协议
 2. 支持 MinIO
 3. 支持 阿里云 OSS 对象储存
 4. 支持 天翼云 OOS 对象储存

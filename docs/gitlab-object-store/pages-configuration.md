@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # pages
 
-GitLab pages 使用对象储存 S3（MinIO）
+GitLab pages（静态页面相关文件）使用对象储存 S3（MinIO）
 
 ## 文档
 

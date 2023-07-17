@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # CentOS 7.9 中安装 GitLab
 
+基于 CentOS 7.9 和 GitLab 官方仓库脚本 安装/配置 GitLab
+
 ## 参考文档
 
 1. [GitLab 官网 CentOS 安装文档](https://about.gitlab.com/install/#centos-7)，使用国内IP访问时，会跳转到极狐GitLab

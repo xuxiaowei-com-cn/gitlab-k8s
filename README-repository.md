@@ -1,6 +1,6 @@
 <div align="center" style="text-align: center;">
     <h1>gitlab-k8s</h1>
-    <h3>GitLab、kubernetes（k8s）知识库</h3>
+    <h3>GitLab、Kubernetes（k8s）知识库</h3>
     <a target="_blank" href="https://github.com/996icu/996.ICU/blob/master/LICENSE">
         <img alt="License-Anti" src="https://img.shields.io/badge/License-Anti 996-blue.svg">
     </a>

@@ -4,6 +4,8 @@ sidebar_position: 2
 
 # Docker 安装 PostgreSQL 15
 
+基于 Docker 安装 PostgreSQL 15，用于供 Sonarqube 储存数据
+
 ## 说明
 
 1. 用于创建 sonarqube 时数据永久储存（创建 sonarqube 不指定数据库，仅用于测试，无法升级）

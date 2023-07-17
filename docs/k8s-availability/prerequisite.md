@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # k8s 高可用集群1：前提条件
 
-kubernetes（k8s）高可用集群1：前提条件
+Kubernetes（k8s）高可用集群1：前提条件
 
 ## 每台机器均需要执行
 

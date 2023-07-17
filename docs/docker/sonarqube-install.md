@@ -4,6 +4,8 @@ sidebar_position: 3
 
 # Docker 安装 sonarqube
 
+基于 Docker 安装 Sonarqube，用于扫描代码质量
+
 ## 说明
 
 1. 用于分析代码质量

@@ -1,5 +1,7 @@
 # GitLab npm 仓库（未完成）
 
+GitLab npm 私库使用方式（未完成）
+
 ## 文档
 
 1. 软件包库中的 npm 包

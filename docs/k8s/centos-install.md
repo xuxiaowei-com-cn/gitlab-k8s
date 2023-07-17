@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # Kubernetes（k8s）安装
 
+基于 CentOS、Kubernetes（k8s）阿里云 yum 加速仓库安装
+
 ## 文档
 
 1. [等等，Docker 被 Kubernetes 弃用了?](https://dev.to/inductor/wait-docker-is-deprecated-in-kubernetes-now-what-do-i-do-e4m)
@@ -168,7 +170,7 @@ sidebar_position: 1
 8. 安装 Containerd、Docker
    **Docker 不是必须的，k8s 1.24.0 开始使用 Containerd 替代 Docker，但还是推荐安装 Docker，原因：在k8s中构建Docker镜像时使用，需要在GitLab
    Runner 中配置如下，详情参见：**
-   [GitLab Runner、kubernetes（k8s）配置](/docs/gitlab-runner/k8s-configuration.md)
+   [GitLab Runner、Kubernetes（k8s）配置](/docs/gitlab-runner/k8s-configuration.md)
 
     ```shell
     [[runners]]

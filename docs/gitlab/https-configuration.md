@@ -4,6 +4,8 @@ sidebar_position: 3
 
 # GitLab 配置 SSL/https
 
+配置 GitLab 域名的 SSL 证书，以实现使用 https 访问
+
 ## 参考文档
 
 1. [https://stackoverflow.com/questions/72711633/how-to-solve-this-errror-certificate-relies-on-legacy-common-name-field-use-sa](https://stackoverflow.com/questions/72711633/how-to-solve-this-errror-certificate-relies-on-legacy-common-name-field-use-sa)

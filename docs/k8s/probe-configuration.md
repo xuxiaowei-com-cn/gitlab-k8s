@@ -2,7 +2,9 @@
 sidebar_position: 4
 ---
 
-# kubernetes（k8s）探针 配置
+# Kubernetes（k8s）探针 配置
+
+用于检查 pod 运行是否正常，从而控制 pod 的状态
 
 ## 说明
 

@@ -1,5 +1,7 @@
 # GitLab Maven 仓库
 
+GitLab Maven 私库使用方式
+
 ## 文档
 
 1. 软件包库中的 Maven 包

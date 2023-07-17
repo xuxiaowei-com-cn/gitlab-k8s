@@ -1,4 +1,4 @@
-# kubernetes（k8s） 挂载卷/储存卷 介绍
+# Kubernetes（k8s） 挂载卷/储存卷 介绍
 
 1. [卷](https://kubernetes.io/zh-cn/docs/concepts/storage/volumes/)
     1. 为了解决容器内文件（数据）的持久化

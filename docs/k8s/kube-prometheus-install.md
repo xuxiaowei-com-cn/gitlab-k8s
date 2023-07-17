@@ -4,6 +4,8 @@ sidebar_position: 3
 
 # Kube Prometheus 普罗米修斯 安装
 
+用于监控 namespace/pod 等资源使用情况，及时做出告警
+
 ## 说明
 
 1. kube-prometheus

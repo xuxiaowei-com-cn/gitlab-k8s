@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # GitLab 导读
 
+开源代码托管平台，可免费私有部署，完善的代码全生命周期的管理功能。
+
 ## 资料
 
 1. [DevOps 工具布局一览](https://gitlab.cn/devops-tools/)

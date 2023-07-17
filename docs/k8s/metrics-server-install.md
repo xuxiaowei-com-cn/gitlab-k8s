@@ -4,6 +4,8 @@ sidebar_position: 2
 
 # Metrics Server 安装
 
+用于支持 `kubectl top` 命令，用于查看 pod 内存/CPU 使用情况
+
 ## 说明
 
 1. 官方github仓库：[https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server)

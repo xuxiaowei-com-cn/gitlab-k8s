@@ -1,6 +1,6 @@
-# kubernetes Dashboard 安装
+# Kubernetes Dashboard 安装
 
-kubernetes（k8s）Dashboard 安装
+Kubernetes（k8s）Dashboard 安装
 
 ## 说明
 
@@ -43,7 +43,7 @@ kubernetes（k8s）Dashboard 安装
 2. 查看是否创建完成
 
    ```shell
-   # kubernetes（k8s）Dashboard 的命名空间是 kubernetes-dashboard
+   # Kubernetes（k8s）Dashboard 的命名空间是 kubernetes-dashboard
    kubectl get pods -n kubernetes-dashboard -o wide
    ```
 

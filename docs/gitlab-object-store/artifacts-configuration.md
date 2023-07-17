@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # artifacts
 
-GitLab artifacts 使用对象储存 S3（MinIO）
+GitLab artifacts（流水线产物）使用对象储存 S3（MinIO）
 
 ## 文档
 

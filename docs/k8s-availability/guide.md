@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # k8s 高可用集群：导读
 
-kubernetes（k8s）高可用集群：导读
+Kubernetes（k8s）高可用集群：导读
 
 ## 说明
 
@@ -14,7 +14,7 @@ kubernetes（k8s）高可用集群：导读
 4. etcd 至少部署3个节点
 5. etcd 启用基于CA认证的HTTPS安全机制
 6. NFS（Network File System）网络文件系统采用双机热备
-7. 高可用集群参考：《kubernetes权威指南》第5版（书中介绍的是1.19，本文以 1.26.2 为例，2023-03-01 发布）、官方文档
+7. 高可用集群参考：《Kubernetes权威指南》第5版（书中介绍的是1.19，本文以 1.26.2 为例，2023-03-01 发布）、官方文档
 8. 官方文档
     1. [Install Docker Engine on CentOS](https://docs.docker.com/engine/install/centos/)
     2. [systemd cgroup 驱动](https://kubernetes.io/zh-cn/docs/setup/production-environment/container-runtimes/#containerd-systemd)
@@ -59,7 +59,7 @@ INTERFACE_NAME=ens33
 
 ## 单机集群配置需求参考
 
-1. kubernetes 1.26.2
+1. Kubernetes 1.26.2
 2. calico 3.25
 3. etcd 3.5.6-0 单机
 4. 基础内存合计：使用 CentOS 7.9 最小化安装，包含系统内存消耗，基础内存共消耗 1.2G

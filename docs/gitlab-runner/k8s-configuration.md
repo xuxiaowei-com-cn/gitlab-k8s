@@ -2,11 +2,13 @@
 sidebar_position: 3
 ---
 
-# GitLab Runner kubernetes（k8s）配置
+# GitLab Runner Kubernetes（k8s）配置
+
+GitLab Runner 配置 Kubernetes（k8s）执行器运行流水线
 
 ## 资料
 
-1. [kubernetes](https://docs.gitlab.com/runner/install/kubernetes)
+1. [Kubernetes](https://docs.gitlab.com/runner/install/kubernetes)
     1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/runner/install/kubernetes)
 2. [高级配置](https://docs.gitlab.com/runner/configuration/advanced-configuration.html)
     1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/runner/configuration/advanced-configuration.html)
@@ -25,7 +27,7 @@ sidebar_position: 3
 
 1. GitLab Runner 注册到 GitLab 的操作请参见上面章节中的[CentOS 安装 GitLab Runner](/docs/gitlab-runner/centos-install.md)
    ，只需要将**流水线的执行器**设置成**kubernetes**即可，然后执行流水线，会出现问题，按照下方内容去解决
-2. 本文采用遇见什么错误，增加对应的配置来介绍 GitLab Runner、kubernetes 的配置
+2. 本文采用遇见什么错误，增加对应的配置来介绍 GitLab Runner、Kubernetes 的配置
 
 ## 配置
 

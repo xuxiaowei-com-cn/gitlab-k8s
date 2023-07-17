@@ -4,6 +4,8 @@ sidebar_position: 8
 
 # 批量删除 k8s（ctr）使用的历史镜像
 
+批量删除历史镜像，减小磁盘占用
+
 ## 说明
 
 1. 以 k8s 使用 containerd 为例

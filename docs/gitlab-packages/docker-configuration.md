@@ -1,5 +1,7 @@
 # GitLab Docker 容器镜像仓库
 
+GitLab Docker 私库开启配置与使用方式
+
 ## 文档
 
 1. GitLab 容器镜像库

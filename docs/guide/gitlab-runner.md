@@ -4,17 +4,21 @@ sidebar_position: 2
 
 # GitLab Runner 导读
 
+与 GitLab 配套的 CI/CD 解决方案，支持 kubernetes、docker、shell 等等执行器
+
+## 说明
+
 1. GitLab Runner 是专为 GitLab 设计的流水线：`持续集成(CI)`、`持续交付(CD)`、`持续部署(CD)`
    ，中文文档：[GitLab CI/CD](https://docs.gitlab.cn/jh/ci/index.html)
 2. GItLab Runner 可选执行器：custom, virtualbox, docker-ssh+machine, docker, docker-ssh, parallels, shell, ssh,
    docker+machine, kubernetes
 3. 统计
 
-| 时间         | [GitLab Runner](https://gitlab.com) | [GitHub Actions](https://github.com) |
-|------------|-------------------------------------|--------------------------------------|
-| 2023-03-14 | 39亿次（不含自建GitLab）                    | 77亿次                                 |
-| 2023-05-06 | 42亿次（不含自建GitLab）                    | 87亿次                                 |
-| 2023-07-03 | 45亿次（不含自建GitLab）                    | 98亿次                                 |
+   | 时间         | [GitLab Runner](https://gitlab.com) | [GitHub Actions](https://github.com) |
+   |------------|-------------------------------------|--------------------------------------|
+   | 2023-03-14 | 39亿次（不含自建GitLab）                    | 77亿次                                 |
+   | 2023-05-06 | 42亿次（不含自建GitLab）                    | 87亿次                                 |
+   | 2023-07-03 | 45亿次（不含自建GitLab）                    | 98亿次                                 |
 
 4. GitLab Runner 的作用类似于 Jenkins，不同之处在于（**由于本人知识有限，错误和不足请在评论中指正**）：
 

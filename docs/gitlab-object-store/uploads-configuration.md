@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # uploads
 
-GitLab uploads 使用对象储存 S3（MinIO）
+GitLab uploads（在议题等上传的文件）使用对象储存 S3（MinIO）
 
 ## 文档
 

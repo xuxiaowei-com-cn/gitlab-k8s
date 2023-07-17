@@ -27,7 +27,7 @@ sidebar_position: 1
 
 [![企业微信群](static/wechat-work.jpg)](https://work.weixin.qq.com/gm/75cfc47d6a341047e4b6aca7389bdfa8)
 
-文档旨在介绍 GitLab、GitLab Runner CI/CD、Kubernetes（k8s）、Docker 的 持续集成(CI)、持续交付(CD)、持续部署(CD)，提高工作效率
+文档旨在介绍 GitLab、GitLab Runner CI/CD、Kubernetes（k8s）、Docker、Shell 的 `持续集成(CI)`、`持续交付(CD)`、`持续部署(CD)`，提高工作效率
 
 - [Gitee Pages](https://xuxiaowei-com-cn.gitee.io/gitlab-k8s)
 - [GitHub Pages](https://xuxiaowei-com-cn.github.io/gitlab-k8s)

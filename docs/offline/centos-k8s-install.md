@@ -2,16 +2,16 @@
 sidebar_position: 5
 ---
 
-# 在 CentOS 上离线安装 kubernetes（k8s）
+# 在 CentOS 上离线安装 Kubernetes（k8s）
 
 ## 说明
 
-1. 本文以 CentOS 7.9 最小化安装、kubernetes（k8s）1.25.3 为例（其他 CentOS、k8s
+1. 本文以 CentOS 7.9 最小化安装、Kubernetes（k8s）1.25.3 为例（其他 CentOS、k8s
    版本类似），离线包（免费下载）：[https://download.csdn.net/download/qq_32596527/87127488](https://download.csdn.net/download/qq_32596527/87127488)。
-2. 如果没有在有网的环境下安装 kubernetes（k8s）成功过，也不影响本文离线安装的阅读与学习。
-3. yum 包准备：可通过查阅 [kubernetes（k8s）安装](/docs/k8s/centos-install.md)
+2. 如果没有在有网的环境下安装 Kubernetes（k8s）成功过，也不影响本文离线安装的阅读与学习。
+3. yum 包准备：可通过查阅 [Kubernetes（k8s）安装](/docs/k8s/centos-install.md)
    文中的 `yum install ***` 命令在后面添加 `--downloadonly --downloaddir=./下载的文件夹` 下载到指定文件夹中获取，或者使用作者提供安装包。
-4. Docker 镜像准备：可通过学习 [kubernetes（k8s）安装](/docs/k8s/centos-install.md)
+4. Docker 镜像准备：可通过学习 [Kubernetes（k8s）安装](/docs/k8s/centos-install.md)
    安装成功后，使用命令 `ctr -n=k8s.io image list` 查询 k8s 安装成功后，当前使用的 Docker
    镜像，使用命令 `ctr -n=k8s.io image export 导出Docker镜像到磁盘的文件名 Docker镜像名`
 5. Docer 镜像导入：`ctr -n=k8s.io image import Docker镜像导出到磁盘的文件名 Docker镜像名`
@@ -180,7 +180,7 @@ sidebar_position: 5
        Docker 镜像就可
 
        不同 calico 支持的 k8s 版本不同，请查看 calico 与 k8s
-       版本的对应关系：[kubernetes（k8s）安装](/docs/k8s/centos-install.md)
+       版本的对应关系：[Kubernetes（k8s）安装](/docs/k8s/centos-install.md)
 
         1. [GitHub](https://github.com/projectcalico/calico/blob/v3.24.5/manifests/calico.yaml)
         2. [GitCode](https://gitcode.net/mirrors/projectcalico/calico/-/blob/v3.24.5/manifests/calico.yaml)
@@ -474,5 +474,5 @@ sidebar_position: 5
     kubectl get nodes -o wide
     ```
 
-15. 关于去污、创建实例、其他命令，参见 [kubernetes（k8s）安装](/docs/k8s/centos-install.md)
+15. 关于去污、创建实例、其他命令，参见 [Kubernetes（k8s）安装](/docs/k8s/centos-install.md)
 

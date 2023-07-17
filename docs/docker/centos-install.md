@@ -4,6 +4,8 @@ sidebar_position: 1
 
 # CentOS 安装 Docker
 
+基于 CentOS 和 Docker 官方仓库脚本 安装/配置 Docker
+
 ## 文档
 
 1. [在CentOS上安装Docker Engine](https://docs.docker.com/engine/install/centos/)

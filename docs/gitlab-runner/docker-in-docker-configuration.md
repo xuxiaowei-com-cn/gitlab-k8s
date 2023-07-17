@@ -4,7 +4,7 @@ sidebar_position: 5
 
 # Docker-in-Docker
 
-Docker-in-Docker（未完成）
+在流水线的容器中，执行镜像、容器相关仓库（未完成）
 
 ## 说明
 

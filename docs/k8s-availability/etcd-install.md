@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # k8s 高可用集群2：etcd 高可用集群（非必须）
 
-kubernetes（k8s）高可用集群2：etcd 高可用集群（非必须）
+Kubernetes（k8s）高可用集群2：etcd 高可用集群（非必须）
 
 ## 说明
 

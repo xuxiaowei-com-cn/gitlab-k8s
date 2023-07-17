@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # k8s 高可用集群3：VIP：HAProxy、keepalived
 
-kubernetes（k8s）高可用集群3：VIP：HAProxy、keepalived
+Kubernetes（k8s）高可用集群3：VIP：HAProxy、keepalived
 
 ## 为何要使用负载均衡器VIP（HAProxy、keepalived）
 
