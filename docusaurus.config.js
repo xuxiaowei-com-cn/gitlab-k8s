@@ -10,7 +10,7 @@ const config = {
   tagline: '为简化开发工作、提高生产率、解决常见问题而生',
   favicon: 'img/favicon.ico',
 
-  plugins: ['./src/js/redirect.js', './src/js/baidu.js'],
+  plugins: ['./src/js/redirect.js', './src/js/baidu.js', "./src/js/beian.js"],
 
   // Set the production url of your site here
   url: 'https://xuxiaowei-com-cn.gitee.io',
