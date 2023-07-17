@@ -10,32 +10,29 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'GitLab',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        GitLab 安装、升级、配置、数据备份等使用方式
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'GitLab Runner CI/CD',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        GitLab Runner CI/CD，持续集成、持续交付、持续部署
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Kubernetes（k8s）',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Kubernetes（k8s）安装、配置、使用，以及高可用等配置说明
       </>
     ),
   },
