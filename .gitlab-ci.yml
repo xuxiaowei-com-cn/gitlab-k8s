@@ -1,5 +1,6 @@
 stages:
   - build
+  - publish
   # 代码同步
   - sync
 
@@ -23,8 +24,22 @@ build:
     - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"
     # PR 合并到 main 后执行、推送到 main 分支时
     - if: $CI_COMMIT_BRANCH == "main"
-    # PR 合并到 main 后执行、推送到 main 分支时
-    - if: $CI_COMMIT_BRANCH == "docusaurus"
+
+publish-gitee:
+  stage: publish
+  needs:
+    - job: build
+      artifacts: true
+  image: bitnami/git:2.40.1
+  script:
+    - rm -rf build/
+    - git add -f build/
+    - git commit -m "发布 Gitee Pages"
+    - git remote add gitee https://xuxiaowei-com-cn:$GITEE_PRIVATE_TOKEN@gitee.com/$CI_PROJECT_PATH.git
+    - git pull --progress -v --no-rebase gitee pages || echo 远端不存在pages分支
+    - git push -u gitee pages
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
 
 # 嵌入
 include:
