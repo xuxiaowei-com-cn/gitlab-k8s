@@ -11,7 +11,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'GitLab',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    Svg: require('@site/static/img/gitlab.svg').default,
     description: (
       <>
         GitLab 安装、升级、配置、数据备份等使用方式
@@ -20,7 +20,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'GitLab Runner CI/CD',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/CI_CD.svg').default,
     description: (
       <>
         GitLab Runner CI/CD，持续集成、持续交付、持续部署
@@ -29,7 +29,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Kubernetes（k8s）',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Svg: require('@site/static/img/kubernetes.svg').default,
     description: (
       <>
         Kubernetes（k8s）安装、配置、使用，以及高可用等配置说明

@@ -65,7 +65,7 @@ const config = {
         title: 'GitLab/Kubernetes 知识库',
         logo: {
           alt: 'GitLab/Kubernetes 知识库 Logo',
-          src: 'img/logo.svg',
+          src: 'img/favicon.ico',
         },
         items: [
           {
