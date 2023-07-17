@@ -109,6 +109,10 @@ const config = {
                 href: 'https://weibo.com/u/2946715617',
               },
               {
+                label: 'QQ群',
+                href: 'https://qm.qq.com/cgi-bin/qm/qr?k=ZieC6s1WB4njfVbrDHYgoNS8YpT26VtF&jump_from=webapi',
+              },
+              {
                 label: 'CSDN',
                 href: 'https://xuxiaowei.blog.csdn.net',
               },
