@@ -18,6 +18,7 @@ module.exports = function beian(context, options) {
                                     var aTag = document.createElement('a');
                                     aTag.href = "http://beian.miit.gov.cn";
                                     aTag.innerHTML = "鲁ICP备19009036号-1";
+                                    aTag.target = "_blank";
                                     footer__copyright_class[0].appendChild(aTag);
                                 }
                             }
