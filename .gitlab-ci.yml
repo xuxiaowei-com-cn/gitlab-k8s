@@ -36,11 +36,13 @@ publish-gitee-pages:
     - git config --global user.name $GITLAB_USER_NAME
     - git config --global user.email
     - git config --global user.name
+    - echo 当前分支：$CI_COMMIT_BRANCH
+    - git checkout -b $CI_COMMIT_BRANCH
     - git add -f build/
     - git commit -m "发布 Gitee Pages"
     - git remote add gitee https://xuxiaowei-com-cn:$GITEE_PRIVATE_TOKEN@gitee.com/$CI_PROJECT_PATH.git
     - git pull --progress -v --no-rebase gitee pages || echo 远端不存在pages分支
-    - git push -u gitee pages
+    - git push -u gitee $CI_COMMIT_BRANCH:pages
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
 
