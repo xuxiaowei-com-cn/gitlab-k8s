@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'GitLab/Kubernetes 知识库',
-  tagline: 'Dinosaurs are cool',
+  tagline: '为简化开发工作、提高生产率、解决常见问题而生',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
