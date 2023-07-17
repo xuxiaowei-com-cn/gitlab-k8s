@@ -1,0 +1,8 @@
+{
+  "label": "GitLab 软件包库",
+  "position": 203,
+  "link": {
+    "type": "generated-index",
+    "description": "GitLab 软件包库，包含 Docker、Maven、npm 仓库使用说明等"
+  }
+}
