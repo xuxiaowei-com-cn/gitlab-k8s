@@ -330,6 +330,9 @@ sidebar_position: 1
     # 2023-02-07，经过测试，版本号：1.24.0，同样适用于本文章
     # sudo yum install -y kubelet-1.24.0-0 kubeadm-1.24.0-0 kubectl-1.24.0-0 --disableexcludes=kubernetes --nogpgcheck
     
+    # 2023-07-18，经过测试，版本号：1.24.15，同样适用于本文章
+    # sudo yum install -y kubelet-1.24.15-0 kubeadm-1.24.15-0 kubectl-1.24.15-0 --disableexcludes=kubernetes --nogpgcheck
+    
     # 如果你看到有人说 node 节点不需要安装 kubectl，其实这种说法是错的，kubectl 会被当做依赖安装，如果安装过程没有指定 kubectl 的版本，则会安装最新版的 kubectl，可能会导致程序运行异常
     sudo yum install -y kubelet-1.25.3-0 kubeadm-1.25.3-0 kubectl-1.25.3-0 --disableexcludes=kubernetes --nogpgcheck
     
