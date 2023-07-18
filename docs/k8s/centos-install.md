@@ -8,30 +8,31 @@ sidebar_position: 1
 
 ## 文档
 
-1. [等等，Docker 被 Kubernetes 弃用了?](https://dev.to/inductor/wait-docker-is-deprecated-in-kubernetes-now-what-do-i-do-e4m)
-2. [容器运行时](https://kubernetes.io/zh-cn/docs/setup/production-environment/container-runtimes/)
-3. [端口和协议](https://kubernetes.io/zh-cn/docs/reference/networking/ports-and-protocols/)
-4. [kubeadm init](https://kubernetes.io/zh-cn/docs/reference/setup-tools/kubeadm/kubeadm-init/)
-5. [kubeadm init phase](https://kubernetes.io/zh-cn/docs/reference/setup-tools/kubeadm/kubeadm-init-phase/)
-6. [kubeadm reset](https://kubernetes.io/zh-cn/docs/reference/setup-tools/kubeadm/kubeadm-reset/)
-7. [kubeadm config](https://kubernetes.io/zh-cn/docs/reference/setup-tools/kubeadm/kubeadm-config/)
-8. [安装网络策略驱动](https://kubernetes.io/zh-cn/docs/tasks/administer-cluster/network-policy-provider/)
-9. [使用 kubeadm 创建集群](https://kubernetes.io/zh-cn/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)
+1. [Kubernetes（k8s）全自动安装配置脚本](https://jihulab.com/xuxiaowei-com-cn/k8s.sh)
+2. [等等，Docker 被 Kubernetes 弃用了?](https://dev.to/inductor/wait-docker-is-deprecated-in-kubernetes-now-what-do-i-do-e4m)
+3. [容器运行时](https://kubernetes.io/zh-cn/docs/setup/production-environment/container-runtimes/)
+4. [端口和协议](https://kubernetes.io/zh-cn/docs/reference/networking/ports-and-protocols/)
+5. [kubeadm init](https://kubernetes.io/zh-cn/docs/reference/setup-tools/kubeadm/kubeadm-init/)
+6. [kubeadm init phase](https://kubernetes.io/zh-cn/docs/reference/setup-tools/kubeadm/kubeadm-init-phase/)
+7. [kubeadm reset](https://kubernetes.io/zh-cn/docs/reference/setup-tools/kubeadm/kubeadm-reset/)
+8. [kubeadm config](https://kubernetes.io/zh-cn/docs/reference/setup-tools/kubeadm/kubeadm-config/)
+9. [安装网络策略驱动](https://kubernetes.io/zh-cn/docs/tasks/administer-cluster/network-policy-provider/)
+10. [使用 kubeadm 创建集群](https://kubernetes.io/zh-cn/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)
     1. [控制平面节点隔离](https://kubernetes.io/zh-cn/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/#control-plane-node-isolation)
-10. [持久卷](https://kubernetes.io/zh-cn/docs/concepts/storage/persistent-volumes/)
-11. [为容器设置环境变量](https://kubernetes.io/zh-cn/docs/tasks/inject-data-application/define-environment-variable-container/)
-12. [在CentOS上安装Docker引擎](https://docs.docker.com/engine/install/centos/)
-13. [Pod 网络无法访问排查处理](https://cloud.tencent.com/document/product/457/40332)
-14. 开始使用 Containerd
+11. [持久卷](https://kubernetes.io/zh-cn/docs/concepts/storage/persistent-volumes/)
+12. [为容器设置环境变量](https://kubernetes.io/zh-cn/docs/tasks/inject-data-application/define-environment-variable-container/)
+13. [在CentOS上安装Docker引擎](https://docs.docker.com/engine/install/centos/)
+14. [Pod 网络无法访问排查处理](https://cloud.tencent.com/document/product/457/40332)
+15. 开始使用 Containerd
     1. [github](https://github.com/containerd/containerd/blob/main/docs/getting-started.md)
     2. [gitcode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/getting-started.md)
-15. Containerd 配置 Docker 加速镜像
+16. Containerd 配置 Docker 加速镜像
     1. [github](https://github.com/containerd/containerd/blob/main/docs/cri/registry.md)
     2. [gitcode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/registry.md)
-16. crictl 用户指南
+17. crictl 用户指南
     1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md)
     2. [GitCode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/crictl.md)
-17. Containerd hosts 配置
+18. Containerd hosts 配置
     1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/hosts.md)
     2. [GitCode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/hosts.md)
 

@@ -6,16 +6,17 @@ sidebar_position: 5
 
 ## 说明
 
-1. 本文以 CentOS 7.9 最小化安装、Kubernetes（k8s）1.25.3 为例（其他 CentOS、k8s
+1. [Kubernetes（k8s）全自动安装配置脚本](https://jihulab.com/xuxiaowei-com-cn/k8s.sh)
+2. 本文以 CentOS 7.9 最小化安装、Kubernetes（k8s）1.25.3 为例（其他 CentOS、k8s
    版本类似），离线包（免费下载）：[https://download.csdn.net/download/qq_32596527/87127488](https://download.csdn.net/download/qq_32596527/87127488)。
-2. 如果没有在有网的环境下安装 Kubernetes（k8s）成功过，也不影响本文离线安装的阅读与学习。
-3. yum 包准备：可通过查阅 [Kubernetes（k8s）安装](/docs/k8s/centos-install.md)
+3. 如果没有在有网的环境下安装 Kubernetes（k8s）成功过，也不影响本文离线安装的阅读与学习。
+4. yum 包准备：可通过查阅 [Kubernetes（k8s）安装](/docs/k8s/centos-install.md)
    文中的 `yum install ***` 命令在后面添加 `--downloadonly --downloaddir=./下载的文件夹` 下载到指定文件夹中获取，或者使用作者提供安装包。
-4. Docker 镜像准备：可通过学习 [Kubernetes（k8s）安装](/docs/k8s/centos-install.md)
+5. Docker 镜像准备：可通过学习 [Kubernetes（k8s）安装](/docs/k8s/centos-install.md)
    安装成功后，使用命令 `ctr -n=k8s.io image list` 查询 k8s 安装成功后，当前使用的 Docker
    镜像，使用命令 `ctr -n=k8s.io image export 导出Docker镜像到磁盘的文件名 Docker镜像名`
-5. Docer 镜像导入：`ctr -n=k8s.io image import Docker镜像导出到磁盘的文件名 Docker镜像名`
-6. 一键生成所需命令参见：[Docker 镜像迁移](https://xuxiaowei-tools.gitee.io/#/docker/images/migrate)
+6. Docer 镜像导入：`ctr -n=k8s.io image import Docker镜像导出到磁盘的文件名 Docker镜像名`
+7. 一键生成所需命令参见：[Docker 镜像迁移](https://xuxiaowei-tools.gitee.io/#/docker/images/migrate)
 
 ## 准备
 
