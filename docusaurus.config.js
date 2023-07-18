@@ -134,6 +134,10 @@ const config = {
               //   to: '/blog',
               // },
               {
+                label: 'Kubernetes（k8s）全自动安装配置脚本',
+                href: 'https://jihulab.com/xuxiaowei-com-cn/k8s.sh',
+              },
+              {
                 label: '工具箱',
                 href: 'https://xuxiaowei-tools.gitee.io',
               },
