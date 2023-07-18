@@ -102,6 +102,23 @@ sidebar_position: 5
            设置成一样的。
         6. 默认安装时， `/etc/containerd/config.toml` 文件内容较少，并且配置不支持
            k8s，需要使用 `sudo containerd config default > /etc/containerd/config.toml`重新生成配置文件。生成前请备份源文件。
+        7. `--kubernetes-version`
+            1. kubeadm 的参数，用于控制镜像的版本
+            2. 如果不使用 `--kubernetes-version` 参数，k8s
+               初始化下载镜像时，会使用<strong><font color="red">`当前次级版本号`</font></strong>
+               的<strong><font color="red">`最新版镜像`</font></strong>，例如：
+                - 安装的 k8s 版本是 1.26.<strong><font color="red">1</font></strong>-0，但是初始化时，下载的镜像版本是
+                  v1.26.<strong><font color="red">6</font></strong>
+                - 如果需要安装的 k8s 是 1.26.<strong><font color="red">1</font></strong>-0，下载的镜像版本也是
+                  1.26.<strong><font color="red">1</font></strong>
+                  ，则需要运行命令 `kubeadm init --kubernetes-version=v1.26.1`，其他参数加在后面即可
+                - 如果想提前查看镜像，运行 `kubeadm config images list --kubernetes-version=v1.26.1`，其他参数加在后面即可
+                - 如果想提前下载镜像，运行 `kubeadm config images pull --kubernetes-version=v1.26.1`，其他参数加在后面即可
+                - 部分镜像举例：
+                    1. registry.k8s.io/kube-apiserver:v1.26.6
+                    2. registry.k8s.io/kube-controller-manager:v1.26.6
+                    3. registry.k8s.io/kube-scheduler:v1.26.6
+                    4. registry.k8s.io/kube-proxy:v1.26.6
 
         ```shell
         # 在有网的电脑上安装 k8s 后，运行下列命令就可以获取到 k8s 初始化时所需的 docker 镜像了

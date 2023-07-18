@@ -32,8 +32,8 @@ sidebar_position: 1
     1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md)
     2. [GitCode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/crictl.md)
 17. Containerd hosts 配置
-     1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/hosts.md)
-     2. [GitCode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/hosts.md)
+    1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/hosts.md)
+    2. [GitCode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/hosts.md)
 
 ## 说明
 
@@ -398,6 +398,23 @@ sidebar_position: 1
     **已上命令需要在控制面板与node节点执行，并确保没有错误与警告**
 
 14. 控制面板：初始化
+    1. `--kubernetes-version`
+        1. kubeadm 的参数，用于控制镜像的版本
+        2. 如果不使用 `--kubernetes-version` 参数，k8s
+           初始化下载镜像时，会使用<strong><font color="red">`当前次级版本号`</font></strong>
+           的<strong><font color="red">`最新版镜像`</font></strong>，例如：
+            - 安装的 k8s 版本是 1.26.<strong><font color="red">1</font></strong>-0，但是初始化时，下载的镜像版本是
+              v1.26.<strong><font color="red">6</font></strong>
+            - 如果需要安装的 k8s 是 1.26.<strong><font color="red">1</font></strong>-0，下载的镜像版本也是
+              1.26.<strong><font color="red">1</font></strong>
+              ，则需要运行命令 `kubeadm init --kubernetes-version=v1.26.1`，其他参数加在后面即可
+            - 如果想提前查看镜像，运行 `kubeadm config images list --kubernetes-version=v1.26.1`，其他参数加在后面即可
+            - 如果想提前下载镜像，运行 `kubeadm config images pull --kubernetes-version=v1.26.1`，其他参数加在后面即可
+            - 部分镜像举例：
+                1. registry.k8s.io/kube-apiserver:v1.26.6
+                2. registry.k8s.io/kube-controller-manager:v1.26.6
+                3. registry.k8s.io/kube-scheduler:v1.26.6
+                4. registry.k8s.io/kube-proxy:v1.26.6
 
     ```shell
     # 初始化前：列举所有所需的镜像
