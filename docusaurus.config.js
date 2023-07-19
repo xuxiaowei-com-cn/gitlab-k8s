@@ -61,6 +61,13 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      metadata: [{
+        name: 'keywords',
+        content: 'gitlab, k8s, kubernetes, docker, shell, VIP, haproxy, keepalived, etcd, nfs, pv, runner, ' +
+            'gitlab runner, CI, CD, CI/CD, Maven, npm, Nexus, SSL, https, UI, dependabot, gitlab-dependabot, ' +
+            'volumes, centos, anolis, 龙蜥, 持续集成, 持续交付, 持续部署, 高可用, 集群, 流水线, 对象储存, 私库, 安装, 编译, ' +
+            '文档, 博客, 徐晓伟, xuxiaowei, xuxiaowei@xuxiaowei.com.cn'
+      }],
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
