@@ -148,6 +148,10 @@ const config = {
                 label: '工具箱',
                 href: 'https://xuxiaowei-tools.gitee.io',
               },
+              {
+                label: '程序开发常用网址',
+                href: 'https://gitee.com/xuxiaowei-com-cn/link',
+              },
             ],
           },
         ],
