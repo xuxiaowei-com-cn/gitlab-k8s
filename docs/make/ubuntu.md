@@ -15,6 +15,7 @@
 2. 异常
     ```shell
     --with-openssl=<path>
+    error while loading shared libraries: libssl.so.3: cannot open shared object file: No such file or directory
     ```
    解决：
     ```shell
