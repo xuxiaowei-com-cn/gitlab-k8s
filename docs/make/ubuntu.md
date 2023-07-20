@@ -97,3 +97,13 @@
     sudo apt update
     sudo apt -y install autoconf
     ```
+
+10. 异常
+    ```shell
+    Please install libnl/libnl-3 dev libraries to support IPv6 with IPVS.
+    ```
+    解决：
+    ```shell
+    apt -y install libnl-3-dev
+    # apt -y install libnl-dev
+    ```

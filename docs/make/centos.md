@@ -170,6 +170,16 @@
     yum -y install systemd-devel
     ```
 
+19. 异常
+    ```shell
+    Please install libnl/libnl-3 dev libraries to support IPv6 with IPVS.
+    ```
+    解决：
+    ```shell
+    yum -y install libnl3-devel
+    # yum -y install libnl-devel
+    ```
+
 ## 总结
 
 1. 如果遇见 `#include <**xxx**.h>`时，什么都不用考虑，直接取执行安装命令：`yum -y install **xxx**-devel`，然后进行重试
