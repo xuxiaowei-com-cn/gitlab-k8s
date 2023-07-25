@@ -11,7 +11,8 @@ Kubernetes（k8s）Dashboard 安装
    ，下面列举最近几版的版本支持（仅列举了 **完全支持的版本范围**）
 4. **国内GitCode镜像仓库**：
     1. [https://gitcode.net/mirrors/kubernetes/dashboard](https://gitcode.net/mirrors/kubernetes/dashboard)
-5. 使用网址如下：只需要换一下标签名
+5. 需要 [安装 Metrics Server](../k8s/metrics-server-install.md) 才能查看资源（内存、CPU）使用情况
+6. 使用网址如下：只需要换一下标签名
     1. [https://gitcode.net/mirrors/kubernetes/dashboard/-/raw/v2.7.0/aio/deploy/recommended.yaml](https://gitcode.net/mirrors/kubernetes/dashboard/-/raw/v2.7.0/aio/deploy/recommended.yaml)
 
 | Kubernetes Dashboard 版本 | Kubernetes 版本 | 执行命令                                                                                                                                                                                                    |
