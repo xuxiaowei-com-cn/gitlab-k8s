@@ -42,7 +42,9 @@ sidebar_position: 9
     28. [/etc/kubernetes/kubelet.conf](/ca/kubelet.conf)
     29. [/etc/kubernetes/controller-manager.conf](/ca/controller-manager.conf)
     30. [/etc/kubernetes/scheduler.conf](/ca/scheduler.conf)
-5. k8s 配置文件说明
+5. 证书之间的关系
+   ![kleopatra-1.png](static/kleopatra-1.png)
+6. k8s 配置文件说明
     1. [/etc/kubernetes/admin.conf](/ca/admin.conf)
         - clusters.cluster.certificate-authority-data
             1. [/etc/kubernetes/pki/ca.crt](/ca/pki/ca.crt) 文件内容计算 Base64 可得
