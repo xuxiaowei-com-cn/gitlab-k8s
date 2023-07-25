@@ -381,25 +381,25 @@ sidebar_position: 1
     sudo systemctl enable kubelet
     ```
 
-11. 查看kubelet日志
+11. 查看kubelet日志（***k8s 未初始化时，kubelet 日志可能存在持续报错***）
 
     ```shell
     # k8s 未初始化时，kubelet 可能无法启动
     journalctl -xefu kubelet
     ```
 
-12. 查看kubelet状态
+12. 查看kubelet状态（***k8s 未初始化时，kubelet 状态可能存在异常***）
 
     ```shell
     # k8s 未初始化时，kubelet 可能无法启动
     sudo systemctl status kubelet
     ```
 
-13. **已上命令需要在控制面板与node节点执行，并确保没有错误与警告**
+13. **以上命令需要在控制面板与node节点执行，并确保没有错误与警告**
 
-    **已上命令需要在控制面板与node节点执行，并确保没有错误与警告**
+    **以上命令需要在控制面板与node节点执行，并确保没有错误与警告**
 
-    **已上命令需要在控制面板与node节点执行，并确保没有错误与警告**
+    **以上命令需要在控制面板与node节点执行，并确保没有错误与警告**
 
 14. 控制面板：初始化
     1. `--kubernetes-version`

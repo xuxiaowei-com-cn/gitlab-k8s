@@ -29,7 +29,7 @@ Kubernetes（k8s）Dashboard 安装
 1. https://github.com/kubernetes/dashboard/blob/master/docs/user/accessing-dashboard/README.md
 2. https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/README.md
 3. https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
-4. 已上参考连接列举的都是最新版，请结合自身的版本选择对应的标签
+4. 以上参考连接列举的都是最新版，请结合自身的版本选择对应的标签
 5. 国内 GitCode
    镜像仓库：[https://gitcode.net/mirrors/kubernetes/dashboard](https://gitcode.net/mirrors/kubernetes/dashboard)
 

@@ -25,7 +25,7 @@ sidebar_position: 2
    |----------------------|---------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
    | k8s 配置文件             | https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.3/components.yaml              | https://jihulab.com/xuxiaowei-com-cn/k8s.sh/-/raw/main/mirrors/kubernetes-sigs/metrics-server/v0.6.3/components.yaml              |
    | k8s 高可用配置文件          | https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.3/high-availability.yaml       | https://jihulab.com/xuxiaowei-com-cn/k8s.sh/-/raw/main/mirrors/kubernetes-sigs/metrics-server/v0.6.3/high-availability.yaml       |
-   | k8s 1.21+ 已上 高可用配置文件 | https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.3/high-availability-1.21+.yaml | https://jihulab.com/xuxiaowei-com-cn/k8s.sh/-/raw/main/mirrors/kubernetes-sigs/metrics-server/v0.6.3/high-availability-1.21+.yaml |
+   | k8s 1.21+ 以上 高可用配置文件 | https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.3/high-availability-1.21+.yaml | https://jihulab.com/xuxiaowei-com-cn/k8s.sh/-/raw/main/mirrors/kubernetes-sigs/metrics-server/v0.6.3/high-availability-1.21+.yaml |
 
 8. 未安装 Metrics Server 查看 pod 内存、CPU 将报错
 
