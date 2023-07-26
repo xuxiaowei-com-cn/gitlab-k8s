@@ -63,11 +63,11 @@ sidebar_position: 1
     ```
 
     ```shell
-    sudo systemctl status docker.service
+    sudo systemctl status docker.service -n 0
     ```
 
     ```shell
-    sudo systemctl status docker.socket
+    sudo systemctl status docker.socket -n 0
     ```
 
 2. 设置 Docker 镜像
