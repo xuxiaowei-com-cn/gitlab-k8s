@@ -27,9 +27,6 @@
 | 8.6 正式版      | https://mirrors.openanolis.cn/anolis/8.6/isos/GA/x86_64/     |
 | 8.6 优选更新版本   | https://mirrors.openanolis.cn/anolis/8.6/isos/QU1/x86_64/    |
 | 8.8 正式版      | https://mirrors.openanolis.cn/anolis/8.8/isos/GA/x86_64/     |
-| 23 内测版       | https://mirrors.openanolis.cn/anolis/23/isos/ALPHA/x86_64/   |
-| 23 公测版       | https://mirrors.openanolis.cn/anolis/23/isos/BETA/x86_64/    |
-| 23 正式版       | https://mirrors.openanolis.cn/anolis/23/isos/GA/x86_64/      |
 | 23.0 内测版     | https://mirrors.openanolis.cn/anolis/23.0/isos/ALPHA/x86_64/ |
 | 23.0 公测版     | https://mirrors.openanolis.cn/anolis/23.0/isos/BETA/x86_64/  |
 | 23.0 正式版     | https://mirrors.openanolis.cn/anolis/23.0/isos/GA/x86_64/    |
