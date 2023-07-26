@@ -1,4 +1,4 @@
-# 乌班图 Ubuntu 下载
+# Ubuntu 乌班图 下载
 
 1. [https://releases.ubuntu.com/](https://releases.ubuntu.com/)
 2. [https://old-releases.ubuntu.com/releases/](https://old-releases.ubuntu.com/releases/)
