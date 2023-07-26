@@ -457,7 +457,7 @@ sidebar_position: 1
     # kubeadm join 192.168.80.60:6443 --token f9lvrz.59mykzssqw6vjh32 \
     # --discovery-token-ca-cert-hash sha256:4e23156e2f71c5df52dfd2b9b198cce5db27c47707564684ea74986836900107 	
     
-    #
+    # 生成 node 节点加入集群的命令
     # kubeadm token create --print-join-command
     ```
 
