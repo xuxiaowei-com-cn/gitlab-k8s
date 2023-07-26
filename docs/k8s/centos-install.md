@@ -445,7 +445,8 @@ sidebar_position: 1
     sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     sudo chown $(id -u):$(id -g) $HOME/.kube/config
     
-    # 或者在环境变量中添加：export KUBECONFIG=/etc/kubernetes/admin.conf
+    # 或者在环境变量文件 /etc/profile 中添加：export KUBECONFIG=/etc/kubernetes/admin.conf
+    # 添加环境变量的命令：echo 'export KUBECONFIG=/etc/kubernetes/admin.conf' >>/etc/profile
     # 添加完环境变量后，刷新环境变量：source /etc/profile
     
     kubectl cluster-info
