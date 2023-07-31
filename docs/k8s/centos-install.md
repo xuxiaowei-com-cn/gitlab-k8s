@@ -511,17 +511,17 @@ sidebar_position: 1
 
 17. 控制面板：配置网络，选择 Calico 配置，归档文档：[https://docs.tigera.io/archive/](https://docs.tigera.io/archive/)
 
-    | Kubernetes 版本       | Calico 版本                        | Calico 文档                                                                                                                                                       | Calico 配置                                                                                                                                                                    |
-    |---------------------|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | 1.18、1.19、1.20      | 3.18                             | [https://docs.tigera.io/archive/v3.18/getting-started/kubernetes/requirements](https://docs.tigera.io/archive/v3.18/getting-started/kubernetes/requirements)    | [https://docs.tigera.io/archive/v3.18/manifests/calico.yaml](https://docs.tigera.io/archive/v3.18/manifests/calico.yaml)                                                     |
-    | 1.19、1.20、1.21      | 3.19                             | [https://docs.tigera.io/archive/v3.19/getting-started/kubernetes/requirements](https://docs.tigera.io/archive/v3.19/getting-started/kubernetes/requirements)    | [https://docs.tigera.io/archive/v3.19/manifests/calico.yaml](https://docs.tigera.io/archive/v3.19/manifests/calico.yaml)                                                     |
-    | 1.19、1.20、1.21      | 3.20                             | [https://docs.tigera.io/archive/v3.20/getting-started/kubernetes/requirements](https://docs.tigera.io/archive/v3.20/getting-started/kubernetes/requirements)    | [https://docs.tigera.io/archive/v3.20/manifests/calico.yaml](https://docs.tigera.io/archive/v3.20/manifests/calico.yaml)                                                     |
-    | 1.20、1.21、1.22      | 3.21                             | [https://docs.tigera.io/archive/v3.21/getting-started/kubernetes/requirements](https://docs.tigera.io/archive/v3.21/getting-started/kubernetes/requirements)    | [https://docs.tigera.io/archive/v3.21/manifests/calico.yaml](https://docs.tigera.io/archive/v3.21/manifests/calico.yaml)                                                     |
-    | 1.21、1.22、1.23      | 3.22                             | [https://docs.tigera.io/archive/v3.22/getting-started/kubernetes/requirements](https://docs.tigera.io/archive/v3.22/getting-started/kubernetes/requirements)    | [https://docs.tigera.io/archive/v3.22/manifests/calico.yaml](https://docs.tigera.io/archive/v3.22/manifests/calico.yaml)                                                     |
-    | 1.21、1.22、1.23      | 3.23                             | [https://docs.tigera.io/archive/v3.23/getting-started/kubernetes/requirements](https://docs.tigera.io/archive/v3.23/getting-started/kubernetes/requirements)    | [https://docs.tigera.io/archive/v3.23/manifests/calico.yaml](https://docs.tigera.io/archive/v3.23/manifests/calico.yaml)                                                     |
-    | 1.22、1.23、1.24、1.25 | 3.24                             | [https://docs.tigera.io/archive/v3.24/getting-started/kubernetes/requirements](https://docs.tigera.io/archive/v3.24/getting-started/kubernetes/requirements)    | [https://docs.tigera.io/archive/v3.24/manifests/calico.yaml](https://docs.tigera.io/archive/v3.24/manifests/calico.yaml)                                                     |
-    | 1.22、1.23、1.24      | 3.25                             | [https://docs.tigera.io/archive/v3.25/getting-started/kubernetes/requirements](https://docs.tigera.io/archive/v3.25/getting-started/kubernetes/requirements)    | [https://docs.tigera.io/archive/v3.25/manifests/calico.yaml](https://docs.tigera.io/archive/v3.25/manifests/calico.yaml)                                                     |
-    | 1.24、1.25、1.26、1.27 | 3.26（最新版，从 2023 年 5 月开始正式更新，未测试） | [https://docs.tigera.io/calico/latest/getting-started/kubernetes/requirements](https://docs.tigera.io/calico/latest/getting-started/kubernetes/requirements)    | [https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/calico.yaml](https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/calico.yaml) |
+    | Kubernetes 版本       | Calico 版本                        | Calico 文档                                                                    | Calico 配置                                                                            |
+    |---------------------|----------------------------------|------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+    | 1.18、1.19、1.20      | 3.18                             | https://docs.tigera.io/archive/v3.18/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.18/manifests/calico.yaml                           |
+    | 1.19、1.20、1.21      | 3.19                             | https://docs.tigera.io/archive/v3.19/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.19/manifests/calico.yaml                           |
+    | 1.19、1.20、1.21      | 3.20                             | https://docs.tigera.io/archive/v3.20/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.20/manifests/calico.yaml                           |
+    | 1.20、1.21、1.22      | 3.21                             | https://docs.tigera.io/archive/v3.21/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.21/manifests/calico.yaml                           |
+    | 1.21、1.22、1.23      | 3.22                             | https://docs.tigera.io/archive/v3.22/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.22/manifests/calico.yaml                           |
+    | 1.21、1.22、1.23      | 3.23                             | https://docs.tigera.io/archive/v3.23/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.23/manifests/calico.yaml                           |
+    | 1.22、1.23、1.24、1.25 | 3.24                             | https://docs.tigera.io/archive/v3.24/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.24/manifests/calico.yaml                           |
+    | 1.22、1.23、1.24      | 3.25                             | https://docs.tigera.io/archive/v3.25/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.25/manifests/calico.yaml                           |
+    | 1.24、1.25、1.26、1.27 | 3.26（最新版，从 2023 年 5 月开始正式更新，未测试） | https://docs.tigera.io/calico/latest/getting-started/kubernetes/requirements | https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/calico.yaml |
 
     ```shell
     # 下载
@@ -538,7 +538,9 @@ sidebar_position: 1
     # 在 - name: CLUSTER_TYPE 下方添加如下内容
     - name: CLUSTER_TYPE
       value: "k8s,bgp"
-      # 下方为新增内容
+    # 下方为新增内容
+    # 如果集群服务器中存在不同的网卡名称，需要在这里将每台服务器所使用的网卡名称全部填写（使用英文逗号分隔），否则网络无法使用，一直报错
+    # 例如：集群一共存在10台机器，其中有些机器的网卡名称是 ens33，有些是 eth0，有些是 enp9s0f0，则网卡配置为 interface=ens33,eth0,enp9s0f0
     - name: IP_AUTODETECTION_METHOD
       value: "interface=网卡名称"
     
