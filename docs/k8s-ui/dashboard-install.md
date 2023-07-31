@@ -136,9 +136,49 @@ Kubernetes（k8s）Dashboard 安装
 8. 获取持有者令牌
 
    ```shell
-   # 指定有效期：--duration=315360000s
-   # 315360000s 代表 10年
    kubectl -n kubernetes-dashboard create token admin-user
+   
+   # 1 天
+   # kubectl -n kubernetes-dashboard create token admin-user --duration=86400s
+   
+   # 3 天
+   # kubectl -n kubernetes-dashboard create token admin-user --duration=259200s
+   
+   # 7 天
+   # kubectl -n kubernetes-dashboard create token admin-user --duration=604800s
+   
+   # 14 天
+   # kubectl -n kubernetes-dashboard create token admin-user --duration=1209600s
+   
+   # 1 个月
+   # kubectl -n kubernetes-dashboard create token admin-user --duration=2592000s
+   
+   # 2 个月
+   # kubectl -n kubernetes-dashboard create token admin-user --duration=5184000s
+   
+   # 3 个月
+   # kubectl -n kubernetes-dashboard create token admin-user --duration=7776000s
+   
+   # 6 个月
+   # kubectl -n kubernetes-dashboard create token admin-user --duration=15552000s
+   
+   # 1 年
+   # kubectl -n kubernetes-dashboard create token admin-user --duration=31536000s
+   
+   # 2 年
+   # kubectl -n kubernetes-dashboard create token admin-user --duration=62208000s
+   
+   # 3 年
+   # kubectl -n kubernetes-dashboard create token admin-user --duration=94608000s
+   
+   # 5 年
+   # kubectl -n kubernetes-dashboard create token admin-user --duration=157680000s
+   
+   # 10 年
+   # kubectl -n kubernetes-dashboard create token admin-user --duration=315360000s
+   
+   # 100 年
+   # kubectl -n kubernetes-dashboard create token admin-user --duration=3153600000s
    ```
 
 9. 使用上述令牌即可登录系统
