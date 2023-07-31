@@ -12,10 +12,11 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
+        os: [ "ubuntu-latest" ]
         node-version: [14.x, 16.x, 18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
@@ -35,9 +36,9 @@ jobs:
           path: |
             ~/.npm
             ~/.cache
-          key: ubuntu-latest-${{ hashFiles('package.json') }}
+          key: ${{ matrix.os }}-${{ hashFiles('package.json') }}
           restore-keys: |
-            ubuntu-latest-
+            ${{ matrix.os }}-
 
       - run: npm i
 
