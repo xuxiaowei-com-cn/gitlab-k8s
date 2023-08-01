@@ -18,8 +18,11 @@ sidebar_position: 6
 
    ![image.png](static/docker-repository-2.png)
 
-3. 访问 [阿里云-容器镜像服务](https://cr.console.aliyun.com)
-   ，查看镜像加速地址：[https://hnkfbj7x.mirror.aliyuncs.com](https://hnkfbj7x.mirror.aliyuncs.com)
+3. 访问 [阿里云-容器镜像服务](https://cr.console.aliyun.com)，查看自己账户下镜像加速地址
+    1. 作者本人 阿里云-容器镜像服务 加速地址：https://hnkfbj7x.mirror.aliyuncs.com
+    2. 网易 加速地址：https://hub-mirror.c.163.com
+    3. 阿里云 谷歌镜像（只能加速谷歌镜像，设置时只用域名，拉取时，需要带 google_containers
+       前缀）：https://registry.aliyuncs.com/google_containers
 
    ![image.png](static/docker-repository-3.png)
 
