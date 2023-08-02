@@ -9,29 +9,33 @@ sidebar_position: 2
 ## 说明
 
 1. 官方github仓库：[https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server)
-2. Metrics Server 是一个 Kubernetes 组件，用于收集群集中的容器和节点的资源度量指标，并将这些指标提供给用户和其他组件。Metrics
+2. 个人镜像：https://jihulab.com/xuxiaowei-com-cn/k8s.sh/-/tree/main/mirrors/kubernetes-sigs/metrics-server
+3. Metrics Server 是一个 Kubernetes 组件，用于收集群集中的容器和节点的资源度量指标，并将这些指标提供给用户和其他组件。Metrics
    Server 采集的指标包括CPU使用率、内存使用率、网络流量等。这些指标可以帮助用户了解应用程序、服务以及它们所在的节点和容器的健康情况，帮助用户优化资源使用和应用程序性能。
-3. Metrics Server 可以通过 Kubernetes API Server 提供度量指标查询接口，以支持其他组件、工具和应用程序对度量指标进行查询、监控、告警等操作。Metrics
+4. Metrics Server 可以通过 Kubernetes API Server 提供度量指标查询接口，以支持其他组件、工具和应用程序对度量指标进行查询、监控、告警等操作。Metrics
    Server 还支持自动横向扩展，以适应更大规模的 Kubernetes 集群。总之，Metrics Server
    可以帮助用户更好地管理和优化Kubernetes集群中的资源使用和应用程序性能。
-4. 不使用 helm，所以只需关注 `v*.*.*`的标签（即：不含 helm 的标签）
-5. 版本介绍：
-    1. [https://github.com/kubernetes-sigs/metrics-server#compatibility-matrix](https://github.com/kubernetes-sigs/metrics-server#compatibility-matrix)
-6. 本文以 v0.6.3 为例（其他版本仅需更换下面的链接中的 v0.6.3）
+5. 不使用 helm，所以只需关注 `v*.*.*`的标签（即：不含 helm 的标签）
+6. 版本介绍：
+    1. [GitHub](https://github.com/kubernetes-sigs/metrics-server#compatibility-matrix)
+    2. [GitCode](https://gitcode.net/mirrors/kubernetes-sigs/metrics-server#compatibility-matrix)
+7. 本文以 v0.6.3 为例（其他版本仅需更换下面的链接中的 v0.6.3）
 
-   | 文件类型                 | 文件链接                                                                                                                                                                                                               |
-   |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | k8s 配置文件             | [https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.3/components.yaml](https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.3/components.yaml)                           |
-   | k8s 高可用配置文件          | [https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.3/high-availability.yaml](https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.3/high-availability.yaml)             |
-   | k8s 1.21+ 已上 高可用配置文件 | [https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.3/high-availability-1.21+.yaml](https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.3/high-availability-1.21+.yaml) |
+   | 文件类型                 | 文件链接                                                                                                    | 个人镜像                                                                                                                              |
+   |----------------------|---------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+   | k8s 配置文件             | https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.3/components.yaml              | https://jihulab.com/xuxiaowei-com-cn/k8s.sh/-/raw/main/mirrors/kubernetes-sigs/metrics-server/v0.6.3/components.yaml              |
+   | k8s 高可用配置文件          | https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.3/high-availability.yaml       | https://jihulab.com/xuxiaowei-com-cn/k8s.sh/-/raw/main/mirrors/kubernetes-sigs/metrics-server/v0.6.3/high-availability.yaml       |
+   | k8s 1.21+ 以上 高可用配置文件 | https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.3/high-availability-1.21+.yaml | https://jihulab.com/xuxiaowei-com-cn/k8s.sh/-/raw/main/mirrors/kubernetes-sigs/metrics-server/v0.6.3/high-availability-1.21+.yaml |
 
-7. 未安装 Metrics Server 查看 pod 内存、CPU 将报错
+8. 未安装 Metrics Server 查看 pod 内存、CPU 将报错
 
-```shell
-[root@k8s ~]# kubectl top pods --all-namespaces
-error: Metrics API not available
-[root@k8s ~]# 
-```
+    ```shell
+    [root@k8s ~]# kubectl top pods --all-namespaces
+    error: Metrics API not available
+    [root@k8s ~]# 
+    ```
+
+9. 未安装 Metrics Server 时，Kubernetes Dashboard 无法查看资源（内存、CPU）使用情况
 
 ## 配置
 

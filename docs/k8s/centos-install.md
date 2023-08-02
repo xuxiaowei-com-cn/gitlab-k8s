@@ -207,7 +207,7 @@ sidebar_position: 1
     sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     
     # 启动 docker 时，会启动 containerd
-    # sudo systemctl status containerd.service
+    # sudo systemctl status containerd.service -n 0
     sudo systemctl stop containerd.service
     
     sudo cp /etc/containerd/config.toml /etc/containerd/config.toml.bak
@@ -226,11 +226,11 @@ sidebar_position: 1
     
     
     sudo systemctl enable --now containerd.service
-    # sudo systemctl status containerd.service
+    # sudo systemctl status containerd.service -n 0
     
-    # sudo systemctl status docker.service
+    # sudo systemctl status docker.service -n 0
     sudo systemctl start docker.service
-    # sudo systemctl status docker.service
+    # sudo systemctl status docker.service -n 0
     sudo systemctl enable docker.service
     sudo systemctl enable docker.socket
     sudo systemctl list-unit-files | grep docker
@@ -248,8 +248,8 @@ sidebar_position: 1
     sudo systemctl restart docker
     sudo docker info
     
-    sudo systemctl status docker.service
-    sudo systemctl status containerd.service
+    sudo systemctl status docker.service -n 0
+    sudo systemctl status containerd.service -n 0
     ```
 
     ```shell
@@ -381,25 +381,25 @@ sidebar_position: 1
     sudo systemctl enable kubelet
     ```
 
-11. 查看kubelet日志
+11. 查看kubelet日志（***k8s 未初始化时，kubelet 日志可能存在持续报错***）
 
     ```shell
     # k8s 未初始化时，kubelet 可能无法启动
     journalctl -xefu kubelet
     ```
 
-12. 查看kubelet状态
+12. 查看kubelet状态（***k8s 未初始化时，kubelet 状态可能存在异常***）
 
     ```shell
     # k8s 未初始化时，kubelet 可能无法启动
     sudo systemctl status kubelet
     ```
 
-13. **已上命令需要在控制面板与node节点执行，并确保没有错误与警告**
+13. **以上命令需要在控制面板与node节点执行，并确保没有错误与警告**
 
-    **已上命令需要在控制面板与node节点执行，并确保没有错误与警告**
+    **以上命令需要在控制面板与node节点执行，并确保没有错误与警告**
 
-    **已上命令需要在控制面板与node节点执行，并确保没有错误与警告**
+    **以上命令需要在控制面板与node节点执行，并确保没有错误与警告**
 
 14. 控制面板：初始化
     1. `--kubernetes-version`
@@ -445,7 +445,8 @@ sidebar_position: 1
     sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     sudo chown $(id -u):$(id -g) $HOME/.kube/config
     
-    # 或者在环境变量中添加：export KUBECONFIG=/etc/kubernetes/admin.conf
+    # 或者在环境变量文件 /etc/profile 中添加：export KUBECONFIG=/etc/kubernetes/admin.conf
+    # 添加环境变量的命令：echo 'export KUBECONFIG=/etc/kubernetes/admin.conf' >>/etc/profile
     # 添加完环境变量后，刷新环境变量：source /etc/profile
     
     kubectl cluster-info
@@ -456,7 +457,7 @@ sidebar_position: 1
     # kubeadm join 192.168.80.60:6443 --token f9lvrz.59mykzssqw6vjh32 \
     # --discovery-token-ca-cert-hash sha256:4e23156e2f71c5df52dfd2b9b198cce5db27c47707564684ea74986836900107 	
     
-    #
+    # 生成 node 节点加入集群的命令
     # kubeadm token create --print-join-command
     ```
 
@@ -537,7 +538,9 @@ sidebar_position: 1
     # 在 - name: CLUSTER_TYPE 下方添加如下内容
     - name: CLUSTER_TYPE
       value: "k8s,bgp"
-      # 下方为新增内容
+    # 下方为新增内容
+    # 如果集群服务器中存在不同的网卡名称，需要在这里将每台服务器所使用的网卡名称全部填写（使用英文逗号分隔），否则网络无法使用，一直报错
+    # 例如：集群一共存在10台机器，其中有些机器的网卡名称是 ens33，有些是 eth0，有些是 enp9s0f0，则网卡配置为 interface=ens33,eth0,enp9s0f0
     - name: IP_AUTODETECTION_METHOD
       value: "interface=网卡名称"
     

@@ -272,7 +272,7 @@ sidebar_position: 5
     cd ..
     
     # 启动 docker 时，会启动 containerd
-    # sudo systemctl status containerd.service
+    # sudo systemctl status containerd.service -n 0
     sudo systemctl stop containerd.service
     
     sudo cp /etc/containerd/config.toml /etc/containerd/config.toml.bak
@@ -286,11 +286,11 @@ sidebar_position: 5
     sudo sed -i "s#SystemdCgroup = false#SystemdCgroup = true#g" /etc/containerd/config.toml
     
     sudo systemctl enable --now containerd.service
-    # sudo systemctl status containerd.service
+    # sudo systemctl status containerd.service -n 0
     
-    # sudo systemctl status docker.service
+    # sudo systemctl status docker.service -n 0
     sudo systemctl start docker.service
-    # sudo systemctl status docker.service
+    # sudo systemctl status docker.service -n 0
     sudo systemctl enable docker.service
     sudo systemctl enable docker.socket
     sudo systemctl list-unit-files | grep docker
@@ -308,11 +308,11 @@ sidebar_position: 5
     ```
 
     ```shell
-    sudo systemctl status docker.service
+    sudo systemctl status docker.service -n 0
     ```
 
     ```shell
-    sudo systemctl status containerd.service
+    sudo systemctl status containerd.service -n 0
     ```
 
 7. 安装 k8s
