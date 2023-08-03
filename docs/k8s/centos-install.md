@@ -254,6 +254,7 @@ sidebar_position: 1
 
     ```shell
     # 开启 crictl 配置（可选）
+    # 安装完 k8s 后，才有 crictl 命令
     # 参考：
     # GitHub：https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md
     # GitCode：https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/crictl.md

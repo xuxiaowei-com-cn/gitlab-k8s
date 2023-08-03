@@ -67,6 +67,7 @@ sidebar_position: 7
    如果没有配置，则执行命令进行配置
     ```shell
     # 开启 crictl 配置
+    # 安装完 k8s 后，才有 crictl 命令
     # 参考：
     # GitHub：https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md
     # GitCode：https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/crictl.md
@@ -166,6 +167,7 @@ sidebar_position: 7
    如果没有配置，则执行命令进行配置
     ```shell
     # 开启 crictl 配置
+    # 安装完 k8s 后，才有 crictl 命令
     # 参考：
     # GitHub：https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md
     # GitCode：https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/crictl.md
