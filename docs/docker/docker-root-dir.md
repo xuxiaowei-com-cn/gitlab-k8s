@@ -191,7 +191,7 @@ sidebar_position: 2
      systemctl start docker.service
      ```
 
-11. 查看数据储存路径
+11. 查看数据储存路径（第二次）
 
      ```shell
      docker info | grep "Docker Root Dir"
