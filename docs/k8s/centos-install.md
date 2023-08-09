@@ -203,6 +203,11 @@ sidebar_position: 1
     # 搜索 docker 版本
     # yum --showduplicates list docker-ce
     
+    # 搜索 docker-ce 版本号
+    # yum --showduplicates list docker-ce
+    # 搜索 docker-ce-cli 版本号
+    # yum --showduplicates list docker-ce-cli
+    
     # 安装 docker
     sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     
@@ -325,8 +330,11 @@ sidebar_position: 1
     ```
 
     ```shell
+    # 搜索 kubelet 版本号
     # yum --showduplicates list kubelet --nogpgcheck
+    # 搜索 kubeadm 版本号
     # yum --showduplicates list kubeadm --nogpgcheck
+    # 搜索 kubectl 版本号
     # yum --showduplicates list kubectl --nogpgcheck
     
     # 2023-02-07，经过测试，版本号：1.24.0，同样适用于本文章
