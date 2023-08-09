@@ -543,6 +543,10 @@ sidebar_position: 1
     vim calico.yaml
     ```
 
+    <div><strong><font color="red">上下对齐，注意格式</font></strong></div>
+    <div><strong><font color="red">上下对齐，注意格式</font></strong></div>
+    <div><strong><font color="red">上下对齐，注意格式</font></strong></div>
+
     ```shell
     # 在 - name: CLUSTER_TYPE 下方添加如下内容
     - name: CLUSTER_TYPE
@@ -553,7 +557,7 @@ sidebar_position: 1
     - name: IP_AUTODETECTION_METHOD
       value: "interface=网卡名称"
     
-    
+    # 下面是使用命令修改 calico.yaml 文件
     # INTERFACE_NAME=ens33
     # sed -i '/k8s,bgp/a \            - name: IP_AUTODETECTION_METHOD\n              value: "interface=INTERFACE_NAME"' calico.yaml
     # sed -i "s#INTERFACE_NAME#$INTERFACE_NAME#g" calico.yaml
