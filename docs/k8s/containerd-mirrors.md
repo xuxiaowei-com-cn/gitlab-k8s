@@ -27,6 +27,7 @@ sidebar_position: 7
    命令</font>
 8. <font color="red">在 `[plugins."io.containerd.grpc.v1.cri".registry]` 中配置 `config_path`，同时支持 `ctr`、`crictl`
    命令</font>
+
     1. 在 `[plugins."io.containerd.grpc.v1.cri".registry]` 中配置 `config_path` 时，需要 文件夹、文件 必须存在，否则命令无法运行
     2. 在 `[plugins."io.containerd.grpc.v1.cri".registry]` 中配置 `config_path`、
        在 `[plugins."io.containerd.grpc.v1.cri".registry.mirrors]` 中配置 `域名` 对于 crictl 是等效的
