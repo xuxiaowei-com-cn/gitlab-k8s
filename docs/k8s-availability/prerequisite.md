@@ -133,7 +133,7 @@ Kubernetes（k8s）高可用集群1：前提条件
     sudo yum install -y containerd
     
     # 启动 docker 时，会启动 containerd
-    # sudo systemctl status containerd.service -n 0
+    # sudo systemctl status containerd.service --no-pager
     sudo systemctl stop containerd.service
     
     sudo cp /etc/containerd/config.toml /etc/containerd/config.toml.bak
@@ -152,11 +152,11 @@ Kubernetes（k8s）高可用集群1：前提条件
     
     
     sudo systemctl enable --now containerd.service
-    # sudo systemctl status containerd.service -n 0
+    # sudo systemctl status containerd.service --no-pager
     
-    # sudo systemctl status docker.service -n 0
+    # sudo systemctl status docker.service --no-pager
     sudo systemctl start docker.service
-    # sudo systemctl status docker.service -n 0
+    # sudo systemctl status docker.service --no-pager
     sudo systemctl enable docker.service
     sudo systemctl enable docker.socket
     sudo systemctl list-unit-files | grep docker
@@ -174,6 +174,6 @@ Kubernetes（k8s）高可用集群1：前提条件
     sudo systemctl restart docker
     sudo docker info
     
-    sudo systemctl status docker.service -n 0
-    sudo systemctl status containerd.service -n 0
+    sudo systemctl status docker.service --no-pager
+    sudo systemctl status containerd.service --no-pager
     ```

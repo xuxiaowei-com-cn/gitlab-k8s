@@ -212,7 +212,7 @@ sidebar_position: 1
     sudo yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
     
     # 启动 docker 时，会启动 containerd
-    # sudo systemctl status containerd.service -n 0
+    # sudo systemctl status containerd.service --no-pager
     sudo systemctl stop containerd.service
     
     sudo cp /etc/containerd/config.toml /etc/containerd/config.toml.bak
@@ -231,11 +231,11 @@ sidebar_position: 1
     
     
     sudo systemctl enable --now containerd.service
-    # sudo systemctl status containerd.service -n 0
+    # sudo systemctl status containerd.service --no-pager
     
-    # sudo systemctl status docker.service -n 0
+    # sudo systemctl status docker.service --no-pager
     sudo systemctl start docker.service
-    # sudo systemctl status docker.service -n 0
+    # sudo systemctl status docker.service --no-pager
     sudo systemctl enable docker.service
     sudo systemctl enable docker.socket
     sudo systemctl list-unit-files | grep docker
@@ -253,8 +253,8 @@ sidebar_position: 1
     sudo systemctl restart docker
     sudo docker info
     
-    sudo systemctl status docker.service -n 0
-    sudo systemctl status containerd.service -n 0
+    sudo systemctl status docker.service --no-pager
+    sudo systemctl status containerd.service --no-pager
     ```
 
     ```shell
