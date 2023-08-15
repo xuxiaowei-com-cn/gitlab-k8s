@@ -1,0 +1,8 @@
+{
+  "label": "Elasticsearch",
+  "position": 1301,
+  "link": {
+    "type": "generated-index",
+    "description": "Elasticsearch 安装配置"
+  }
+}
