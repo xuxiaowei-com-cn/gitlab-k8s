@@ -60,14 +60,14 @@ INTERFACE_NAME=ens33
 ## 单机集群配置需求参考
 
 1. Kubernetes 1.26.2
-2. calico 3.25
+2. calico 3.26
 3. etcd 3.5.6-0 单机
 4. 基础内存合计：使用 CentOS 7.9 最小化安装，包含系统内存消耗，基础内存共消耗 1.2G
 
 ## 高可用集群配置需求参考
 
 1. kubernetes 1.26.2
-2. calico 3.25
+2. calico 3.26
 3. kubernetes-dashboard 2.7.0（大概需要 150M，可选）
 4. kube-prometheus 0.12.0（大概需要 5.25G，可选）
 5. metrics-server 0.6.3 高可用（可选）
