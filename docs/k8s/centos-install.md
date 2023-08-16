@@ -382,6 +382,9 @@ sidebar_position: 1
     # 2023-06-26，经过测试，版本号：1.27.3，同样适用于本文章
     # sudo yum install -y kubelet-1.27.3-0 kubeadm-1.27.3-0 kubectl-1.27.3-0 --disableexcludes=kubernetes --nogpgcheck
     
+    # 2023-08-16，经过测试，版本号：1.28.0，同样适用于本文章
+    # sudo yum install -y kubelet-1.28.0-0 kubeadm-1.28.0-0 kubectl-1.28.0-0 --disableexcludes=kubernetes --nogpgcheck
+    
     # 安装最新版，生产时不建议
     # sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes --nogpgcheck
     
