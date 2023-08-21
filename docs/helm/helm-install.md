@@ -122,6 +122,7 @@ sidebar_position: 1
 
     ```shell
     # 卸载使用 uninstall
+    # -n：指定命名空间
     helm install mysite bitnami/drupal
     ```
    执行结果
@@ -154,6 +155,7 @@ sidebar_position: 1
     ```shell
     # 卸载使用 uninstall
     # --generate-name：根据名称与当前时间戳自动生成 name
+    # -n：指定命名空间
     helm install bitnami/mysql --generate-name
     ```
    执行结果
@@ -213,6 +215,8 @@ sidebar_position: 1
    helm ls
    
    # helm list
+   # -n：指定命名空间
+   # --all-namespaces：查看所有命名空间
    ```
 
 7. 卸载一个版本
