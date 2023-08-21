@@ -2,15 +2,19 @@
 sidebar_position: 1
 ---
 
-# helm 安装配置（未完成）
+# helm 安装配置
 
-## 问题
+## 问题1
 
 1. 第一次发布的服务：A、C、E、H、K 等服务，需要新增配置参数等内容
 2. 第二次发布的服务：A、B、H、L、P 等服务，需要删除配置参数等内容
 3. 第三次发布的服务：A、Y、E、S、X 等服务，需要新增、删除、修改配置参数等内容
 4. ......
 5. 无论是发布和回滚（包含对多个环境的发布，比如测试环境、正式环境等），对于操作者，都是一个个噩梦
+
+## 问题2
+
+1. 某些稍显复杂的软件对于容器（k8s）技术可能只有 charts 版，如果涉及高可用，可能仅提供 charts 版
 
 ## 说明
 
@@ -128,15 +132,15 @@ sidebar_position: 1
    执行结果
     ```shell
     NAME: mysite
-    LAST DEPLOYED: Tue Jul 11 15:01:50 2023
+    LAST DEPLOYED: Mon Aug 21 11:56:34 2023
     NAMESPACE: default
     STATUS: deployed
     REVISION: 1
     TEST SUITE: None
     NOTES:
     CHART NAME: drupal
-    CHART VERSION: 14.1.5
-    APP VERSION: 10.0.9** Please be patient while the chart is being deployed **
+    CHART VERSION: 15.0.4
+    APP VERSION: 10.1.2** Please be patient while the chart is being deployed **
     
     1. Get the Drupal URL:
     
@@ -197,19 +201,127 @@ sidebar_position: 1
        mysql -h mysql-1689058203.default.svc.cluster.local -uroot -p"$MYSQL_ROOT_PASSWORD"
     ```
 
-4. 查看chart的基本信息
+4. 查看安装Chart示例
+
+    ```shell
+    [root@anolis ~]# helm ls
+    NAME  	NAMESPACE	REVISION	UPDATED                                	STATUS  	CHART        	APP VERSION
+    mysite	default  	1       	2023-08-21 11:56:34.977274536 +0800 CST	deployed	drupal-15.0.4	10.1.2     
+    [root@anolis ~]# kubectl get pod
+    NAME                             READY   STATUS    RESTARTS   AGE
+    mysite-drupal-7b8ff4447f-2cpvj   0/1     Pending   0          3m10s
+    mysite-mariadb-0                 0/1     Pending   0          3m10s
+    [root@anolis ~]# kubectl get pvc
+    NAME                    STATUS    VOLUME   CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+    data-mysite-mariadb-0   Pending                                                     3m31s
+    mysite-drupal-drupal    Pending                                                     4m10s
+    [root@anolis ~]# kubectl get svc
+    NAME             TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)                      AGE
+    kubernetes       ClusterIP      10.96.0.1      <none>        443/TCP                      177m
+    mysite-drupal    LoadBalancer   10.102.2.245   <pending>     80:32607/TCP,443:31528/TCP   13m
+    mysite-mariadb   ClusterIP      10.98.85.217   <none>        3306/TCP                     13m
+    [root@anolis ~]#
+    ```
+
+5. 绑定安装Chart示例的 PVC
+
+   如果发现 pvc 没有绑定，可创建 PV 进行绑定
+
+    ```shell
+    cat > mysite-pv-1.yaml << EOF
+    apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: mysite-pv-1
+    spec:
+      capacity:
+        storage: 50Gi
+      volumeMode: Filesystem
+      accessModes:
+        - ReadWriteMany
+        - ReadWriteOnce
+      # storageClassName: mysite-sc
+      nfs:
+        # 需要事先创建此文件夹
+        path: /nfs/mysite-pv-1/
+        server: 192.168.61.167
+    
+    
+    EOF
+    
+    cat mysite-pv-1.yaml
+    
+    kubectl apply -f mysite-pv-1.yaml
+    
+    kubectl get pv
+    kubectl get pvc
+    ```
+    ```shell
+    cat > mysite-pv-2.yaml << EOF
+    apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: mysite-pv-2
+    spec:
+      capacity:
+        storage: 50Gi
+      volumeMode: Filesystem
+      accessModes:
+        - ReadWriteMany
+        - ReadWriteOnce
+      # storageClassName: mysite-sc
+      nfs:
+        # 需要事先创建此文件夹
+        path: /nfs/mysite-pv-2/
+        server: 192.168.61.167
+    
+    
+    EOF
+    
+    cat mysite-pv-2.yaml
+    
+    kubectl apply -f mysite-pv-2.yaml
+    
+    kubectl get pv
+    kubectl get pvc
+    ```
+
+    ```shell
+    [root@anolis ~]# kubectl get pod
+    NAME                             READY   STATUS    RESTARTS      AGE
+    mysite-drupal-7b8ff4447f-bk7r6   1/1     Running   1 (68s ago)   113s
+    mysite-mariadb-0                 1/1     Running   0             8m33s
+    [root@anolis ~]# kubectl get pv
+    NAME          CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                           STORAGECLASS   REASON   AGE
+    mysite-pv-1   50Gi       RWO,RWX        Retain           Bound    default/mysite-drupal-drupal                            6m52s
+    mysite-pv-2   50Gi       RWO,RWX        Retain           Bound    default/data-mysite-mariadb-0                           4m27s
+    [root@anolis ~]# kubectl get pvc
+    NAME                    STATUS   VOLUME        CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+    data-mysite-mariadb-0   Bound    mysite-pv-2   50Gi       RWO,RWX                       8m38s
+    mysite-drupal-drupal    Bound    mysite-pv-1   50Gi       RWO,RWX                       8m52s
+    [root@anolis ~]# kubectl get svc
+    NAME             TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)                      AGE
+    kubernetes       ClusterIP      10.96.0.1      <none>        443/TCP                      177m
+    mysite-drupal    LoadBalancer   10.102.2.245   <pending>     80:32607/TCP,443:31528/TCP   13m
+    mysite-mariadb   ClusterIP      10.98.85.217   <none>        3306/TCP                     13m
+    [root@anolis ~]#
+    ```
+
+   访问 k8s IP + mysite-drupal 端口 32607 即可
+
+6. 查看chart的基本信息
 
    ```shell
    helm show chart bitnami/mysql
    ```
 
-5. 查看chart的所有信息
+7. 查看chart的所有信息
 
    ```shell
    helm show all bitnami/mysql
    ```
 
-6. 列出所有可被部署的版本
+8. 列出所有可被部署的版本
 
    ```shell
    helm ls
@@ -219,17 +331,14 @@ sidebar_position: 1
    # --all-namespaces：查看所有命名空间
    ```
 
-7. 卸载一个版本
+9. 卸载一个版本
 
    ```shell
    helm uninstall mysql-1612624192
    ```
 
-8. 查看版本信息
+10. 查看版本信息
 
-   ```shell
-   helm status mysql-1612624192
-   ```
-
-9. 
-
+    ```shell
+    helm status mysql-1612624192
+    ```
