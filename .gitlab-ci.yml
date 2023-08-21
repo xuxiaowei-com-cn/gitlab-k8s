@@ -4,27 +4,6 @@ stages:
   # 代码同步
   - sync
 
-build:
-  stage: build
-  image: node:16.19.1
-  cache:
-    key: "${CI_JOB_NAME}"
-    paths:
-      - node_modules/
-  script:
-    - npm run pre
-    - npm run build
-  artifacts:
-    paths:
-      - build/
-  # https://docs.gitlab.com/ee/ci/yaml/index.html#rules
-  # 极狐GitLab中文文档：https://docs.gitlab.cn/jh/ci/yaml/index.html#rules
-  rules:
-    # PR 到 main 分支时预执行
-    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"
-    # PR 合并到 main 后执行、推送到 main 分支时
-    - if: $CI_COMMIT_BRANCH == "main"
-
 pages:
   stage: build
   image: node:16.19.1
@@ -45,7 +24,7 @@ pages:
 publish-gitee-pages:
   stage: publish
   needs:
-    - job: build
+    - job: pages
       artifacts: true
   image: bitnami/git:2.40.1
   script:
@@ -55,7 +34,7 @@ publish-gitee-pages:
     - git config --global user.name
     - echo 当前分支：$CI_COMMIT_BRANCH
     - git checkout -b $CI_COMMIT_BRANCH
-    - git add -f build/
+    - git add -f public/
     - git commit -m "发布 Gitee Pages"
     - git remote add gitee https://xuxiaowei-com-cn:$GITEE_PRIVATE_TOKEN@gitee.com/$CI_PROJECT_PATH.git
     - git push -f -u gitee $CI_COMMIT_BRANCH:pages
