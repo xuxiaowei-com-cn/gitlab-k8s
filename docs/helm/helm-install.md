@@ -307,7 +307,7 @@ sidebar_position: 1
     [root@anolis ~]#
     ```
 
-   访问 k8s IP + mysite-drupal 端口 32607 即可
+   访问 k8s IP + mysite-drupal 端口 32607（从上方 svc 中查看到的）即可
 
 6. 查看chart的基本信息
 
