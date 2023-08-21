@@ -79,10 +79,10 @@
 
     ```shell
     # 停止
-    systemctl stop nfs.service
+    systemctl stop nfs-server.service
     
     # 关闭开机自启
-    systemctl disable nfs.service
+    systemctl disable nfs-server.service
     ```
 
 6. 检查端口与进程
