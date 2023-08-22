@@ -75,12 +75,12 @@
 2. 查看 PV 状态
 
     ```shell
-    kubectl get pv
+    kubectl get pv -o wide
     ```
 
     ```shell
-    [root@anolis ~]# kubectl get pv
-    NAME   CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE
-    pv-1   50Gi       RWO,RWX        Recycle          Available                                   55s
+    [root@anolis ~]# kubectl get pv -o wide
+    NAME   CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE   VOLUMEMODE
+    pv-1   50Gi       RWO,RWX        Recycle          Available                                   55s   Filesystem
     [root@anolis ~]#
     ```
