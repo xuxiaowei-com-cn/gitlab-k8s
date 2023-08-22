@@ -52,7 +52,7 @@
         - ReadWriteOnce
         - ReadWriteMany
       persistentVolumeReclaimPolicy: Recycle
-      # storageClassName: sc
+      # storageClassName: sc-1
       mountOptions:
         - hard
         - nfsvers=4.1
