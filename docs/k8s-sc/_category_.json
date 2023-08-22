@@ -1,0 +1,8 @@
+{
+  "label": "Kubernetes（k8s）SC",
+  "position": 406,
+  "link": {
+    "type": "generated-index",
+    "description": "Kubernetes（k8s）StorageClass"
+  }
+}
