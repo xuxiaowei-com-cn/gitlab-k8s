@@ -11,7 +11,7 @@ sidebar_position: 6
 1. [Ingress](https://kubernetes.io/zh-cn/docs/concepts/services-networking/ingress/)
     1. 是对集群中服务的外部访问进行管理的 API 对象，典型的访问方式是 HTTP
     2. 可以提供负载均衡、SSL 终端和基于名称的虚拟主机托管
-    3. **根据不同的**`**域名**`**、**`**path**`**，转发到不同的 **`**Service**`** 中**
+    3. **根据不同的`域名`、`path`，转发到不同的 `Service` 中**
 2. ingress-nginx 仓库
     1. [GitHub](https://github.com/kubernetes/ingress-nginx/)
     2. [GitCode 加速镜像](https://gitcode.net/mirrors/kubernetes/ingress-nginx/)
