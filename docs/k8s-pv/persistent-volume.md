@@ -1,4 +1,6 @@
-# 持久卷（Persistent Volume）（未完成）
+# 持久卷（Persistent Volume）
+
+以 NFS 为例
 
 ## 说明
 
@@ -20,6 +22,65 @@
    PersistentVolume 卷。 集群管理员需要能够提供不同性质的 PersistentVolume， 并且这些 PV
    卷之间的差别不仅限于卷大小和访问模式，同时又不能将卷是如何实现的这些细节暴露给用户。 为了满足这类需求，就有了
    **存储类（StorageClass）** 资源。
+5. 一般而言，每个 PV 卷都有确定的存储容量。
+6. 访问模式：
+    1. ReadWriteOnce：卷可以被一个节点以读写方式挂载。 ReadWriteOnce 访问模式也允许运行在同一节点上的多个 Pod 访问卷。
+    2. ReadOnlyMany：卷可以被多个节点以只读方式挂载。
+    3. ReadWriteMany：卷可以被多个节点以读写方式挂载。
+    4. ReadWriteOncePod（特性状态： Kubernetes v1.27 [beta]）：卷可以被单个 Pod 以读写方式挂载。 如果你想确保整个集群中只有一个
+       Pod 可以读取或写入该 PVC， 请使用 ReadWriteOncePod 访问模式。这只支持 CSI 卷以及需要 Kubernetes 1.22 以上版本。
 
 ## 配置
 
+1. 创建 PV
+
+    ```shell
+    cat > pv-1.yaml << EOF
+    apiVersion: v1
+    # 资源类型：PersistentVolume
+    kind: PersistentVolume
+    metadata:
+      # 资源名称：pv-1
+      name: pv-1
+      # 命名空间：默认值 default，可缺省 namespace 配置，缺省代表 default
+      namespace: default
+    spec:
+      capacity:
+        storage: 50Gi
+      volumeMode: Filesystem
+      accessModes:
+        - ReadWriteOnce
+        - ReadWriteMany
+      persistentVolumeReclaimPolicy: Recycle
+      # storageClassName: sc
+      mountOptions:
+        - hard
+        - nfsvers=4.1
+      nfs:
+        # 需要事先创建此文件夹
+        path: /nfs/pv-1/
+        server: 192.168.61.167
+    
+    
+    EOF
+    
+    cat pv-1.yaml
+    
+    kubectl apply -f pv-1.yaml
+    
+    kubectl get pv
+    kubectl get pvc
+    ```
+
+2. 查看 PV 状态
+
+    ```shell
+    kubectl get pv
+    ```
+
+    ```shell
+    [root@anolis ~]# kubectl get pv
+    NAME   CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE
+    pv-1   50Gi       RWO,RWX        Recycle          Available                                   55s
+    [root@anolis ~]#
+    ```
