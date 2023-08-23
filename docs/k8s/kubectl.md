@@ -12,7 +12,17 @@ Kubernetes 提供 kubectl 是使用 Kubernetes API 与 Kubernetes 集群的控�
     - [集群内身份验证和命名空间覆盖](https://kubernetes.io/zh-cn/docs/reference/kubectl/#in-cluster-authentication-and-namespace-overrides)
 - [kubectl-commands](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands)
 - [github](https://github.com/kubernetes/kubectl)
-- docker hub 镜像 bitnami/kubectl
+- docker 镜像 bitnami/kubectl
     - [简介](https://hub.docker.com/r/bitnami/kubectl)
     - [标签](https://hub.docker.com/r/bitnami/kubectl/tags)
     - [github](https://github.com/bitnami/containers/tree/main/bitnami/kubectl)
+
+## 在 Linux 中运行 kubectl
+
+## 在 k8s 集群的 Node 节点上运行 kubectl（不推荐）
+
+## 在 docker 中运行 kubectl
+
+## 在 k8s 集群中运行 kubectl
+
+## 在 GitLab Runner 中运行 kubectl
