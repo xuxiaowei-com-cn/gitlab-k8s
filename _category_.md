@@ -24,3 +24,17 @@
 | download            | 1001     |
 | ssl                 | 1201     |
 | es                  | 1301     |
+
+| k8s                     | position |
+|-------------------------|----------|
+| centos-install          | 1        |
+| kubectl                 | 2        |
+| metrics-server-install  | 3        |
+| kube-prometheus-install | 4        |
+| pod-deployment-service  | 5        |
+| probe-configuration     | 6        |
+| ingress-install         | 7        |
+| containerd-mirrors      | 8        |
+| containerd-rm           | 9        |
+| ca-openssl              | 10       |
+| ca-kubeadm              | 11       |

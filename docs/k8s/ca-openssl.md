@@ -1,5 +1,5 @@
 ---
-sidebar_position: 9
+sidebar_position: 10
 ---
 
 # 使用 openssl 生成 Kubernetes（k8s） 新证书
