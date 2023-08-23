@@ -175,7 +175,7 @@ sidebar_position: 1
     - 如果要在 k8s 中使用 Docker，方案如下：
 
         1. 方案 1（**不推荐**）：
-           在 k8s 各节点上安装 Docker，流水线运行时挂载 `docker.sock`，需要在 GitLab Runner 中配置如下，详情参见：
+           在 k8s 各节点上安装 docker，并设置 docker 开机，流水线运行时挂载 `docker.sock`，需要在 GitLab Runner 中配置如下，详情参见：
            [GitLab Runner、Kubernetes（k8s）配置](/docs/gitlab-runner/k8s-configuration.md)
 
             ```shell
