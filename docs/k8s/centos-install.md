@@ -169,21 +169,120 @@ sidebar_position: 1
     ```
 
 8. 安装 Containerd、Docker
-   **Docker 不是必须的，k8s 1.24.0 开始使用 Containerd 替代 Docker，但还是推荐安装 Docker，原因：在k8s中构建Docker镜像时使用，需要在GitLab
-   Runner 中配置如下，详情参见：**
-   [GitLab Runner、Kubernetes（k8s）配置](/docs/gitlab-runner/k8s-configuration.md)
 
-    ```shell
-    [[runners]]
-      ...
-      [runners.kubernetes]
-        ...
-        [runners.kubernetes.volumes]
-        [[runners.kubernetes.volumes.host_path]]
-          name = "docker"
-          mount_path = "/var/run/docker.sock"
-          host_path = "/var/run/docker.sock"
-    ```
+    - <strong><font color="red">Docker 不是必须的，k8s 1.24.0 开始使用 Containerd 替代 Docker</font></strong>
+
+    - 如果要在 k8s 中使用 Docker，方案如下：
+
+        1. 方案 1（**不推荐**）：
+           在 k8s 各节点上安装 Docker，流水线运行时挂载 `docker.sock`，需要在 GitLab Runner 中配置如下，详情参见：
+           [GitLab Runner、Kubernetes（k8s）配置](/docs/gitlab-runner/k8s-configuration.md)
+
+            ```shell
+            [[runners]]
+              ...
+              [runners.kubernetes]
+                ...
+                [runners.kubernetes.volumes]
+                [[runners.kubernetes.volumes.host_path]]
+                  name = "docker"
+                  mount_path = "/var/run/docker.sock"
+                  host_path = "/var/run/docker.sock"
+            ```
+        2. 方案 2（**推荐**）：
+           以特权身份运行流水线，
+           [GitLab CI/CD Services 中文文档](https://docs.gitlab.cn/jh/ci/services/)，
+           需要在 GitLab Runner 中配置如下：
+
+            ```shell
+            [[runners]]
+              ...
+              [runners.kubernetes]
+                ...
+                privileged = true
+            ```
+
+           [使用 docker.sock 端口 示例](https://jihulab.com/mirrors-gitee/log4j/pig/-/blob/xuxiaowei/k8s/.gitlab-ci.yml)
+
+            ```yaml
+            stages:
+              # 阶段名称：构建
+              - build
+            
+            # job 名称
+            build:
+              # 阶段名称
+              stage: build
+              # 环境变量
+              variables:
+                # maven 环境变量
+                MAVEN_OPTS: >-
+                  -Dhttps.protocols=TLSv1.2
+                  -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository
+                  -Dorg.slf4j.simpleLogger.showDateTime=true
+                  -Djava.awt.headless=true
+                # 颜色定义
+                COLOR_BLUE: \033[34m
+                COLOR_GREEN: \033[92m
+                COLOR_RED: \033[31m
+                COLOR_RESET: \033[0m
+                COLOR_YELLOW: \033[93m
+              # 镜像
+              image: maven:3.6.3-openjdk-17
+              # 使用的服务
+              # 如果是基于 k8s 运行流水线，请以特权身份运行（在 /etc/gitlab-runner/config.toml 中配置 privileged = true），否则无法使用 services
+              # 由于要访问域名 nexus.xuxiaowei.cn、pig.docker.xuxiaowei.cn，所以在 /etc/gitlab-runner/config.toml 中配置了对应的 runners.kubernetes.host_aliases
+              services:
+                # 使用 docker 服务，用于构建 docker 镜像
+                - name: docker:dind
+                  # 服务别名
+                  alias: docker-dind
+                  variables:
+                    # 关闭 TLS（仅使用 http）
+                    DOCKER_TLS_CERTDIR: ""
+                  # docker 镜像发布域名 pig.docker.xuxiaowei.cn（仅作者局域网可以访问）
+                  # 默认情况下域名 pig.docker.xuxiaowei.cn 证书可能不受信任（可能是非权威机构颁发的证书，也可能是容器镜像无法识别权威机构颁发的域名证书）
+                  # 信任域名证书
+                  command: [ "--insecure-registry=pig.docker.xuxiaowei.cn" ]
+              # 执行脚本前的任务
+              before_script:
+                # 此处使用 http 而非 https，因为 https 证书可能不受信任（可能是非权威机构颁发的证书，也可能是容器镜像无法识别权威机构颁发的域名证书）
+                # 下载的 settings-private.xml 配置文件里使用的也是 http 协议
+                - echo -e $COLOR_BLUE'下载作者 Maven 私库配置文件（仅作者局域网可用）'$COLOR_RESET && curl -o settings-private.xml http://nexus.xuxiaowei.cn/repository/raw-hosted/maven/settings-private.xml
+                - echo -e $COLOR_BLUE'查看作者 Maven 私库配置文件'$COLOR_RESET && cat settings-private.xml
+              # 执行脚本
+              script:
+                - echo -e $COLOR_BLUE'使用作者 Maven 私库配置文件构建 jar 包'$COLOR_RESET && mvn clean -U install -s settings-private.xml
+                - echo -e $COLOR_BLUE'将所有 *.xml 文件中的 <image> <name> 标签增加 CI_PIPELINE_ID 变量，CI_PIPELINE_ID 变量代表 流水线ID'$COLOR_RESET
+                - find . -type f -name "*.xml" -exec sed -i 's|<name>\${docker.registry}/\${docker.namespace}/\${project.name}:\${project.version}</name>|<name>\${docker.registry}/\${docker.namespace}/\${project.name}:\${project.version}-\${CI_PIPELINE_ID}</name>|g' {} +
+                - echo -e $COLOR_BLUE'使用作者 Maven 私库配置文件构建 docker 镜像'$COLOR_RESET && mvn -pl pig-auth docker:build -s settings-private.xml -Ddocker.host=$DOCKER_HOST -Ddocker.registry=$DOCKER_REGISTRY -Ddocker.username=$DOCKER_USERNAME -Ddocker.password=$DOCKER_PASSWORD
+                - echo -e $COLOR_BLUE'使用作者 Maven 私库配置文件构建 docker 镜像'$COLOR_RESET && mvn -pl pig-auth docker:push -s settings-private.xml -Ddocker.host=$DOCKER_HOST -Ddocker.registry=$DOCKER_REGISTRY -Ddocker.username=$DOCKER_USERNAME -Ddocker.password=$DOCKER_PASSWORD
+                - echo -e $COLOR_BLUE'使用作者 Maven 私库配置文件构建 docker 镜像'$COLOR_RESET && mvn -pl pig-gateway docker:build -s settings-private.xml -Ddocker.host=$DOCKER_HOST -Ddocker.registry=$DOCKER_REGISTRY -Ddocker.username=$DOCKER_USERNAME -Ddocker.password=$DOCKER_PASSWORD
+                - echo -e $COLOR_BLUE'使用作者 Maven 私库配置文件构建 docker 镜像'$COLOR_RESET && mvn -pl pig-gateway docker:push -s settings-private.xml -Ddocker.host=$DOCKER_HOST -Ddocker.registry=$DOCKER_REGISTRY -Ddocker.username=$DOCKER_USERNAME -Ddocker.password=$DOCKER_PASSWORD
+                - echo -e $COLOR_BLUE'使用作者 Maven 私库配置文件构建 docker 镜像'$COLOR_RESET && mvn -pl pig-upms/pig-upms-biz docker:build -s settings-private.xml -Ddocker.host=$DOCKER_HOST -Ddocker.registry=$DOCKER_REGISTRY -Ddocker.username=$DOCKER_USERNAME -Ddocker.password=$DOCKER_PASSWORD
+                - echo -e $COLOR_BLUE'使用作者 Maven 私库配置文件构建 docker 镜像'$COLOR_RESET && mvn -pl pig-upms/pig-upms-biz docker:push -s settings-private.xml -Ddocker.host=$DOCKER_HOST -Ddocker.registry=$DOCKER_REGISTRY -Ddocker.username=$DOCKER_USERNAME -Ddocker.password=$DOCKER_PASSWORD
+                - echo -e $COLOR_BLUE'使用作者 Maven 私库配置文件构建 docker 镜像'$COLOR_RESET && mvn -pl pig-visual/pig-codegen docker:build -s settings-private.xml -Ddocker.host=$DOCKER_HOST -Ddocker.registry=$DOCKER_REGISTRY -Ddocker.username=$DOCKER_USERNAME -Ddocker.password=$DOCKER_PASSWORD
+                - echo -e $COLOR_BLUE'使用作者 Maven 私库配置文件构建 docker 镜像'$COLOR_RESET && mvn -pl pig-visual/pig-codegen docker:push -s settings-private.xml -Ddocker.host=$DOCKER_HOST -Ddocker.registry=$DOCKER_REGISTRY -Ddocker.username=$DOCKER_USERNAME -Ddocker.password=$DOCKER_PASSWORD
+                - echo -e $COLOR_BLUE'使用作者 Maven 私库配置文件构建 docker 镜像'$COLOR_RESET && mvn -pl pig-visual/pig-monitor docker:build -s settings-private.xml -Ddocker.host=$DOCKER_HOST -Ddocker.registry=$DOCKER_REGISTRY -Ddocker.username=$DOCKER_USERNAME -Ddocker.password=$DOCKER_PASSWORD
+                - echo -e $COLOR_BLUE'使用作者 Maven 私库配置文件构建 docker 镜像'$COLOR_RESET && mvn -pl pig-visual/pig-monitor docker:push -s settings-private.xml -Ddocker.host=$DOCKER_HOST -Ddocker.registry=$DOCKER_REGISTRY -Ddocker.username=$DOCKER_USERNAME -Ddocker.password=$DOCKER_PASSWORD
+                - echo -e $COLOR_BLUE'使用作者 Maven 私库配置文件构建 docker 镜像'$COLOR_RESET && mvn -pl pig-visual/pig-quartz docker:build -s settings-private.xml -Ddocker.host=$DOCKER_HOST -Ddocker.registry=$DOCKER_REGISTRY -Ddocker.username=$DOCKER_USERNAME -Ddocker.password=$DOCKER_PASSWORD
+                - echo -e $COLOR_BLUE'使用作者 Maven 私库配置文件构建 docker 镜像'$COLOR_RESET && mvn -pl pig-visual/pig-quartz docker:push -s settings-private.xml -Ddocker.host=$DOCKER_HOST -Ddocker.registry=$DOCKER_REGISTRY -Ddocker.username=$DOCKER_USERNAME -Ddocker.password=$DOCKER_PASSWORD
+              # 缓存
+              cache:
+                # 缓存名称
+                # 使用 job 名称
+                key: "${CI_JOB_NAME}"
+                # 缓存路径
+                paths:
+                  - .m2/repository
+              # 流水线标签：选择可执行流水线的机器
+              tags:
+                - plugin-kubernetes
+              # 触发条件：触发流水线执行的条件
+              only:
+                # 仅在 xuxiaowei/k8s 分支上执行
+                - xuxiaowei/k8s
+            ```
 
    /etc/containerd/config.toml
    中的 [SystemdCgroup = true](https://kubernetes.io/zh-cn/docs/setup/production-environment/container-runtimes/#containerd-systemd)
