@@ -145,6 +145,10 @@ const config = {
                 href: 'https://jihulab.com/xuxiaowei-com-cn/k8s.sh',
               },
               {
+                label: 'Docker Hub 镜像代理',
+                href: 'https://jihulab.com/docker-hub',
+              },
+              {
                 label: '工具箱',
                 href: 'https://xuxiaowei-tools.gitee.io',
               },
