@@ -41,9 +41,8 @@
     kind: PersistentVolume
     metadata:
       # 资源名称：pv-1
+      # 不区分命名空间
       name: pv-1
-      # 命名空间：默认值 default，可缺省 namespace 配置，缺省代表 default
-      namespace: default
     spec:
       capacity:
         storage: 50Gi
