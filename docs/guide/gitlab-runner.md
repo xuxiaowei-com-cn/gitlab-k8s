@@ -12,6 +12,12 @@ sidebar_position: 2
     1. [GitLab CI/CD 入门](https://docs.gitlab.cn/jh/ci/quick_start/)
         1. [CI/CD 概念](https://docs.gitlab.cn/jh/ci/introduction/)
 
+## 图解
+
+![runner](static/CICD-1.png)
+
+![runner](static/CICD-2.png)
+
 ## 说明
 
 1. GitLab Runner 是专为 GitLab 设计的流水线：`持续集成(CI)`、`持续交付(CD)`、`持续部署(CD)`
