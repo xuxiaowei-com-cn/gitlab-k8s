@@ -28,11 +28,12 @@ sidebar_position: 2
    docker+machine, kubernetes
 3. 统计
 
-   | 时间         | [GitLab Runner](https://gitlab.com) | [GitHub Actions](https://github.com) |
-   |------------|-------------------------------------|--------------------------------------|
-   | 2023-03-14 | 39亿次（不含自建GitLab）                    | 77亿次                                 |
-   | 2023-05-06 | 42亿次（不含自建GitLab）                    | 87亿次                                 |
-   | 2023-07-03 | 45亿次（不含自建GitLab）                    | 98亿次                                 |
+   | 时间         | [极狐 GitLab](https://jihulab.com) | [GitLab Runner](https://gitlab.com) | [GitHub Actions](https://github.com) |
+   |------------|----------------------------------|-------------------------------------|--------------------------------------|
+   | 2023-03-14 | -                                | 39亿次（不含自建GitLab、极狐 GitLab）          | 77亿次                                 |
+   | 2023-05-06 | -                                | 42亿次（不含自建GitLab、极狐 GitLab）          | 87亿次                                 |
+   | 2023-07-03 | -                                | 45亿次（不含自建GitLab、极狐 GitLab）          | 98亿次                                 |
+   | 2023-08-28 | 919万                             | 49.7亿次（不含自建GitLab、极狐 GitLab）        | 162.9亿次                              |
 
 4. GitLab Runner 的作用类似于 Jenkins，不同之处在于（**由于本人知识有限，错误和不足请在评论中指正**）：
 
