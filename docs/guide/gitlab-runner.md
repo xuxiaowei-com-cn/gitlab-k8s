@@ -16,6 +16,8 @@ sidebar_position: 2
 
 ![runner](static/CICD-1.png)
 
+<hr/>
+
 ![runner](static/CICD-2.png)
 
 ## 说明
