@@ -6,6 +6,12 @@ sidebar_position: 2
 
 与 GitLab 配套的 CI/CD 解决方案，支持 kubernetes、docker、shell 等等执行器
 
+## 文档
+
+1. [GitLab CI/CD](https://docs.gitlab.cn/jh/ci/index.html)
+    1. [GitLab CI/CD 入门](https://docs.gitlab.cn/jh/ci/quick_start/)
+        1. [CI/CD 概念](https://docs.gitlab.cn/jh/ci/introduction/)
+
 ## 说明
 
 1. GitLab Runner 是专为 GitLab 设计的流水线：`持续集成(CI)`、`持续交付(CD)`、`持续部署(CD)`
