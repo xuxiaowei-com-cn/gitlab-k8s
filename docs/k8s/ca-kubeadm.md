@@ -11,6 +11,8 @@ sidebar_position: 11
 
 ## 说明
 
+- [PKI 证书和要求](https://kubernetes.io/zh-cn/docs/setup/best-practices/certificates/)
+
 - [kubeadm certs](https://kubernetes.io/zh-cn/docs/reference/setup-tools/kubeadm/kubeadm-certs/)
     1. kubeadm certs 提供管理证书的工具。
     2. 关于如何使用这些命令的细节，可参见

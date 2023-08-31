@@ -6,6 +6,10 @@ sidebar_position: 10
 
 使用 openssl 生成 Kubernetes（k8s） 新证书（未完成）
 
+## 文档
+
+1. [PKI 证书和要求](https://kubernetes.io/zh-cn/docs/setup/best-practices/certificates/)
+
 ## 说明
 
 1. 不推荐使用此方式，此方式要求对 `openssl` 命令比较了解
