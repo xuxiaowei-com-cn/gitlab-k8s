@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # CentOS 7 中安装 NFS
 
 ## 说明

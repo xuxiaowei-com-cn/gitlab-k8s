@@ -1,3 +1,7 @@
+---
+sidebar_position: 4
+---
+
 # AnolisOS 23 中安装 NFS
 
 ## 说明

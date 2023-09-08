@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # 持久卷（Persistent Volume）
 
 以 NFS 为例
