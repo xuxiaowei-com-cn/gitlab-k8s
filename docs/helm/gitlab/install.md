@@ -12,6 +12,7 @@ sidebar_position: 1
 ## 说明
 
 - gitlab-ce（社区版）、gitlab-ee（企业版）、gitlab-jh（极狐版）的区别：[GitLab 导读](/docs/guide/gitlab.md)
+- 本文以 helm gitlab 7.3.2 为例（即：gitlab v16.3.2）
 - 演示环境使用 k8s 单机器群测试，数据使用 local PV 储存
 - 使用 helm 安装/配置 gitlab 的域名信息如下，如果特别说明，则使用下表中的值
 
@@ -28,6 +29,9 @@ sidebar_position: 1
     - certmanager-issuer.email
 - [基本配置](https://docs.gitlab.cn/charts/installation/command-line-options.html#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE)
     - global.hosts.domain
+    - global.edition
+- [Deploy the Community Edition](https://docs.gitlab.com/charts/installation/deployment.html#deploy-the-community-edition)
+    - global.edition
 
 ## 添加 helm gitlab 仓库
 
