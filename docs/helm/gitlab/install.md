@@ -11,6 +11,7 @@ sidebar_position: 1
 
 ## 说明
 
+- gitlab-ce（社区版）、gitlab-ee（企业版）、gitlab-jh（极狐版）的区别：[GitLab 导读](/docs/guide/gitlab.md)
 - 演示环境使用 k8s 单机器群测试，数据使用 local PV 储存
 - 使用 helm 安装/配置 gitlab 的域名信息如下，如果特别说明，则使用下表中的值
 
@@ -79,6 +80,7 @@ kubectl create namespace gitlab-test
 ```shell
 # 其中 my-gitlab 是安装到本地的 helm gitlab 的名称
 # 其中 gitlab/gitlab 是需要安装的软件名称，gitlab-jh 使用 gitlab-jh/gitlab
+# 其中 gitlab/gitlab 默认为企业版，如果要使用社区版，请增加参数 --set global.edition=ce
 # 其中 7.3.2 是 gitlab 版本，可自行选择
 # 其中 certmanager-issuer.email 是 Let’s Encrypt 账号的电子邮件地址，填写一个自己的邮件地址即可，用于证书到期前提醒
 # 其中 --timeout 600s 表示超时时间为 600s
