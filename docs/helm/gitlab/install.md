@@ -96,6 +96,25 @@ helm -n gitlab-test install my-gitlab gitlab/gitlab --version 7.3.2 \
 #  --timeout 600s
 ```
 
+## 导出 helm gitlab 配置
+
+```Shell
+# 将已配置的值导出到文件中
+helm -n gitlab-test get values my-gitlab > my-gitlab.yaml
+```
+
+```Shell
+[root@k8s ~]# cat my-gitlab.yaml
+USER-SUPPLIED VALUES:
+USER-SUPPLIED VALUES: null
+certmanager-issuer:
+  email: your@email.com
+global:
+  hosts:
+    domain: test.helm.xuxiaowei.cn
+[root@k8s ~]# 
+```
+
 ## 创建 PV、绑定 PVC
 
 #### 查看 PVC
