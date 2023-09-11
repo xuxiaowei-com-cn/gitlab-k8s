@@ -551,3 +551,9 @@ kubectl -n gitlab-test get secrets my-gitlab-gitlab-initial-root-password -ojson
 3. 设置未登录用户的默认语言为中文
 
    ![](static/gitlab-11.png)
+
+## 禁用注册功能（可选）
+
+![](static/gitlab-12.png)
+![](static/gitlab-13.png)
+![](static/gitlab-14.png)
