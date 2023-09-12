@@ -53,6 +53,7 @@
 | gitlab-runner-privileged                | 108      |
 |                                         |          |
 | gitlab-pages                            | 201      |
+| gitlab-pages-ssl                        | 202      |
 |                                         |          |
 | gitlab-smtp                             | 301      |
 |                                         |          |
