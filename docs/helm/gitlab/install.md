@@ -31,6 +31,7 @@ sidebar_position: 1
 | gitlab.test.helm.xuxiaowei.cn   | 外部访问gitlab实例的域名 |                     |
 | minio.test.helm.xuxiaowei.cn    | 对象储存域名          |                     |
 | registry.test.helm.xuxiaowei.cn | 容器镜像仓库域名        |                     |
+| kas.test.helm.xuxiaowei.cn      |                 |                     |
 
 ## 文档
 
