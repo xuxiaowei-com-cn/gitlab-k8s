@@ -38,3 +38,25 @@
 | containerd-rm           | 9        |
 | ca-openssl              | 10       |
 | ca-kubeadm              | 11       |
+
+| helm gitlab                             | position |
+|-----------------------------------------|----------|
+| install                                 | 1        |
+|                                         |          |
+| gitlab-runner-host                      | 101      |
+| gitlab-runner-trust-ssl                 | 102      |
+| gitlab-runner-helper-image              | 103      |
+| gitlab-runner-cache                     | 104      |
+| gitlab-runner-output-limit              | 105      |
+| gitlab-runner-kubernetes-host           | 106      |
+| gitlab-runner-kubernetes-pod-privileged | 107      |
+| gitlab-runner-privileged                | 108      |
+|                                         |          |
+| gitlab-pages                            | 201      |
+|                                         |          |
+| gitlab-smtp                             | 301      |
+|                                         |          |
+| gitlab-dependency-proxy                 | 401      |
+|                                         |          |
+| gitlab-backups                          | 501      |
+|                                         |          |
