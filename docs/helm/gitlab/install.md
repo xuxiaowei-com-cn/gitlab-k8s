@@ -15,7 +15,7 @@ sidebar_position: 1
     - calico 版本 3.25
     - nginx ingress 版本 1.8.0
     - gitlab 版本 16.3.2，对应的 helm 版本是 7.3.2
-    - 无其他运行的软件，总内存使用 7.4G 左右，考虑到故障转移、更新配置、升级等等因素，估算需要内存为 10G
+    - 无其他运行的软件，总内存使用 <strong><font color="red">7.4G</font></strong> 左右，考虑到故障转移、更新配置、升级等等因素，估算需要内存为 10G
 
 ## 说明
 
