@@ -8,6 +8,14 @@ sidebar_position: 1
 
 - k8s 完成 helm 的配置
 - k8s 完成 ingress 的配置
+- <strong><font color="red">内存至少 10G</font></strong>
+
+    - 演示环境是 龙蜥 Anolis 8.4（即：CentOS 8.4）最小化安装
+    - k8s 版本 1.28.1
+    - calico 版本 3.25
+    - nginx ingress 版本 1.8.0
+    - gitlab 版本 16.3.2，对应的 helm 版本是 7.3.2
+    - 无其他运行的软件，总内存使用 7.4G 左右，考虑到故障转移、更新配置、升级等等因素，估算需要内存为 10G
 
 ## 说明
 
@@ -140,8 +148,8 @@ repo-data-my-gitlab-gitaly-0          Pending                                   
 - 演示环境使用 k8s 单机器群测试，数据使用 local PV 储存
 - 由于使用 local PV，local PV 需要指定节点调度，所以需要给节点打标签
 - 下面操作是给节点 k8s 增加一个标签，标签名是 `gitlab-test`，标签值是 `local-pv`
-   - 演示环境使用 k8s 单机器群测试，只有一个接节点，名称就是 k8s
-   - 此处的 标签名、标签值 与 下面 PV 配置文件中的 标签名、标签值 对应
+    - 演示环境使用 k8s 单机器群测试，只有一个接节点，名称就是 k8s
+    - 此处的 标签名、标签值 与 下面 PV 配置文件中的 标签名、标签值 对应
 
 ```shell
 # 演示环境
