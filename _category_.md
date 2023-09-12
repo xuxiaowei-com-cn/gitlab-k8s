@@ -61,3 +61,4 @@
 |                                         |          |
 | gitlab-backups                          | 501      |
 |                                         |          |
+| gitlab-helm-restore                     | 601      |
