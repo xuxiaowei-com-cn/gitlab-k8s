@@ -240,6 +240,7 @@ status:
 ## 增加 host 后，查看 gitlab runner pod 名称
 
 - 查看 gitlab runner pod 名称
+    1. 如果出现多个，根据时间选择，查看最新的 pod
 
 ```shell
 [root@k8s ~]# kubectl -n gitlab-test get pod | grep gitlab-runner
