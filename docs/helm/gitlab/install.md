@@ -113,12 +113,12 @@ helm -n gitlab-test install my-gitlab gitlab/gitlab --version 7.3.2 \
 
 ## 导出 helm gitlab 配置
 
-```Shell
+```shell
 # 将已配置的值导出到文件中
 helm -n gitlab-test get values my-gitlab > my-gitlab.yaml
 ```
 
-```Shell
+```shell
 [root@k8s ~]# cat my-gitlab.yaml
 USER-SUPPLIED VALUES:
 certmanager-issuer:
@@ -490,7 +490,7 @@ my-gitlab-webservice-default-564cc76bff-zkrbq        2/2     Running     1 (91s 
 
 - 演示环境：Windows 修改 `C:\Windows\System32\drivers\etc\hosts`
 
-```Shell
+```shell
 192.168.80.3    gitlab.test.helm.xuxiaowei.cn
 192.168.80.3    minio.test.helm.xuxiaowei.cn
 
@@ -511,7 +511,7 @@ my-gitlab-webservice-default-564cc76bff-zkrbq        2/2     Running     1 (91s 
 
 ## 修改已安装的 helm gitlab 配置
 
-```Shell
+```shell
 # 将已配置的值导出到文件中
 
 helm -n gitlab-test get values my-gitlab > my-gitlab.yaml
@@ -536,7 +536,7 @@ helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab \
 
 ### 获取管理员 `root` 用户的初始化密码
 
-```Shell
+```shell
 kubectl -n gitlab-test get secrets my-gitlab-gitlab-initial-root-password -ojsonpath='{.data.password}' | base64 --decode ; echo
 ```
 
