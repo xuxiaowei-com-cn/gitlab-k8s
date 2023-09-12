@@ -21,7 +21,7 @@ sidebar_position: 102
 
 ### 方案1：重新配置 gitlab，自动生成对应证书并自动配置，然后在 gitlab runner 中信任证书
 
-1. 问题：`tls: failed to verify certificate: x509: certificate signed by unknown authority`
+1. 问题1：`tls: failed to verify certificate: x509: certificate signed by unknown authority`
     1. 文档
         1. [runners 部分](https://docs.gitlab.cn/runner/configuration/advanced-configuration.html#runners-%E9%83%A8%E5%88%86)
         2. [自签名证书或自定义证书颁发机构](https://docs.gitlab.cn/runner/configuration/tls-self-signed.html)
@@ -356,6 +356,22 @@ sidebar_position: 102
 
         ![](static/gitlab-18.png)
 
+2. 问题2：
+   `tls: failed to verify certificate: x509: certificate is valid for ingress.local, not gitlab.test.helm.xuxiaowei.cn`
+
+    1. 访问的域名与使用的证书补匹配，可通过更换证书、域名来解决此问题（一般情况是更换证书）
+    2. 如果要更换证书：
+        1. 证书属于正规机构颁发的（如：上述各大云厂商的证书），请看下方`方案2`
+        2. 如果是自己生成的证书（不受信任），请看下方`方案2`，并结合上方`问题1`来解决此问题
+
 ### 方案2：配置正规机构颁发的证书（如：上述各大云厂商的证书），一般无需在 gitlab 配置信任证书，即可正常使用
 
-- 正规机构颁发的证书，在 gitlab runner 中依然无法正常使用的解决办法
+1. 正常情况
+
+    1. 要求证书与域名对应
+    2. 将证书上传至服务器，解压，使用证书文件创建 k8s TLS Secret
+    3. 修改 gitlab 配置，使用 上述步骤创建的 k8s TLS Secret
+
+2. 异常情况：正规机构颁发的证书，在 gitlab runner 中依然无法正常使用，但是在浏览器中可以正常使用
+    1. 原因是颁发机构的根证书不在 gitlab runner 的信任列表中，需要手动添加信任（例如：常见的 Windows
+       较低版本运行一些软件时，也是无法执行，显示证书无法识别，需要在 Windows 导入软件签名所使用的证书链）
