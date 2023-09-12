@@ -23,7 +23,7 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/CI_CD.svg').default,
     description: (
       <>
-        GitLab Runner CI/CD，持续集成、持续交付、持续部署
+        GitLab Runner CI/CD，持续集成 CI、持续交付 CD、持续部署 CD 的安装、配置、使用说明等
       </>
     ),
   },
