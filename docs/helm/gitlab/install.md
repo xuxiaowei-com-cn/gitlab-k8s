@@ -112,7 +112,6 @@ helm -n gitlab-test get values my-gitlab > my-gitlab.yaml
 ```Shell
 [root@k8s ~]# cat my-gitlab.yaml
 USER-SUPPLIED VALUES:
-USER-SUPPLIED VALUES: null
 certmanager-issuer:
   email: your@email.com
 global:
@@ -140,6 +139,9 @@ repo-data-my-gitlab-gitaly-0          Pending                                   
 
 - 演示环境使用 k8s 单机器群测试，数据使用 local PV 储存
 - 由于使用 local PV，local PV 需要指定节点调度，所以需要给节点打标签
+- 下面操作是给节点 k8s 增加一个标签，标签名是 `gitlab-test`，标签值是 `local-pv`
+   - 演示环境使用 k8s 单机器群测试，只有一个接节点，名称就是 k8s
+   - 此处的 标签名、标签值 与 下面 PV 配置文件中的 标签名、标签值 对应
 
 ```shell
 # 演示环境
@@ -355,36 +357,43 @@ repo-data-my-gitlab-gitaly-0          Bound    repo-data-my-gitlab-gitaly-0-pv  
 
 ```shell
 [root@k8s ~]# kubectl -n gitlab-test get pod
-NAME                                                 READY   STATUS                  RESTARTS        AGE
-my-gitlab-certmanager-757b99868c-7sqxb               1/1     Running                 0               63s
-my-gitlab-certmanager-cainjector-598b8d5d8b-c2k79    1/1     Running                 0               63s
-my-gitlab-certmanager-webhook-7bb5fc7d5b-8lv48       1/1     Running                 0               63s
-my-gitlab-gitaly-0                                   0/1     Pending                 0               30m
-my-gitlab-gitlab-exporter-79d7d5df5c-rl6w7           1/1     Running                 0               62s
-my-gitlab-gitlab-runner-698c5649bf-sjlvw             0/1     Running                 0               62s
-my-gitlab-gitlab-shell-5bcb8cdc46-9dbq7              1/1     Running                 0               62s
-my-gitlab-gitlab-shell-5bcb8cdc46-z96tn              1/1     Running                 0               62s
-my-gitlab-issuer-1-z6w7x                             0/1     Completed               0               30m
-my-gitlab-kas-c96d777f8-4gmv9                        0/1     CrashLoopBackOff        2 (28s ago)     62s
-my-gitlab-kas-c96d777f8-gq7xp                        0/1     CrashLoopBackOff        2 (27s ago)     62s
-my-gitlab-minio-7989684dd8-8d8cb                     0/1     Pending                 0               30m
-my-gitlab-nginx-ingress-controller-6bdd56c45-g4gnh   1/1     Running                 0               62s
-my-gitlab-nginx-ingress-controller-6bdd56c45-vm24j   1/1     Running                 0               62s
-my-gitlab-postgresql-0                               2/2     Running                 0               57s
-my-gitlab-prometheus-server-646489c599-hgkwk         0/2     Pending                 0               30m
-my-gitlab-redis-master-0                             0/2     Pending                 0               30m
-my-gitlab-registry-c65988947-4zxkq                   1/1     Running                 0               62s
-my-gitlab-registry-c65988947-s4t6s                   1/1     Running                 0               61s
-my-gitlab-sidekiq-all-in-1-v2-557754944b-fj786       0/1     Init:CrashLoopBackOff   6 (2m13s ago)   30m
-my-gitlab-toolbox-85c66fcfc9-7z7q2                   1/1     Running                 0               62s
-my-gitlab-webservice-default-7b574d9fc-vr7s9         0/2     Init:CrashLoopBackOff   6 (112s ago)    30m
-my-gitlab-webservice-default-7b574d9fc-wvl59         0/2     Init:CrashLoopBackOff   6 (65s ago)     30m
+NAME                                                 READY   STATUS             RESTARTS        AGE
+cm-acme-http-solver-kds9n                            1/1     Running            0               7m47s
+cm-acme-http-solver-l968v                            1/1     Running            0               7m47s
+cm-acme-http-solver-m8rgb                            1/1     Running            0               7m47s
+cm-acme-http-solver-wqdx2                            1/1     Running            0               7m47s
+my-gitlab-certmanager-757b99868c-dc8bk               1/1     Running            0               8m9s
+my-gitlab-certmanager-cainjector-598b8d5d8b-lnsmc    1/1     Running            0               8m9s
+my-gitlab-certmanager-webhook-7bb5fc7d5b-pw56n       1/1     Running            0               8m9s
+my-gitlab-gitaly-0                                   0/1     Pending            0               8m9s
+my-gitlab-gitlab-exporter-79d7d5df5c-9bwl5           1/1     Running            0               8m9s
+my-gitlab-gitlab-runner-6458d8fb56-pddfr             0/1     Error              2 (2m58s ago)   8m8s
+my-gitlab-gitlab-shell-5bcb8cdc46-cnqmk              1/1     Running            0               7m54s
+my-gitlab-gitlab-shell-5bcb8cdc46-tszf6              1/1     Running            0               8m8s
+my-gitlab-issuer-1-fktz7                             0/1     Completed          0               8m9s
+my-gitlab-kas-78d78f74dc-8fgl8                       0/1     CrashLoopBackOff   6 (113s ago)    8m9s
+my-gitlab-kas-78d78f74dc-f4zph                       0/1     CrashLoopBackOff   6 (119s ago)    7m54s
+my-gitlab-migrations-1-f5657                         1/1     Running            2 (64s ago)     8m9s
+my-gitlab-minio-7989684dd8-89kbz                     0/1     Pending            0               8m9s
+my-gitlab-minio-create-buckets-1-dbnhg               1/1     Running            0               8m9s
+my-gitlab-nginx-ingress-controller-6bdd56c45-28rxc   1/1     Running            0               8m8s
+my-gitlab-nginx-ingress-controller-6bdd56c45-bwk66   1/1     Running            0               8m8s
+my-gitlab-postgresql-0                               0/2     Pending            0               8m9s
+my-gitlab-prometheus-server-646489c599-gwstk         0/2     Pending            0               8m8s
+my-gitlab-redis-master-0                             0/2     Pending            0               8m9s
+my-gitlab-registry-67c947ccb9-dfqhr                  1/1     Running            0               8m9s
+my-gitlab-registry-67c947ccb9-f8llk                  1/1     Running            0               7m54s
+my-gitlab-sidekiq-all-in-1-v2-775f4bbccc-wrzqx       0/1     Init:2/3           2 (67s ago)     8m9s
+my-gitlab-toolbox-5f686bb594-cg87l                   1/1     Running            0               8m9s
+my-gitlab-webservice-default-564cc76bff-ch668        0/2     Init:2/3           2 (61s ago)     8m8s
+my-gitlab-webservice-default-564cc76bff-jhlgz        0/2     Init:2/3           2 (77s ago)     7m54s
 [root@k8s ~]# 
 ```
 
 ## 删除没有正常运行的pod，主动触发进行下一步故障恢复，节省时间
 
 ```shell
+# 删除示例如下：
 [root@k8s ~]# kubectl -n gitlab-test delete pod --field-selector 'status.phase!=Running'
 pod "my-gitlab-gitaly-0" deleted
 pod "my-gitlab-issuer-1-z6w7x" deleted
@@ -399,6 +408,7 @@ pod "my-gitlab-webservice-default-7b574d9fc-wvl59" deleted
 
 ```shell
 # 或者删除所有 pod
+# 删除示例如下：
 [root@k8s ~]# kubectl -n gitlab-test delete pod --all
 pod "my-gitlab-certmanager-757b99868c-2gtd6" deleted
 pod "my-gitlab-certmanager-cainjector-598b8d5d8b-6nmkp" deleted
@@ -436,29 +446,34 @@ pod "my-gitlab-webservice-default-7b574d9fc-pb7ts" deleted
 
 ```shell
 [root@k8s ~]# kubectl -n gitlab-test get pod
-NAME                                                 READY   STATUS             RESTARTS      AGE
-my-gitlab-certmanager-757b99868c-sb9xg               1/1     Running            0             11m
-my-gitlab-certmanager-cainjector-598b8d5d8b-x7b7h    1/1     Running            0             11m
-my-gitlab-certmanager-webhook-7bb5fc7d5b-zm9n6       1/1     Running            0             11m
-my-gitlab-gitaly-0                                   1/1     Running            0             11m
-my-gitlab-gitlab-exporter-79d7d5df5c-96wgn           1/1     Running            0             11m
-my-gitlab-gitlab-runner-698c5649bf-w8jpg             0/1     CrashLoopBackOff   3 (23s ago)   11m
-my-gitlab-gitlab-shell-5bcb8cdc46-sz2sj              1/1     Running            0             11m
-my-gitlab-gitlab-shell-5bcb8cdc46-zd8dw              1/1     Running            0             11m
-my-gitlab-kas-c96d777f8-ms7zj                        1/1     Running            3             11m
-my-gitlab-kas-c96d777f8-tmcch                        1/1     Running            3 (10m ago)   11m
-my-gitlab-minio-7989684dd8-7pjf7                     1/1     Running            0             11m
-my-gitlab-nginx-ingress-controller-6bdd56c45-7nchb   1/1     Running            0             11m
-my-gitlab-nginx-ingress-controller-6bdd56c45-xdlnt   1/1     Running            0             11m
-my-gitlab-postgresql-0                               2/2     Running            0             10m
-my-gitlab-prometheus-server-646489c599-cx8b6         2/2     Running            0             11m
-my-gitlab-redis-master-0                             2/2     Running            0             11m
-my-gitlab-registry-c65988947-h65d5                   1/1     Running            0             11m
-my-gitlab-registry-c65988947-p9w8n                   1/1     Running            0             11m
-my-gitlab-sidekiq-all-in-1-v2-557754944b-zfhzg       1/1     Running            0             11m
-my-gitlab-toolbox-85c66fcfc9-hrkrc                   1/1     Running            0             11m
-my-gitlab-webservice-default-7b574d9fc-q6w8h         2/2     Running            0             11m
-my-gitlab-webservice-default-7b574d9fc-qmb4g         2/2     Running            0             11m
+NAME                                                 READY   STATUS      RESTARTS        AGE
+cm-acme-http-solver-kds9n                            1/1     Running     0               19m
+cm-acme-http-solver-l968v                            1/1     Running     0               19m
+cm-acme-http-solver-m8rgb                            1/1     Running     0               19m
+cm-acme-http-solver-wqdx2                            1/1     Running     0               19m
+my-gitlab-certmanager-757b99868c-dc8bk               1/1     Running     1 (86s ago)     19m
+my-gitlab-certmanager-cainjector-598b8d5d8b-lnsmc    1/1     Running     1 (86s ago)     19m
+my-gitlab-certmanager-webhook-7bb5fc7d5b-pw56n       1/1     Running     0               19m
+my-gitlab-gitaly-0                                   1/1     Running     0               9m55s
+my-gitlab-gitlab-exporter-79d7d5df5c-9bwl5           1/1     Running     0               19m
+my-gitlab-gitlab-runner-6458d8fb56-pddfr             0/1     Error       5               19m
+my-gitlab-gitlab-shell-5bcb8cdc46-cnqmk              1/1     Running     0               19m
+my-gitlab-gitlab-shell-5bcb8cdc46-tszf6              1/1     Running     0               19m
+my-gitlab-kas-78d78f74dc-f4zph                       1/1     Running     8 (8m26s ago)   19m
+my-gitlab-kas-78d78f74dc-g4rct                       1/1     Running     0               4m1s
+my-gitlab-migrations-1-f5657                         0/1     Completed   3               19m
+my-gitlab-minio-7989684dd8-74xjt                     1/1     Running     0               9m55s
+my-gitlab-nginx-ingress-controller-6bdd56c45-28rxc   1/1     Running     0               19m
+my-gitlab-nginx-ingress-controller-6bdd56c45-bwk66   1/1     Running     0               19m
+my-gitlab-postgresql-0                               2/2     Running     0               9m55s
+my-gitlab-prometheus-server-646489c599-q2hsk         2/2     Running     0               9m55s
+my-gitlab-redis-master-0                             2/2     Running     0               9m55s
+my-gitlab-registry-67c947ccb9-dfqhr                  1/1     Running     0               19m
+my-gitlab-registry-67c947ccb9-f8llk                  1/1     Running     0               19m
+my-gitlab-sidekiq-all-in-1-v2-775f4bbccc-qtr25       1/1     Running     1 (114s ago)    5m2s
+my-gitlab-toolbox-5f686bb594-cg87l                   1/1     Running     0               19m
+my-gitlab-webservice-default-564cc76bff-qjlpt        2/2     Running     1 (89s ago)     5m2s
+my-gitlab-webservice-default-564cc76bff-zkrbq        2/2     Running     1 (91s ago)     5m2s
 [root@k8s ~]# 
 ```
 
