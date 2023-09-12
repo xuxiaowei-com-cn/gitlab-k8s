@@ -22,6 +22,7 @@ sidebar_position: 1
 - gitlab-ce（社区版）、gitlab-ee（企业版）、gitlab-jh（极狐版）的区别：[GitLab 导读](/docs/guide/gitlab.md)
 - 本文以 helm gitlab 7.3.2 为例（即：gitlab v16.3.2）
 - 演示环境使用 k8s 单机器群测试，数据使用 local PV 储存
+- 演示环境的 IP 是 192.168.80.3
 - 使用 helm 安装/配置 gitlab 的域名信息如下，如果特别说明，则使用下表中的值
 
 | 域名                              | 作用              | 说明                  |
