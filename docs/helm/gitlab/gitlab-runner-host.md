@@ -273,4 +273,24 @@ Registration attempt 2 of 30
 可知，注册失败，因为使用的域名是 gitlab.test.helm.xuxiaowei.cn，但是证书仅包含 ingress.local，导致 GitLab Runner
 无法正常注册
 
+- 如果日志出现下列内容，则说明 域名与证书是匹配的，但是 <strong><font color="red">证书不是授信机构控颁发的</font></strong>
+  ，需要 gitlab runner 信任此证书后，gitlab runner 才能正常注册与使用
+
+```shell
+[root@k8s ~]# kubectl -n gitlab-test logs -f my-gitlab-gitlab-runner-ff8b6b8f5-sv9b2 
+Registration attempt 1 of 30
+Runtime platform                                    arch=amd64 os=linux pid=16 revision=782e15da version=16.2.0
+WARNING: Running in user-mode.                     
+WARNING: The user-mode requires you to manually start builds processing: 
+WARNING: $ gitlab-runner run                       
+WARNING: Use sudo for system-mode:                 
+WARNING: $ sudo gitlab-runner...                   
+                                                   
+Merging configuration from template file "/configmaps/config.template.toml" 
+WARNING: Support for registration tokens and runner parameters in the 'register' command has been deprecated in GitLab Runner 15.6 and will be replaced with support for authentication tokens. For more information, see https://gitlab.com/gitlab-org/gitlab/-/issues/380872 
+ERROR: Registering runner... failed                 runner=wgpCYf05 status=couldn't execute POST against https://gitlab.test.helm.xuxiaowei.cn/api/v4/runners: Post "https://gitlab.test.helm.xuxiaowei.cn/api/v4/runners": tls: failed to verify certificate: x509: certificate signed by unknown authority
+PANIC: Failed to register the runner.              
+Registration attempt 2 of 30
+```
+
 - gitlab runner 证书验证失败解决方案：[gitlab runner 信任域名证书](gitlab-runner-trust-ssl.md)
