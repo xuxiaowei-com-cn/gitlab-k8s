@@ -276,10 +276,14 @@ sidebar_position: 4
     [root@k8s-1 kube-prometheus-0.12.0]# 
     ```
 
-8. 由上面的 Service 结果（Service 端口是动态生成的，一旦创建，就固定下来了，重启 k8s 也不会变）可知
+8. 由上面的 Service 结果（Service 端口是动态生成的，一旦创建，就固定下来了，重启 k8s 也不会变）可知：
+
    alertmanager-main 端口：32386
+
    grafana 端口：30823，默认用户名：admin，默认密码：admin，首次登录需要修改密码。访问 IP:30823/profile，可设置语言为中文
+
    prometheus-k8s 端口：32505
+
 9. 列举 grafana 中的一些控制面板
    ![image.png](static/kube-prometheus-install-01.png)
    ![image.png](static/kube-prometheus-install-02.png)
