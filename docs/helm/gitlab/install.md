@@ -42,6 +42,7 @@ sidebar_position: 1
 - [基本配置](https://docs.gitlab.cn/charts/installation/command-line-options.html#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE)
     - global.hosts.domain：将用于所有对外暴露服务的域名
     - global.edition：要安装的版本标识，默认值：ee
+    - global.time_zone：全局时区，默认值：UTC
 - [Deploy the Community Edition](https://docs.gitlab.com/charts/installation/deployment.html#deploy-the-community-edition)
     - global.edition：要安装的版本标识，默认值：ee
 
@@ -272,12 +273,14 @@ kubectl create namespace gitlab-test
 # Helm v3
 helm -n gitlab-test install my-gitlab gitlab/gitlab --version 7.3.2 \
   --set certmanager-issuer.email=your@email.com \
+  --set global.time_zone=Asia/Shanghai \
   --set global.hosts.domain=test.helm.xuxiaowei.cn \
   --timeout 600s
 
 # Helm v2
 #helm -n gitlab-test install --name my-gitlab gitlab/gitlab --version 7.3.2 \
 #  --set certmanager-issuer.email=your@email.com \
+#  --set global.time_zone=Asia/Shanghai \
 #  --set global.hosts.domain=test.helm.xuxiaowei.cn \
 #  --timeout 600s
 ```
@@ -297,6 +300,7 @@ certmanager-issuer:
 global:
   hosts:
     domain: test.helm.xuxiaowei.cn
+  time_zone: Asia/Shanghai
 [root@k8s ~]# 
 ```
 
