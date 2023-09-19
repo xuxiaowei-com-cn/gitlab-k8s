@@ -299,7 +299,9 @@ sidebar_position: 4
 
     1. 访问 http://IP:30823/admin/settings 可以查看到默认配置
 
-    2. 获取当前 grafana 配置
+    2. 注意事项：在每次修改配置后，请使用无痕浏览器测试
+
+    3. 获取当前 grafana 配置
 
          ```shell
          # 配置已使用 base64 加密，此处为解密查看
@@ -314,7 +316,7 @@ sidebar_position: 4
          [root@k8s-1 kube-prometheus-0.13.0]# 
          ```
 
-    3. 编写未加密配置文件
+    4. 编写未加密配置文件
 
         ```shell
         cat <<EOF > grafana.ini
@@ -339,7 +341,7 @@ sidebar_position: 4
         cat grafana.ini
         ```
 
-    4. 使用 base64 加密配置文件
+    5. 使用 base64 加密配置文件
 
         ```shell
         cat grafana.ini | base64
@@ -354,7 +356,7 @@ sidebar_position: 4
         [root@k8s-1 kube-prometheus-0.13.0]#
         ```
 
-    5. 修改 grafana 配置
+    6. 修改 grafana 配置
 
         ```shell
         kubectl -n monitoring edit secrets grafana-config
@@ -386,7 +388,7 @@ sidebar_position: 4
         type: Opaque
         ```
 
-    6. 重启 grafana 即可
+    7. 重启 grafana 即可
 
         ```shell
         kubectl -n monitoring rollout restart deployment grafana
