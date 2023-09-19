@@ -295,7 +295,7 @@ sidebar_position: 4
 
    prometheus-k8s 端口：32505
 
-9. 开启匿名访问、设置时区、允许 iframe 被嵌套
+9. 开启匿名访问、设置时区、允许 iframe 被嵌套、默认语言
 
     1. 访问 http://IP:30823/admin/settings 可以查看到默认配置
 
@@ -330,6 +330,10 @@ sidebar_position: 4
         # 允许 iframe 被嵌套
         allow_embedding = true
         
+        [users]
+        # 默认语言：中文
+        default_language = zh-Hans
+        
         EOF
         
         cat grafana.ini
@@ -346,7 +350,7 @@ sidebar_position: 4
         W2RhdGVfZm9ybWF0c10KIyDml7bljLrvvJrkuprmtLLkuIrmtbcKZGVmYXVsdF90aW1lem9uZSA9
         IEFzaWEvU2hhbmdoYWkKClthdXRoLmFub255bW91c10KIyDljL/lkI3orr/pl67vvJrlvIDlkK8K
         ZW5hYmxlZCA9IHRydWUKCltzZWN1cml0eV0KIyDlhYHorrggaWZyYW1lIOiiq+W1jOWllwphbGxv
-        d19lbWJlZGRpbmcgPSB0cnVlCgo=
+        d19lbWJlZGRpbmcgPSB0cnVlCgpbdXNlcnNdCmRlZmF1bHRfbGFuZ3VhZ2UgPSB6aC1IYW5zCgo=
         [root@k8s-1 kube-prometheus-0.13.0]#
         ```
 
@@ -362,7 +366,8 @@ sidebar_position: 4
           grafana.ini: |
             W2RhdGVfZm9ybWF0c10KIyDml7bljLrvvJrkuprmtLLkuIrmtbcKZGVmYXVsdF90aW1lem9uZSA9
             IEFzaWEvU2hhbmdoYWkKClthdXRoLmFub255bW91c10KIyDljL/lkI3orr/pl67vvJrlvIDlkK8K
-            ZW5hYmxlZCA9IHRydWUKCg==
+            ZW5hYmxlZCA9IHRydWUKCltzZWN1cml0eV0KIyDlhYHorrggaWZyYW1lIOiiq+W1jOWllwphbGxv
+            d19lbWJlZGRpbmcgPSB0cnVlCgpbdXNlcnNdCmRlZmF1bHRfbGFuZ3VhZ2UgPSB6aC1IYW5zCgo=
         kind: Secret
         metadata:
           annotations:
