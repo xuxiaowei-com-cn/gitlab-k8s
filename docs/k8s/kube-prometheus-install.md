@@ -295,7 +295,7 @@ sidebar_position: 4
 
    prometheus-k8s 端口：32505
 
-9. 开启匿名访问、设置时区
+9. 开启匿名访问、设置时区、允许 iframe 被嵌套
 
     1. 访问 http://IP:30823/admin/settings 可以查看到默认配置
 
@@ -326,6 +326,10 @@ sidebar_position: 4
         # 匿名访问：开启
         enabled = true
         
+        [security]
+        # 允许 iframe 被嵌套
+        allow_embedding = true
+        
         EOF
         
         cat grafana.ini
@@ -341,7 +345,8 @@ sidebar_position: 4
         [root@k8s-1 kube-prometheus-0.13.0]# cat grafana.ini | base64
         W2RhdGVfZm9ybWF0c10KIyDml7bljLrvvJrkuprmtLLkuIrmtbcKZGVmYXVsdF90aW1lem9uZSA9
         IEFzaWEvU2hhbmdoYWkKClthdXRoLmFub255bW91c10KIyDljL/lkI3orr/pl67vvJrlvIDlkK8K
-        ZW5hYmxlZCA9IHRydWUKCg==
+        ZW5hYmxlZCA9IHRydWUKCltzZWN1cml0eV0KIyDlhYHorrggaWZyYW1lIOiiq+W1jOWllwphbGxv
+        d19lbWJlZGRpbmcgPSB0cnVlCgo=
         [root@k8s-1 kube-prometheus-0.13.0]#
         ```
 
