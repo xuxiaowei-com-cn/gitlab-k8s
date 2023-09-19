@@ -159,7 +159,7 @@ sidebar_position: 4
 1. 下载、解压、进入 kube-prometheus 文件夹
 
     ```shell
-    KUBE_PROMETHEUS_VERSION=0.12.0
+    KUBE_PROMETHEUS_VERSION=0.13.0
     wget --content-disposition https://github.com/prometheus-operator/kube-prometheus/archive/refs/tags/v$KUBE_PROMETHEUS_VERSION.tar.gz
     tar -zxvf kube-prometheus-$KUBE_PROMETHEUS_VERSION.tar.gz
     cd kube-prometheus-$KUBE_PROMETHEUS_VERSION/
@@ -228,14 +228,24 @@ sidebar_position: 4
 
 5. 初始化
 
+   安装
+
     ```shell
     # https://github.com/prometheus-operator/kube-prometheus#quickstart
     
-    kubectl create -f manifests/setup
+    kubectl apply --server-side -f manifests/setup
     kubectl wait --for condition=Established --all CustomResourceDefinition --namespace=monitoring
-    kubectl create -f manifests
+    kubectl apply -f manifests/
     kubectl get pod,svc --all-namespaces
     kubectl get prometheuses -n monitoring
+    ```
+
+   卸载
+
+    ```shell
+    # https://github.com/prometheus-operator/kube-prometheus#quickstart
+    
+    kubectl delete --ignore-not-found=true -f manifests/ -f manifests/setup
     ```
 
 6. 实时查看 pod 状态
@@ -261,7 +271,7 @@ sidebar_position: 4
    查看结果：
 
     ```shell
-    [root@k8s-1 kube-prometheus-0.12.0]# kubectl -n monitoring get svc
+    [root@k8s-1 kube-prometheus-0.13.0]# kubectl -n monitoring get svc
     NAME                    TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                         AGE
     alertmanager-main       NodePort    10.110.118.164   <none>        9093:32386/TCP,8080:30608/TCP   3m45s
     alertmanager-operated   ClusterIP   None             <none>        9093/TCP,9094/TCP,9094/UDP      2m13s
@@ -273,34 +283,122 @@ sidebar_position: 4
     prometheus-k8s          NodePort    10.105.199.185   <none>        9090:32505/TCP,8080:31273/TCP   3m44s
     prometheus-operated     ClusterIP   None             <none>        9090/TCP                        2m11s
     prometheus-operator     ClusterIP   None             <none>        8443/TCP                        3m43s
-    [root@k8s-1 kube-prometheus-0.12.0]# 
+    [root@k8s-1 kube-prometheus-0.13.0]# 
     ```
 
-8. 由上面的 Service 结果（Service 端口是动态生成的，一旦创建，就固定下来了，重启 k8s 也不会变）可知：
+8. <strong><font color="red">由上面的 Service 结果（Service 端口是动态生成的，一旦创建，就固定下来了，重启 k8s
+   也不会变）可知：</font></strong>
 
    alertmanager-main 端口：32386
 
-   grafana 端口：30823，默认用户名：admin，默认密码：admin，首次登录需要修改密码。访问 IP:30823/profile，可设置语言为中文
+   grafana 端口：30823，默认用户名：admin，默认密码：admin，首次登录需要修改密码。访问 http://IP:30823/profile，可设置语言为中文
 
    prometheus-k8s 端口：32505
 
-9. 列举 grafana 中的一些控制面板
-   ![image.png](static/kube-prometheus-install-01.png)
-   ![image.png](static/kube-prometheus-install-02.png)
-   ![image.png](static/kube-prometheus-install-03.png)
-   ![image.png](static/kube-prometheus-install-04.png)
-   ![image.png](static/kube-prometheus-install-05.png)
-   ![image.png](static/kube-prometheus-install-06.png)
-   ![image.png](static/kube-prometheus-install-07.png)
-   ![image.png](static/kube-prometheus-install-08.png)
-   ![image.png](static/kube-prometheus-install-09.png)
-   ![image.png](static/kube-prometheus-install-10.png)
-   ![image.png](static/kube-prometheus-install-11.png)
-   ![image.png](static/kube-prometheus-install-12.png)
-   ![image.png](static/kube-prometheus-install-13.png)
-   ![image.png](static/kube-prometheus-install-14.png)
-   ![image.png](static/kube-prometheus-install-15.png)
-   ![image.png](static/kube-prometheus-install-16.png)
-   ![image.png](static/kube-prometheus-install-17.png)
-   ![image.png](static/kube-prometheus-install-18.png)
-   ![image.png](static/kube-prometheus-install-19.png)
+9. 开启匿名访问、设置时区
+
+    1. 访问 http://IP:30823/admin/settings 可以查看到默认配置
+
+    2. 获取当前 grafana 配置
+
+         ```shell
+         # 配置已使用 base64 加密，此处为解密查看
+         kubectl -n monitoring get secrets grafana-config -ojsonpath='{.data.grafana\.ini}' | base64 --decode ; echo
+         ```
+
+         ```shell
+         [root@k8s-1 kube-prometheus-0.13.0]# kubectl -n monitoring get secrets grafana-config -ojsonpath='{.data.grafana\.ini}' | base64 --decode ; echo
+         [date_formats]
+         default_timezone = UTC
+         
+         [root@k8s-1 kube-prometheus-0.13.0]# 
+         ```
+
+    3. 编写未加密配置文件
+
+        ```shell
+        cat <<EOF > grafana.ini
+        [date_formats]
+        # 时区：亚洲上海
+        default_timezone = Asia/Shanghai
+        
+        [auth.anonymous]
+        # 匿名访问：开启
+        enabled = true
+        
+        EOF
+        
+        cat grafana.ini
+        ```
+
+    4. 使用 base64 加密配置文件
+
+        ```shell
+        cat grafana.ini | base64
+        ```
+
+        ```shell
+        [root@k8s-1 kube-prometheus-0.13.0]# cat grafana.ini | base64
+        W2RhdGVfZm9ybWF0c10KIyDml7bljLrvvJrkuprmtLLkuIrmtbcKZGVmYXVsdF90aW1lem9uZSA9
+        IEFzaWEvU2hhbmdoYWkKClthdXRoLmFub255bW91c10KIyDljL/lkI3orr/pl67vvJrlvIDlkK8K
+        ZW5hYmxlZCA9IHRydWUKCg==
+        [root@k8s-1 kube-prometheus-0.13.0]#
+        ```
+
+    5. 修改 grafana 配置
+
+        ```shell
+        kubectl -n monitoring edit secrets grafana-config
+        ```
+
+        ```yaml
+        apiVersion: v1
+        data:
+          grafana.ini: |
+            W2RhdGVfZm9ybWF0c10KIyDml7bljLrvvJrkuprmtLLkuIrmtbcKZGVmYXVsdF90aW1lem9uZSA9
+            IEFzaWEvU2hhbmdoYWkKClthdXRoLmFub255bW91c10KIyDljL/lkI3orr/pl67vvJrlvIDlkK8K
+            ZW5hYmxlZCA9IHRydWUKCg==
+        kind: Secret
+        metadata:
+          annotations:
+            kubectl.kubernetes.io/last-applied-configuration: |
+              {"apiVersion":"v1","kind":"Secret","metadata":{"annotations":{},"labels":{"app.kubernetes.io/component":"grafana","app.kubernetes.io/name":"grafana","app.kubernetes.io/part-of":"kube-prometheus","app.kubernetes.io/version":"9.5.3"},"name":"grafana-config","namespace":"monitoring"},"stringData":{"grafana.ini":"[date_formats]\ndefault_timezone = UTC\n"},"type":"Opaque"}
+          creationTimestamp: "2023-09-19T02:15:20Z"
+          labels:
+            app.kubernetes.io/component: grafana
+            app.kubernetes.io/name: grafana
+            app.kubernetes.io/part-of: kube-prometheus
+            app.kubernetes.io/version: 9.5.3
+          name: grafana-config
+          namespace: monitoring
+          resourceVersion: "16010348"
+          uid: 48bbeea9-abb1-453a-85f8-fdd22db6f56f
+        type: Opaque
+        ```
+
+    6. 重启 grafana 即可
+
+        ```shell
+        kubectl -n monitoring rollout restart deployment grafana
+        ```
+
+10. 列举 grafana 中的一些控制面板
+    ![image.png](static/kube-prometheus-install-01.png)
+    ![image.png](static/kube-prometheus-install-02.png)
+    ![image.png](static/kube-prometheus-install-03.png)
+    ![image.png](static/kube-prometheus-install-04.png)
+    ![image.png](static/kube-prometheus-install-05.png)
+    ![image.png](static/kube-prometheus-install-06.png)
+    ![image.png](static/kube-prometheus-install-07.png)
+    ![image.png](static/kube-prometheus-install-08.png)
+    ![image.png](static/kube-prometheus-install-09.png)
+    ![image.png](static/kube-prometheus-install-10.png)
+    ![image.png](static/kube-prometheus-install-11.png)
+    ![image.png](static/kube-prometheus-install-12.png)
+    ![image.png](static/kube-prometheus-install-13.png)
+    ![image.png](static/kube-prometheus-install-14.png)
+    ![image.png](static/kube-prometheus-install-15.png)
+    ![image.png](static/kube-prometheus-install-16.png)
+    ![image.png](static/kube-prometheus-install-17.png)
+    ![image.png](static/kube-prometheus-install-18.png)
+    ![image.png](static/kube-prometheus-install-19.png)
