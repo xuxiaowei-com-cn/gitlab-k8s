@@ -16,6 +16,7 @@ pages:
     - npm run build
     - mv build/ public/
   artifacts:
+    expire_in: 1 week
     paths:
       - public/
   rules:
