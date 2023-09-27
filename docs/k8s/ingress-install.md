@@ -26,8 +26,6 @@ sidebar_position: 7
     1. [TLS/HTTPS](https://kubernetes.github.io/ingress-nginx/user-guide/tls/)
 4. 本文以 k8s 1.26.2 为例
 5. 本文以 ingress-nginx 的 controller-v1.8.0 标签 为例
-    1. 注意：无需从 v1.8.0 升级至 v1.8.1，因为：controller-v1.8.0、controller-v1.8.1 的
-       deploy/static/provider/cloud/deploy.yaml、deploy/static/provider/baremetal/deploy.yaml 完全相同
 
 ## 配置
 
@@ -36,9 +34,6 @@ sidebar_position: 7
 
     ```shell
     INGRESS_NGINX_VERSION=1.8.0
-    
-    # 注意：无需从 v1.8.0 升级至 v1.8.1
-    # 因为：controller-v1.8.0、controller-v1.8.1 的 deploy/static/provider/cloud/deploy.yaml、deploy/static/provider/baremetal/deploy.yaml 完全相同
     
     # 镜像来自 https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/cloud/deploy.yaml
     # docker pull registry.k8s.io/ingress-nginx/controller@sha256:744ae2afd433a395eeb13dc03d3313facba92e96ad71d9feaafc85925493fee3
@@ -57,7 +52,8 @@ sidebar_position: 7
     # 推送到个人仓库
     # docker push registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.0
     # docker push registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20230407
-    # linux arm64 镜像命令
+    
+    # arm64 镜像命令
     # docker push registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.0-arm64
     # docker push registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20230407-arm64
     
@@ -66,14 +62,16 @@ sidebar_position: 7
     # 拉取到 k8s 命名空间中
     ctr -n=k8s.io i pull registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.0
     ctr -n=k8s.io i pull registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20230407
-    # linux arm64 镜像命令
+    
+    # arm64 镜像命令
     # ctr -n=k8s.io i pull registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.0-arm64
     # ctr -n=k8s.io i pull registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20230407-arm64    
     
     # 恢复原始名称
     ctr -n=k8s.io i tag registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.0              registry.k8s.io/ingress-nginx/controller@sha256:744ae2afd433a395eeb13dc03d3313facba92e96ad71d9feaafc85925493fee3
     ctr -n=k8s.io i tag registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20230407 registry.k8s.io/ingress-nginx/kube-webhook-certgen@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b
-    # linux arm64 镜像命令
+    
+    # arm64 镜像命令
     # ctr -n=k8s.io i tag registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.0-arm64              registry.k8s.io/ingress-nginx/controller@sha256:744ae2afd433a395eeb13dc03d3313facba92e96ad71d9feaafc85925493fee3
     # ctr -n=k8s.io i tag registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20230407-arm64 registry.k8s.io/ingress-nginx/kube-webhook-certgen@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b
     
