@@ -1,3 +1,12 @@
+
+|                              | position |
+|------------------------------|----------|
+| centos-7.9-install           | 1        |
+| anolis-8.4-install           | 2        |
+| anolis-7.9-gitlab-jh-install | 3        |
+| https-configuration          | 4        |
+| pages-https-configuration    | 5        |
+
 |                     | position |
 |---------------------|----------|
 | guide               | 101      |
