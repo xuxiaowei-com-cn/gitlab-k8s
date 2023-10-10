@@ -1,7 +1,11 @@
 ---
+# slug 代表 URL
 slug: long-blog-post
-title: Long Blog Post
+# title 代表 页面标题
+title: Long Blog Post（示例）
+# 代表作者，数据从 authors.yml 中获取
 authors: endi
+# 代表文章标签
 tags: [hello, docusaurus]
 ---
 

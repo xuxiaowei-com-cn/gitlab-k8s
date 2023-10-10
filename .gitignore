@@ -53,5 +53,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-/package-lock.json
 /public/
+
+/yarn.lock
+/pnpm-lock.yaml
+/package-lock.json

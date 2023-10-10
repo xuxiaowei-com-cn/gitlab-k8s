@@ -83,7 +83,7 @@ const config = {
             position: 'left',
             label: '文档',
           },
-          // {to: '/blog', label: 'Blog', position: 'left'},
+          {to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://gitee.com/xuxiaowei-com-cn/gitlab-k8s',
             label: 'Gitee',
@@ -136,10 +136,10 @@ const config = {
           {
             title: '更多',
             items: [
-              // {
-              //   label: 'Blog',
-              //   to: '/blog',
-              // },
+              {
+                label: 'Blog',
+                to: '/blog',
+              },
               {
                 label: 'Kubernetes（k8s）全自动安装配置脚本',
                 href: 'https://jihulab.com/xuxiaowei-com-cn/k8s.sh',

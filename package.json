@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "pre": "npm install --registry https://registry.npmmirror.com || npm install --registry https://registry.npmjs.org",
+    "pre:npm": "npm install --registry https://registry.npmmirror.com || npm install --registry https://registry.npmjs.org",
+    "pre:yarn": "yarn install --registry https://registry.npmmirror.com || yarn install --registry https://registry.npmjs.org",
+    "pre:pnpm": "pnpm install --registry https://registry.npmmirror.com || pnpm install --registry https://registry.npmjs.org",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
