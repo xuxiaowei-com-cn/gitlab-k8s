@@ -24,7 +24,7 @@ updates:
       timezone: "Asia/Shanghai"
     # https://docs.github.com/zh/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore
     ignore:
-      # @docusaurus/core 2.4.1 要求 "react": "^16.8.4 || ^17.0.0",
+      # @docusaurus/core 2.4.3 要求 "react": "^16.8.4 || ^17.0.0",
       - dependency-name: react
         versions:
           - "> 17"
