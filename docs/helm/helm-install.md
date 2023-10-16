@@ -43,7 +43,7 @@ sidebar_position: 1
         2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/helm/helm)
     2. 历史发布
         1. [GitHub](https://github.com/helm/helm/releases)
-        2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/helm/helm/-/releases)
+        2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/helm/helm/-/tags)
 6. [Helm版本支持策略](https://helm.sh/zh/docs/topics/version_skew/)（2023-06-26 更新）
    本文以 k8s 1.26.6、helm 3.12.3 为例
 
