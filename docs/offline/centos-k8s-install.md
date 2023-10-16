@@ -201,7 +201,7 @@ sidebar_position: 5
        版本的对应关系：[Kubernetes（k8s）安装](/docs/k8s/centos-install.md)
 
         1. [GitHub](https://github.com/projectcalico/calico/blob/v3.24.5/manifests/calico.yaml)
-        2. [GitCode](https://gitcode.net/mirrors/projectcalico/calico/-/blob/v3.24.5/manifests/calico.yaml)
+        2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/projectcalico/calico/-/blob/v3.24.5/manifests/calico.yaml)
 
         ```shell
         docker pull docker.io/calico/node:v3.24.5
@@ -458,7 +458,7 @@ sidebar_position: 5
 
 13. 网络初始化，下载 calico.yaml 文件，复制到电脑上
     1. [GitHub](https://github.com/projectcalico/calico/blob/v3.24.5/manifests/calico.yaml)
-    2. [GitCode](https://gitcode.net/mirrors/projectcalico/calico/-/blob/v3.24.5/manifests/calico.yaml)
+    2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/projectcalico/calico/-/blob/v3.24.5/manifests/calico.yaml)
 
     ```shell
     cd calico

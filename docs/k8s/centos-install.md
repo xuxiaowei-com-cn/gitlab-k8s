@@ -25,16 +25,16 @@ sidebar_position: 1
 14. [Pod 网络无法访问排查处理](https://cloud.tencent.com/document/product/457/40332)
 15. 开始使用 Containerd
     1. [github](https://github.com/containerd/containerd/blob/main/docs/getting-started.md)
-    2. [gitcode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/getting-started.md)
+    2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/containerd/containerd/-/blob/main/docs/getting-started.md)
 16. Containerd 配置 Docker 加速镜像
     1. [github](https://github.com/containerd/containerd/blob/main/docs/cri/registry.md)
-    2. [gitcode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/registry.md)
+    2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/containerd/containerd/-/blob/main/docs/cri/registry.md)
 17. crictl 用户指南
     1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md)
-    2. [GitCode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/crictl.md)
+    2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/containerd/containerd/-/blob/main/docs/cri/crictl.md)
 18. Containerd hosts 配置
     1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/hosts.md)
-    2. [GitCode](https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/hosts.md)
+    2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/containerd/containerd/-/blob/main/docs/hosts.md)
 
 ## 说明
 
@@ -361,7 +361,7 @@ sidebar_position: 1
     # 安装完 k8s 后，才有 crictl 命令
     # 参考：
     # GitHub：https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md
-    # GitCode：https://gitcode.net/mirrors/containerd/containerd/-/blob/main/docs/cri/crictl.md
+    # JiHuLab 个人镜像：https://jihulab.com/mirrors-github/containerd/containerd/-/blob/main/docs/cri/crictl.md
     
     cat <<EOF > /etc/crictl.yaml
     runtime-endpoint: unix:///run/containerd/containerd.sock
@@ -622,21 +622,21 @@ sidebar_position: 1
 
 17. 控制面板：配置网络，选择 Calico 配置，归档文档：[https://docs.tigera.io/archive/](https://docs.tigera.io/archive/)
 
-    | Kubernetes 版本       | Calico 版本 | Calico 文档                                                                    | Calico 配置                                                                            | GitCode 镜像                                                                           |
-    |---------------------|-----------|------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
-    | 1.18、1.19、1.20      | 3.18      | https://docs.tigera.io/archive/v3.18/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.18/manifests/calico.yaml                           | https://gitcode.net/mirrors/projectcalico/calico/-/raw/v3.18.0/manifests/calico.yaml |
-    | 1.19、1.20、1.21      | 3.19      | https://docs.tigera.io/archive/v3.19/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.19/manifests/calico.yaml                           | https://gitcode.net/mirrors/projectcalico/calico/-/raw/v3.19.0/manifests/calico.yaml |
-    | 1.19、1.20、1.21      | 3.20      | https://docs.tigera.io/archive/v3.20/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.20/manifests/calico.yaml                           | https://gitcode.net/mirrors/projectcalico/calico/-/raw/v3.20.0/manifests/calico.yaml |
-    | 1.20、1.21、1.22      | 3.21      | https://docs.tigera.io/archive/v3.21/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.21/manifests/calico.yaml                           | https://gitcode.net/mirrors/projectcalico/calico/-/raw/v3.21.0/manifests/calico.yaml |
-    | 1.21、1.22、1.23      | 3.22      | https://docs.tigera.io/archive/v3.22/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.22/manifests/calico.yaml                           | https://gitcode.net/mirrors/projectcalico/calico/-/raw/v3.22.0/manifests/calico.yaml |
-    | 1.21、1.22、1.23      | 3.23      | https://docs.tigera.io/archive/v3.23/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.23/manifests/calico.yaml                           | https://gitcode.net/mirrors/projectcalico/calico/-/raw/v3.23.0/manifests/calico.yaml |
-    | 1.22、1.23、1.24、1.25 | 3.24      | https://docs.tigera.io/archive/v3.24/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.24/manifests/calico.yaml                           | https://gitcode.net/mirrors/projectcalico/calico/-/raw/v3.24.0/manifests/calico.yaml |
-    | 1.22、1.23、1.24      | 3.25      | https://docs.tigera.io/archive/v3.25/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.25/manifests/calico.yaml                           | https://gitcode.net/mirrors/projectcalico/calico/-/raw/v3.25.0/manifests/calico.yaml |
-    | 1.24、1.25、1.26、1.27 | 3.26      | https://docs.tigera.io/calico/latest/getting-started/kubernetes/requirements | https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/calico.yaml | https://gitcode.net/mirrors/projectcalico/calico/-/raw/v3.26.1/manifests/calico.yaml |
+    | Kubernetes 版本       | Calico 版本 | Calico 文档                                                                    | Calico 配置                                                                            | JiHuLab 个人镜像                                                                                |
+    |---------------------|-----------|------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
+    | 1.18、1.19、1.20      | 3.18      | https://docs.tigera.io/archive/v3.18/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.18/manifests/calico.yaml                           | https://jihulab.com/mirrors-github/projectcalico/calico/-/raw/v3.18.0/manifests/calico.yaml |
+    | 1.19、1.20、1.21      | 3.19      | https://docs.tigera.io/archive/v3.19/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.19/manifests/calico.yaml                           | https://jihulab.com/mirrors-github/projectcalico/calico/-/raw/v3.19.0/manifests/calico.yaml |
+    | 1.19、1.20、1.21      | 3.20      | https://docs.tigera.io/archive/v3.20/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.20/manifests/calico.yaml                           | https://jihulab.com/mirrors-github/projectcalico/calico/-/raw/v3.20.0/manifests/calico.yaml |
+    | 1.20、1.21、1.22      | 3.21      | https://docs.tigera.io/archive/v3.21/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.21/manifests/calico.yaml                           | https://jihulab.com/mirrors-github/projectcalico/calico/-/raw/v3.21.0/manifests/calico.yaml |
+    | 1.21、1.22、1.23      | 3.22      | https://docs.tigera.io/archive/v3.22/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.22/manifests/calico.yaml                           | https://jihulab.com/mirrors-github/projectcalico/calico/-/raw/v3.22.0/manifests/calico.yaml |
+    | 1.21、1.22、1.23      | 3.23      | https://docs.tigera.io/archive/v3.23/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.23/manifests/calico.yaml                           | https://jihulab.com/mirrors-github/projectcalico/calico/-/raw/v3.23.0/manifests/calico.yaml |
+    | 1.22、1.23、1.24、1.25 | 3.24      | https://docs.tigera.io/archive/v3.24/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.24/manifests/calico.yaml                           | https://jihulab.com/mirrors-github/projectcalico/calico/-/raw/v3.24.0/manifests/calico.yaml |
+    | 1.22、1.23、1.24      | 3.25      | https://docs.tigera.io/archive/v3.25/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.25/manifests/calico.yaml                           | https://jihulab.com/mirrors-github/projectcalico/calico/-/raw/v3.25.0/manifests/calico.yaml |
+    | 1.24、1.25、1.26、1.27 | 3.26      | https://docs.tigera.io/calico/latest/getting-started/kubernetes/requirements | https://raw.githubusercontent.com/projectcalico/calico/v3.26.1/manifests/calico.yaml | https://jihulab.com/mirrors-github/projectcalico/calico/-/raw/v3.26.1/manifests/calico.yaml |
 
     ```shell
     # 下载
-    wget --no-check-certificate https://gitcode.net/mirrors/projectcalico/calico/-/raw/v3.26.1/manifests/calico.yaml
+    wget --no-check-certificate https://jihulab.com/mirrors-github/projectcalico/calico/-/raw/v3.26.1/manifests/calico.yaml
     ```
 
     ```shell

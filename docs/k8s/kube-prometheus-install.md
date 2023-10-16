@@ -14,10 +14,10 @@ sidebar_position: 4
         2. [快速开始](https://github.com/prometheus-operator/kube-prometheus#quickstart)
         3. [UI](https://github.com/prometheus-operator/kube-prometheus/blob/main/docs/access-ui.md)
             1. 本文已配置远程访问，此文档不重要
-    2. [GitCode 仓库](https://gitcode.net/mirrors/prometheus-operator/kube-prometheus)
-        1. [版本支持](https://gitcode.net/mirrors/prometheus-operator/kube-prometheus#compatibility)
-        2. [快速开始](https://gitcode.net/mirrors/prometheus-operator/kube-prometheus#quickstart)
-        3. [UI](https://gitcode.net/mirrors/prometheus-operator/kube-prometheus/blob/main/docs/access-ui.md)
+    2. [JiHuLab 个人镜像 仓库](https://jihulab.com/mirrors-github/prometheus-operator/kube-prometheus)
+        1. [版本支持](https://jihulab.com/mirrors-github/prometheus-operator/kube-prometheus#compatibility)
+        2. [快速开始](https://jihulab.com/mirrors-github/prometheus-operator/kube-prometheus#quickstart)
+        3. [UI](https://jihulab.com/mirrors-github/prometheus-operator/kube-prometheus/blob/main/docs/access-ui.md)
             1. 本文已配置远程访问，此文档不重要
 
 2. Kube Prometheus 包含的部分功能：

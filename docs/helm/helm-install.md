@@ -40,10 +40,10 @@ sidebar_position: 1
 5. Helm
     1. 仓库
         1. [GitHub](https://github.com/helm/helm)
-        2. [GitCode 加速镜像](https://gitcode.net/mirrors/helm/helm)
+        2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/helm/helm)
     2. 历史发布
         1. [GitHub](https://github.com/helm/helm/releases)
-        2. [GitCode 加速镜像](https://gitcode.net/mirrors/helm/helm/-/releases)
+        2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/helm/helm/-/releases)
 6. [Helm版本支持策略](https://helm.sh/zh/docs/topics/version_skew/)（2023-06-26 更新）
    本文以 k8s 1.26.6、helm 3.12.3 为例
 
@@ -83,8 +83,7 @@ sidebar_position: 1
 ## 安装
 
 1. 根据上述 Helm版本支持策略 与 k8s
-   的版本，访问 [github releases](https://github.com/helm/helm/releases)
-   或 [GitCode releases](https://gitcode.net/mirrors/helm/helm/-/releases) 下载所需的版本
+   的版本，访问 [github releases](https://github.com/helm/helm/releases) 下载所需的版本
 
    ```shell
    HELM_VERSION=v3.12.3

@@ -18,7 +18,7 @@ sidebar_position: 3
 5. 不使用 helm，所以只需关注 `v*.*.*`的标签（即：不含 helm 的标签）
 6. 版本介绍：
     1. [GitHub](https://github.com/kubernetes-sigs/metrics-server#compatibility-matrix)
-    2. [GitCode](https://gitcode.net/mirrors/kubernetes-sigs/metrics-server#compatibility-matrix)
+    2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/kubernetes-sigs/metrics-server#compatibility-matrix)
 7. 本文以 v0.6.4 为例（其他版本仅需更换下面的链接中的 v0.6.4）
 
    | 文件类型                 | 文件链接                                                                                                    | 个人镜像                                                                                                                              |

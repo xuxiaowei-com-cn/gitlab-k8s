@@ -22,14 +22,6 @@ sidebar_position: 7
         3. 版本支持
             1. [GitHub](https://github.com/kubernetes/ingress-nginx/blob/main/ingress-nginx.yaml)
             2. [JiHuLab 加速镜像](https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/blob/main/ingress-nginx.yaml)
-    3. [GitCode 加速镜像（可能存在同步频率较低的情况）](https://gitcode.net/mirrors/kubernetes/ingress-nginx/)
-        1. 注意主分支应该是 `main`
-        2. 安装指南
-            1. [GitHub](https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy/index.md)
-            2. [GitCode 加速镜像](https://gitcode.net/mirrors/kubernetes/ingress-nginx/-/blob/main/docs/deploy/index.md)
-        3. 版本支持
-            1. [GitHub](https://github.com/kubernetes/ingress-nginx/blob/main/ingress-nginx.yaml)
-            2. [GitCode 加速镜像](https://gitcode.net/mirrors/kubernetes/ingress-nginx/-/blob/main/ingress-nginx.yaml)
 3. [ingress-nginx 文档](https://kubernetes.github.io/ingress-nginx/)
     1. [TLS/HTTPS](https://kubernetes.github.io/ingress-nginx/user-guide/tls/)
 4. 本文以 k8s 1.26.2 为例
