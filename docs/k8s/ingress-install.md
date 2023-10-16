@@ -15,13 +15,13 @@ sidebar_position: 7
 2. ingress-nginx 仓库
     1. [GitHub](https://github.com/kubernetes/ingress-nginx/)
     2. [JiHuLab 加速镜像（个人镜像同步）](https://jihulab.com/mirrors-github/kubernetes/ingress-nginx)
-       1. 注意主分支应该是 `main`
-       2. 安装指南
-           1. [GitHub](https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy/index.md)
-           2. [JiHuLab 加速镜像](https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/blob/main/docs/deploy/index.md)
-       3. 版本支持
-           1. [GitHub](https://github.com/kubernetes/ingress-nginx/blob/main/ingress-nginx.yaml)
-           2. [JiHuLab 加速镜像](https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/blob/main/ingress-nginx.yaml)
+        1. 注意主分支应该是 `main`
+        2. 安装指南
+            1. [GitHub](https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy/index.md)
+            2. [JiHuLab 加速镜像](https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/blob/main/docs/deploy/index.md)
+        3. 版本支持
+            1. [GitHub](https://github.com/kubernetes/ingress-nginx/blob/main/ingress-nginx.yaml)
+            2. [JiHuLab 加速镜像](https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/blob/main/ingress-nginx.yaml)
     3. [GitCode 加速镜像（可能存在同步频率较低的情况）](https://gitcode.net/mirrors/kubernetes/ingress-nginx/)
         1. 注意主分支应该是 `main`
         2. 安装指南
@@ -60,54 +60,10 @@ sidebar_position: 7
 
 ## 配置
 
-1. 手动下载镜像（国内可能无法访问 registry.k8s.io 域名，本人准备了 ingress-nginx 的 controller-v1.8.0 标签 的镜像），初始化
-   k8s ingress-nginx
+1. 下载配置 ingress-nginx 文件
 
     ```shell
     INGRESS_NGINX_VERSION=1.8.0
-    
-    # 镜像来自 https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/cloud/deploy.yaml
-    # docker pull registry.k8s.io/ingress-nginx/controller@sha256:744ae2afd433a395eeb13dc03d3313facba92e96ad71d9feaafc85925493fee3
-    # docker pull registry.k8s.io/ingress-nginx/kube-webhook-certgen@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b
-    # linux arm64 镜像命令
-    # docker pull --platform=linux/arm64 registry.k8s.io/ingress-nginx/controller@sha256:744ae2afd433a395eeb13dc03d3313facba92e96ad71d9feaafc85925493fee3
-    # docker pull --platform=linux/arm64 registry.k8s.io/ingress-nginx/kube-webhook-certgen@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b
-    
-    # 重命名
-    # docker tag registry.k8s.io/ingress-nginx/controller@sha256:744ae2afd433a395eeb13dc03d3313facba92e96ad71d9feaafc85925493fee3           registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.0
-    # docker tag registry.k8s.io/ingress-nginx/kube-webhook-certgen@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20230407
-    # linux arm64 镜像命令
-    # docker tag registry.k8s.io/ingress-nginx/controller@sha256:744ae2afd433a395eeb13dc03d3313facba92e96ad71d9feaafc85925493fee3           registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.0-arm64
-    # docker tag registry.k8s.io/ingress-nginx/kube-webhook-certgen@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20230407-arm64
-    
-    # 推送到个人仓库
-    # docker push registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.0
-    # docker push registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20230407
-    
-    # arm64 镜像命令
-    # docker push registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.0-arm64
-    # docker push registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20230407-arm64
-    
-    # 手动下载镜像（国内可能无法访问 registry.k8s.io 域名，本人准备了 ingress-nginx 1.8.0 的镜像）
-    
-    # 拉取到 k8s 命名空间中
-    ctr -n=k8s.io i pull registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.0
-    ctr -n=k8s.io i pull registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20230407
-    
-    # arm64 镜像命令
-    # ctr -n=k8s.io i pull registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.0-arm64
-    # ctr -n=k8s.io i pull registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20230407-arm64    
-    
-    # 恢复原始名称
-    ctr -n=k8s.io i tag registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.0              registry.k8s.io/ingress-nginx/controller@sha256:744ae2afd433a395eeb13dc03d3313facba92e96ad71d9feaafc85925493fee3
-    ctr -n=k8s.io i tag registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20230407 registry.k8s.io/ingress-nginx/kube-webhook-certgen@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b
-    
-    # arm64 镜像命令
-    # ctr -n=k8s.io i tag registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.0-arm64              registry.k8s.io/ingress-nginx/controller@sha256:744ae2afd433a395eeb13dc03d3313facba92e96ad71d9feaafc85925493fee3
-    # ctr -n=k8s.io i tag registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20230407-arm64 registry.k8s.io/ingress-nginx/kube-webhook-certgen@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b
-    
-    # 查看镜像
-    ctr -n=k8s.io i ls | grep registry.k8s.io/ingress-nginx
     
     # 使用 LoadBalancer
     # 适合于没有 Helm 的环境，或者是倾向于使用 YAML 配置
@@ -123,7 +79,63 @@ sidebar_position: 7
     # 其他云厂商的k8s，请参见文档：
     # https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy/index.md
     # https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/blob/main/docs/deploy/index.md
-    
+    ```
+
+2. 修改为国内可以访问的镜像（国内可能无法访问 registry.k8s.io 域名）
+
+    1. 使用 作者 国内 极狐 JiHuLab 镜像
+        1. amd64
+            ```shell
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.9.3@sha256:8fd21d59428507671ce0fb47f818b1d859c92d2ad07bb7c947268d433030ba98#registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.9.3#g" deploy.yaml 
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.9.1@sha256:605a737877de78969493a4b1213b21de4ee425d2926906857b98050f57a95b25#registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.9.1#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.9.0@sha256:c15d1a617858d90fb8f8a2dd60b0676f2bb85c54e3ed11511794b86ec30c8c60#registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.9.0#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.8.4@sha256:8d8ddf32b83ca3e74bd5f66369fa60d85353e18ff55fa7691b321aa4716f5ba9#registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.4#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.8.2@sha256:74834d3d25b336b62cabeb8bf7f1d788706e2cf1cfd64022de4137ade8881ff2#registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.2#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.8.1@sha256:e5c4824e7375fcf2a393e1c03c293b69759af37a9ca6abdb91b13d78a93da8bd#registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.1#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.8.0@sha256:744ae2afd433a395eeb13dc03d3313facba92e96ad71d9feaafc85925493fee3#registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.0#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20231011-8b53cabe0@sha256:a7943503b45d552785aa3b5e457f169a5661fb94d82b8a3373bcd9ebaf9aac80#registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20231011-8b53cabe0#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20230407@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b#registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20230407#g" deploy.yaml
+            ```
+        2. arm64
+            ```shell
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.9.3@sha256:8fd21d59428507671ce0fb47f818b1d859c92d2ad07bb7c947268d433030ba98#registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.9.3-arm64#g" deploy.yaml 
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.9.1@sha256:605a737877de78969493a4b1213b21de4ee425d2926906857b98050f57a95b25#registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.9.1-arm64#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.9.0@sha256:c15d1a617858d90fb8f8a2dd60b0676f2bb85c54e3ed11511794b86ec30c8c60#registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.9.0-arm64#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.8.4@sha256:8d8ddf32b83ca3e74bd5f66369fa60d85353e18ff55fa7691b321aa4716f5ba9#registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.4-arm64#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.8.2@sha256:74834d3d25b336b62cabeb8bf7f1d788706e2cf1cfd64022de4137ade8881ff2#registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.2-arm64#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.8.1@sha256:e5c4824e7375fcf2a393e1c03c293b69759af37a9ca6abdb91b13d78a93da8bd#registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.1-arm64#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.8.0@sha256:744ae2afd433a395eeb13dc03d3313facba92e96ad71d9feaafc85925493fee3#registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.0-arm64#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20231011-8b53cabe0@sha256:a7943503b45d552785aa3b5e457f169a5661fb94d82b8a3373bcd9ebaf9aac80#registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20231011-8b53cabe0-arm64#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20230407@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b#registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20230407-arm64#g" deploy.yaml
+            ```
+    2. 使用 作者 docker hub 镜像
+        1. amd64
+            ```shell
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.9.3@sha256:8fd21d59428507671ce0fb47f818b1d859c92d2ad07bb7c947268d433030ba98#xuxiaoweicomcn/ingress-nginx-controller:v1.9.3#g" deploy.yaml 
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.9.1@sha256:605a737877de78969493a4b1213b21de4ee425d2926906857b98050f57a95b25#xuxiaoweicomcn/ingress-nginx-controller:v1.9.1#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.9.0@sha256:c15d1a617858d90fb8f8a2dd60b0676f2bb85c54e3ed11511794b86ec30c8c60#xuxiaoweicomcn/ingress-nginx-controller:v1.9.0#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.8.4@sha256:8d8ddf32b83ca3e74bd5f66369fa60d85353e18ff55fa7691b321aa4716f5ba9#xuxiaoweicomcn/ingress-nginx-controller:v1.8.4#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.8.2@sha256:74834d3d25b336b62cabeb8bf7f1d788706e2cf1cfd64022de4137ade8881ff2#xuxiaoweicomcn/ingress-nginx-controller:v1.8.2#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.8.1@sha256:e5c4824e7375fcf2a393e1c03c293b69759af37a9ca6abdb91b13d78a93da8bd#xuxiaoweicomcn/ingress-nginx-controller:v1.8.1#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.8.0@sha256:744ae2afd433a395eeb13dc03d3313facba92e96ad71d9feaafc85925493fee3#xuxiaoweicomcn/ingress-nginx-controller:v1.8.0#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20231011-8b53cabe0@sha256:a7943503b45d552785aa3b5e457f169a5661fb94d82b8a3373bcd9ebaf9aac80#xuxiaoweicomcn/ingress-nginx-kube-webhook-certgen:v20231011-8b53cabe0#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20230407@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b#xuxiaoweicomcn/ingress-nginx-kube-webhook-certgen:v20230407#g" deploy.yaml
+            ```
+        2. arm64
+            ```shell
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.9.3@sha256:8fd21d59428507671ce0fb47f818b1d859c92d2ad07bb7c947268d433030ba98#xuxiaoweicomcn/ingress-nginx-controller:v1.9.3-arm64#g" deploy.yaml 
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.9.1@sha256:605a737877de78969493a4b1213b21de4ee425d2926906857b98050f57a95b25#xuxiaoweicomcn/ingress-nginx-controller:v1.9.1-arm64#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.9.0@sha256:c15d1a617858d90fb8f8a2dd60b0676f2bb85c54e3ed11511794b86ec30c8c60#xuxiaoweicomcn/ingress-nginx-controller:v1.9.0-arm64#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.8.4@sha256:8d8ddf32b83ca3e74bd5f66369fa60d85353e18ff55fa7691b321aa4716f5ba9#xuxiaoweicomcn/ingress-nginx-controller:v1.8.4-arm64#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.8.2@sha256:74834d3d25b336b62cabeb8bf7f1d788706e2cf1cfd64022de4137ade8881ff2#xuxiaoweicomcn/ingress-nginx-controller:v1.8.2-arm64#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.8.1@sha256:e5c4824e7375fcf2a393e1c03c293b69759af37a9ca6abdb91b13d78a93da8bd#xuxiaoweicomcn/ingress-nginx-controller:v1.8.1-arm64#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/controller:v1.8.0@sha256:744ae2afd433a395eeb13dc03d3313facba92e96ad71d9feaafc85925493fee3#xuxiaoweicomcn/ingress-nginx-controller:v1.8.0-arm64#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20231011-8b53cabe0@sha256:a7943503b45d552785aa3b5e457f169a5661fb94d82b8a3373bcd9ebaf9aac80#xuxiaoweicomcn/ingress-nginx-kube-webhook-certgen:v20231011-8b53cabe0-arm64#g" deploy.yaml
+            sudo sed -i "s#registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20230407@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b#xuxiaoweicomcn/ingress-nginx-kube-webhook-certgen:v20230407-arm64#g" deploy.yaml
+            ```
+
+3. k8s 配置 ingress-nginx
+    ```shell
     kubectl apply -f deploy.yaml
     
     kubectl get pod --all-namespaces
@@ -132,7 +144,7 @@ sidebar_position: 7
     kubectl get svc --all-namespaces
     ```
 
-2. 简单测试
+4. 简单测试
     1. 使用 httpd 创建 deployment（这里使用作者个人镜像，加快镜像下载速度）
         1. 方式1：使用命令创建 deployment
 
@@ -288,7 +300,7 @@ sidebar_position: 7
            正在运行，请关闭，原因是：demo.localdev.me 域名是真实的，存在DNS解析，挂上 VPN 是能访问的，由于官方示例是这个域名，所以本文章没有做更改
            **），页面响应 `It works!`（httpd 的首页显示的就是 `It works!`），说明已通过简单测试
 
-3. 使用主机网络（使用宿主机 `80`、`443` 端口）
+5. 使用主机网络（使用宿主机 `80`、`443` 端口）
     1. 方式1（容器、宿主机端口相同）：
         1. 文档
             1. [GitHub](https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy/baremetal.md#via-the-host-network)
@@ -309,7 +321,7 @@ sidebar_position: 7
         2. 使用宿主机 `443` 端口同理
         3. 注意：宿主机如果已占用 80、443 会出现端口冲突
 
-4. 配置域名 demo.localdev.me SSL（https）证书
+6. 配置域名 demo.localdev.me SSL（https）证书
     1. 参考资料：[TLS/HTTPS](https://kubernetes.github.io/ingress-nginx/user-guide/tls/)
     2. **注意：如果域名和证书不匹配，可能无法生效**
     3. 默认是存在证书，证书信息
@@ -387,7 +399,7 @@ sidebar_position: 7
     8. 访问效果
 
        ![image.png](static/ingress-install-2.png)
-5. 相关命令
+7. 相关命令
     1. 获取所有的 ingress
 
         ```shell
