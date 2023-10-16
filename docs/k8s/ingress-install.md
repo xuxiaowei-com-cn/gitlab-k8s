@@ -14,7 +14,15 @@ sidebar_position: 7
     3. **根据不同的`域名`、`path`，转发到不同的 `Service` 中**
 2. ingress-nginx 仓库
     1. [GitHub](https://github.com/kubernetes/ingress-nginx/)
-    2. [GitCode 加速镜像](https://gitcode.net/mirrors/kubernetes/ingress-nginx/)
+    2. [JiHuLab 加速镜像（个人镜像同步）](https://jihulab.com/mirrors-github/kubernetes/ingress-nginx)
+       1. 注意主分支应该是 `main`
+       2. 安装指南
+           1. [GitHub](https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy/index.md)
+           2. [JiHuLab 加速镜像](https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/blob/main/docs/deploy/index.md)
+       3. 版本支持
+           1. [GitHub](https://github.com/kubernetes/ingress-nginx/blob/main/ingress-nginx.yaml)
+           2. [JiHuLab 加速镜像](https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/blob/main/ingress-nginx.yaml)
+    3. [GitCode 加速镜像（可能存在同步频率较低的情况）](https://gitcode.net/mirrors/kubernetes/ingress-nginx/)
         1. 注意主分支应该是 `main`
         2. 安装指南
             1. [GitHub](https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy/index.md)
@@ -26,6 +34,29 @@ sidebar_position: 7
     1. [TLS/HTTPS](https://kubernetes.github.io/ingress-nginx/user-guide/tls/)
 4. 本文以 k8s 1.26.2 为例
 5. 本文以 ingress-nginx 的 controller-v1.8.0 标签 为例
+6. 镜像使用说明
+
+| 版本/标签             | k8s 版本              | registry.k8s.io/ingress-nginx/kube-webhook-certgen 镜像版本                                     | registry.k8s.io/ingress-nginx/controller 镜像版本                                  |
+|-------------------|---------------------|---------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| controller-v1.9.3 | 1.28,1.27,1.26,1.25 | v20231011-8b53cabe0@sha256:a7943503b45d552785aa3b5e457f169a5661fb94d82b8a3373bcd9ebaf9aac80 | v1.9.3@sha256:8fd21d59428507671ce0fb47f818b1d859c92d2ad07bb7c947268d433030ba98 |
+| controller-v1.9.1 | 1.28,1.27,1.26,1.25 | v20230407@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b           | v1.9.1@sha256:605a737877de78969493a4b1213b21de4ee425d2926906857b98050f57a95b25 |
+| controller-v1.9.0 | 1.28,1.27,1.26,1.25 | v20230407@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b           | v1.9.0@sha256:c15d1a617858d90fb8f8a2dd60b0676f2bb85c54e3ed11511794b86ec30c8c60 |
+| controller-v1.8.4 | 1.27,1.26,1.25,1.24 | v20231011-8b53cabe0@sha256:a7943503b45d552785aa3b5e457f169a5661fb94d82b8a3373bcd9ebaf9aac80 | v1.8.4@sha256:8d8ddf32b83ca3e74bd5f66369fa60d85353e18ff55fa7691b321aa4716f5ba9 |
+| controller-v1.8.2 | 1.27,1.26,1.25,1.24 | v20230407@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b           | v1.8.2@sha256:74834d3d25b336b62cabeb8bf7f1d788706e2cf1cfd64022de4137ade8881ff2 |
+| controller-v1.8.1 | 1.27,1.26,1.25,1.24 | v20230407@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b           | v1.8.1@sha256:e5c4824e7375fcf2a393e1c03c293b69759af37a9ca6abdb91b13d78a93da8bd |
+| controller-v1.8.0 | 1.27,1.26,1.25,1.24 | v20230407@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b           | v1.8.0@sha256:744ae2afd433a395eeb13dc03d3313facba92e96ad71d9feaafc85925493fee3 |
+
+| 官方镜像                                                                                                                                           | 作者 docker hub 镜像                                                      | 作者 国内 极狐 JiHuLab 镜像                                                                                         |
+|------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| registry.k8s.io/ingress-nginx/controller:v1.9.3@sha256:8fd21d59428507671ce0fb47f818b1d859c92d2ad07bb7c947268d433030ba98                        | xuxiaoweicomcn/ingress-nginx-controller:v1.9.3                        | registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.9.3                        |
+| registry.k8s.io/ingress-nginx/controller:v1.9.1@sha256:605a737877de78969493a4b1213b21de4ee425d2926906857b98050f57a95b25                        | xuxiaoweicomcn/ingress-nginx-controller:v1.9.1                        | registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.9.1                        |
+| registry.k8s.io/ingress-nginx/controller:v1.9.0@sha256:c15d1a617858d90fb8f8a2dd60b0676f2bb85c54e3ed11511794b86ec30c8c60                        | xuxiaoweicomcn/ingress-nginx-controller:v1.9.0                        | registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.9.0                        |
+| registry.k8s.io/ingress-nginx/controller:v1.8.4@sha256:8d8ddf32b83ca3e74bd5f66369fa60d85353e18ff55fa7691b321aa4716f5ba9                        | xuxiaoweicomcn/ingress-nginx-controller:v1.8.4                        | registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.4                        |
+| registry.k8s.io/ingress-nginx/controller:v1.8.2@sha256:74834d3d25b336b62cabeb8bf7f1d788706e2cf1cfd64022de4137ade8881ff2                        | xuxiaoweicomcn/ingress-nginx-controller:v1.8.2                        | registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.2                        |
+| registry.k8s.io/ingress-nginx/controller:v1.8.1@sha256:e5c4824e7375fcf2a393e1c03c293b69759af37a9ca6abdb91b13d78a93da8bd                        | xuxiaoweicomcn/ingress-nginx-controller:v1.8.1                        | registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.1                        |
+| registry.k8s.io/ingress-nginx/controller:v1.8.0@sha256:744ae2afd433a395eeb13dc03d3313facba92e96ad71d9feaafc85925493fee3                        | xuxiaoweicomcn/ingress-nginx-controller:v1.8.0                        | registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/controller:v1.8.0                        |
+| registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20231011-8b53cabe0@sha256:a7943503b45d552785aa3b5e457f169a5661fb94d82b8a3373bcd9ebaf9aac80 | xuxiaoweicomcn/ingress-nginx-kube-webhook-certgen:v20231011-8b53cabe0 | registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20231011-8b53cabe0 |
+| registry.k8s.io/ingress-nginx/kube-webhook-certgen:v20230407@sha256:543c40fd093964bc9ab509d3e791f9989963021f1e9e4c9c7b6700b02bfb227b           | xuxiaoweicomcn/ingress-nginx-kube-webhook-certgen:v20230407           | registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/ingress-nginx/kube-webhook-certgen:v20230407           |
 
 ## 配置
 
@@ -81,17 +112,17 @@ sidebar_position: 7
     # 使用 LoadBalancer
     # 适合于没有 Helm 的环境，或者是倾向于使用 YAML 配置
     # wget https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/cloud/deploy.yaml
-    wget https://gitcode.net/mirrors/kubernetes/ingress-nginx/-/raw/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/cloud/deploy.yaml
+    wget https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/raw/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/cloud/deploy.yaml
     
     # 或者
     # 使用 NodePort
     # 适合于裸机服务器的 Kubernetes 集群，以及 Kubernetes 是手动安装的，支持通用的 Linux 发行版（如：CentOS、Ubuntu 等）
     # wget https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/baremetal/deploy.yaml
-    # wget https://gitcode.net/mirrors/kubernetes/ingress-nginx/-/raw/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/baremetal/deploy.yaml
+    # wget https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/raw/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/baremetal/deploy.yaml
     
     # 其他云厂商的k8s，请参见文档：
     # https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy/index.md
-    # https://gitcode.net/mirrors/kubernetes/ingress-nginx/-/blob/main/docs/deploy/index.md
+    # https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/blob/main/docs/deploy/index.md
     
     kubectl apply -f deploy.yaml
     
@@ -261,7 +292,7 @@ sidebar_position: 7
     1. 方式1（容器、宿主机端口相同）：
         1. 文档
             1. [GitHub](https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy/baremetal.md#via-the-host-network)
-            2. [GitCode 加速镜像](https://gitcode.net/mirrors/kubernetes/ingress-nginx/-/blob/main/docs/deploy/baremetal.md#via-the-host-network)
+            2. [JiHuLab 加速镜像](https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/blob/main/docs/deploy/baremetal.md#via-the-host-network)
         2. 执行 `kubectl -n ingress-nginx edit deployments.apps ingress-nginx-controller`，修改为：
 
             ```yaml
