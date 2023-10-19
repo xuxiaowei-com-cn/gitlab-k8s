@@ -8,6 +8,8 @@ sidebar_position: 1
 
 1. https://www.elastic.co/cn/downloads/elasticsearch
 2. https://www.elastic.co/guide/en/elasticsearch/reference/7.17/rpm.html
+3. https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-basic-setup.html
+4. https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-settings.html
 
 ## 安装 Elasticsearch
 
@@ -202,4 +204,58 @@ curl 127.0.0.1:9200/_cat/health
 firewall-cmd --zone=public --add-port=9200/tcp --permanent
 firewall-cmd --reload
 firewall-cmd --list-all
+```
+
+### 配置 Security（可选）
+
+```shell
+vim /etc/elasticsearch/elasticsearch.yml
+```
+
+```shell
+xpack.security.enabled: true
+xpack.security.transport.ssl.enabled: true
+```
+
+```shell
+systemctl status elasticsearch --no-pager
+systemctl restart elasticsearch
+systemctl status elasticsearch --no-pager
+```
+
+```shell
+/usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto
+```
+
+请备份下列密码
+
+```shell
+[root@elasticsearch-1 ~]# /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto
+Initiating the setup of passwords for reserved users elastic,apm_system,kibana,kibana_system,logstash_system,beats_system,remote_monitoring_user.
+The passwords will be randomly generated and printed to the console.
+Please confirm that you would like to continue [y/N]y
+
+
+Changed password for user apm_system
+PASSWORD apm_system = MNkjXibJ92WXmr38jfzW
+
+Changed password for user kibana_system
+PASSWORD kibana_system = ELxXSJsi4QSCFUXrwxZJ
+
+Changed password for user kibana
+PASSWORD kibana = ELxXSJsi4QSCFUXrwxZJ
+
+Changed password for user logstash_system
+PASSWORD logstash_system = QyM4zxLX4FmmQCfiE60z
+
+Changed password for user beats_system
+PASSWORD beats_system = yiv9zICLfFa2XGZCncZq
+
+Changed password for user remote_monitoring_user
+PASSWORD remote_monitoring_user = c4AllkznoQ5iSxggNVKy
+
+Changed password for user elastic
+PASSWORD elastic = DP2P6CtPbZWYaOoAZBin
+
+[root@elasticsearch-1 ~]#
 ```

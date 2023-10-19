@@ -204,6 +204,26 @@ firewall-cmd --reload
 firewall-cmd --list-all
 ```
 
+### 配置 Elasticsearch Password（可选）
+
+- 如果 Elasticsearch 开启了 Security，则这里需要配置，否则将无法使用
+
+```shell
+vim /etc/kibana/kibana.yml
+```
+
+```shell
+elasticsearch.username: "kibana_system"
+elasticsearch.password: "ELxXSJsi4QSCFUXrwxZJ"
+```
+
+```shell
+systemctl status kibana --no-pager
+systemctl restart kibana
+systemctl status kibana --no-pager
+```
+
 ### 浏览器访问
 
 - http://ip:5601
+- 如果 Elasticsearch 开启了 Security，则登录需要输入 `elastic` 用户名和密码
