@@ -10,6 +10,7 @@ sidebar_position: 1
 2. https://www.elastic.co/guide/en/elasticsearch/reference/7.17/rpm.html
 3. https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-basic-setup.html
 4. https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-settings.html
+5. https://www.elastic.co/guide/en/elasticsearch/reference/7.17/setup-passwords.html
 
 ## 安装 Elasticsearch
 
