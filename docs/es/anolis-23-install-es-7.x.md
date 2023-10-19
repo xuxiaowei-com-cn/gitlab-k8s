@@ -195,3 +195,11 @@ curl 127.0.0.1:9200/_cat/health
 1697716019 11:46:59 elasticsearch green 1 1 2 2 0 0 0 0 - 100.0%
 [root@elasticsearch-1 ~]# 
 ```
+
+### 开放端口，远程访问
+
+```shell
+firewall-cmd --zone=public --add-port=9200/tcp --permanent
+firewall-cmd --reload
+firewall-cmd --list-all
+```
