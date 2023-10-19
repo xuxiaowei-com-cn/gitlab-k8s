@@ -297,14 +297,18 @@ sidebar_position: 7
         1. 文档
             1. [GitHub](https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy/baremetal.md#via-the-host-network)
             2. [JiHuLab 加速镜像](https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/blob/main/docs/deploy/baremetal.md#via-the-host-network)
-        2. 执行 `kubectl -n ingress-nginx edit deployments.apps ingress-nginx-controller`，修改为：
-
-            ```yaml
-              template:
-                spec:
-                  # 注意：宿主机如果已占用 80、443 会出现端口冲突
-                  hostNetwork: true
-            ```
+        2. 修改配置
+            1. 方法1：
+               ```shell
+               kubectl -n ingress-nginx patch deployment ingress-nginx-controller --patch '{"spec": {"template": {"spec": {"hostNetwork": true}}}}'
+               ```
+            2. 方法2：执行 `kubectl -n ingress-nginx edit deployments.apps ingress-nginx-controller`，修改为：
+                ```yaml
+                    template:
+                      spec:
+                        # 注意：宿主机如果已占用 80、443 会出现端口冲突
+                        hostNetwork: true
+                ```
 
     2. 方式2（可自定义宿主机端口）：
         1. 如果想直接使用宿主机 `80`
