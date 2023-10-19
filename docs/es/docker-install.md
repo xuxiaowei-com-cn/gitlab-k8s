@@ -1,4 +1,8 @@
-# 使用 Docker 安装 Elasticsearch
+---
+sidebar_position: 2
+---
+
+# Docker 安装 Elasticsearch
 
 ## 文档
 
