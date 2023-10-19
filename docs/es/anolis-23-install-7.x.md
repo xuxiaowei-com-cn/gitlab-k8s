@@ -134,6 +134,22 @@ Oct 19 19:32:40 elasticsearch-1 systemd[1]: Started elasticsearch.service - Elas
 [root@elasticsearch-1 ~]#
 ```
 
+## 设置开机自启
+
+```shell
+systemctl enable elasticsearch
+```
+
+```shell
+[root@elasticsearch-1 ~]# systemctl enable elasticsearch
+Synchronizing state of elasticsearch.service with SysV service script with /usr/lib/systemd/systemd-sysv-install.
+Executing: /usr/lib/systemd/systemd-sysv-install enable elasticsearch
+Created symlink /etc/systemd/system/multi-user.target.wants/elasticsearch.service → /usr/lib/systemd/system/elasticsearch.service.
+[root@elasticsearch-1 ~]# systemctl is-enabled elasticsearch
+enabled
+[root@elasticsearch-1 ~]#
+```
+
 ## 配置
 
 ### 初始化主节点
