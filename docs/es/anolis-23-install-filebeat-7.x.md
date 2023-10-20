@@ -443,4 +443,6 @@ systemctl status filebeat.service --no-pager
 
 - 登录 Kibana 查看日志
 
+  - 访问地址：http://kibana IP:5601/app/logs/stream
+
 ![](static/kibana-log-1.png)
