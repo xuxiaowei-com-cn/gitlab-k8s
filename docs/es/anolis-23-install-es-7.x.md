@@ -302,7 +302,8 @@ vim /etc/elasticsearch/elasticsearch.yml
 ```
 
 ```shell
-cluster.initial_master_nodes: ["node-1", "node-2"]
+node.name: node-1
+cluster.initial_master_nodes: ["node-1"]
 ```
 
 ```shell
