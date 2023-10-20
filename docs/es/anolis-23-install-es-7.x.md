@@ -12,6 +12,11 @@ sidebar_position: 1
 4. https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-settings.html
 5. https://www.elastic.co/guide/en/elasticsearch/reference/7.17/setup-passwords.html
 
+## 说明
+
+1. 本文以 Anolis 龙蜥 23 为例，CentOS 同理
+2. 本文以 Elasticsearch 7.17.14 为例，首次发稿时的最新版
+
 ## 安装 Elasticsearch
 
 ### 导入 Elasticsearch GPG 密钥
@@ -31,6 +36,7 @@ name=Elasticsearch repository for 7.x packages
 baseurl=https://artifacts.elastic.co/packages/7.x/yum
 gpgcheck=1
 gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch
+# 注意：此处一定要设置为 0，代表默认不启用，原因是为了防止意外触发 elasticsearch 升级，如果要启用，请在命令中添加 --enablerepo=elasticsearch
 enabled=0
 autorefresh=1
 type=rpm-md
@@ -40,54 +46,180 @@ EOF
 cat /etc/yum.repos.d/elasticsearch.repo
 ```
 
+#### 搜索 Elasticsearch 版本
+
+```shell
+yum --enablerepo=elasticsearch --showduplicates list elasticsearch
+```
+
+```shell
+[root@elasticsearch-1 ~]# yum --enablerepo=elasticsearch --showduplicates list elasticsearch
+AnolisOS-23 - os                                                                                                                                                                            8.5 MB/s |  12 MB     00:01    
+AnolisOS-23 - updates                                                                                                                                                                       1.6 MB/s | 1.9 MB     00:01    
+Elasticsearch repository for 7.x packages                                                                                                                                                    14 MB/s |  54 MB     00:03    
+Last metadata expiration check: 0:00:01 ago on Fri Oct 20 08:57:20 2023.
+Available Packages
+elasticsearch.x86_64                                                                                         7.0.0-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.0.1-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.1.0-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.1.1-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.2.0-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.2.1-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.3.0-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.3.1-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.3.2-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.4.0-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.4.1-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.4.2-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.5.0-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.5.1-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.5.2-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.6.0-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.6.1-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.6.2-1                                                                                           elasticsearch
+elasticsearch.aarch64                                                                                        7.7.0-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.7.0-1                                                                                           elasticsearch
+elasticsearch.aarch64                                                                                        7.7.1-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.7.1-1                                                                                           elasticsearch
+elasticsearch.aarch64                                                                                        7.8.0-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.8.0-1                                                                                           elasticsearch
+elasticsearch.aarch64                                                                                        7.8.1-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.8.1-1                                                                                           elasticsearch
+elasticsearch.aarch64                                                                                        7.9.0-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.9.0-1                                                                                           elasticsearch
+elasticsearch.aarch64                                                                                        7.9.1-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.9.1-1                                                                                           elasticsearch
+elasticsearch.aarch64                                                                                        7.9.2-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.9.2-1                                                                                           elasticsearch
+elasticsearch.aarch64                                                                                        7.9.3-1                                                                                           elasticsearch
+elasticsearch.x86_64                                                                                         7.9.3-1                                                                                           elasticsearch
+elasticsearch.aarch64                                                                                        7.10.0-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.10.0-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.10.1-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.10.1-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.10.2-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.10.2-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.11.0-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.11.0-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.11.1-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.11.1-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.11.2-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.11.2-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.12.0-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.12.0-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.12.1-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.12.1-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.13.0-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.13.0-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.13.1-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.13.1-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.13.2-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.13.2-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.13.3-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.13.3-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.13.4-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.13.4-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.14.0-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.14.0-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.14.1-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.14.1-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.14.2-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.14.2-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.15.0-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.15.0-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.15.1-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.15.1-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.15.2-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.15.2-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.16.0-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.16.0-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.16.1-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.16.1-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.16.2-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.16.2-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.16.3-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.16.3-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.17.0-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.17.0-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.17.1-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.17.1-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.17.2-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.17.2-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.17.3-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.17.3-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.17.4-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.17.4-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.17.5-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.17.5-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.17.6-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.17.6-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.17.7-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.17.7-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.17.8-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.17.8-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.17.9-1                                                                                          elasticsearch
+elasticsearch.x86_64                                                                                         7.17.9-1                                                                                          elasticsearch
+elasticsearch.aarch64                                                                                        7.17.10-1                                                                                         elasticsearch
+elasticsearch.x86_64                                                                                         7.17.10-1                                                                                         elasticsearch
+elasticsearch.aarch64                                                                                        7.17.11-1                                                                                         elasticsearch
+elasticsearch.x86_64                                                                                         7.17.11-1                                                                                         elasticsearch
+elasticsearch.aarch64                                                                                        7.17.12-1                                                                                         elasticsearch
+elasticsearch.x86_64                                                                                         7.17.12-1                                                                                         elasticsearch
+elasticsearch.aarch64                                                                                        7.17.13-1                                                                                         elasticsearch
+elasticsearch.x86_64                                                                                         7.17.13-1                                                                                         elasticsearch
+elasticsearch.aarch64                                                                                        7.17.14-1                                                                                         elasticsearch
+elasticsearch.x86_64                                                                                         7.17.14-1                                                                                         elasticsearch
+[root@elasticsearch-1 ~]#
+```
+
 #### 安装
 
 ```shell
-yum install -y --enablerepo=elasticsearch elasticsearch
+# 安装 Elasticsearch 7.x 最新版（不推荐）
+# yum install -y --enablerepo=elasticsearch elasticsearch
+
+yum install -y --enablerepo=elasticsearch elasticsearch-7.17.14-1
 ```
 
 安装日志
 
 ```shell
-[root@elasticsearch-1 ~]# yum install -y --enablerepo=elasticsearch elasticsearch
-AnolisOS-23 - os                                                                                                                                  16 MB/s |  12 MB     00:00    
-AnolisOS-23 - updates                                                                                                                            5.0 MB/s | 1.9 MB     00:00    
-Elasticsearch repository for 7.x packages                                                                                                         15 MB/s |  54 MB     00:03    
-Last metadata expiration check: 0:00:01 ago on Thu Oct 19 19:29:04 2023.
+[root@elasticsearch-1 ~]# yum install -y --enablerepo=elasticsearch elasticsearch-7.17.14-1
+Last metadata expiration check: 0:00:53 ago on Fri Oct 20 09:03:18 2023.
 Dependencies resolved.
-=================================================================================================================================================================================
-Package                                      Architecture                          Version                                   Repository                                    Size
-=================================================================================================================================================================================
+============================================================================================================================================================================================================================
+ Package                                                 Architecture                                     Version                                             Repository                                               Size
+============================================================================================================================================================================================================================
 Installing:
-elasticsearch                                x86_64                                7.17.14-1                                 elasticsearch                                308 M
+ elasticsearch                                           x86_64                                           7.17.14-1                                           elasticsearch                                           308 M
 
 Transaction Summary
-=================================================================================================================================================================================
+============================================================================================================================================================================================================================
 Install  1 Package
 
 Total download size: 308 M
 Installed size: 515 M
 Downloading Packages:
-elasticsearch-7.17.14-x86_64.rpm                                                                                                                  13 MB/s | 308 MB     00:23
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Total                                                                                                                                             13 MB/s | 308 MB     00:23     
+elasticsearch-7.17.14-x86_64.rpm                                                                                                                                                             13 MB/s | 308 MB     00:22    
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                                                        13 MB/s | 308 MB     00:22     
 Running transaction check
 Transaction check succeeded.
 Running transaction test
 Transaction test succeeded.
 Running transaction
-Preparing        :                                                                                                                                                         1/1
-Running scriptlet: elasticsearch-7.17.14-1.x86_64                                                                                                                          1/1
+  Preparing        :                                                                                                                                                                                                    1/1 
+  Running scriptlet: elasticsearch-7.17.14-1.x86_64                                                                                                                                                                     1/1 
 Creating elasticsearch group... OK
 Creating elasticsearch user... OK
 
-Installing       : elasticsearch-7.17.14-1.x86_64                                                                                                                          1/1
-Running scriptlet: elasticsearch-7.17.14-1.x86_64                                                                                                                          1/1
+  Installing       : elasticsearch-7.17.14-1.x86_64                                                                                                                                                                     1/1 
+  Running scriptlet: elasticsearch-7.17.14-1.x86_64                                                                                                                                                                     1/1 
 ### NOT starting on installation, please execute the following statements to configure elasticsearch service to start automatically using systemd
-sudo systemctl daemon-reload
-sudo systemctl enable elasticsearch.service
+ sudo systemctl daemon-reload
+ sudo systemctl enable elasticsearch.service
 ### You can start elasticsearch service by executing
-sudo systemctl start elasticsearch.service
+ sudo systemctl start elasticsearch.service
 
 Created elasticsearch keystore in /etc/elasticsearch/elasticsearch.keystore
 
@@ -95,13 +227,13 @@ Created elasticsearch keystore in /etc/elasticsearch/elasticsearch.keystore
 
 Couldn't write '0' to 'kernel/yama/ptrace_scope', ignoring: No such file or directory
 
-Verifying        : elasticsearch-7.17.14-1.x86_64                                                                                                                          1/1
+  Verifying        : elasticsearch-7.17.14-1.x86_64                                                                                                                                                                     1/1 
 
 Installed:
-elasticsearch-7.17.14-1.x86_64
+  elasticsearch-7.17.14-1.x86_64                                                                                                                                                                                            
 
 Complete!
-[root@elasticsearch-1 ~]# 
+[root@elasticsearch-1 ~]#
 ```
 
 ## 启动
@@ -111,7 +243,7 @@ systemctl start elasticsearch
 ```
 
 ```shell
-[root@elasticsearch-1 ~]# systemctl status elasticsearch
+[root@elasticsearch-1 ~]# systemctl status elasticsearch --no-pager
 ○ elasticsearch.service - Elasticsearch
      Loaded: loaded (/usr/lib/systemd/system/elasticsearch.service; disabled; preset: disabled)
      Active: inactive (dead)
@@ -199,7 +331,7 @@ curl 127.0.0.1:9200/_cat/health
 [root@elasticsearch-1 ~]# 
 ```
 
-### 开放端口，远程访问
+### 开放端口，远程访问（可选）
 
 ```shell
 firewall-cmd --zone=public --add-port=9200/tcp --permanent
