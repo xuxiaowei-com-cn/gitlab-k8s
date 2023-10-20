@@ -324,11 +324,11 @@ systemctl status elasticsearch --no-pager
 ### 查看集群状态
 
 ```shell
-curl 127.0.0.1:9200/_cat/health
+curl http://127.0.0.1:9200/_cat/health
 ```
 
 ```shell
-[root@elasticsearch-1 ~]# curl 127.0.0.1:9200/_cat/health
+[root@elasticsearch-1 ~]# curl http://127.0.0.1:9200/_cat/health
 1697716019 11:46:59 elasticsearch green 1 1 2 2 0 0 0 0 - 100.0%
 [root@elasticsearch-1 ~]# 
 ```
@@ -398,11 +398,11 @@ PASSWORD elastic = DP2P6CtPbZWYaOoAZBin
 查看集群状态
 
 ```shell
-curl -u elastic:DP2P6CtPbZWYaOoAZBin 127.0.0.1:9200/_cat/health
+curl -u elastic:DP2P6CtPbZWYaOoAZBin http://127.0.0.1:9200/_cat/health
 ```
 
 ```shell
-[root@elasticsearch-1 ~]# curl -u elastic:DP2P6CtPbZWYaOoAZBin 127.0.0.1:9200/_cat/health
+[root@elasticsearch-1 ~]# curl -u elastic:DP2P6CtPbZWYaOoAZBin http://127.0.0.1:9200/_cat/health
 1697721062 13:11:02 elasticsearch green 1 1 10 10 0 0 0 0 - 100.0%
 [root@elasticsearch-1 ~]#
 ```
