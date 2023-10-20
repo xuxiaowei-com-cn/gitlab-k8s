@@ -359,6 +359,10 @@ sudo systemctl start docker.service
 - 使用作者制作的 nginx docker 镜像创建 nginx 容器
     - 访问日志可在容器内的 `/var/log/nginx/` 路径下生成
     - 容器内访问日志将映射到主机的 `/logs/docker/nginx` 路径下
+    - docker 镜像的源码
+        1. https://github.com/xuxiaowei-com-cn/nginx
+        2. https://gitee.com/xuxiaowei-com-cn/nginx
+        3. https://jihulab.com/xuxiaowei-com-cn/nginx
 
 ```shell
 docker run \
