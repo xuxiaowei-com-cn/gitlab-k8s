@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 11
 ---
 
 # Docker 安装 Elasticsearch 8.x
