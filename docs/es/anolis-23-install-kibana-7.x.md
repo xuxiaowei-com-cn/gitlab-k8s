@@ -9,6 +9,12 @@ sidebar_position: 3
 1. https://www.elastic.co/cn/downloads/kibana
 2. https://www.elastic.co/guide/en/kibana/7.17/rpm.html#rpm-repo
 
+## 说明
+
+1. 本文以 Anolis 龙蜥 23 为例，CentOS 同理
+2. 本文以 Kibana 7.17.14 为例，首次发稿时的最新版
+3. 强烈建议 Kibana 与要连接的 Elasticsearch 版本一致，否则有可能导致 Kibana 与 Elasticsearch 无法正常通信
+
 ## 安装 Kibana
 
 ### 导入 Kibana GPG 密钥
@@ -37,44 +43,160 @@ EOF
 cat /etc/yum.repos.d/kibana.repo
 ```
 
+#### 搜索 Kibana 版本
+
+```shell
+yum --showduplicates list kibana
+```
+
+```shell
+[root@elasticsearch-1 ~]# yum --showduplicates list kibana
+Kibana repository for 7.x packages                                                                                                                                                           15 MB/s |  54 MB     00:03    
+Last metadata expiration check: 0:00:14 ago on Fri Oct 20 09:15:44 2023.
+Available Packages
+kibana.x86_64                                                                                              7.0.0-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.0.1-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.1.0-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.1.1-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.2.0-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.2.1-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.3.0-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.3.1-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.3.2-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.4.0-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.4.1-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.4.2-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.5.0-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.5.1-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.5.2-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.6.0-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.6.1-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.6.2-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.7.0-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.7.1-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.8.0-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.8.1-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.9.0-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.9.1-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.9.2-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.9.3-1                                                                                                kibana-7.x
+kibana.x86_64                                                                                              7.10.0-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.10.1-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.10.2-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.11.0-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.11.0-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.11.1-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.11.1-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.11.2-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.11.2-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.12.0-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.12.0-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.12.1-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.12.1-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.13.0-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.13.0-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.13.1-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.13.1-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.13.2-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.13.2-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.13.3-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.13.3-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.13.4-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.13.4-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.14.0-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.14.0-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.14.1-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.14.1-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.14.2-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.14.2-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.15.0-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.15.0-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.15.1-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.15.1-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.15.2-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.15.2-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.16.0-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.16.0-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.16.1-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.16.1-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.16.2-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.16.2-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.16.3-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.16.3-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.17.0-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.17.0-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.17.1-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.17.1-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.17.2-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.17.2-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.17.3-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.17.3-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.17.4-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.17.4-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.17.5-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.17.5-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.17.6-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.17.6-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.17.7-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.17.7-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.17.8-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.17.8-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.17.9-1                                                                                               kibana-7.x
+kibana.x86_64                                                                                              7.17.9-1                                                                                               kibana-7.x
+kibana.aarch64                                                                                             7.17.10-1                                                                                              kibana-7.x
+kibana.x86_64                                                                                              7.17.10-1                                                                                              kibana-7.x
+kibana.aarch64                                                                                             7.17.11-1                                                                                              kibana-7.x
+kibana.x86_64                                                                                              7.17.11-1                                                                                              kibana-7.x
+kibana.aarch64                                                                                             7.17.12-1                                                                                              kibana-7.x
+kibana.x86_64                                                                                              7.17.12-1                                                                                              kibana-7.x
+kibana.aarch64                                                                                             7.17.13-1                                                                                              kibana-7.x
+kibana.x86_64                                                                                              7.17.13-1                                                                                              kibana-7.x
+kibana.aarch64                                                                                             7.17.14-1                                                                                              kibana-7.x
+kibana.x86_64                                                                                              7.17.14-1                                                                                              kibana-7.x
+[root@elasticsearch-1 ~]#
+```
+
 #### 安装
 
 ```shell
-yum install -y kibana
+# 安装 Kibana 7.x 最新版（不推荐）
+# yum install -y kibana
+
+# 强烈建议 Kibana 与要连接的 Elasticsearch 版本一致，否则有可能导致 Kibana 与 Elasticsearch 无法正常通信
+yum install -y kibana-7.17.14-1
 ```
 
 安装日志
 
 ```shell
-[root@elasticsearch-1 ~]# yum install -y kibana
-Kibana repository for 7.x packages                                                                                                                15 MB/s |  54 MB     00:03    
-Last metadata expiration check: 0:00:15 ago on Thu Oct 19 20:03:35 2023.
+[root@elasticsearch-1 ~]# yum install -y kibana-7.17.14-1
+Last metadata expiration check: 0:03:54 ago on Fri Oct 20 09:15:44 2023.
 Dependencies resolved.
-=================================================================================================================================================================================
- Package                                 Architecture                            Version                                       Repository                                   Size
-=================================================================================================================================================================================
+============================================================================================================================================================================================================================
+ Package                                            Architecture                                       Version                                                 Repository                                              Size
+============================================================================================================================================================================================================================
 Installing:
- kibana                                  x86_64                                  7.17.14-1                                     kibana-7.x                                  286 M
+ kibana                                             x86_64                                             7.17.14-1                                               kibana-7.x                                             286 M
 
 Transaction Summary
-=================================================================================================================================================================================
+============================================================================================================================================================================================================================
 Install  1 Package
 
 Total download size: 286 M
 Installed size: 733 M
 Downloading Packages:
-kibana-7.17.14-x86_64.rpm                                                                                                                         12 MB/s | 286 MB     00:23    
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Total                                                                                                                                             12 MB/s | 286 MB     00:23     
+kibana-7.17.14-x86_64.rpm                                                                                                                                                                    13 MB/s | 286 MB     00:21    
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                                                                                        13 MB/s | 286 MB     00:21     
 Running transaction check
 Transaction check succeeded.
 Running transaction test
 Transaction test succeeded.
 Running transaction
-  Preparing        :                                                                                                                                                         1/1 
-  Running scriptlet: kibana-7.17.14-1.x86_64                                                                                                                                 1/1 
-  Installing       : kibana-7.17.14-1.x86_64                                                                                                                                 1/1 
-  Running scriptlet: kibana-7.17.14-1.x86_64                                                                                                                                 1/1 
+  Preparing        :                                                                                                                                                                                                    1/1 
+  Running scriptlet: kibana-7.17.14-1.x86_64                                                                                                                                                                            1/1 
+  Installing       : kibana-7.17.14-1.x86_64                                                                                                                                                                            1/1 
+  Running scriptlet: kibana-7.17.14-1.x86_64                                                                                                                                                                            1/1 
 Creating kibana group... OK
 Creating kibana user... OK
 
@@ -83,13 +205,13 @@ Created Kibana keystore in /etc/kibana/kibana.keystore
 
 /usr/lib/tmpfiles.d/elasticsearch.conf:1: Line references path below legacy directory /var/run/, updating /var/run/elasticsearch → /run/elasticsearch; please update the tmpfiles.d/ drop-in file accordingly.
 
-  Verifying        : kibana-7.17.14-1.x86_64                                                                                                                                 1/1 
+  Verifying        : kibana-7.17.14-1.x86_64                                                                                                                                                                            1/1 
 
 Installed:
-  kibana-7.17.14-1.x86_64                                                                                                                                                        
+  kibana-7.17.14-1.x86_64                                                                                                                                                                                                   
 
 Complete!
-[root@elasticsearch-1 ~]# 
+[root@elasticsearch-1 ~]#
 ```
 
 ## 启动
@@ -99,7 +221,7 @@ systemctl start kibana
 ```
 
 ```shell
-[root@elasticsearch-1 ~]# systemctl status kibana.service 
+[root@elasticsearch-1 ~]# systemctl status kibana.service --no-pager
 ○ kibana.service - Kibana
      Loaded: loaded (/etc/systemd/system/kibana.service; disabled; preset: disabled)
      Active: inactive (dead)
@@ -187,6 +309,8 @@ vim /etc/kibana/kibana.yml
 ```
 
 ```shell
+# 填写 elasticsearch 的IP与端口
+# 此处作者将 elasticsearch、kibana 安装在同一台机器上，所以使用的是 localhost
 elasticsearch.hosts: ["http://localhost:9200"]
 ```
 
