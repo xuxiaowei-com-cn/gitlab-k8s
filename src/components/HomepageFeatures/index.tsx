@@ -36,11 +36,20 @@ const FeatureList: FeatureItem[] = [
       </>
     ),
   },
+  {
+    title: 'Elasticsearch',
+    Svg: require('@site/static/img/elastic.svg').default,
+    description: (
+      <>
+        ELK（Elasticsearch、Logstash、Kibana）、EFK（Elasticsearch、Filebeat、Kibana） 安装、配置、使用等
+      </>
+    ),
+  },
 ];
 
 function Feature({title, Svg, description}: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx('col col--3')}>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
