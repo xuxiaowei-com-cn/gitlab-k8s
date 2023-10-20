@@ -9,6 +9,8 @@ sidebar_position: 3
 - 请注意文档链接中的版本号
 
 1. https://www.elastic.co/guide/en/beats/filebeat/7.17/filebeat-installation-configuration.html
+2. https://www.elastic.co/guide/en/beats/filebeat/7.17/filebeat-module-nginx.html
+3. https://www.elastic.co/guide/en/beats/filebeat/7.17/filebeat-module-tomcat.html
 
 ## 说明
 
@@ -229,6 +231,8 @@ total 300
 
 ### Filebeat 收集 Nginx 日志
 
+- https://www.elastic.co/guide/en/beats/filebeat/7.17/filebeat-module-nginx.html
+
 #### 开启 Filebeat 收集 Nginx 日志 配置
 
 ```shell
@@ -443,6 +447,6 @@ systemctl status filebeat.service --no-pager
 
 - 登录 Kibana 查看日志
 
-  - 访问地址：http://kibana IP:5601/app/logs/stream
+    - 访问地址：http://kibana IP:5601/app/logs/stream
 
 ![](static/kibana-log-1.png)
