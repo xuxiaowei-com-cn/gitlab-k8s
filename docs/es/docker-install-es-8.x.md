@@ -1,12 +1,18 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
-# Docker 安装 Elasticsearch
+# Docker 安装 Elasticsearch 8.x
 
 ## 文档
 
-1. [Install Elasticsearch with Docker](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html)
+- 请注意文档链接中的版本号
+
+1. https://www.elastic.co/guide/en/elasticsearch/reference/8.9/docker.html
+
+## 说明
+
+1. 本文以 Elasticsearch 8.9.0 为例
 
 ## 前提条件
 

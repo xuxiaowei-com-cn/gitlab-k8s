@@ -6,6 +6,8 @@ sidebar_position: 1
 
 ## 文档
 
+- 请注意文档链接中的版本号
+
 1. https://www.elastic.co/cn/downloads/elasticsearch
 2. https://www.elastic.co/guide/en/elasticsearch/reference/7.17/rpm.html
 3. https://www.elastic.co/guide/en/elasticsearch/reference/7.17/security-basic-setup.html

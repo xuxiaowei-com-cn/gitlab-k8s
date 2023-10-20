@@ -1,13 +1,15 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 # Anolis 23 中安装 Kibana 7.x
 
 ## 文档
 
+- 请注意文档链接中的版本号
+
 1. https://www.elastic.co/cn/downloads/kibana
-2. https://www.elastic.co/guide/en/kibana/7.17/rpm.html#rpm-repo
+2. https://www.elastic.co/guide/en/kibana/7.17/rpm.html
 
 ## 说明
 
