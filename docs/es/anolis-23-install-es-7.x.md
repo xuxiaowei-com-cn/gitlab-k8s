@@ -289,6 +289,12 @@ enabled
 
 ## 配置
 
+### 日志
+
+```shell
+tail -f /var/log/elasticsearch/elasticsearch.log
+```
+
 ### 初始化主节点
 
 ```shell
