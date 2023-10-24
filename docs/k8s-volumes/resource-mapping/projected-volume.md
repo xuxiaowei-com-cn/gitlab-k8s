@@ -161,10 +161,10 @@
     2. 方法2：直接使用命令查看
         1. `kubectl exec -it projected-volume-test-1 -- cat /projected-volume/cpu_limit`
         2. `kubectl exec -it projected-volume-test-1 -- cat /projected-volume/my-group/my-config`
-        3. `kubectl exec -it projected-volume-test-1 -- cat /projected-volume/my-group/username`
+        3. `kubectl exec -it projected-volume-test-1 -- cat /projected-volume/my-group/my-username`
         4. `kubectl exec -it projected-volume-test-1 -- cat /projected-volume/labels`
-        5. `kubectl exec -it projected-volume-test-2 -- cat /projected-volume/my-group/username`
-        6. `kubectl exec -it projected-volume-test-2 -- cat /projected-volume/my-group/password`
+        5. `kubectl exec -it projected-volume-test-2 -- cat /projected-volume/my-group/my-username`
+        6. `kubectl exec -it projected-volume-test-2 -- cat /projected-volume/my-group/my-password`
 
 ## 配置 Projected Volume 中的 ServiceAccountToken
 
