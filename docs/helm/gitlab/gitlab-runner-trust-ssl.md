@@ -2,7 +2,7 @@
 sidebar_position: 102
 ---
 
-# gitlab runner 信任域名证书（未完成）
+# gitlab runner 信任域名证书
 
 ## 问题
 
