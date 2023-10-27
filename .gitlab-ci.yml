@@ -54,7 +54,7 @@ build:pnpm:
     - yarn global add pnpm
     - pnpm config set registry https://registry.npmmirror.com
     - pnpm install
-    - npm run build
+    - pnpm run build
     - mv build/ public/
   artifacts:
     expire_in: 1 week
