@@ -126,13 +126,31 @@ kubectl -n gitlab-test edit cronjobs.batch my-gitlab-toolbox-backup
           # 增加自定义域名解析，放在 dnsPolicy 后面
           hostAliases:
             - hostnames:
-                - minio.helm.xuxiaowei.cn
-              ip: 172.25.25.220
+                - minio.test.helm.xuxiaowei.cn
+              ip: 192.168.80.3
 ```
 
-- __删除手动备份 job（若已完成备份，则备份数据已上传至 minio 存储，此处不会删除备份数据），重新创建手动备份 job，即可使用自定义域名解析了
-  __
+- <strong><font color="red">删除手动备份 job（若已完成备份，则备份数据已上传至 minio 存储，此处不会删除备份数据），重新创建手动备份
+  job，即可使用自定义域名解析了</font></strong>
 
 ```shell
 kubectl -n gitlab-test delete job manual-backup-1
+```
+
+## 证书验证异常
+
+- gitlab minio 证书验证失败解决方案：[gitlab backup 证书验证失败](gitlab-backup-trust-ssl.md)
+
+```shell
+WARNING: Retrying failed request: /1698383376_2023_10_27_16.4.1-ee_gitlab_backup.tar ([SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1129))
+WARNING: Waiting 3 sec...
+WARNING: Retrying failed request: /1698383376_2023_10_27_16.4.1-ee_gitlab_backup.tar ([SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1129))
+WARNING: Waiting 6 sec...
+WARNING: Retrying failed request: /1698383376_2023_10_27_16.4.1-ee_gitlab_backup.tar ([SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1129))
+WARNING: Waiting 9 sec...
+WARNING: Retrying failed request: /1698383376_2023_10_27_16.4.1-ee_gitlab_backup.tar ([SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1129))
+WARNING: Waiting 12 sec...
+WARNING: Retrying failed request: /1698383376_2023_10_27_16.4.1-ee_gitlab_backup.tar ([SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1129))
+WARNING: Waiting 15 sec...
+ERROR: Upload of '/srv/gitlab/tmp/backup_tars/1698383376_2023_10_27_16.4.1-ee_gitlab_backup.tar' failed too many times (Last reason: Upload failed for: /1698383376_2023_10_27_16.4.1-ee_gitlab_backup.tar)
 ```
