@@ -14,7 +14,7 @@ pages:
   script:
     - yarn config set registry https://registry.npmmirror.com
     - yarn
-    - npm run build
+    - yarn build
     - mv build/ public/
   artifacts:
     expire_in: 1 week
