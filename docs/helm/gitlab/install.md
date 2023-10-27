@@ -82,6 +82,7 @@ helm search repo gitlab --versions
 
 | CHART VERSION | APP VERSION |
 |---------------|-------------|
+| 7.5.0         | v16.5.0     |
 | 7.4.1         | v16.4.1     |
 | 7.4.0         | v16.4.0     |
 | 7.3.5         | v16.3.5     |
