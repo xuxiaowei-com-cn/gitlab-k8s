@@ -139,7 +139,7 @@ kubectl -n gitlab-test delete job manual-backup-1
 
 ## 证书验证异常
 
-- gitlab 备份到 MinIO 时证书验证失败解决方案：[gitlab 备份 信任域名证书](gitlab-backup-trust-ssl.md)
+- gitlab 备份到 MinIO 时证书验证失败解决方案：[gitlab 备份 信任域名证书](gitlab-backups-trust-ssl.md)
 
 ```shell
 WARNING: Retrying failed request: /1698383376_2023_10_27_16.4.1-ee_gitlab_backup.tar ([SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1129))
