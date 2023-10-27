@@ -13,8 +13,8 @@ pages:
       - node_modules/
   script:
     - yarn config set registry https://registry.npmmirror.com
-    - echo $CI_JOB_MANUAL
-    - if [ "$CI_JOB_MANUAL" ]; then
+    - echo $CI_PIPELINE_SOURCE
+    - if [ $CI_PIPELINE_SOURCE == web ]; then
       yarn;
       fi
     - yarn build
@@ -35,8 +35,8 @@ build:npm:
       - node_modules/
   script:
     - npm config set registry https://registry.npmmirror.com
-    - echo $CI_JOB_MANUAL
-    - if [ "$CI_JOB_MANUAL" ]; then
+    - echo $CI_PIPELINE_SOURCE
+    - if [ $CI_PIPELINE_SOURCE == web ]; then
       npm install;
       fi
     - npm run build
@@ -59,8 +59,8 @@ build:pnpm:
     - yarn config set registry https://registry.npmmirror.com
     - yarn global add pnpm
     - pnpm config set registry https://registry.npmmirror.com
-    - echo $CI_JOB_MANUAL
-    - if [ "$CI_JOB_MANUAL" ]; then
+    - echo $CI_PIPELINE_SOURCE
+    - if [ $CI_PIPELINE_SOURCE == web ]; then
       pnpm install;
       fi
     - pnpm run build
