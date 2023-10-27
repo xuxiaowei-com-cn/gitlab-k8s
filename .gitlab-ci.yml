@@ -13,7 +13,10 @@ pages:
       - node_modules/
   script:
     - yarn config set registry https://registry.npmmirror.com
-    - yarn
+    - echo $CI_JOB_MANUAL
+    - if [ "$CI_JOB_MANUAL" ]; then
+      yarn;
+      fi
     - yarn build
     - mv build/ public/
   artifacts:
@@ -32,7 +35,10 @@ build:npm:
       - node_modules/
   script:
     - npm config set registry https://registry.npmmirror.com
-    - npm install
+    - echo $CI_JOB_MANUAL
+    - if [ "$CI_JOB_MANUAL" ]; then
+      npm install;
+      fi
     - npm run build
     - mv build/ public/
   artifacts:
@@ -53,7 +59,10 @@ build:pnpm:
     - yarn config set registry https://registry.npmmirror.com
     - yarn global add pnpm
     - pnpm config set registry https://registry.npmmirror.com
-    - pnpm install
+    - echo $CI_JOB_MANUAL
+    - if [ "$CI_JOB_MANUAL" ]; then
+      pnpm install;
+      fi
     - pnpm run build
     - mv build/ public/
   artifacts:
