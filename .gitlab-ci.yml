@@ -12,6 +12,7 @@ build:npm:
     # https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-windows-amd64.exe
     # https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-windows-386.exe
     # PowerShell 下载地址：https://github.com/PowerShell/PowerShell/releases
+    - cd $CI_PROJECT_DIR
     - npm config set registry https://registry.npmmirror.com
     - echo $CI_PIPELINE_SOURCE
     - if [ $CI_PIPELINE_SOURCE == web ]; then
