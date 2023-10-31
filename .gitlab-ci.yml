@@ -15,9 +15,7 @@ build:npm:
     - cd $CI_PROJECT_DIR
     - npm config set registry https://registry.npmmirror.com
     - echo $CI_PIPELINE_SOURCE
-    - if [ $CI_PIPELINE_SOURCE == web ]; then
-      npm install;
-      fi
+    - npm install
     - npm run build
     - mv build/ public/
   artifacts:
