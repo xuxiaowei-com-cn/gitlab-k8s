@@ -5,10 +5,6 @@ stages:
 
 build:npm:
   stage: build
-  cache:
-    key: "${CI_JOB_NAME}"
-    paths:
-      - node_modules/
   script:
     # Git 下载地址：https://github.com/git-for-windows/git/releases
     # 中文文档：https://docs.gitlab.cn/runner/install/windows.html
