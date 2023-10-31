@@ -10,6 +10,12 @@ build:npm:
     paths:
       - node_modules/
   script:
+    # Git 下载地址：https://github.com/git-for-windows/git/releases
+    # 中文文档：https://docs.gitlab.cn/runner/install/windows.html
+    # 最新版下载地址：
+    # https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-windows-amd64.exe
+    # https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-windows-386.exe
+    # PowerShell 下载地址：https://github.com/PowerShell/PowerShell/releases
     - npm config set registry https://registry.npmmirror.com
     - echo $CI_PIPELINE_SOURCE
     - if [ $CI_PIPELINE_SOURCE == web ]; then
