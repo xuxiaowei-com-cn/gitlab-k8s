@@ -33,5 +33,4 @@ sidebar_position: 1
 - [Gitee Pages](https://xuxiaowei-com-cn.gitee.io/gitlab-k8s)
 - [GitHub Pages](https://xuxiaowei-com-cn.github.io/gitlab-k8s)
 - [个人域名](https://gitlab-k8s.xuxiaowei.com.cn)
-- <a href="https://jihulab.com/xuxiaowei-com-cn/k8s.sh"><strong><font color="red">
-  Kubernetes（k8s）全自动安装配置脚本</font></strong></a>
+- <a href="https://jihulab.com/xuxiaowei-com-cn/k8s.sh"><strong><font color="red">Kubernetes（k8s）全自动安装配置脚本</font></strong></a>

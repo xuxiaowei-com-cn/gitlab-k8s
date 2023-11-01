@@ -119,5 +119,5 @@ sidebar_position: 4
     sudo gitlab-ctl tail nginx
     ```
 
-7. 修改DNS（或者在本地 hosts 将域名指向 GitLab服务器IP），访问https://<GitLab域名> 即可（如果使用自己生成的证书，可能会提示*
+7. 修改DNS（或者在本地 hosts 将域名指向 GitLab服务器IP），访问 `https://GitLab域名` 即可（如果使用自己生成的证书，可能会提示*
    *您的连接不是私密连接**，忽略即可）。

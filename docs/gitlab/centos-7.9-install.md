@@ -97,9 +97,9 @@ sidebar_position: 1
    sudo cat /etc/gitlab/initial_root_password
    ```
 
-7. 修改密码，网址：http://<GitLab服务器IP>/-/profile/password/edit ，或修改DNS（也可以是本地hosts
+7. 修改密码，网址：`http://GitLab服务器IP/-/profile/password/edit` ，或修改DNS（也可以是本地hosts
    文件）后，使用： http://192.168.80.14/-/profile/password/edit
-8. 将语言调整为中文，网址：http://<GitLab服务器IP>/-/profile/preferences，将 **Language** 修改为 **Chinese, Simplified -
+8. 将语言调整为中文，网址：`http://GitLab服务器IP/-/profile/preferences`，将 **Language** 修改为 **Chinese, Simplified -
    简体中文**，刷新页面即可显示中文
 9. 至此，GitLab就安装完成了。
 10. 相关命令

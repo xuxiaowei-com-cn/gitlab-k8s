@@ -22,17 +22,3 @@ updates:
       interval: "daily"
       time: "02:00"
       timezone: "Asia/Shanghai"
-    # https://docs.github.com/zh/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore
-    ignore:
-      # @docusaurus/core 2.4.3 要求 "react": "^16.8.4 || ^17.0.0",
-      - dependency-name: react
-        versions:
-          - "> 17"
-      # @mdx-js/react ^2.0.0 无法打包
-      - dependency-name: @mdx-js/react
-        versions:
-          - ">= 2"
-      # prism-react-renderer ^2.0.0 无法打包
-      - dependency-name: prism-react-renderer
-        versions:
-          - ">= 2"

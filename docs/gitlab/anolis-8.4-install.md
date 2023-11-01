@@ -28,7 +28,7 @@ sidebar_position: 2
 2. 执行 `curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh | sudo bash`
    运行的脚本内容可在 [https://packages.gitlab.com/gitlab/gitlab-ee/install#bash-rpm](https://packages.gitlab.com/gitlab/gitlab-ee/install#bash-rpm)
    中查看，脚本中下载 yum
-   源的地址是 [https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/config_file.repo?os=${os}&dist=${dist}&source=script](https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/config_file.repo?os=${os}&dist=${dist}&source=script)
+   源的地址是 `https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/config_file.repo?os=${os}&dist=${dist}&source=script`
    ，由从地址可知，下载时会使用当前系统的名称作为参数
 3. 由于龙蜥系统与CentOS软件生态兼容，可以自己构建下载链接并手动下载yum源，放入到 `/etc/yum.repos.d/`文件夹中即可
 
@@ -36,11 +36,11 @@ sidebar_position: 2
 
 1. 查看系统版本
 
-   ```
+   ```shell
    cat /etc/redhat-release
    ```
 
-   ```
+   ```shell
    # 返回结果
    [root@alios8 ~]# cat /etc/redhat-release 
    Anolis OS release 8.4
@@ -52,21 +52,21 @@ sidebar_position: 2
 3. 构建yum源链接并下载到 `/etc/yum.repos.d/` 文件夹中
     1. 尝试获取结果
 
-        ```
+        ```shell
         # 使用 curl 需要在请求头中添加标识 User-Agent
         curl 'https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/config_file.repo?os=centos&dist=8&source=script' --header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'
         ```
 
     2. yum源下载到 `/etc/yum.repos.d/gitlab_gitlab-ee.repo`
 
-         ```
+         ```shell
          # 使用 curl 需要在请求头中添加标识 User-Agent
          sudo curl 'https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/config_file.repo?os=centos&dist=8&source=script' --header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36' > /etc/yum.repos.d/gitlab_gitlab-ee.repo
          ```
 
     3. 更新yum源（首次更新，可能会提示需要下载并导入 gpgkey）
 
-        ```
+        ```shell
         # 更新yum源
         yum makecache
         # yum makecache -y
@@ -76,7 +76,7 @@ sidebar_position: 2
         # yum clean all && yum makecache -y
         ```
 
-        ```
+        ```shell
         # 更新命令及结果，为了方便，使用了 -y 进行确定
         
         [root@alios8 ~]# yum makecache -y
@@ -113,7 +113,7 @@ sidebar_position: 2
 
 4. 安装
 
-    ```
+    ```shell
     sudo yum install -y gitlab-ee
     # 由于上述安装命令未指定域名，需要手动执行一次配置
     sudo gitlab-ctl reconfigure
