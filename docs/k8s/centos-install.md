@@ -35,6 +35,11 @@ sidebar_position: 1
 18. Containerd hosts 配置
     1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/hosts.md)
     2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/containerd/containerd/-/blob/main/docs/hosts.md)
+19. Calico
+    1. [Kubernetes 上的 Calico 快速入门](https://docs.tigera.io/calico/latest/getting-started/kubernetes/quickstart)
+    2. 配置
+       1. [GitHub](https://github.com/projectcalico/calico/blob/master/manifests/calico.yaml)
+       2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/projectcalico/calico/-/blob/master/manifests/calico.yaml)
 
 ## 说明
 
