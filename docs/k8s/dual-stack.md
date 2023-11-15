@@ -2,9 +2,13 @@
 sidebar_position: 2
 ---
 
-# 支持 IPv4/IPv6 双协议栈
+# 支持 IPv4/IPv6 双协议栈（未完成）
 
 IPv4/IPv6 双协议栈网络能够将 IPv4 和 IPv6 地址分配给 Pod 和 Service。
+
+## 现存问题
+
+- Pod 无法使用配置中的 IPv6 地址
 
 ## 文档
 
