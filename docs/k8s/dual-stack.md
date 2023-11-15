@@ -2,13 +2,9 @@
 sidebar_position: 2
 ---
 
-# 支持 IPv4/IPv6 双协议栈（未完成）
+# 支持 IPv4/IPv6 双协议栈
 
 IPv4/IPv6 双协议栈网络能够将 IPv4 和 IPv6 地址分配给 Pod 和 Service。
-
-## 现存问题
-
-- Pod 无法使用配置中的 IPv6 地址
 
 ## 文档
 
@@ -83,9 +79,9 @@ vim /etc/kubernetes/manifests/kube-apiserver.yaml
 ```shell
 # 修改示例（注意：请勿与实际网络冲突，注意格式）
 # 10.96.0.0/12：代表从 10.96.0.0 到 10.111.255.255，子网数量 1048576
-# fc00::1:0:0/108：代表从 fc00:0:0:0:0:1:0:0 到 fc00:0:0:0:0:1:f:ffff，子网数量 1048576（不能超过 1048576）
+# fc00::96:0:0/108：代表从 fc00:0:0:0:0:96:0:0 到 fc00:0:0:0:0:96:f:ffff，子网数量 1048576（不能超过 1048576）
 
---service-cluster-ip-range=10.96.0.0/12,fc00::1:0:0/108
+--service-cluster-ip-range=10.96.0.0/12,fc00::96:0:0/108
 ```
 
 ### 修改 `kube-controller-manager`
@@ -112,12 +108,12 @@ vim /etc/kubernetes/manifests/kube-controller-manager.yaml
 # 修改示例（注意：请勿与实际网络冲突，注意格式）
 # 10.128.0.0/12：代表从 10.128.0.0 到 10.143.255.255，子网数量 1048576
 # 10.96.0.0/12：代表从 10.96.0.0 到 10.111.255.255，子网数量 1048576
-# fc00::1:0:0/108：代表从 fc00:0:0:0:0:1:0:0 到 fc00:0:0:0:0:1:f:ffff，子网数量 1048576
-# fc00::8:0:0:0:0/64：代表从 fc00:0:0:8:0:0:0:0 到 fc00:0:0:8:ffff:ffff:ffff:ffff，子网数量 1.844674407371E+19
+# fc00::96:0:0/108：代表从 fc00:0:0:0:0:96:0:0 到 fc00:0:0:0:0:96:f:ffff，子网数量 1048576（不能超过 1048576）
+# fc00::128:0:0:0:0/64：代表从 fc00:0:0:128:0:0:0:0 到 fc00:0:0:128:ffff:ffff:ffff:ffff，子网数量 1.844674407371E+19
 # 注意：此处的 node-cidr-mask-size-* 一定要远小于 cluster-cidr、service-cluster-ip-range，否则 kube-controller-manager 将无法运行，参见 kube-controller-manager 运行日志
 
---cluster-cidr=10.128.0.0/12,fc00::8:0:0:0:0/64
---service-cluster-ip-range=10.96.0.0/12,fc00::1:0:0/108
+--cluster-cidr=10.128.0.0/12,fc00::128:0:0:0:0/64
+--service-cluster-ip-range=10.96.0.0/12,fc00::96:0:0/108
 ```
 
 ```shell
@@ -146,10 +142,10 @@ kubectl -n kube-system edit configmaps kube-proxy
 ```shell
 # 修改示例（注意：请勿与实际网络冲突，注意格式）
 # 10.128.0.0/12：代表从 10.128.0.0 到 10.143.255.255，子网数量 1048576
-# fc00::8:0:0:0:0/64：代表从 fc00:0:0:8:0:0:0:0 到 fc00:0:0:8:ffff:ffff:ffff:ffff，子网数量 1.844674407371E+19
+# fc00::128:0:0:0:0/64：代表从 fc00:0:0:128:0:0:0:0 到 fc00:0:0:128:ffff:ffff:ffff:ffff，子网数量 1.844674407371E+19
 # 注意：此处应该与 kube-controller-manager 中的 --cluster-cidr 参数保持一致
 
-clusterCIDR: 10.128.0.0/12,fc00::8:0:0:0:0/64
+clusterCIDR: 10.128.0.0/12,fc00::128:0:0:0:0/64
 ```
 
 ```shell
@@ -162,45 +158,53 @@ kubectl -n kube-system rollout restart daemonset kube-proxy
 
 - 修改 calico 的 configmaps 配置
 
-   ```shell
-   # 修改 calico 的 configmaps 配置
-   
-   kubectl -n kube-system edit configmaps calico-config
-   ```
-
-   ```shell
-   # 文档配置说明：https://docs.tigera.io/calico/latest/networking/ipam/ipv6#enable-dual-stack 中的 Manifest
-   # 注意格式
-   
-       "ipam": {
-           "type": "calico-ipam",
-           "assign_ipv4": "true",
-           "assign_ipv6": "true"
-       },
-   ```
-
-- 修改 calico 的 daemonsets 环境变量配置
-
     ```shell
-    # 修改 calico 的 daemonsets 环境变量配置
+    # 修改 calico 的 configmaps 配置
     
-    kubectl -n kube-system edit daemonsets calico-node
+    kubectl -n kube-system edit configmaps calico-config
     ```
 
     ```shell
     # 文档配置说明：https://docs.tigera.io/calico/latest/networking/ipam/ipv6#enable-dual-stack 中的 Manifest
-    # https://docs.tigera.io/calico/latest/reference/configure-calico-node#configuring-bgp-networking 中的 Manifest
     # 注意格式
     
-                # 文档配置说明：https://docs.tigera.io/calico/latest/networking/ipam/ipv6#enable-dual-stack 中的 Manifest
-                - name: IP6
-                  # IPv6 自动检测 BGP IP 地址
-                  value: "autodetect"
-                - name: FELIX_IPV6SUPPORT
-                  value: "true"
-                - name: CALICO_IPV6POOL_NAT_OUTGOING
-                  # 为 pod 启用出站NAT
-                  value: "true"
+        "ipam": {
+            "type": "calico-ipam",
+            "assign_ipv4": "true",
+            "assign_ipv6": "true"
+        },
+    ```
+
+    ```shell
+    # 滚动更新
+    
+    kubectl -n kube-system rollout restart daemonset calico-node
+    ```
+
+- 修改 calico 的 daemonsets 环境变量配置
+
+    ```shell
+    # 文档配置说明：https://docs.tigera.io/calico/latest/networking/ipam/ipv6#enable-dual-stack 中的 Manifest
+    # 配置 calico/node 环境变量: https://docs.tigera.io/calico/latest/reference/configure-calico-node#configuring-bgp-networking 中的 Manifest
+    
+    
+    # 支持 IPv6：IPv6 自动检测 BGP IP 地址
+    kubectl -n kube-system set env daemonset/calico-node IP6=autodetect
+    支持 IPv6
+    kubectl -n kube-system set env daemonset/calico-node FELIX_IPV6SUPPORT="true"
+    
+    # 为 pod 启用出站NAT
+    kubectl -n kube-system set env daemonset/calico-node CALICO_IPV6POOL_NAT_OUTGOING="true"
+    
+    # 与您配置的 kube-controller-manager 和 kube-proxy 的 IPv4 集群 CIDR 的 IPv4 范围相同
+    kubectl -n kube-system set env daemonset/calico-node CALICO_IPV4POOL_CIDR="10.128.0.0/12"
+    # 与您配置的 kube-controller-manager 和 kube-proxy 的 IPv6 集群 CIDR 的 IPv6 范围相同
+    kubectl -n kube-system set env daemonset/calico-node CALICO_IPV6POOL_CIDR="fc00::128:0:0:0:0/64"
+    
+    # IPv4 网卡：注意修改网卡名称
+    kubectl -n kube-system set env daemonset/calico-node IP_AUTODETECTION_METHOD="interface=ens18"
+    # IPv6 网卡：注意修改网卡名称
+    kubectl -n kube-system set env daemonset/calico-node IP6_AUTODETECTION_METHOD="interface=ens18"
     ```
 
 ## 测试
