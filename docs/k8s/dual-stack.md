@@ -211,6 +211,9 @@ kubectl -n kube-system rollout restart daemonset kube-proxy
 ### svc
 
 - 请使用 https://jihulab.com/xuxiaowei-com-cn/java/-/blob/main/deploy/deploy-service-ipv6.yaml 进行测试
+- 执行 `kubectl apply -f https://jihulab.com/xuxiaowei-com-cn/java/-/raw/main/deploy/deploy-service-ipv6.yaml` ，创建
+  pod、Service（支持 IPv6）
+- 查看 Service pod 的 IPv6 地址：`kubectl describe svc java-resp-ipv6-1-service | grep IPs`
 
 ### ingress
 
