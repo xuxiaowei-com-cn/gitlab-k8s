@@ -159,42 +159,46 @@ kubectl -n kube-system rollout restart daemonset kube-proxy
 
 - 修改 calico 的 configmaps 配置
 
-```shell
-# 修改 calico 的 configmaps 配置
+   ```shell
+   # 修改 calico 的 configmaps 配置
+   
+   kubectl -n kube-system edit configmaps calico-config
+   ```
 
-kubectl -n kube-system edit configmaps calico-config
-```
-
-```shell
-# 文档配置说明：https://docs.tigera.io/calico/latest/networking/ipam/ipv6#enable-dual-stack 中的 Manifest
-# 注意格式
-
-    "ipam": {
-        "type": "calico-ipam",
-        "assign_ipv4": "true",
-        "assign_ipv6": "true"
-    },
-```
+   ```shell
+   # 文档配置说明：https://docs.tigera.io/calico/latest/networking/ipam/ipv6#enable-dual-stack 中的 Manifest
+   # 注意格式
+   
+       "ipam": {
+           "type": "calico-ipam",
+           "assign_ipv4": "true",
+           "assign_ipv6": "true"
+       },
+   ```
 
 - 修改 calico 的 daemonsets 环境变量配置
 
-```shell
-# 修改 calico 的 daemonsets 环境变量配置
+    ```shell
+    # 修改 calico 的 daemonsets 环境变量配置
+    
+    kubectl -n kube-system edit daemonsets calico-node
+    ```
 
-kubectl -n kube-system edit daemonsets calico-node
-```
-
-```shell
-# 文档配置说明：https://docs.tigera.io/calico/latest/networking/ipam/ipv6#enable-dual-stack 中的 Manifest
-# 注意格式
-
-            - name: FELIX_IPV6SUPPORT
-              value: "true"
-            - name: IP6
-              value: "autodetect"
-            - name: CALICO_IPV6POOL_NAT_OUTGOING
-              value: "true"
-```
+    ```shell
+    # 文档配置说明：https://docs.tigera.io/calico/latest/networking/ipam/ipv6#enable-dual-stack 中的 Manifest
+    # https://docs.tigera.io/calico/latest/reference/configure-calico-node#configuring-bgp-networking 中的 Manifest
+    # 注意格式
+    
+                # 文档配置说明：https://docs.tigera.io/calico/latest/networking/ipam/ipv6#enable-dual-stack 中的 Manifest
+                - name: IP6
+                  # IPv6 自动检测 BGP IP 地址
+                  value: "autodetect"
+                - name: FELIX_IPV6SUPPORT
+                  value: "true"
+                - name: CALICO_IPV6POOL_NAT_OUTGOING
+                  # 为 pod 启用出站NAT
+                  value: "true"
+    ```
 
 ## 测试
 
