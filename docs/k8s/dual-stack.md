@@ -60,7 +60,8 @@ sudo sysctl --system
 
 1. 完成文件 `/etc/kubernetes/manifests/kube-apiserver.yaml` 修改后，`kube-apiserver`
    会立即重启，会存在几分钟 `kube-apiserver` 无法使用的情况
-2. 如果长时间 `kube-apiserver` 无法启动，请使用 `crictl ps -a`、`crictl logs -f xxx` 查看错误日志
+2. 如果长时间 `kube-apiserver` 无法启动，请使用 `crictl ps -a`、`crictl logs -f xxx` 查看错误日志，crictl
+   配置参见：[Kubernetes（k8s）安装](centos-install.md)
 
 ```shell
 # 编辑文件 kube-apiserver 配置文件
