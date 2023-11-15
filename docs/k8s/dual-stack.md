@@ -39,6 +39,13 @@ Kubernetes 集群的 IPv4/IPv6 双协议栈可提供下面的功能：
 3. 支持双协议栈的
    [网络插件](https://kubernetes.io/zh-cn/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/)
 
+## 注意事项
+
+1. 如果 k8s 集群存在多个节点：
+    1. 如果 `vim` 命令包含 `/etc/kubernetes/manifests`，请在所有控制平面（主节点）节点上执行
+    2. 如果 `vim` 命令不包含 `/etc/kubernetes/manifests`，请在所有节点上执行
+    3. 其他命令，只需要在一个控制平面（主节点）节点上执行即可
+
 ## 配置 IPv4/IPv6 双协议栈
 
 ### 修改内核
