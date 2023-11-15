@@ -1,5 +1,5 @@
 ---
-sidebar_position: 11
+sidebar_position: 12
 ---
 
 # 使用 kubeadm 生成 Kubernetes（k8s） 新证书

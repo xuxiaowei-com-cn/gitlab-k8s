@@ -1,5 +1,5 @@
 ---
-sidebar_position: 9
+sidebar_position: 10
 ---
 
 # 批量删除 k8s（ctr）使用的历史镜像

@@ -37,16 +37,17 @@
 | k8s                     | position |
 |-------------------------|----------|
 | centos-install          | 1        |
-| kubectl                 | 2        |
-| metrics-server-install  | 3        |
-| kube-prometheus-install | 4        |
-| pod-deployment-service  | 5        |
-| probe-configuration     | 6        |
-| ingress-install         | 7        |
-| containerd-mirrors      | 8        |
-| containerd-rm           | 9        |
-| ca-openssl              | 10       |
-| ca-kubeadm              | 11       |
+| dual-stack              | 2        |
+| kubectl                 | 3        |
+| metrics-server-install  | 4        |
+| kube-prometheus-install | 5        |
+| pod-deployment-service  | 6        |
+| probe-configuration     | 7        |
+| ingress-install         | 8        |
+| containerd-mirrors      | 9        |
+| containerd-rm           | 10       |
+| ca-openssl              | 11       |
+| ca-kubeadm              | 12       |
 
 | helm gitlab                             | position |
 |-----------------------------------------|----------|
