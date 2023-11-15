@@ -40,6 +40,21 @@ Kubernetes 集群的 IPv4/IPv6 双协议栈可提供下面的功能：
 
 ## 配置 IPv4/IPv6 双协议栈
 
+### 修改内核
+
+```shell
+vim /etc/sysctl.d/k8s.conf
+```
+
+```shell
+net.ipv4.conf.all.forwarding        = 1
+net.ipv6.conf.all.forwarding        = 1
+```
+
+```shell
+sudo sysctl --system
+```
+
 ### 修改 `kube-apiserver`
 
 1. 完成文件 `/etc/kubernetes/manifests/kube-apiserver.yaml` 修改后，`kube-apiserver`
