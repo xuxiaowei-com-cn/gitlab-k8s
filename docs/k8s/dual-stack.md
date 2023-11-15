@@ -190,7 +190,7 @@ kubectl -n kube-system rollout restart daemonset kube-proxy
     
     # 支持 IPv6：IPv6 自动检测 BGP IP 地址
     kubectl -n kube-system set env daemonset/calico-node IP6=autodetect
-    支持 IPv6
+    # 支持 IPv6
     kubectl -n kube-system set env daemonset/calico-node FELIX_IPV6SUPPORT="true"
     
     # 为 pod 启用出站NAT
