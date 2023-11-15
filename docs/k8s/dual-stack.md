@@ -82,10 +82,10 @@ vim /etc/kubernetes/manifests/kube-apiserver.yaml
 
 ```shell
 # 修改示例（注意：请勿与实际网络冲突，注意格式）
-# 10.96.0.0/16：代表从 10.96.0.0 到 10.96.255.255，子网数量 65536
-# fc00::1:0:0/112：代表从 fc00:0:0:0:0:1:0:0 到 fc00:0:0:0:0:1:0:ffff，子网数量 65536（不能超过 1048576）
+# 10.96.0.0/12：代表从 10.96.0.0 到 10.111.255.255，子网数量 1048576
+# fc00::1:0:0/108：代表从 fc00:0:0:0:0:1:0:0 到 fc00:0:0:0:0:1:f:ffff，子网数量 1048576（不能超过 1048576）
 
---service-cluster-ip-range=10.96.0.0/16,fc00::1:0:0/112
+--service-cluster-ip-range=10.96.0.0/12,fc00::1:0:0/108
 ```
 
 ### 修改 `kube-controller-manager`
@@ -111,15 +111,13 @@ vim /etc/kubernetes/manifests/kube-controller-manager.yaml
 ```shell
 # 修改示例（注意：请勿与实际网络冲突，注意格式）
 # 10.128.0.0/12：代表从 10.128.0.0 到 10.143.255.255，子网数量 1048576
-# 10.96.0.0/16：代表从 10.96.0.0 到 10.96.255.255，子网数量 65536
-# fc00::1:0:0/112：代表从 fc00:0:0:0:0:1:0:0 到 fc00:0:0:0:0:1:0:ffff，子网数量 65536
-# fc00::8:0:0/94：代表从 fc00:0:0:0:0:8:0:0 到 fc00:0:0:0:0:b:ffff:ffff，子网数量 17179869184
-# --node-cidr-mask-size-ipv6=108：代表每个节点分配子网数量是 1048576。注意：此处的 node-cidr-mask-size-* 一定要远小于 cluster-cidr、service-cluster-ip-range，否则 kube-controller-manager 将无法运行，参见 kube-controller-manager 运行日志
+# 10.96.0.0/12：代表从 10.96.0.0 到 10.111.255.255，子网数量 1048576
+# fc00::1:0:0/108：代表从 fc00:0:0:0:0:1:0:0 到 fc00:0:0:0:0:1:f:ffff，子网数量 1048576
+# fc00::8:0:0:0:0/64：代表从 fc00:0:0:8:0:0:0:0 到 fc00:0:0:8:ffff:ffff:ffff:ffff，子网数量 1.844674407371E+19
+# 注意：此处的 node-cidr-mask-size-* 一定要远小于 cluster-cidr、service-cluster-ip-range，否则 kube-controller-manager 将无法运行，参见 kube-controller-manager 运行日志
 
---cluster-cidr=10.128.0.0/12,fc00::8:0:0/94
---service-cluster-ip-range=10.96.0.0/16,fc00::1:0:0/112
---node-cidr-mask-size-ipv4=24
---node-cidr-mask-size-ipv6=108
+--cluster-cidr=10.128.0.0/12,fc00::8:0:0:0:0/64
+--service-cluster-ip-range=10.96.0.0/12,fc00::1:0:0/108
 ```
 
 ```shell
@@ -148,10 +146,10 @@ kubectl -n kube-system edit configmaps kube-proxy
 ```shell
 # 修改示例（注意：请勿与实际网络冲突，注意格式）
 # 10.128.0.0/12：代表从 10.128.0.0 到 10.143.255.255，子网数量 1048576
-# fc00::8:0:0/94：代表从 fc00:0:0:0:0:8:0:0 到 fc00:0:0:0:0:b:ffff:ffff，子网数量 17179869184
+# fc00::8:0:0:0:0/64：代表从 fc00:0:0:8:0:0:0:0 到 fc00:0:0:8:ffff:ffff:ffff:ffff，子网数量 1.844674407371E+19
 # 注意：此处应该与 kube-controller-manager 中的 --cluster-cidr 参数保持一致
 
-clusterCIDR: 10.128.0.0/12,fc00::8:0:0/94
+clusterCIDR: 10.128.0.0/12,fc00::8:0:0:0:0/64
 ```
 
 ```shell
