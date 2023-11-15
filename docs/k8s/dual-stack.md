@@ -198,7 +198,9 @@ kubectl -n kube-system edit daemonsets calico-node
 
 ### pod
 
-- 新建一个 pod，进入 pod 查看 ip 即可观察到出现新的 ipv6 地址，在集群中的任意机器中均可使用
+- 新建一个 pod
+    1. 进入 pod 查看 ip 即可观察到出现新的 ipv6 地址，在集群中的任意机器中均可使用
+    2. 使用 `kubectl -n xxx describe pod xxxxxx | grep podIPs` 查看 pod 的 ip
 
 ### svc
 
