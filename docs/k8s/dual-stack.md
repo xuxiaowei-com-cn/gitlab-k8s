@@ -214,6 +214,12 @@ kubectl -n kube-system rollout restart daemonset kube-proxy
 - 新建一个 pod
     1. 进入 pod 查看 ip 即可观察到出现新的 ipv6 地址，在集群中的任意机器中均可使用
     2. 使用 `kubectl -n xxx describe pod xxxxxx | grep podIPs` 查看 pod 的 ip
+    3. 示例
+        ```shell
+        [root@anolis ~]# kubectl describe pod | grep podIPs
+                  cni.projectcalico.org/podIPs: 10.128.231.205/32,fc00::128:d937:deb0:57b0:c780/128
+        [root@anolis ~]#
+        ```
 
 ### svc
 
@@ -221,6 +227,12 @@ kubectl -n kube-system rollout restart daemonset kube-proxy
 - 执行 `kubectl apply -f https://jihulab.com/xuxiaowei-com-cn/java/-/raw/main/deploy/deploy-service-ipv6.yaml` ，创建
   pod、Service（支持 IPv6）
 - 查看 Service pod 的 IPv6 地址：`kubectl describe svc java-resp-ipv6-1-service | grep IPs`
+    1. 示例
+        ```shell
+        [root@anolis ~]# kubectl describe svc java-resp-ipv6-1-service | grep IPs
+        IPs:                      10.97.170.141,fc00::96:0:a248
+        [root@anolis ~]#
+        ```
 
 ### ingress
 
