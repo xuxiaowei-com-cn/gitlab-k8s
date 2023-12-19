@@ -28,9 +28,13 @@ export ROLEBINDING_NAME=test-rolebinding
 # secret
 export SECRET_NAME=test-secret
 
+# 集群名称
 export CLUSTER_NAME=test-cluster
+# 集群地址
 export CLUSTER_SERVER=https://192.168.80.3:6443
+# 用户
 export USER_NAME=test-user
+# 当前上下文
 export CONTEXT_NAME=test-context
 ```
 
@@ -57,8 +61,8 @@ metadata:
   name: $ROLE_NAME
 rules:
 - apiGroups: [""] # "" 标明 core API 组
-  resources: ["pods"] # 根据自己的情况与需求设置
-  verbs: ["get", "watch", "list"] # 根据自己的情况与需求设置
+  resources: ["pods", "services", "secrets", "configmaps"] # 根据自己的情况与需求设置。使用命令 kubectl api-resources 获取所有可选配置
+  verbs: ["*"] # 根据自己的情况与需求设置。* 代表授予所有权限，可选配置如：get, watch, list, create, update, patch, delete, proxy
 
 EOF
 ```
@@ -170,7 +174,7 @@ kubectl apply -f serviceaccount-token-secret.yaml
     [root@localhost ~]#
     ```
 
-3. 设置 KUBECONFIG 文件中的地址
+3. 设置 KUBECONFIG 文件中的 集群地址
     ```shell
     kubectl config set-cluster $CLUSTER_NAME --server=$CLUSTER_SERVER --kubeconfig=config
     ```
@@ -213,7 +217,7 @@ kubectl apply -f serviceaccount-token-secret.yaml
     [root@localhost ~]#
     ```
 
-5. 设置 KUBECONFIG 文件中的 user、token
+5. 设置 KUBECONFIG 文件中的 用户 user、凭证 token
     ```shell
     kubectl config set-credentials $USER_NAME --token=$(cat token) --kubeconfig=config
     ```
@@ -239,7 +243,7 @@ kubectl apply -f serviceaccount-token-secret.yaml
     [root@localhost ~]#
     ```
 
-6. 设置 KUBECONFIG 文件中的 context、cluster、namespace、user
+6. 设置 KUBECONFIG 文件中的 上下文名称 context、集群信息 cluster、命名空间 namespace、用户 user
     ```shell
     kubectl config set-context $CONTEXT_NAME --cluster=$CLUSTER_NAME --user=$USER_NAME --namespace=$NAMESPACE_NAME --kubeconfig=config
     ```
@@ -270,7 +274,7 @@ kubectl apply -f serviceaccount-token-secret.yaml
     [root@localhost ~]# 
     ```
 
-7. 设置 KUBECONFIG 文件中的 current-context（当前使用的配置）
+7. 设置 KUBECONFIG 文件中的 当前上下文 current-context
     ```shell
     kubectl config use-context $CONTEXT_NAME --kubeconfig=config
     ```
