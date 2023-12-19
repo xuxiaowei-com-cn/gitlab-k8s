@@ -48,6 +48,7 @@
 | containerd-rm           | 10       |
 | ca-openssl              | 11       |
 | ca-kubeadm              | 12       |
+| kubeconfig              | 13       |
 
 | helm gitlab                             | position |
 |-----------------------------------------|----------|
