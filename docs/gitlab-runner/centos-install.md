@@ -9,21 +9,21 @@ sidebar_position: 1
 ## 文档
 
 1. 安装 GitLab Runner
-    1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/runner/install/linux-repository.html)
+    1. [GitLab 中文文档](https://docs.gitlab.cn/runner/install/linux-repository.html)
     2. [gitlab-ee](https://docs.gitlab.com/runner/install/linux-repository.html)
 2. 自签名证书或自定义证书颁发机构
-    1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/runner/configuration/tls-self-signed.html)
+    1. [GitLab 中文文档](https://docs.gitlab.cn/runner/configuration/tls-self-signed.html)
     2. [gitlab-ee](https://docs.gitlab.com/runner/configuration/tls-self-signed.html)
 3. 配置 Runner
-    1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/jh/ci/runners/configure_runners.html)
+    1. [GitLab 中文文档](https://docs.gitlab.cn/jh/ci/runners/configure_runners.html)
     2. [gitlab-ee](https://docs.gitlab.com/ee/ci/runners/configure_runners.html)
 4. [gitlab runner 最新版手动下载](https://gitlab-runner-downloads.s3.amazonaws.com/latest/index.html)
     1. [v15.6.0 手动下载](https://gitlab-runner-downloads.s3.amazonaws.com/v15.6.0/index.html)
 5. 自签名证书或自定义证书颁发机构
-    1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/runner/configuration/tls-self-signed.html)
+    1. [GitLab 中文文档](https://docs.gitlab.cn/runner/configuration/tls-self-signed.html)
     2. [gitlab-ee](https://docs.gitlab.com/runner/configuration/tls-self-signed.html)
 6. GitLab Runner 高级配置
-    1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/runner/configuration/advanced-configuration.html)
+    1. [GitLab 中文文档](https://docs.gitlab.cn/runner/configuration/advanced-configuration.html)
     2. [gitlab-ee](https://docs.gitlab.com/runner/configuration/advanced-configuration.html)
 
 ## 安装 GitLab Runner

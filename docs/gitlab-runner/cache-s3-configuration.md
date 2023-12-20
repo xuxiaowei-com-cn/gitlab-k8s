@@ -20,7 +20,7 @@ GitLab Runner Cache 缓存 支持 S3 标准协议，如：OSS、OOS 等等
 4. [使用 MinIO](https://docs.gitlab.cn/runner/configuration/speed_up_job_execution.html#%E4%BD%BF%E7%94%A8-minio)
 5. [分布式 Runner 缓存](https://docs.gitlab.cn/runner/configuration/autoscale.html#distributed-runners-caching)
 6. GitLab Runner 高级配置
-    1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/runner/configuration/advanced-configuration.html)
+    1. [GitLab 中文文档](https://docs.gitlab.cn/runner/configuration/advanced-configuration.html)
     2. [gitlab-ee](https://docs.gitlab.com/runner/configuration/advanced-configuration.html)
 
 ## 安装 minio

@@ -9,13 +9,13 @@ sidebar_position: 5
 ## 文档
 
 1. [GitLab 页面管理](https://docs.gitlab.com/ee/administration/pages/)
-    1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/jh/administration/pages/)
+    1. [GitLab 中文文档](https://docs.gitlab.cn/jh/administration/pages/)
 2. [GitLab 页面管理-前提条件](https://docs.gitlab.com/ee/administration/pages/#prerequisites)
-    1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/jh/administration/pages/#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6)
+    1. [GitLab 中文文档](https://docs.gitlab.cn/jh/administration/pages/#%E5%89%8D%E6%8F%90%E6%9D%A1%E4%BB%B6)
 3. [GitLab 页面管理-自定义域名](https://docs.gitlab.com/ee/administration/pages/#dns-configuration-for-custom-domains)
-    1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/jh/administration/pages/#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D)
+    1. [GitLab 中文文档](https://docs.gitlab.cn/jh/administration/pages/#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D)
 4. [GitLab 页面管理-通配符域名](https://docs.gitlab.com/ee/administration/pages/#custom-domains)
-    1. [极狐 GitLab 中文文档](https://docs.gitlab.cn/jh/administration/pages/#%E9%80%9A%E9%85%8D%E7%AC%A6%E5%9F%9F%E5%90%8D)
+    1. [GitLab 中文文档](https://docs.gitlab.cn/jh/administration/pages/#%E9%80%9A%E9%85%8D%E7%AC%A6%E5%9F%9F%E5%90%8D)
 5. [https://blog.csdn.net/weixin_39926613/article/details/116840085](https://blog.csdn.net/weixin_39926613/article/details/116840085)
 6. [自签名证书或自定义证书颁发机构](https://docs.gitlab.cn/runner/configuration/tls-self-signed.html)
 
