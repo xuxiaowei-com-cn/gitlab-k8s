@@ -7,7 +7,7 @@ sidebar_position: 2
 ## 说明
 
 1. [GitHub 原始仓库](https://github.com/acmesh-official/acme.sh)
-2. [极狐 JihuLab 镜像仓库](https://jihulab.com/xuxiaowei-com-cn/acme.sh)
+2. [作者镜像仓库](https://framagit.org/xuxiaowei-com-cn/acme.sh)
 
 ## 安装 acme.sh
 
@@ -21,7 +21,7 @@ sidebar_position: 2
     ```
 
     ```bash
-    git clone https://jihulab.com/xuxiaowei-com-cn/acme.sh.git
+    git clone https://framagit.org/xuxiaowei-com-cn/acme.sh.git
     cd acme.sh
     ./acme.sh --install -m my@example.com
     ```

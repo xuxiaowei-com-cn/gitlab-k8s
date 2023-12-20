@@ -6,7 +6,7 @@ sidebar_position: 5
 
 ## 说明
 
-1. [Kubernetes（k8s）全自动安装配置脚本](https://jihulab.com/xuxiaowei-com-cn/k8s.sh)
+1. [Kubernetes（k8s）全自动安装配置脚本](https://framagit.org/xuxiaowei-com-cn/k8s.sh)
 2. 本文以 CentOS 7.9 最小化安装、Kubernetes（k8s）1.25.3 为例（其他 CentOS、k8s
    版本类似），离线包（免费下载）：[https://download.csdn.net/download/qq_32596527/87127488](https://download.csdn.net/download/qq_32596527/87127488)。
 3. 如果没有在有网的环境下安装 Kubernetes（k8s）成功过，也不影响本文离线安装的阅读与学习。
@@ -201,7 +201,7 @@ sidebar_position: 5
        版本的对应关系：[Kubernetes（k8s）安装](/docs/k8s/centos-install.md)
 
         1. [GitHub](https://github.com/projectcalico/calico/blob/v3.24.5/manifests/calico.yaml)
-        2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/projectcalico/calico/-/blob/v3.24.5/manifests/calico.yaml)
+        2. [作者镜像仓库](https://framagit.org/mirrors-github/projectcalico/calico/-/blob/v3.24.5/manifests/calico.yaml)
 
         ```shell
         docker pull docker.io/calico/node:v3.24.5
@@ -458,7 +458,7 @@ sidebar_position: 5
 
 13. 网络初始化，下载 calico.yaml 文件，复制到电脑上
     1. [GitHub](https://github.com/projectcalico/calico/blob/v3.24.5/manifests/calico.yaml)
-    2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/projectcalico/calico/-/blob/v3.24.5/manifests/calico.yaml)
+    2. [作者镜像仓库](https://framagit.org/mirrors-github/projectcalico/calico/-/blob/v3.24.5/manifests/calico.yaml)
 
     ```shell
     cd calico

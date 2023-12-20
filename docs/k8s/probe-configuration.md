@@ -20,7 +20,7 @@ sidebar_position: 7
 
 ## 示例
 
-示例地址：[xuxiaowei-cloud](https://jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/-/blob/main/admin-server/admin-server-deployment.yaml)
+示例地址：[xuxiaowei-cloud](https://framagit.org/xuxiaowei-cloud/xuxiaowei-cloud/-/blob/main/admin-server/admin-server-deployment.yaml)
 
 ```yaml
 # 创建命名空间  ：kubectl create namespace xuxiaowei-cloud
@@ -49,7 +49,7 @@ spec:
   # 持久化卷的类型为 NFS（Network File System，网络文件系统）
   # https://kubernetes.io/zh-cn/docs/concepts/storage/volumes/#nfs
   nfs:
-    # NFS 文档：https://jihulab.com/xuxiaowei-com-cn/gitlab-k8s/-/blob/main/k8s/pv/centos-7-nfs-install.md
+    # NFS 文档：https://framagit.org/xuxiaowei-com-cn/gitlab-k8s/-/blob/main/k8s/pv/centos-7-nfs-install.md
     # NFS 文件系统上的目标路径。需要保证该目录在 NFS 服务器上存在
     path: /nfs/admin-server/logs
     # 填写你的 NFS（Network File System，网络文件系统） 地址
@@ -157,7 +157,7 @@ spec:
         - name: admin-server-logs-volume
           nfs:
             # NFS 文件系统上的目标路径。需要保证该目录在 NFS 服务器上存在
-            # NFS 文档：https://jihulab.com/xuxiaowei-com-cn/gitlab-k8s/-/blob/main/k8s/pv/centos-7-nfs-install.md
+            # NFS 文档：https://framagit.org/xuxiaowei-com-cn/gitlab-k8s/-/blob/main/k8s/pv/centos-7-nfs-install.md
             path: /nfs/admin-server/logs
             # NFS 服务器的 IP 地址
             # 填写你的 NFS（Network File System，网络文件系统） 地址

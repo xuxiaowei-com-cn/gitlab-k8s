@@ -39,5 +39,3 @@ sidebar_position: 1
    gitlab-jh（极狐版），后期有需要直接购买即可，不用担心从gitlab-ce（社区版）版本升级的问题（安装 gitlab-jh、gitlab-ee
    不购买授权，默认使用社区版的功能）
 5. 极狐gitlab 是一家国内的公司，gitlab 官方以技术入股的形式参股
-6. 极狐gitlab [https://jihulab.com/](https://jihulab.com/) 是国内版的 gitlab，速度快，**目前开源项目流水线不受时长限制**
-   （gitlab 官方开源对于个人、群组都是每个月400分钟免费额度）。

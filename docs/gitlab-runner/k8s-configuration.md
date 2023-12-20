@@ -282,7 +282,7 @@ GitLab Runner 配置 Kubernetes（k8s）执行器运行流水线
             privileged = true
         ```
 
-       [使用 docker.sock 端口 示例](https://jihulab.com/mirrors-gitee/log4j/pig/-/blob/xuxiaowei/k8s/.gitlab-ci.yml)
+       [使用 docker.sock 端口 示例](https://framagit.org/mirrors-gitee/log4j/pig/-/blob/xuxiaowei/k8s/.gitlab-ci.yml)
 
         ```yaml
         stages:

@@ -21,7 +21,7 @@ GitLab artifacts（流水线产物）使用对象储存 S3（MinIO）
 2. S3 对象储存使用的是 MinIO
 3.
 
-示例项目：[my-vue-app](https://jihulab.com/xuxiaowei-com-cn/my-vue-app)
+示例项目：[my-vue-app](https://framagit.org/xuxiaowei-com-cn/my-vue-app)
 
 ## 配置
 

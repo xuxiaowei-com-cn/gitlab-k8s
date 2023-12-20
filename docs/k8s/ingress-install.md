@@ -14,14 +14,14 @@ sidebar_position: 8
     3. **根据不同的`域名`、`path`，转发到不同的 `Service` 中**
 2. ingress-nginx 仓库
     1. [GitHub](https://github.com/kubernetes/ingress-nginx/)
-    2. [JiHuLab 加速镜像（个人镜像同步）](https://jihulab.com/mirrors-github/kubernetes/ingress-nginx)
+    2. [作者镜像仓库](https://framagit.org/mirrors-github/kubernetes/ingress-nginx)
         1. 注意主分支应该是 `main`
         2. 安装指南
             1. [GitHub](https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy/index.md)
-            2. [JiHuLab 加速镜像](https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/blob/main/docs/deploy/index.md)
+            2. [作者镜像仓库](https://framagit.org/mirrors-github/kubernetes/ingress-nginx/-/blob/main/docs/deploy/index.md)
         3. 版本支持
             1. [GitHub](https://github.com/kubernetes/ingress-nginx/blob/main/ingress-nginx.yaml)
-            2. [JiHuLab 加速镜像](https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/blob/main/ingress-nginx.yaml)
+            2. [作者镜像仓库](https://framagit.org/mirrors-github/kubernetes/ingress-nginx/-/blob/main/ingress-nginx.yaml)
 3. [ingress-nginx 文档](https://kubernetes.github.io/ingress-nginx/)
     1. [TLS/HTTPS](https://kubernetes.github.io/ingress-nginx/user-guide/tls/)
 4. 本文以 k8s 1.26.2 为例
@@ -62,17 +62,17 @@ sidebar_position: 8
     # 使用 LoadBalancer
     # 适合于没有 Helm 的环境，或者是倾向于使用 YAML 配置
     # wget https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/cloud/deploy.yaml
-    wget https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/raw/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/cloud/deploy.yaml
+    wget https://framagit.org/mirrors-github/kubernetes/ingress-nginx/-/raw/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/cloud/deploy.yaml
     
     # 或者
     # 使用 NodePort
     # 适合于裸机服务器的 Kubernetes 集群，以及 Kubernetes 是手动安装的，支持通用的 Linux 发行版（如：CentOS、Ubuntu 等）
     # wget https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/baremetal/deploy.yaml
-    # wget https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/raw/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/baremetal/deploy.yaml
+    # wget https://framagit.org/mirrors-github/kubernetes/ingress-nginx/-/raw/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/baremetal/deploy.yaml
     
     # 其他云厂商的k8s，请参见文档：
     # https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy/index.md
-    # https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/blob/main/docs/deploy/index.md
+    # https://framagit.org/mirrors-github/kubernetes/ingress-nginx/-/blob/main/docs/deploy/index.md
     ```
 
 2. 修改为国内可以访问的镜像（国内可能无法访问 registry.k8s.io 域名）
@@ -176,7 +176,7 @@ sidebar_position: 8
                 spec:
                   containers:
                     - name: demo
-                      image: registry.jihulab.com/xuxiaowei-cloud/xuxiaowei-cloud/httpd:2.4.57
+                      image: registry.cn-qingdao.aliyuncs.com/xuxiaoweicomcn/httpd:2.4.57
                       ports:
                         - containerPort: 80
                 
@@ -302,7 +302,7 @@ sidebar_position: 8
     1. 方式1（容器、宿主机端口相同）：
         1. 文档
             1. [GitHub](https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy/baremetal.md#via-the-host-network)
-            2. [JiHuLab 加速镜像](https://jihulab.com/mirrors-github/kubernetes/ingress-nginx/-/blob/main/docs/deploy/baremetal.md#via-the-host-network)
+            2. [作者镜像仓库](https://framagit.org/mirrors-github/kubernetes/ingress-nginx/-/blob/main/docs/deploy/baremetal.md#via-the-host-network)
         2. 修改配置
             1. 方法1：
                ```shell

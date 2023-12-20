@@ -18,8 +18,8 @@ IPv4/IPv6 双协议栈网络能够将 IPv4 和 IPv6 地址分配给 Pod 和 Serv
 7. 配置 calico/node: https://docs.tigera.io/calico/latest/reference/configure-calico-node
 8. CIDR网络地址计算器: https://www.sioe.cn/xinqing/CIDR.php
 9. 示例
-    1. https://jihulab.com/xuxiaowei-com-cn/java/-/blob/main/deploy/deploy-service-ipv6.yaml
-    2. https://jihulab.com/xuxiaowei-com-cn/java/-/blob/main/deploy/deploy-service-ipv6-ingress.yaml
+    1. https://framagit.org/xuxiaowei-com-cn/java/-/blob/main/deploy/deploy-service-ipv6.yaml
+    2. https://framagit.org/xuxiaowei-com-cn/java/-/blob/main/deploy/deploy-service-ipv6-ingress.yaml
         1. 此示例需要完成 [Ingress 安装](./ingress-install.md) 才能正常使用
 
 ## 支持的功能
@@ -230,8 +230,8 @@ kubectl -n kube-system rollout restart daemonset kube-proxy
 
 ### svc
 
-- 请使用 https://jihulab.com/xuxiaowei-com-cn/java/-/blob/main/deploy/deploy-service-ipv6.yaml 进行测试
-- 执行 `kubectl apply -f https://jihulab.com/xuxiaowei-com-cn/java/-/raw/main/deploy/deploy-service-ipv6.yaml` ，创建
+- 请使用 https://framagit.org/xuxiaowei-com-cn/java/-/blob/main/deploy/deploy-service-ipv6.yaml 进行测试
+- 执行 `kubectl apply -f https://framagit.org/xuxiaowei-com-cn/java/-/raw/main/deploy/deploy-service-ipv6.yaml` ，创建
   pod、Service（支持 IPv6）
 - 查看 Service pod 的 IPv6 地址：`kubectl describe svc java-resp-ipv6-1-service | grep IPs`
     1. 示例
@@ -243,6 +243,6 @@ kubectl -n kube-system rollout restart daemonset kube-proxy
 
 ### ingress
 
-- 请使用 https://jihulab.com/xuxiaowei-com-cn/java/-/blob/main/deploy/deploy-service-ipv6-ingress.yaml
+- 请使用 https://framagit.org/xuxiaowei-com-cn/java/-/blob/main/deploy/deploy-service-ipv6-ingress.yaml
 
 1. 此示例需要完成 [Ingress 安装](./ingress-install.md) 才能正常使用

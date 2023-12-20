@@ -9,7 +9,7 @@ sidebar_position: 4
 ## 说明
 
 1. 官方github仓库：[https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server)
-2. 个人镜像：https://jihulab.com/xuxiaowei-com-cn/k8s.sh/-/tree/main/mirrors/kubernetes-sigs/metrics-server
+2. 个人镜像：https://framagit.org/xuxiaowei-com-cn/k8s.sh/-/tree/main/mirrors/kubernetes-sigs/metrics-server
 3. Metrics Server 是一个 Kubernetes 组件，用于收集群集中的容器和节点的资源度量指标，并将这些指标提供给用户和其他组件。Metrics
    Server 采集的指标包括CPU使用率、内存使用率、网络流量等。这些指标可以帮助用户了解应用程序、服务以及它们所在的节点和容器的健康情况，帮助用户优化资源使用和应用程序性能。
 4. Metrics Server 可以通过 Kubernetes API Server 提供度量指标查询接口，以支持其他组件、工具和应用程序对度量指标进行查询、监控、告警等操作。Metrics
@@ -18,14 +18,14 @@ sidebar_position: 4
 5. 不使用 helm，所以只需关注 `v*.*.*`的标签（即：不含 helm 的标签）
 6. 版本介绍：
     1. [GitHub](https://github.com/kubernetes-sigs/metrics-server#compatibility-matrix)
-    2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/kubernetes-sigs/metrics-server#compatibility-matrix)
+    2. [作者镜像仓库](https://framagit.org/mirrors-github/kubernetes-sigs/metrics-server#compatibility-matrix)
 7. 本文以 v0.6.4 为例（其他版本仅需更换下面的链接中的 v0.6.4）
 
-   | 文件类型                 | 文件链接                                                                                                    | 个人镜像                                                                                                                              |
-   |----------------------|---------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-   | k8s 配置文件             | https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.4/components.yaml              | https://jihulab.com/xuxiaowei-com-cn/k8s.sh/-/raw/main/mirrors/kubernetes-sigs/metrics-server/v0.6.4/components.yaml              |
-   | k8s 高可用配置文件          | https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.4/high-availability.yaml       | https://jihulab.com/xuxiaowei-com-cn/k8s.sh/-/raw/main/mirrors/kubernetes-sigs/metrics-server/v0.6.4/high-availability.yaml       |
-   | k8s 1.21+ 以上 高可用配置文件 | https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.4/high-availability-1.21+.yaml | https://jihulab.com/xuxiaowei-com-cn/k8s.sh/-/raw/main/mirrors/kubernetes-sigs/metrics-server/v0.6.4/high-availability-1.21+.yaml |
+   | 文件类型                 | 文件链接                                                                                                    | 个人镜像                                                                                                                               |
+   |----------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+   | k8s 配置文件             | https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.4/components.yaml              | https://framagit.org/xuxiaowei-com-cn/k8s.sh/-/raw/main/mirrors/kubernetes-sigs/metrics-server/v0.6.4/components.yaml              |
+   | k8s 高可用配置文件          | https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.4/high-availability.yaml       | https://framagit.org/xuxiaowei-com-cn/k8s.sh/-/raw/main/mirrors/kubernetes-sigs/metrics-server/v0.6.4/high-availability.yaml       |
+   | k8s 1.21+ 以上 高可用配置文件 | https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.6.4/high-availability-1.21+.yaml | https://framagit.org/xuxiaowei-com-cn/k8s.sh/-/raw/main/mirrors/kubernetes-sigs/metrics-server/v0.6.4/high-availability-1.21+.yaml |
 
 8. 未安装 Metrics Server 查看 pod 内存、CPU 将报错
 

@@ -136,11 +136,7 @@ const config = {
             },
             {
               label: 'Kubernetes（k8s）全自动安装配置脚本',
-              href: 'https://jihulab.com/xuxiaowei-com-cn/k8s.sh',
-            },
-            {
-              label: 'Docker Hub 镜像代理',
-              href: 'https://jihulab.com/docker-hub',
+              href: 'https://framagit.org/xuxiaowei-com-cn/k8s.sh',
             },
             {
               label: '工具箱',

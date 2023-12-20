@@ -99,7 +99,7 @@
     - [Gitee Pages](https://xuxiaowei-com-cn.gitee.io/gitlab-k8s)
     - [GitHub Pages](https://xuxiaowei-com-cn.github.io/gitlab-k8s)
 - Repository
-    - [JiHuLab](https://jihulab.com/xuxiaowei-com-cn/gitlab-k8s)
+    - [framagit](https://framagit.org/xuxiaowei-com-cn/gitlab-k8s)
     - [Gitee](https://gitee.com/xuxiaowei-com-cn/gitlab-k8s)
     - [GitCode](https://gitcode.net/xuxiaowei-com-cn/gitlab-k8s)
     - [GitLink](https://gitlink.org.cn/xuxiaowei-com-cn/gitlab-k8s)
@@ -115,7 +115,7 @@ git remote add gitee https://gitee.com/xuxiaowei-com-cn/gitlab-k8s.git
 
 git remote add gitlab https://gitlab.com/xuxiaowei-com-cn/gitlab-k8s.git
 
-git remote add jihulab https://jihulab.com/xuxiaowei-com-cn/gitlab-k8s.git
+git remote add framagit https://framagit.org/xuxiaowei-com-cn/gitlab-k8s.git
 
 git remote add github https://github.com/xuxiaowei-com-cn/gitlab-k8s.git
 

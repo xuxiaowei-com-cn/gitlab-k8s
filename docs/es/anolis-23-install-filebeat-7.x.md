@@ -362,7 +362,7 @@ sudo systemctl start docker.service
     - docker 镜像的源码
         1. https://github.com/xuxiaowei-com-cn/nginx
         2. https://gitee.com/xuxiaowei-com-cn/nginx
-        3. https://jihulab.com/xuxiaowei-com-cn/nginx
+        3. https://framagit.org/xuxiaowei-com-cn/nginx
 
 ```shell
 docker run \
@@ -372,7 +372,7 @@ docker run \
   -p 1080:80 -p 1443:443 \
   -v /etc/localtime:/etc/localtime \
   -v /logs/docker/nginx:/var/log/nginx/ \
-  --name nginx-1.25.2 registry.jihulab.com/xuxiaowei-com-cn/nginx:1.25.2-host.access.log
+  --name nginx-1.25.2 registry.cn-qingdao.aliyuncs.com/xuxiaoweicomcn/nginx:1.25.2-host.access.log
 ```
 
 - Filebeat 收集数据的日志

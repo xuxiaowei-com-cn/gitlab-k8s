@@ -22,7 +22,7 @@ GitLab pages（静态页面相关文件）使用对象储存 S3（MinIO）
 
 1. GitLab 使用的版本是 15.11.2
 2. S3 对象储存使用的是 MinIO
-3. 示例项目：[my-vue-app](https://jihulab.com/xuxiaowei-com-cn/my-vue-app)
+3. 示例项目：[my-vue-app](https://framagit.org/xuxiaowei-com-cn/my-vue-app)
 
 ## 配置
 

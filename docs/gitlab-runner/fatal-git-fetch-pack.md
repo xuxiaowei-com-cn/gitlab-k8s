@@ -9,7 +9,7 @@ GitLab Runner CI/CD 使用 shell 执行器时，git 版本过低的问题
 ## 说明
 
 - [gitcode](https://gitcode.net/) 是从 gitlab-ce v13.7 更改来的
-- [jihulab](https://jihulab.com/) 是中国版 gitlab
+- [framagit](https://framagit.org/) 
 
 ## 分析解决
 

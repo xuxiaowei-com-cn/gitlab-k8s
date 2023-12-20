@@ -10,10 +10,10 @@ sidebar_position: 2
 
 1. alibaba-cloud-csi-driver 仓库
     1. [GitHub](https://github.com/kubernetes-sigs/alibaba-cloud-csi-driver)
-    2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/kubernetes-sigs/alibaba-cloud-csi-driver)
+    2. [作者镜像仓库](https://framagit.org/mirrors-github/kubernetes-sigs/alibaba-cloud-csi-driver)
 2. alibaba-cloud-csi-driver 中文介绍
     1. [GitHub](https://github.com/kubernetes-sigs/alibaba-cloud-csi-driver/blob/master/README-zh_CN.md)
-    2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/kubernetes-sigs/alibaba-cloud-csi-driver/-/blob/master/README-zh_CN.md)
+    2. [作者镜像仓库](https://framagit.org/mirrors-github/kubernetes-sigs/alibaba-cloud-csi-driver/-/blob/master/README-zh_CN.md)
     3. 阿里云CSI插件实现了在Kubernetes中对阿里云云存储卷的生命周期管理，支持动态创建、挂载、使用云数据卷。
     4. 当前的CSI实现基于K8S 1.14以上的版本
 3. OSS CSI 插件支持为应用负载挂载阿里云 OSS Bucket，目前不支持动态创建 OSS Bucket。OSS
@@ -22,7 +22,7 @@ sidebar_position: 2
 5. OSS存储是一种共享存储，可以同时被多个应用负载使用(ReadWriteMany)
 6. OSS CSI 插件更多详细说明
     1. [GitHub](https://github.com/kubernetes-sigs/alibaba-cloud-csi-driver/blob/master/docs/oss.md)
-    2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/kubernetes-sigs/alibaba-cloud-csi-driver/-/blob/master/docs/oss.md)
+    2. [作者镜像仓库](https://framagit.org/mirrors-github/kubernetes-sigs/alibaba-cloud-csi-driver/-/blob/master/docs/oss.md)
 7. [使用OSS静态存储卷](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/mount-a-statically-provisioned-oss-volume-1)
 
 ## 说明
@@ -37,10 +37,10 @@ sidebar_position: 2
    ```shell
    ALIBABA_CLOUD_CSI_DRIVER_VERSION=1.2.0
    
-   curl -LO https://jihulab.com/mirrors-github/kubernetes-sigs/alibaba-cloud-csi-driver/-/raw/v$ALIBABA_CLOUD_CSI_DRIVER_VERSION/deploy/nonecs/csi-driver.yaml
-   curl -LO https://jihulab.com/mirrors-github/kubernetes-sigs/alibaba-cloud-csi-driver/-/raw/v$ALIBABA_CLOUD_CSI_DRIVER_VERSION/deploy/nonecs/csi-plugin.yaml
-   curl -LO https://jihulab.com/mirrors-github/kubernetes-sigs/alibaba-cloud-csi-driver/-/raw/v$ALIBABA_CLOUD_CSI_DRIVER_VERSION/deploy/nonecs/csi-provisioner.yaml
-   curl -LO https://jihulab.com/mirrors-github/kubernetes-sigs/alibaba-cloud-csi-driver/-/raw/v$ALIBABA_CLOUD_CSI_DRIVER_VERSION/deploy/nonecs/rbac.yaml
+   curl -LO https://framagit.org/mirrors-github/kubernetes-sigs/alibaba-cloud-csi-driver/-/raw/v$ALIBABA_CLOUD_CSI_DRIVER_VERSION/deploy/nonecs/csi-driver.yaml
+   curl -LO https://framagit.org/mirrors-github/kubernetes-sigs/alibaba-cloud-csi-driver/-/raw/v$ALIBABA_CLOUD_CSI_DRIVER_VERSION/deploy/nonecs/csi-plugin.yaml
+   curl -LO https://framagit.org/mirrors-github/kubernetes-sigs/alibaba-cloud-csi-driver/-/raw/v$ALIBABA_CLOUD_CSI_DRIVER_VERSION/deploy/nonecs/csi-provisioner.yaml
+   curl -LO https://framagit.org/mirrors-github/kubernetes-sigs/alibaba-cloud-csi-driver/-/raw/v$ALIBABA_CLOUD_CSI_DRIVER_VERSION/deploy/nonecs/rbac.yaml
    
    kubectl apply -f csi-driver.yaml
    kubectl apply -f csi-plugin.yaml
@@ -100,7 +100,7 @@ sidebar_position: 2
 
    ```shell
    # ALIBABA_CLOUD_CSI_DRIVER_VERSION=1.2.0
-   # curl -LO https://jihulab.com/mirrors-github/kubernetes-sigs/alibaba-cloud-csi-driver/-/raw/v$ALIBABA_CLOUD_CSI_DRIVER_VERSION/examples/oss/pv.yaml
+   # curl -LO https://framagit.org/mirrors-github/kubernetes-sigs/alibaba-cloud-csi-driver/-/raw/v$ALIBABA_CLOUD_CSI_DRIVER_VERSION/examples/oss/pv.yaml
    
    cat > pv-oss.yaml << EOF
    apiVersion: v1
@@ -140,7 +140,7 @@ sidebar_position: 2
 
    ```shell
    # ALIBABA_CLOUD_CSI_DRIVER_VERSION=1.2.0
-   # curl -LO https://jihulab.com/mirrors-github/kubernetes-sigs/alibaba-cloud-csi-driver/-/raw/v$ALIBABA_CLOUD_CSI_DRIVER_VERSION/examples/oss/pvc.yaml
+   # curl -LO https://framagit.org/mirrors-github/kubernetes-sigs/alibaba-cloud-csi-driver/-/raw/v$ALIBABA_CLOUD_CSI_DRIVER_VERSION/examples/oss/pvc.yaml
    
    cat > pvc-oss.yaml << EOF
    apiVersion: v1

@@ -16,7 +16,7 @@ sidebar_position: 5
         2. [Docker-in-Docker](https://docs.gitlab.cn/jh/ci/docker/using_docker_build.html#%E4%BD%BF%E7%94%A8-docker-in-docker)
         3. [使用 Docker 套接字绑定](https://docs.gitlab.cn/jh/ci/docker/using_docker_build.html#%E4%BD%BF%E7%94%A8-docker-%E5%A5%97%E6%8E%A5%E5%AD%97%E7%BB%91%E5%AE%9A)
 
-## [示例](https://jihulab.com/xuxiaowei-com-cn/docker-in-docker)
+## [示例](https://framagit.org/xuxiaowei-com-cn/docker-in-docker)
 
 ### 示例1：使用 docker 命令构建docker镜像
 

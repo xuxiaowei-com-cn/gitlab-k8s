@@ -9,20 +9,20 @@ Kubernetes（k8s）Dashboard 安装
 3. 不同 Kubernetes Dashboard 支持的 Kubernetes 版本不同，可查看 Kubernetes Dashboard
    发版日志中的说明：https://github.com/kubernetes/dashboard/releases
    ，下面列举最近几版的版本支持（仅列举了 **完全支持的版本范围**）
-4. **国内 JiHuLab 个人镜像仓库**：
-    1. https://jihulab.com/mirrors-github/kubernetes/dashboard
+4. **作者镜像仓库**：
+    1. https://framagit.org/mirrors-github/kubernetes/dashboard
 5. 需要 [安装 Metrics Server](../k8s/metrics-server-install.md) 才能查看资源（内存、CPU）使用情况
 6. 使用网址如下：只需要换一下标签名
-    1. https://jihulab.com/mirrors-github/kubernetes/dashboard/-/raw/v2.7.0/aio/deploy/recommended.yaml
+    1. https://framagit.org/mirrors-github/kubernetes/dashboard/-/raw/v2.7.0/aio/deploy/recommended.yaml
 
-| Kubernetes Dashboard 版本 | Kubernetes 版本 | 使用 GitHub 官方仓库文件执行命令                                                                                       | 使用 JiHuLab 个人镜像 仓库 文件执行命令                                                                                         |
-|-------------------------|---------------|------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| 2.7.0                   | 1.25          | kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml | kubectl apply -f https://jihulab.com/mirrors-github/kubernetes/dashboard/-/raw/v2.7.0/aio/deploy/recommended.yaml |
-| 2.6.1                   | 1.24          | kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.6.1/aio/deploy/recommended.yaml | kubectl apply -f https://jihulab.com/mirrors-github/kubernetes/dashboard/-/raw/v2.6.1/aio/deploy/recommended.yaml |
-| 2.6.0                   | 1.24          | kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.6.0/aio/deploy/recommended.yaml | kubectl apply -f https://jihulab.com/mirrors-github/kubernetes/dashboard/-/raw/v2.6.0/aio/deploy/recommended.yaml |
-| 2.5.1                   | 1.23          | kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.1/aio/deploy/recommended.yaml | kubectl apply -f https://jihulab.com/mirrors-github/kubernetes/dashboard/-/raw/v2.5.1/aio/deploy/recommended.yaml |
-| 2.5.0                   | 1.23          | kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.0/aio/deploy/recommended.yaml | kubectl apply -f https://jihulab.com/mirrors-github/kubernetes/dashboard/-/raw/v2.5.0/aio/deploy/recommended.yaml |
-| 2.4.0                   | 1.20、1.21     | kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.4.0/aio/deploy/recommended.yaml | kubectl apply -f https://jihulab.com/mirrors-github/kubernetes/dashboard/-/raw/v2.4.0/aio/deploy/recommended.yaml |
+| Kubernetes Dashboard 版本 | Kubernetes 版本 | 使用 GitHub 官方仓库文件执行命令                                                                                       | 使用 作者镜像仓库 文件执行命令                                                                                                   |
+|-------------------------|---------------|------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+| 2.7.0                   | 1.25          | kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml | kubectl apply -f https://framagit.org/mirrors-github/kubernetes/dashboard/-/raw/v2.7.0/aio/deploy/recommended.yaml |
+| 2.6.1                   | 1.24          | kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.6.1/aio/deploy/recommended.yaml | kubectl apply -f https://framagit.org/mirrors-github/kubernetes/dashboard/-/raw/v2.6.1/aio/deploy/recommended.yaml |
+| 2.6.0                   | 1.24          | kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.6.0/aio/deploy/recommended.yaml | kubectl apply -f https://framagit.org/mirrors-github/kubernetes/dashboard/-/raw/v2.6.0/aio/deploy/recommended.yaml |
+| 2.5.1                   | 1.23          | kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.1/aio/deploy/recommended.yaml | kubectl apply -f https://framagit.org/mirrors-github/kubernetes/dashboard/-/raw/v2.5.1/aio/deploy/recommended.yaml |
+| 2.5.0                   | 1.23          | kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.5.0/aio/deploy/recommended.yaml | kubectl apply -f https://framagit.org/mirrors-github/kubernetes/dashboard/-/raw/v2.5.0/aio/deploy/recommended.yaml |
+| 2.4.0                   | 1.20、1.21     | kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.4.0/aio/deploy/recommended.yaml | kubectl apply -f https://framagit.org/mirrors-github/kubernetes/dashboard/-/raw/v2.4.0/aio/deploy/recommended.yaml |
 
 ## 参考链接
 
@@ -30,15 +30,15 @@ Kubernetes（k8s）Dashboard 安装
 2. https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/README.md
 3. https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md
 4. 以上参考连接列举的都是最新版，请结合自身的版本选择对应的标签
-5. 国内 JiHuLab 个人镜像：
-   镜像仓库：[https://jihulab.com/mirrors-github/kubernetes/dashboard](https://jihulab.com/mirrors-github/kubernetes/dashboard)
+5. 作者镜像仓库：
+   镜像仓库：[https://framagit.org/mirrors-github/kubernetes/dashboard](https://framagit.org/mirrors-github/kubernetes/dashboard)
 
 ## 安装
 
 1. 在管理节点上执行
 
    ```shell
-   # JiHuLab 个人镜像：kubectl apply -f https://jihulab.com/mirrors-github/kubernetes/dashboard/-/raw/v2.7.0/aio/deploy/recommended.yaml
+   # 作者镜像仓库：kubectl apply -f https://framagit.org/mirrors-github/kubernetes/dashboard/-/raw/v2.7.0/aio/deploy/recommended.yaml
    kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
    ```
 

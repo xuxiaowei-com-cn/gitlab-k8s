@@ -22,7 +22,7 @@ GitLab Docker 私库开启配置与使用方式
 
 ## 说明
 
-1. 在 [GitLab](https://jihulab.com/) 等
+1. 在 [GitLab](https://gitlab.com/) 等
    商业 GitLab 中可直接使用
 2. 如果是自建 GitLab，需要配置 GitLab 容器镜像库的域名（https/SSL）才能使用（docker 镜像仓库需要使用
    https），如果没有配置，则不能访问 `项目地址/container_registry`（页面会返回 404）

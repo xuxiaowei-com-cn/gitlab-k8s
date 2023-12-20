@@ -16,16 +16,16 @@ sidebar_position: 1
 2. GitLab Pages 运行环境需要 Docker
 3. 开始使用 Containerd
     1. [github](https://github.com/containerd/containerd/blob/main/docs/getting-started.md)
-    2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/containerd/containerd/-/blob/main/docs/getting-started.md)
+    2. [作者镜像仓库](https://framagit.org/mirrors-github/containerd/containerd/-/blob/main/docs/getting-started.md)
 4. Containerd 配置 Docker 加速镜像
     1. [github](https://github.com/containerd/containerd/blob/main/docs/cri/registry.md)
-    2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/containerd/containerd/-/blob/main/docs/cri/registry.md)
+    2. [作者镜像仓库](https://framagit.org/mirrors-github/containerd/containerd/-/blob/main/docs/cri/registry.md)
 5. crictl 用户指南
     1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md)
-    2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/containerd/containerd/-/blob/main/docs/cri/crictl.md)
+    2. [作者镜像仓库](https://framagit.org/mirrors-github/containerd/containerd/-/blob/main/docs/cri/crictl.md)
 6. Containerd hosts 配置
    1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/hosts.md)
-   2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/containerd/containerd/-/blob/main/docs/hosts.md)
+   2. [作者镜像仓库](https://framagit.org/mirrors-github/containerd/containerd/-/blob/main/docs/hosts.md)
 
 ## 视频演示
 

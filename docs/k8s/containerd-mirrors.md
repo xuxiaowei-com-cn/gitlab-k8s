@@ -12,16 +12,16 @@ sidebar_position: 9
 2. https://docs.docker.com/build/buildkit/toml-configuration/
 3. 开始使用 Containerd
     1. [github](https://github.com/containerd/containerd/blob/main/docs/getting-started.md)
-    2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/containerd/containerd/-/blob/main/docs/getting-started.md)
+    2. [作者镜像仓库](https://framagit.org/mirrors-github/containerd/containerd/-/blob/main/docs/getting-started.md)
 4. Containerd 配置 Docker 加速镜像
     1. [github](https://github.com/containerd/containerd/blob/main/docs/cri/registry.md)
-    2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/containerd/containerd/-/blob/main/docs/cri/registry.md)
+    2. [作者镜像仓库](https://framagit.org/mirrors-github/containerd/containerd/-/blob/main/docs/cri/registry.md)
 5. crictl 用户指南
     1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md)
-    2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/containerd/containerd/-/blob/main/docs/cri/crictl.md)
+    2. [作者镜像仓库](https://framagit.org/mirrors-github/containerd/containerd/-/blob/main/docs/cri/crictl.md)
 6. Containerd hosts 配置
     1. [GitHub](https://github.com/containerd/containerd/blob/main/docs/hosts.md)
-    2. [JiHuLab 个人镜像](https://jihulab.com/mirrors-github/containerd/containerd/-/blob/main/docs/hosts.md)
+    2. [作者镜像仓库](https://framagit.org/mirrors-github/containerd/containerd/-/blob/main/docs/hosts.md)
 
 7. <font color="red">在 `[plugins."io.containerd.grpc.v1.cri".registry.mirrors]` 中配置 `域名`，仅支持 `crictl`
    命令</font>
@@ -71,7 +71,7 @@ sidebar_position: 9
     # 安装完 k8s 后，才有 crictl 命令
     # 参考：
     # GitHub：https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md
-    # JiHuLab 个人镜像：https://jihulab.com/mirrors-github/containerd/containerd/-/blob/main/docs/cri/crictl.md
+    # 作者镜像仓库：https://framagit.org/mirrors-github/containerd/containerd/-/blob/main/docs/cri/crictl.md
     
     # 生成配置文件
     cat <<EOF > /etc/crictl.yaml
@@ -171,7 +171,7 @@ sidebar_position: 9
     # 安装完 k8s 后，才有 crictl 命令
     # 参考：
     # GitHub：https://github.com/containerd/containerd/blob/main/docs/cri/crictl.md
-    # JiHuLab 个人镜像：https://jihulab.com/mirrors-github/containerd/containerd/-/blob/main/docs/cri/crictl.md
+    # 作者镜像仓库：https://framagit.org/mirrors-github/containerd/containerd/-/blob/main/docs/cri/crictl.md
     
     # 生成配置文件
     cat <<EOF > /etc/crictl.yaml

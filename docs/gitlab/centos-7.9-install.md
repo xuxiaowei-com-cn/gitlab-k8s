@@ -16,10 +16,9 @@ sidebar_position: 1
 
 ## 说明
 
-1. 极狐GitLab 是国内版的 GitLab，与 GitLab 相同，都提供代码托管与软件安装镜像
-2. [极狐GitLab](https://jihulab.com)
-3. 本文以 GitLab EE 为例（非极狐GitLab）
-4. **本文使用的域名是IP 192.168.80.14（原因：如果使用域名，必须拥有这个域名的所有权，并增加解析才可以，要不然在 Docker
+1. [FramaGit](https://framagit.org)
+2. 本文以 GitLab EE 为例
+3. **本文使用的域名是IP 192.168.80.14（原因：如果使用域名，必须拥有这个域名的所有权，并增加解析才可以，要不然在 Docker
    容器中，无法使用域名检出代码，因为根据域名找不到DNS记录）**
 
 ## 安装 GitLab

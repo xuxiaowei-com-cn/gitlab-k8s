@@ -10,7 +10,7 @@ GitLab Maven 私库使用方式
 
 ## 配置（以Maven为例）
 
-- 示例项目 [my-maven-app](https://jihulab.com/xuxiaowei-com-cn/my-maven-app)
+- 示例项目 [my-maven-app](https://framagit.org/xuxiaowei-com-cn/my-maven-app)
 
 1. 身份认证（以下顺序为官方文档的顺序，选择一个适合自己的即可）
     1. 在 Maven 中使用个人访问令牌进行身份验证
@@ -63,7 +63,7 @@ GitLab Maven 私库使用方式
     3. 使用 Maven 中的 CI 作业令牌进行身份验证
         - `settings.xml` 文件中的配置如下
         - 此处使用的是 GitLab Runner 流水线发布 jar 包（其他方式发布时的命令雷同）
-        - 示例项目 [my-maven-app](https://jihulab.com/xuxiaowei-com-cn/my-maven-app) 中使用自定义 `settings.xml`
+        - 示例项目 [my-maven-app](https://framagit.org/xuxiaowei-com-cn/my-maven-app) 中使用自定义 `settings.xml`
           文件名为 `settings-jihulab.xml`，并在其中增加了国内Maven仓库代理，用于加速依赖下载，发布命令
         - 仅发布二进制：`mvn clean -U package deploy -DskipTests -s settings-jihulab.xml`
         - 发布二进制、源码：`mvn clean -U package source:jar deploy -DskipTests -s settings-jihulab.xml`
@@ -98,7 +98,7 @@ GitLab Maven 私库使用方式
             <!-- 固定值，与 settings.xml 中的 server id 相同，否则私有仓库无法匹配到秘钥发布 -->
             <id>gitlab-maven</id>
             <!-- 其中数字为项目ID，访问项目地址即可看到 -->
-            <!--<url>https://jihulab.com/api/v4/projects/126877/packages/maven</url>-->
+            <!--<url>https://framagit.org/api/v4/projects/103303/packages/maven</url>-->
             <!-- 使用环境变量 CI_PROJECT_ID 替换项目ID -->
             <!-- 使用环境变量 CI_API_V4_URL 替换 GitLab API 接口地址 -->
             <url>${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/maven</url>
@@ -107,7 +107,7 @@ GitLab Maven 私库使用方式
             <!-- 固定值，与 settings.xml 中的 server id 相同，否则私有仓库无法匹配到秘钥发布 -->
             <id>gitlab-maven</id>
             <!-- 其中数字为项目ID，访问项目地址即可看到 -->
-            <!--<url>https://jihulab.com/api/v4/projects/126877/packages/maven</url>-->
+            <!--<url>https://framagit.org/api/v4/projects/103303/packages/maven</url>-->
             <!-- 使用环境变量 CI_PROJECT_ID 替换项目ID -->
             <!-- 使用环境变量 CI_API_V4_URL 替换 GitLab API 接口地址 -->
             <url>${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/maven</url>
@@ -131,4 +131,4 @@ GitLab Maven 私库使用方式
     </repositories>
     ```
 
-4. 发布的Jar包可以在 [软件包库](https://jihulab.com/xuxiaowei-com-cn/my-maven-app/-/packages) 中看到
+4. 发布的Jar包可以在 [软件包库](https://framagit.org/xuxiaowei-com-cn/my-maven-app/-/packages) 中看到
