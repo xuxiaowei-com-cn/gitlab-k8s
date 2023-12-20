@@ -61,7 +61,7 @@ metadata:
   name: $ROLE_NAME
 rules:
 - apiGroups: [""] # "" 标明 core API 组
-  resources: ["pods", "services", "secrets", "configmaps"] # 根据自己的情况与需求设置。使用命令 kubectl api-resources 获取所有可选配置
+  resources: ["pods", "services", "secrets", "configmaps", "ingresses"] # 根据自己的情况与需求设置。使用命令 kubectl api-resources 获取所有可选配置
   verbs: ["*"] # 根据自己的情况与需求设置。* 代表授予所有权限，可选配置如：get, watch, list, create, update, patch, delete, proxy
 
 EOF
