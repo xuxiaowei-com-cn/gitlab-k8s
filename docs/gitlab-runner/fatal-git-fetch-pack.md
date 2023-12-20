@@ -26,9 +26,7 @@ GitLab Runner CI/CD 使用 shell 执行器时，git 版本过低的问题
     2. GitLab Runner 在 CentOS/Anolis 中安装时，会自动安装 git，而 CentOS/Anolis 中的 git 版本过低，不支持某些命令。
     3. gitcode 默认配置：
        ![image.png](static/fatal-git-fetch-pack-1.png)
-    4. jihulab 默认配置
-       ![image.png](static/fatal-git-fetch-pack-2.png)
-    5. gitlab 默认配置
+    4. gitlab 默认配置
        ![image.png](static/fatal-git-fetch-pack-3.png)
 3. 解决办法（任选一种）：
     1. 在 gitlab 中将 `git fetch` 修改为 `git clone`，重新运行即可

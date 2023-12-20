@@ -116,11 +116,9 @@ GitLab Runner 支持执行器：docker、Kubernetes（docker+machine 请使用 �
         namespace = "gitlab"
         # registry.gitlab.com/gitlab-org/gitlab-runner/gitlab-runner-helper:x86_64-85586bd1
         # registry.gitlab.com/gitlab-org/gitlab-runner/gitlab-runner-helper:x86_64-v16.0.2
-        # registry.jihulab.com/xuxiaowei-com-cn/docker-in-docker/gitlab-runner/gitlab-runner-helper:x86_64-85586bd1
-        # registry.jihulab.com/xuxiaowei-com-cn/docker-in-docker/gitlab-runner/gitlab-runner-helper:x86_64-v16.0.2
         # xuxiaoweicomcn/gitlab-runner-helper:x86_64-85586bd1
         # xuxiaoweicomcn/gitlab-runner-helper:x86_64-v16.0.2
-        helper_image = "registry.jihulab.com/xuxiaowei-com-cn/docker-in-docker/gitlab-runner/gitlab-runner-helper:x86_64-v16.0.2" 
+        helper_image = "xuxiaoweicomcn/gitlab-runner-helper:x86_64-v16.0.2" 
         namespace_overwrite_allowed = ""
         node_selector_overwrite_allowed = ""
         pod_labels_overwrite_allowed = ""
@@ -158,11 +156,9 @@ GitLab Runner 支持执行器：docker、Kubernetes（docker+machine 请使用 �
         namespace = "gitlab"
         # registry.gitlab.com/gitlab-org/gitlab-runner/gitlab-runner-helper:x86_64-85586bd1
         # registry.gitlab.com/gitlab-org/gitlab-runner/gitlab-runner-helper:x86_64-v16.0.2
-        # registry.jihulab.com/xuxiaowei-com-cn/docker-in-docker/gitlab-runner/gitlab-runner-helper:x86_64-85586bd1
-        # registry.jihulab.com/xuxiaowei-com-cn/docker-in-docker/gitlab-runner/gitlab-runner-helper:x86_64-v16.0.2
         # xuxiaoweicomcn/gitlab-runner-helper:x86_64-85586bd1
         # xuxiaoweicomcn/gitlab-runner-helper:x86_64-v16.0.2
-        helper_image = "registry.jihulab.com/xuxiaowei-com-cn/docker-in-docker/gitlab-runner/gitlab-runner-helper:x86_64-v16.0.2" 
+        helper_image = "xuxiaoweicomcn/gitlab-runner-helper:x86_64-v16.0.2" 
         namespace_overwrite_allowed = ""
         node_selector_overwrite_allowed = ""
         pod_labels_overwrite_allowed = ""
