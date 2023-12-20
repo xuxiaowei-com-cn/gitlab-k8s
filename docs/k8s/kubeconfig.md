@@ -2,7 +2,12 @@
 sidebar_position: 13
 ---
 
-# 创建指定命名空间的 KUBECONFIG 文件
+# 创建指定命名空间权限的 KUBECONFIG 文件
+
+- `kubectl` 默认使用 环境变量 `KUBECONFIG`、当前用户文件夹下的 `.kube/config` 作为默认配置来控制 `apiserver`
+- `kubectl` 可通过参数 `--kubeconfig` 指定使用的配置文件
+- 通过 `kubectl` 配置文件的数据结构（yml 数据结构，部分配置是 Map 类型）可知，一个配置文件可以包含多个 k8s 配置（这些配置可以是同一个
+  k8s 不同命名空间的配置，也可以是多个不同 k8s 的配置），可通过修改配置文件中的 `current-context` 来改变默认启用哪个配置
 
 ## 文档
 
