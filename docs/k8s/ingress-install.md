@@ -32,6 +32,7 @@ sidebar_position: 8
 
 | 版本/标签             | k8s 版本              | registry.k8s.io/ingress-nginx/kube-webhook-certgen 镜像版本 | registry.k8s.io/ingress-nginx/controller 镜像版本 |
 |-------------------|---------------------|---------------------------------------------------------|-----------------------------------------------|
+| controller-v1.9.5 | 1.28,1.27,1.26,1.25 | v20231011-8b53cabe0                                     | v1.9.5                                        |
 | controller-v1.9.4 | 1.28,1.27,1.26,1.25 | v20231011-8b53cabe0                                     | v1.9.4                                        |
 | controller-v1.9.3 | 1.28,1.27,1.26,1.25 | v20231011-8b53cabe0                                     | v1.9.3                                        |
 | controller-v1.9.1 | 1.28,1.27,1.26,1.25 | v20230407                                               | v1.9.1                                        |
@@ -43,6 +44,7 @@ sidebar_position: 8
 
 | 官方镜像                                                                   | 作者 docker hub 镜像（支持 amd64、arm/v7、arm64、s390x 镜像）                      |
 |------------------------------------------------------------------------|-----------------------------------------------------------------------|
+| registry.k8s.io/ingress-nginx/controller:v1.9.5                        | xuxiaoweicomcn/ingress-nginx-controller:v1.9.5                        |
 | registry.k8s.io/ingress-nginx/controller:v1.9.4                        | xuxiaoweicomcn/ingress-nginx-controller:v1.9.4                        |
 | registry.k8s.io/ingress-nginx/controller:v1.9.3                        | xuxiaoweicomcn/ingress-nginx-controller:v1.9.3                        |
 | registry.k8s.io/ingress-nginx/controller:v1.9.1                        | xuxiaoweicomcn/ingress-nginx-controller:v1.9.1                        |
