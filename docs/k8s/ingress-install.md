@@ -24,6 +24,8 @@ sidebar_position: 8
             2. [作者镜像仓库](https://framagit.org/mirrors-github/kubernetes/ingress-nginx/-/blob/main/ingress-nginx.yaml)
 3. [ingress-nginx 文档](https://kubernetes.github.io/ingress-nginx/)
     1. [TLS/HTTPS](https://kubernetes.github.io/ingress-nginx/user-guide/tls/)
+    2. [stream-snippet](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#stream-snippet)
+    3. [configuration-snippet](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#configuration-snippet)
 4. 本文以 k8s 1.26.2 为例
 5. 本文以 ingress-nginx 的 controller-v1.8.0 标签 为例
 6. 镜像使用说明
@@ -358,7 +360,9 @@ sidebar_position: 8
 
 7. 使用 `nginx.ingress.kubernetes.io/stream-snippet`、`nginx.ingress.kubernetes.io/configuration-snippet` 等注释说明
 
-   从 ingress nginx 1.9.0 开始，默认禁用了 `stream-snippet`、`configuration-snippet` 等功能。
+   从 ingress nginx 1.9.0 开始，默认禁用了 `stream-snippet`、`configuration-snippet` 等功能，文档：
+   [stream-snippet](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#stream-snippet)、
+   [configuration-snippet](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/#configuration-snippet)。
 
    在多租户集群中启用它可能很危险，因为它可能导致权限有限的人能够检索集群上的所有机密。
 
