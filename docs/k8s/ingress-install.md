@@ -355,7 +355,20 @@ sidebar_position: 8
     8. 访问效果
 
        ![image.png](static/ingress-install-2.png)
-7. 相关命令
+
+7. 使用 `nginx.ingress.kubernetes.io/stream-snippet`、`nginx.ingress.kubernetes.io/configuration-snippet` 等注释说明
+
+   从 ingress nginx 1.9.0 开始，默认禁用了 `stream-snippet`、`configuration-snippet` 等功能。
+
+   在多租户集群中启用它可能很危险，因为它可能导致权限有限的人能够检索集群上的所有机密。
+
+   有关更多信息，请参阅 CVE-2021-25742 和 [github 上的相关问题](https://github.com/kubernetes/ingress-nginx/issues/7837)。
+
+    ```shell
+    kubectl -n ingress-nginx patch configmap ingress-nginx-controller --type merge -p '{"data":{"allow-snippet-annotations":"true"}}'
+    ```
+
+8. 相关命令
     1. 获取所有的 ingress
 
         ```shell
