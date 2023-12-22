@@ -66,13 +66,13 @@ sidebar_position: 8
     # 使用 LoadBalancer
     # 适合于没有 Helm 的环境，或者是倾向于使用 YAML 配置
     # wget https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/cloud/deploy.yaml
-    wget https://framagit.org/mirrors-github/kubernetes/ingress-nginx/-/raw/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/cloud/deploy.yaml
+    wget --no-check-certificate https://framagit.org/mirrors-github/kubernetes/ingress-nginx/-/raw/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/cloud/deploy.yaml
     
     # 或者
     # 使用 NodePort
     # 适合于裸机服务器的 Kubernetes 集群，以及 Kubernetes 是手动安装的，支持通用的 Linux 发行版（如：CentOS、Ubuntu 等）
     # wget https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/baremetal/deploy.yaml
-    # wget https://framagit.org/mirrors-github/kubernetes/ingress-nginx/-/raw/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/baremetal/deploy.yaml
+    # wget --no-check-certificate https://framagit.org/mirrors-github/kubernetes/ingress-nginx/-/raw/controller-v$INGRESS_NGINX_VERSION/deploy/static/provider/baremetal/deploy.yaml
     
     # 其他云厂商的k8s，请参见文档：
     # https://github.com/kubernetes/ingress-nginx/blob/main/docs/deploy/index.md
