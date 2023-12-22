@@ -59,68 +59,69 @@ sidebar_position: 102
         # 查看
         # kubectl -n=gitlab-test get configmap etc-gitlab-runner-certs -o yaml
         ```
-    7. 修改 gitlab runner Deployment
+    7. 导出 helm gitlab 配置
 
         ```shell
-        # 查看 Deployment 名称
-        [root@k8s ~]# kubectl -n=gitlab-test get deployment | grep gitlab-runner
-        my-gitlab-gitlab-runner              0/1     1            0           133m
-        [root@k8s ~]#
+        helm -n gitlab-test get values my-gitlab > my-gitlab.yaml
         ```
+
+    8. 修改 helm gitlab 配置
 
         ```shell
-        # 编辑 Deployment
-        kubectl -n=gitlab-test edit deployment my-gitlab-gitlab-runner
+        gitlab-runner:
+          # 挂载卷名称
+          volumeMounts:
+            # 挂载到 pod 路径（文件/文件夹）
+            # 此处是在容器内运行的 gitlab runner，由于权限限制等原因，
+            # 所以 配置文件不是在 /etc/gitlab-runner/ 目录下，而是 /home/gitlab-runner/.gitlab-runner/
+            - mountPath: /home/gitlab-runner/.gitlab-runner/certs
+              name: etc-gitlab-runner-certs-volumes
+          # 卷
+          volumes:
+            # 卷类型
+            - configMap:
+                items:
+                # configMap 中的键
+                - key: gitlab.test.helm.xuxiaowei.cn.crt
+                  # 挂载的路径
+                  path: gitlab.test.helm.xuxiaowei.cn.crt
+                name: etc-gitlab-runner-certs
+              # 配置 ConfigMap 名称
+              name: etc-gitlab-runner-certs-volumes
         ```
 
-        ```yaml
-        volumeMounts:
-        # 挂载卷名称
-        - name: etc-gitlab-runner-certs-volumes
-          # 挂载到 pod 路径（文件/文件夹）
-          # 此处是在容器内运行的 gitlab runner，由于权限限制等原因，
-          # 所以 配置文件不是在 /etc/gitlab-runner/ 目录下，而是 /home/gitlab-runner/.gitlab-runner/
-          mountPath: /home/gitlab-runner/.gitlab-runner/certs
+    9. 更新 helm gitlab 配置
+
+        ```shell
+        helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab -f my-gitlab.yaml --timeout 600s
         ```
 
-        ```yaml
-        volumes:
-        # 新增配置，格式如下：
-        # 卷名称
-        - name: etc-gitlab-runner-certs-volumes
-          # 卷类型
-          configMap:
-            # 配置 ConfigMap 名称
-            name: etc-gitlab-runner-certs
-            items:
-              # configMap 中的键
-              - key: gitlab.test.helm.xuxiaowei.cn.crt
-                # 挂载的路径
-                path: gitlab.test.helm.xuxiaowei.cn.crt
-        ```
+    10. 查看修改结果
 
-       结果示例如下
+        ```shell
+        kubectl -n gitlab-test get deployments.apps my-gitlab-gitlab-runner -o yaml
+        ```
 
         ```yaml
         apiVersion: apps/v1
         kind: Deployment
         metadata:
           annotations:
-            deployment.kubernetes.io/revision: "3"
+            deployment.kubernetes.io/revision: "5"
             meta.helm.sh/release-name: my-gitlab
             meta.helm.sh/release-namespace: gitlab-test
-          creationTimestamp: "2023-09-12T10:32:03Z"
-          generation: 3
+          creationTimestamp: "2023-12-22T05:03:46Z"
+          generation: 7
           labels:
             app: my-gitlab-gitlab-runner
             app.kubernetes.io/managed-by: Helm
-            chart: gitlab-runner-0.55.0
+            chart: gitlab-runner-0.59.2
             heritage: Helm
             release: my-gitlab
           name: my-gitlab-gitlab-runner
           namespace: gitlab-test
-          resourceVersion: "26315"
-          uid: 32151659-ac92-4b98-94fe-136df078a8f4
+          resourceVersion: "30086"
+          uid: 8c46c44a-5b67-44ae-90d0-008daa3fa388
         spec:
           progressDeadlineSeconds: 600
           replicas: 1
@@ -136,14 +137,14 @@ sidebar_position: 102
           template:
             metadata:
               annotations:
-                checksum/configmap: baafa40d18ee910f46e2649abc752b6f9bd7c1daeefbcc91503f264a9f2bed81
+                checksum/configmap: f35865354f043583d0903b0a8350830a486eb0e289d18271cf3f533e7d89c5f7
                 checksum/secrets: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
                 gitlab.com/prometheus_port: "9252"
                 gitlab.com/prometheus_scrape: "true"
               creationTimestamp: null
               labels:
                 app: my-gitlab-gitlab-runner
-                chart: gitlab-runner-0.55.0
+                chart: gitlab-runner-0.59.2
                 heritage: Helm
                 release: my-gitlab
             spec:
@@ -163,7 +164,7 @@ sidebar_position: 102
                     - name: RUNNER_TAG_LIST
                     - name: KUBERNETES_NAMESPACE
                       value: gitlab-test
-                  image: registry.gitlab.com/gitlab-org/gitlab-runner:alpine-v16.2.0
+                  image: registry.gitlab.com/gitlab-org/gitlab-runner:alpine-v16.6.1
                   imagePullPolicy: IfNotPresent
                   livenessProbe:
                     exec:
@@ -174,7 +175,7 @@ sidebar_position: 102
                     initialDelaySeconds: 60
                     periodSeconds: 10
                     successThreshold: 1
-                    timeoutSeconds: 1
+                    timeoutSeconds: 3
                   name: my-gitlab-gitlab-runner
                   ports:
                     - containerPort: 9252
@@ -189,7 +190,7 @@ sidebar_position: 102
                     initialDelaySeconds: 10
                     periodSeconds: 10
                     successThreshold: 1
-                    timeoutSeconds: 1
+                    timeoutSeconds: 3
                   resources: {}
                   securityContext:
                     allowPrivilegeEscalation: false
@@ -214,7 +215,7 @@ sidebar_position: 102
               hostAliases:
                 - hostnames:
                     - gitlab.test.helm.xuxiaowei.cn
-                  ip: 192.168.80.3
+                  ip: 172.25.25.32
               restartPolicy: Always
               schedulerName: default-scheduler
               securityContext:
@@ -224,13 +225,6 @@ sidebar_position: 102
               serviceAccountName: my-gitlab-gitlab-runner
               terminationGracePeriodSeconds: 3600
               volumes:
-                - configMap:
-                    defaultMode: 420
-                    items:
-                      - key: gitlab.test.helm.xuxiaowei.cn.crt
-                        path: gitlab.test.helm.xuxiaowei.cn.crt
-                    name: etc-gitlab-runner-certs
-                  name: etc-gitlab-runner-certs-volumes
                 - emptyDir:
                     medium: Memory
                   name: runner-secrets
@@ -254,87 +248,62 @@ sidebar_position: 102
                     defaultMode: 420
                     name: my-gitlab-gitlab-runner
                   name: configmaps
+                - configMap:
+                    defaultMode: 420
+                    items:
+                      - key: gitlab.test.helm.xuxiaowei.cn.crt
+                        path: gitlab.test.helm.xuxiaowei.cn.crt
+                    name: etc-gitlab-runner-certs
+                  name: etc-gitlab-runner-certs-volumes
         status:
+          availableReplicas: 1
           conditions:
-            - lastTransitionTime: "2023-09-12T12:42:33Z"
-              lastUpdateTime: "2023-09-12T12:42:33Z"
-              message: Deployment does not have minimum availability.
-              reason: MinimumReplicasUnavailable
-              status: "False"
+            - lastTransitionTime: "2023-12-22T07:43:25Z"
+              lastUpdateTime: "2023-12-22T07:43:25Z"
+              message: Deployment has minimum availability.
+              reason: MinimumReplicasAvailable
+              status: "True"
               type: Available
-            - lastTransitionTime: "2023-09-12T10:32:04Z"
-              lastUpdateTime: "2023-09-12T13:12:13Z"
-              message: ReplicaSet "my-gitlab-gitlab-runner-8b757f6b6" is progressing.
-              reason: ReplicaSetUpdated
+            - lastTransitionTime: "2023-12-22T05:03:46Z"
+              lastUpdateTime: "2023-12-22T07:43:25Z"
+              message: ReplicaSet "my-gitlab-gitlab-runner-597d6d8f7c" has successfully progressed.
+              reason: NewReplicaSetAvailable
               status: "True"
               type: Progressing
-          observedGeneration: 3
-          replicas: 2
-          unavailableReplicas: 2
+          observedGeneration: 7
+          readyReplicas: 1
+          replicas: 1
           updatedReplicas: 1
         ```
 
-    8. 查看 gitlab runner 中是否存在此配置
+    11. 查看 gitlab runner 日志
 
         ```shell
-        [root@k8s ~]# kubectl -n=gitlab-test get pod | grep gitlab-runner
-        my-gitlab-gitlab-runner-8b757f6b6-5hfqx              1/1     Running     0               3m37s
-        [root@k8s ~]#
+        [root@anolis-7-9 ~]# kubectl -n gitlab-test get pod | grep gitlab-runner
+        my-gitlab-gitlab-runner-597d6d8f7c-8v466             1/1     Running     0              5m52s
+        [root@anolis-7-9 ~]#
         ```
 
-        ```shell
-        [root@k8s ~]# kubectl -n=gitlab-test exec -it my-gitlab-gitlab-runner-8b757f6b6-5hfqx ls /home/gitlab-runner/.gitlab-runner/certs
-        kubectl exec [POD] [COMMAND] is DEPRECATED and will be removed in a future version. Use kubectl exec [POD] -- [COMMAND] instead.
-        gitlab.test.helm.xuxiaowei.cn.crt
-        [root@k8s ~]# kubectl -n=gitlab-test exec -it my-gitlab-gitlab-runner-8b757f6b6-5hfqx cat /home/gitlab-runner/.gitlab-runner/certs/gitlab.test.helm.xuxiaowei.cn.crt
-        kubectl exec [POD] [COMMAND] is DEPRECATED and will be removed in a future version. Use kubectl exec [POD] -- [COMMAND] instead.
-        -----BEGIN CERTIFICATE-----
-        MIICrDCCAg2gAwIBAgIRAN+EprdEppin7IiLXdJg4RMwCgYIKoZIzj0EAwQwHTEb
-        MBkGA1UEAxMSY2VydC1tYW5hZ2VyLmxvY2FsMB4XDTIzMDkxMjEwMzIyMFoXDTIz
-        MTIxMTEwMzIyMFowFTETMBEGA1UEBRMKMTIzNDU2Nzg5MDCCASIwDQYJKoZIhvcN
-        AQEBBQADggEPADCCAQoCggEBAMiQZtaDm7lyjFJ8/tZZA/NKW6+JTO4Yo8QZZ3Kh
-        vZKR6NiY4gt/gyEGwRGxXtKLfOagytnVpuzpVlNr00TGImkmfDWMSD6sm/A1LwJQ
-        HfmASB4emfvqlmacA6fKesRBpP2NF61LhBu/8LBx05fT/rMaBKHcE1iliEYGl5oS
-        p5hG1fbQ0I2ZblBmkWp/hE4m8/FMvLqgnEfEjE5Ktp3fh8+u5bGbHyJMGs+Wobjy
-        ONi7825XQUBTDtmse78ZVPTbYvDe3SwwV2aQoekL40t1cDNSMuT32JKwKEcbJFgw
-        SI+/Um9VQ3ZCIROKNfifEQtmJlLEaQ8xaVLmDFhcejLaRo8CAwEAAaNrMGkwDgYD
-        VR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUodF9JlXZPmOp
-        Fwf8CgkpPoredtowKAYDVR0RBCEwH4IdZ2l0bGFiLnRlc3QuaGVsbS54dXhpYW93
-        ZWkuY24wCgYIKoZIzj0EAwQDgYwAMIGIAkIB7gTlmXrRkmjyDazJ62Kn6q4G2vYK
-        XQwrZlxGuuMBHhSw7KFR/FWefUFlhTU9k9ipTJCE2dI/WGpY8fzaf0xqXPACQgFm
-        kv7CeLxXmT8Mg1+7JyrjjWFAcOlwvFC/plxHRiqJbAYx3eRTyxIM8TeI9ofgJTyu
-        K+PmYMn6WWr8L3gDF0kr1w==
-        -----END CERTIFICATE-----
-        [root@k8s ~]# 
-        ```
-
-    9. 此时查看 gitlab-runner 日志可知，已经完成注册了
-        ```shell
-        [root@k8s ~]# kubectl -n=gitlab-test get pod | grep gitlab-runner
-        my-gitlab-gitlab-runner-8b757f6b6-5hfqx              1/1     Running     0               3m37s
-        [root@k8s ~]#
-        ```
-
-       如果出现多个，根据时间选择，查看最新的 pod
+        根据日志判断，已经注册成功了
 
         ```shell
-        [root@k8s ~]# kubectl -n gitlab-test logs -f my-gitlab-gitlab-runner-8b757f6b6-5hfqx
+        [root@anolis-7-9 ~]# kubectl -n gitlab-test logs -f my-gitlab-gitlab-runner-597d6d8f7c-8v466
         Registration attempt 1 of 30
-        Runtime platform                                    arch=amd64 os=linux pid=17 revision=782e15da version=16.2.0
+        Runtime platform                                    arch=amd64 os=linux pid=16 revision=f5da3c5a version=16.6.1
         WARNING: Running in user-mode.                     
         WARNING: The user-mode requires you to manually start builds processing:
         WARNING: $ gitlab-runner run                       
         WARNING: Use sudo for system-mode:                 
         WARNING: $ sudo gitlab-runner...
         
-        Created missing unique system ID                    system_id=r_NjCjmicJjktS
+        Created missing unique system ID                    system_id=r_3WsywNzJqRud
         Merging configuration from template file "/configmaps/config.template.toml"
-        WARNING: Support for registration tokens and runner parameters in the 'register' command has been deprecated in GitLab Runner 15.6 and will be replaced with support for authentication tokens. For more information, see https://gitlab.com/gitlab-org/gitlab/-/issues/380872
-        Registering runner... succeeded                     runner=wgpCYf05
+        WARNING: Support for registration tokens and runner parameters in the 'register' command has been deprecated in GitLab Runner 15.6 and will be replaced with support for authentication tokens. For more information, see https://docs.gitlab.com/ee/ci/runners/new_creation_workflow
+        Registering runner... succeeded                     runner=BtGwLEwc
         Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
         
         Configuration (with the authentication token) was saved in "/home/gitlab-runner/.gitlab-runner/config.toml"
-        Runtime platform                                    arch=amd64 os=linux pid=8 revision=782e15da version=16.2.0
+        Runtime platform                                    arch=amd64 os=linux pid=7 revision=f5da3c5a version=16.6.1
         Starting multi-runner from /home/gitlab-runner/.gitlab-runner/config.toml...  builds=0 max_builds=0
         WARNING: Running in user-mode.                     
         WARNING: Use sudo for system-mode:                 
@@ -347,14 +316,16 @@ sidebar_position: 102
         listen_address not defined, metrics & debug endpoints disabled  builds=0 max_builds=10
         [session_server].listen_address not defined, session endpoints disabled  builds=0 max_builds=10
         Initializing executor providers                     builds=0 max_builds=10
-        ```
+        ^C
+        [root@anolis-7-9 ~]#
+        ```shell
 
-    10. 管理员访问 https://gitlab.test.helm.xuxiaowei.cn/admin/runners 可以看到
-        pod `my-gitlab-gitlab-runner-8b757f6b6-5hfqx` 已经注册成了
+    12. 管理员访问 https://gitlab.test.helm.xuxiaowei.cn/admin/runners 可以看到
+        pod `my-gitlab-gitlab-runner-597d6d8f7c-8v466` 已经注册成了
 
         1. 如果存在 gitlab runner pod 被删除（故障转译、手动删除等等），这里可能会存在不可用的 runner
 
-        ![](static/gitlab-18.png)
+        ![](static/gitlab-19.png)
 
 2. 问题2：
    `tls: failed to verify certificate: x509: certificate is valid for ingress.local, not gitlab.test.helm.xuxiaowei.cn`
