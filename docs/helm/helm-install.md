@@ -44,11 +44,12 @@ sidebar_position: 1
     2. 历史发布
         1. [GitHub](https://github.com/helm/helm/releases)
         2. [作者镜像仓库](https://framagit.org/mirrors-github/helm/helm/-/tags)
-6. [Helm版本支持策略](https://helm.sh/zh/docs/topics/version_skew/)（2023-06-26 更新）
-   本文以 k8s 1.26.6、helm 3.12.3 为例
+6. [Helm版本支持策略](https://helm.sh/zh/docs/topics/version_skew/)（2023-12-22 更新）
+   本文以 k8s 1.28.2、helm 3.13.3 为例
 
 | Helm 版本 | 支持的 Kubernetes 版本 |
 |---------|-------------------|
+| 3.13.x  |                   |
 | 3.12.x  | 1.27.x - 1.24.x   |
 | 3.11.x  | 1.26.x - 1.23.x   |
 | 3.10.x  | 1.25.x - 1.22.x   |
@@ -86,7 +87,7 @@ sidebar_position: 1
    的版本，访问 [github releases](https://github.com/helm/helm/releases) 下载所需的版本
 
    ```shell
-   HELM_VERSION=v3.12.3
+   HELM_VERSION=v3.13.3
    
    wget https://get.helm.sh/helm-$HELM_VERSION-linux-amd64.tar.gz
    
