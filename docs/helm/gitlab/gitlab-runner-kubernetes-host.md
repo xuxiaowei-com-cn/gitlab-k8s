@@ -88,9 +88,10 @@ sidebar_position: 103
    helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab --timeout 600s -f my-gitlab.yaml
    ```
 
-5. 等待所有 `gitlab-runner` 旧 `pod` 删除完成，新 `pod` 正常运行时，重试流水线，即可正常检查代码
+5. 等待所有 `gitlab-runner` 旧 `pod` 删除完成，新 `pod` 正常运行时，重试流水线，即可正常检出代码
    ![gitlab-runner-job-2.png](static/gitlab-runner-job-2.png)
 
 6. 说明
 
-检出代码与当前 `.gitlab-ci.yml` 使用的什么镜像无关（比如说：在 `.gitlab-ci.yml` 中使用的镜像中无 `git`，也可以正常运行）
+   检出代码与当前 `.gitlab-ci.yml` 使用的什么镜像无关（比如说：在 `.gitlab-ci.yml` 中使用的镜像中无 `git`，也可以正常运行），
+   而是使用的 <strong><font color="red">helper</font></strong> 镜像创建的容器，此容器还负责上传/下载缓存等操作
