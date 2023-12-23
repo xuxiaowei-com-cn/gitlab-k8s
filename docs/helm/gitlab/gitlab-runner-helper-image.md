@@ -4,6 +4,8 @@ sidebar_position: 104
 
 # gitlab runner 配置帮助镜像
 
+<strong><font color="red">如何能下载默认帮助镜像，请忽略此配置，出发默认帮助镜像无法满足你的需求。</font></strong>
+
 ## 配置
 
 1. 查看正在运行的 job
