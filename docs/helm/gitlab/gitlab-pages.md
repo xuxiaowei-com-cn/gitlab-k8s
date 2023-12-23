@@ -78,7 +78,7 @@ sidebar_position: 201
 6. 部署 Pages，项目：https://framagit.org/xuxiaowei-com-cn/my-vue-app
    
    请注意：流水线作业（job）名称必须是 <strong><font color="red">pages</font></strong>，否则无法触发
-
+   ![gitlab-runner-job-13.png](static/gitlab-runner-job-13.png)
    ![gitlab-25.png](static/gitlab-25.png)
 
 7. 访问结果
