@@ -50,26 +50,27 @@
 | ca-kubeadm              | 12       |
 | kubeconfig              | 13       |
 
-| helm gitlab                             | position |
-|-----------------------------------------|----------|
-| install                                 | 1        |
-|                                         |          |
-| gitlab-runner-host                      | 101      |
-| gitlab-runner-trust-ssl                 | 102      |
-| gitlab-runner-kubernetes-host           | 103      |
-| gitlab-runner-helper-image              | 104      |
-| gitlab-runner-cache-host                | 105      |
-| gitlab-runner-cache-trust-ssl           | 106      |
-| gitlab-runner-output-limit              | 107      |
-| gitlab-runner-privileged                | 108      |
-|                                         |          |
-| gitlab-pages                            | 201      |
-| gitlab-pages-ssl                        | 202      |
-|                                         |          |
-| gitlab-smtp                             | 301      |
-|                                         |          |
-| gitlab-dependency-proxy                 | 401      |
-|                                         |          |
-| gitlab-backups                          | 501      |
-|                                         |          |
-| gitlab-helm-restore                     | 601      |
+| helm gitlab                         | position |
+|-------------------------------------|----------|
+| install                             | 1        |
+|                                     |          |
+| gitlab-runner-host                  | 101      |
+| gitlab-runner-trust-ssl             | 102      |
+| gitlab-runner-kubernetes-host       | 103      |
+| gitlab-runner-helper-image          | 104      |
+| gitlab-runner-cache-host            | 105      |
+| gitlab-runner-cache-trust-ssl       | 106      |
+| gitlab-runner-output-limit          | 107      |
+| gitlab-runner-privileged            | 108      |
+|                                     |          |
+| gitlab-pages                        | 201      |
+| gitlab-pages-host                   | 202      |
+| gitlab-pages-custom-domains-ssl-tls | 203      |
+|                                     |          |
+| gitlab-smtp                         | 301      |
+|                                     |          |
+| gitlab-dependency-proxy             | 401      |
+|                                     |          |
+| gitlab-backups                      | 501      |
+|                                     |          |
+| gitlab-helm-restore                 | 601      |
