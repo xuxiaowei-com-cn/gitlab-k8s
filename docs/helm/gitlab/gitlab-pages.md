@@ -2,7 +2,7 @@
 sidebar_position: 201
 ---
 
-# gitlab 启用 page
+# gitlab 启用 pages
 
 ## 说明
 
