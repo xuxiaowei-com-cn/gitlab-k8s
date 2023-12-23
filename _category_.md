@@ -56,11 +56,11 @@
 |                                         |          |
 | gitlab-runner-host                      | 101      |
 | gitlab-runner-trust-ssl                 | 102      |
-| gitlab-runner-helper-image              | 103      |
-| gitlab-runner-cache                     | 104      |
-| gitlab-runner-output-limit              | 105      |
-| gitlab-runner-kubernetes-host           | 106      |
-| gitlab-runner-kubernetes-pod-privileged | 107      |
+| gitlab-runner-kubernetes-host           | 103      |
+| gitlab-runner-helper-image              | 104      |
+| gitlab-runner-cache-host                | 105      |
+| gitlab-runner-cache-trust-ssl           | 106      |
+| gitlab-runner-output-limit              | 107      |
 | gitlab-runner-privileged                | 108      |
 |                                         |          |
 | gitlab-pages                            | 201      |
