@@ -46,7 +46,7 @@ sidebar_position: 301
         enabled: true
         openssl_verify_mode: peer
         password:
-          key: office365
+          key: password
           secret: smtp-password
         port: 587
         starttls_auto: true
