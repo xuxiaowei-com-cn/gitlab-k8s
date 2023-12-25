@@ -14,6 +14,10 @@ sidebar_position: 501
 - [备份和还原极狐GitLab 实例](https://docs.gitlab.cn/charts/backup-restore/)
 - [备份极狐GitLab 安装实例](https://docs.gitlab.cn/charts/backup-restore/backup.html)
 - [恢复极狐GitLab 安装实例](https://docs.gitlab.cn/charts/backup-restore/restore.html)
+- [How to customize hostAliases for gitlab toolbox backups?](https://gitlab.com/gitlab-org/charts/gitlab/-/issues/5187)
+    - 本人创建的议题
+    - 项目 GitLab Chart 开发者 [Jason Plum](https://gitlab.com/WarheadsSE) 已确认，
+      后期将增加基于 helm 的 `hostAliases` 配置
 
 ## 查看现有备份
 
@@ -127,7 +131,7 @@ kubectl -n gitlab-test edit cronjobs.batch my-gitlab-toolbox-backup
           hostAliases:
             - hostnames:
                 - minio.test.helm.xuxiaowei.cn
-              ip: 192.168.80.3
+              ip: 172.25.25.32
 ```
 
 - <strong><font color="red">删除手动备份 job（若已完成备份，则备份数据已上传至 minio 存储，此处不会删除备份数据），重新创建手动备份
