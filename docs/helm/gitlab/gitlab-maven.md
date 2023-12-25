@@ -230,15 +230,20 @@ sidebar_position: 401
 
 ### 解决方案1：【允许来自以下项目的 CI 作业令牌访问此项目】
 
-1. 如果你的依赖项目<strong><font color="red">不是</font></strong>公开的，
+1. 文档依据（注意：中文版可能会比英文版的文档版本低，参见文档右上角）
+    1. [限制您项目的作业令牌访问 - 中文](https://docs.gitlab.cn/jh/ci/jobs/ci_job_token.html#%E9%99%90%E5%88%B6%E6%82%A8%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%BD%9C%E4%B8%9A%E4%BB%A4%E7%89%8C%E8%AE%BF%E9%97%AE)
+       ![gitlab-54.png](static/gitlab-54.png)
+    2. [limit-your-projects-job-token-access - 英文](https://docs.gitlab.com/ee/ci/jobs/ci_job_token.html#limit-your-projects-job-token-access)
+       ![gitlab-55.png](static/gitlab-55.png)
+2. 如果你的依赖项目<strong><font color="red">不是</font></strong>公开的，
    软件包库<strong><font color="red">不是</font></strong>公开的，需要使用 `setting.xml` 配置 `server` 标签填写访问凭证
-2. 如果使用的方式是
+3. 如果使用的方式是
    [使用 Maven 中的 CI 作业令牌进行身份验证](https://docs.gitlab.cn/jh/user/packages/maven_repository/#%E4%BD%BF%E7%94%A8-maven-%E4%B8%AD%E7%9A%84-ci-%E4%BD%9C%E4%B8%9A%E4%BB%A4%E7%89%8C%E8%BF%9B%E8%A1%8C%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81)，
    则需要在 被引用的项目（[my-maven-app](https://gitlab.com/xuxiaowei-com-cn/my-maven-app)）中设置【允许来自以下项目的
    CI 作业令牌访问此项目】，填写 引用项目
    （[use-my-maven-app](https://gitlab.com/xuxiaowei-com-cn/use-my-maven-app)）
    的路径（不用填写域名），否则将会提示无权限
-3. 设置 【允许来自以下项目的 CI 作业令牌访问此项目】
+4. 设置 【允许来自以下项目的 CI 作业令牌访问此项目】
    ![gitlab-53.png](static/gitlab-53.png)
 
 ### 解决方案2：不设置 `setting.xml` 的 `server`
@@ -261,7 +266,7 @@ sidebar_position: 401
 
 1. 常见于自建 gitlab 中
 2. 失败示例
-    ![gitlab-45.png](static/gitlab-45.png)
+   ![gitlab-45.png](static/gitlab-45.png)
 3. 打包时增加参数
 
 | 参数                                   | 解释0           | 说明 |
