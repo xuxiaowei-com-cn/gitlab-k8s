@@ -125,6 +125,8 @@ The connection to the server localhost:8080 was refused - did you specify the ri
    请注意，<strong><font color="red">链接中的 v1.28.0 是 kubectl 的版本号，
    为了防止不可控因素，推荐使用与已安装的 k8s 相同的版本</font></strong>
 
+2. 将下载的可执行文件放在 `C:\Windows` 文件夹，或者加入`环境变量`
+
 ### 配置自动提示
 
 1. 在 `C:\Users\%USERNAME%\Documents\WindowsPowerShell` 文件夹下添加文件 `Microsoft.PowerShell_profile.ps1`，文件内容为
