@@ -52,6 +52,14 @@ const config = {
         },
       } satisfies Preset.Options,
     ],
+    [
+      '@docusaurus/preset-classic',
+      {
+        googleTagManager: {
+          containerId: 'GTM-N48QPVBD',
+        },
+      },
+    ],
   ],
 
   themeConfig: ({
