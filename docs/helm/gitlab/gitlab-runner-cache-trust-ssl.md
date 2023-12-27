@@ -19,12 +19,12 @@ openssl s_client -showcerts -connect minio.test.helm.xuxiaowei.cn:443 -servernam
 
 ```shell
 # -n=gitlab-test：指定命名空间
-# create configmap gitlab-runner-etc-ssl-certs：创建 ConfigMap 名称是 gitlab-runner-etc-ssl-certs
+# create configmap minio-certs：创建 ConfigMap 名称是 minio-certs
 # --from-file=minio.test.helm.xuxiaowei.cn.crt=minio.test.helm.xuxiaowei.cn.crt：配置来自文件，文件名 minio.test.helm.xuxiaowei.cn.crt，放入 ConfigMap 中的键也是 minio.test.helm.xuxiaowei.cn.crt
-kubectl -n=gitlab-test create configmap gitlab-runner-etc-ssl-certs --from-file=minio.test.helm.xuxiaowei.cn.crt=minio.test.helm.xuxiaowei.cn.crt
+kubectl -n=gitlab-test create configmap minio-certs --from-file=minio.test.helm.xuxiaowei.cn.crt=minio.test.helm.xuxiaowei.cn.crt
 
 # 查看
-# kubectl -n=gitlab-test get configmap gitlab-runner-etc-ssl-certs -o yaml
+# kubectl -n=gitlab-test get configmap minio-certs -o yaml
 ```
 
 ### 导出 helm gitlab 配置
@@ -71,7 +71,7 @@ gitlab-runner:
         # https://kubernetes.io/zh-cn/docs/concepts/storage/volumes/
         # https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/configure-pod-configmap/
         [[runners.kubernetes.volumes.config_map]]
-          name = "gitlab-runner-etc-ssl-certs"
+          name = "minio-certs"
           mount_path = "/etc/ssl/certs/minio.test.helm.xuxiaowei.cn.crt"
           sub_path = "minio.test.helm.xuxiaowei.cn.crt"
           [runners.kubernetes.volumes.config_map.items]
