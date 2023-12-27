@@ -175,11 +175,18 @@ kubectl -n gitlab-test scale deploy -lapp=prometheus,release=my-gitlab --replica
 
 #### 恢复数据
 
-填写容器内 /srv/gitlab/tmp/backups 目录下的部分文件名
+- 使用 <strong><font color="red">`容器内`</font></strong>
+  <strong><font color="red">`/srv/gitlab/tmp/backups`</font></strong> 目录下的部分文件名，
+  格式：`<timestamp>_<version>`
 
-```shell
-kubectl -n gitlab-test exec my-gitlab-toolbox-5b7c4f8c6b-zccrv -it -- backup-utility --restore -t 1703640824_2023_12_27_16.7.0-ee
-```
+    ```shell
+    kubectl -n gitlab-test exec my-gitlab-toolbox-5b7c4f8c6b-zccrv -it -- backup-utility --restore -t 1703640824_2023_12_27_16.7.0-ee
+    ```
+
+- 也可以使用 <strong><font color="red">`file:///<path>`</font></strong> 指定文件路径绝对路径
+    ```shell
+    kubectl -n gitlab-test exec my-gitlab-toolbox-5b7c4f8c6b-zccrv -it -- backup-utility --restore -t file:///home/git/1703640824_2023_12_27_16.7.0-ee_gitlab_backup.tar
+    ```
 
 成功示例
 
