@@ -69,8 +69,12 @@
 |                                     |          |
 | gitlab-smtp                         | 301      |
 |                                     |          |
-| gitlab-dependency-proxy             | 401      |
+| gitlab-maven                        | 401      |
 |                                     |          |
 | gitlab-backups                      | 501      |
 |                                     |          |
 | gitlab-helm-restore                 | 601      |
+|                                     |          |
+| gitlab-register                     | 701      |
+|                                     |          |
+| gitlab-dependency-proxy             | 801      |
