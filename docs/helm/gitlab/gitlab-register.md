@@ -191,3 +191,4 @@ helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab -f my-gitlab.yaml 
 
 ![gitlab-runner-job-17.png](static/gitlab-runner-job-17.png)
 ![gitlab-runner-job-18.png](static/gitlab-runner-job-18.png)
+![gitlab-runner-job-19.png](static/gitlab-runner-job-19.png)
