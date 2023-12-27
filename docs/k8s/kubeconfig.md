@@ -13,9 +13,10 @@ sidebar_position: 13
 
 1. [命名空间](https://kubernetes.io/zh-cn/docs/concepts/overview/working-with-objects/namespaces/)
 2. [服务账号](https://kubernetes.io/zh-cn/docs/concepts/security/service-accounts/)
-3. [使用 RBAC 鉴权](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
-4. [RoleBinding](https://kubernetes.io/zh-cn/docs/reference/kubernetes-api/authorization-resources/role-binding-v1/)
-5. [Secret](https://kubernetes.io/docs/concepts/configuration/secret/)
+3. [为 Pod 配置服务账号](https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/configure-service-account/)
+4. [使用 RBAC 鉴权](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+5. [RoleBinding](https://kubernetes.io/zh-cn/docs/reference/kubernetes-api/authorization-resources/role-binding-v1/)
+6. [Secret](https://kubernetes.io/zh-cn/docs/concepts/configuration/secret/)
 
 ## 配置
 
