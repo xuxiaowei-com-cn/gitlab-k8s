@@ -155,9 +155,9 @@ sidebar_position: 801
         cat > /etc/containerd/certs.d/gitlab.test.helm.xuxiaowei.cn/hosts.toml << EOF
         server = "https://gitlab.test.helm.xuxiaowei.cn"
         [host."http://10.110.211.99:8080"]
-        capabilities = ["pull", "resolve"]
-        # 跳过证书验证
-        skip_verify = true
+          capabilities = ["pull", "resolve"]
+          # 跳过证书验证
+          skip_verify = true
         
         EOF
         
