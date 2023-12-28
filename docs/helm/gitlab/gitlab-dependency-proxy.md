@@ -143,25 +143,23 @@ sidebar_position: 801
         [root@anolis-7-9 ~]#
         ```
 
-    3. 创建域名配置文件夹（<strong><font color="red">在所有工作节点上操作</font></strong>）
+    3. 创建配置文件夹（<strong><font color="red">在所有工作节点上操作</font></strong>）
 
          ```shell
-         mkdir -p /etc/containerd/certs.d/gitlab.test.helm.xuxiaowei.cn
+         mkdir -p /etc/containerd/certs.d/_default
          ```
 
-    4. 创建域名配置文件，使用上方 webservice 的 IP、端口（<strong><font color="red">在所有工作节点上操作</font></strong>）
+    4. 创建配置文件，使用上方 webservice 的 IP、端口（<strong><font color="red">在所有工作节点上操作</font></strong>）
 
         ```shell
-        cat > /etc/containerd/certs.d/gitlab.test.helm.xuxiaowei.cn/hosts.toml << EOF
-        server = "https://gitlab.test.helm.xuxiaowei.cn"
-        [host."http://10.110.211.99:8080"]
-          capabilities = ["pull", "resolve"]
-          # 跳过证书验证
+        cat > /etc/containerd/certs.d/_default/hosts.toml << EOF
+        [host."https://gitlab.test.helm.xuxiaowei.cn"]
+          capabilities = ["pull", "resolve", "push"]
           skip_verify = true
         
         EOF
         
-        cat /etc/containerd/certs.d/gitlab.test.helm.xuxiaowei.cn/hosts.toml
+        cat /etc/containerd/certs.d/_default/hosts.toml
         ```
 
     5. 修改 containerd 配置文件 /etc/containerd/config.toml，结果如下（<strong><font color="red">
