@@ -2,7 +2,9 @@
 sidebar_position: 102
 ---
 
-# gitlab runner 信任域名证书
+# GitLab Runner 信任域名证书
+
+Gitlab Runner 信任实例域名证书，用于注册注册 GitLab Runner。
 
 ## 问题
 
@@ -318,7 +320,7 @@ sidebar_position: 102
         Initializing executor providers                     builds=0 max_builds=10
         ^C
         [root@anolis-7-9 ~]#
-        ```shell
+        ```
 
     12. 管理员访问 https://gitlab.test.helm.xuxiaowei.cn/admin/runners 可以看到
         pod `my-gitlab-gitlab-runner-597d6d8f7c-8v466` 已经注册成了

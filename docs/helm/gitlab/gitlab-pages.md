@@ -2,7 +2,9 @@
 sidebar_position: 201
 ---
 
-# gitlab 启用 pages
+# GitLab 启用 Pages
+
+GitLab 启用静态网站，用于展示文档、演示产品、发布博客等
 
 ## 说明
 

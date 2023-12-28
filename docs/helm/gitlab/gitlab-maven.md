@@ -2,7 +2,9 @@
 sidebar_position: 401
 ---
 
-# gitlab maven 仓库使用
+# GitLab Maven 仓库使用
+
+GitLab 提供 Maven 仓库功能
 
 ## 文档
 

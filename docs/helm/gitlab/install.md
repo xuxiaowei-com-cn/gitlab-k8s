@@ -2,7 +2,9 @@
 sidebar_position: 1
 ---
 
-# 使用 helm 安装 gitlab
+# 使用 Helm 安装 GitLab
+
+使用 Helm 简便快捷的部署与管理 GitLab
 
 ## 前提条件
 

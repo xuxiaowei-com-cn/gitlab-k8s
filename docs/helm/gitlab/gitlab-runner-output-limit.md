@@ -2,7 +2,9 @@
 sidebar_position: 107
 ---
 
-# gitlab runner 修改日志大小限制
+# GitLab Runner 修改日志大小限制
+
+调整 Gitlab Runner 日志大小限制
 
 ## 问题
 

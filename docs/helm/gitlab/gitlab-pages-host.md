@@ -2,7 +2,9 @@
 sidebar_position: 202
 ---
 
-# gitlab 自定义 pages 根域名
+# GitLab 自定义 Pages 根域名
+
+GitLab Pages 使用独立于 GitLab 的根域名
 
 ## 配置
 

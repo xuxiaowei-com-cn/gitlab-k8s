@@ -2,11 +2,9 @@
 sidebar_position: 501
 ---
 
-# gitlab 启用 自动备份功能
+# GitLab 启用 自动备份功能
 
-1. 启用 gitlab 自动备份功能
-2. 测试 gitlab 手动备份功能
-3. 自定义 gitlab 使用的 MinIO 域名解析
+启用 gitlab 自动/手动备份功能、MinIO 域名解析
 
 ## 文档
 

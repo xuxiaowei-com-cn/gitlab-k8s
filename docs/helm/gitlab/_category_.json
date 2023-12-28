@@ -1,8 +1,8 @@
 {
-  "label": "使用 helm 安装/配置 gitlab",
+  "label": "使用 helm 安装/配置 GitLab",
   "position": 512,
   "link": {
     "type": "generated-index",
-    "description": "使用 helm 安装/配置 gitlab"
+    "description": "使用 helm 安装、配置 GitLab，解决所有常见问题，包含：自定义 host、域名证书信任、流水线、备份、还原、迁移、发送邮件、制作 Docker 镜像、Docker/Maven 仓库等等。"
   }
 }

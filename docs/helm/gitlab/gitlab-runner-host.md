@@ -2,7 +2,9 @@
 sidebar_position: 101
 ---
 
-# gitlab runner 添加 gitlab 域名 host
+# GitLab Runner 添加 GitLab 域名 host
+
+自定义 GitLab 域名解析
 
 ## 查看 gitlab runner 日志
 

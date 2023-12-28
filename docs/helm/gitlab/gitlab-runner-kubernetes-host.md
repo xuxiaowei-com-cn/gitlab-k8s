@@ -2,7 +2,9 @@
 sidebar_position: 103
 ---
 
-# gitlab runner job 添加 gitlab 域名 host
+# GitLab Runner Job 添加 域名 host
+
+用于检出代码时使用
 
 ## 问题
 

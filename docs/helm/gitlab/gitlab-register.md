@@ -2,7 +2,9 @@
 sidebar_position: 701
 ---
 
-# gitlab docker 仓库
+# GitLab Docker 仓库
+
+GitLab 提供 docker 仓库功能
 
 ## 说明
 

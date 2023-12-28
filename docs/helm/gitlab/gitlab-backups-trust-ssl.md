@@ -2,7 +2,9 @@
 sidebar_position: 502
 ---
 
-# gitlab 备份 信任域名证书
+# GitLab 备份 信任域名证书
+
+备份数据时，信任 MinIO 域名证书
 
 ## 文档
 

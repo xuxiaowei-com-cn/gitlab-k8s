@@ -2,7 +2,9 @@
 sidebar_position: 105
 ---
 
-# gitlab runner 缓存域名配置
+# GitLab Runner 添加 MinIO 域名 host
+
+自定义 Gitlab Runner 使用的 MinIO 域名 host
 
 ## 问题
 

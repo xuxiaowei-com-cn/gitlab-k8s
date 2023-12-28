@@ -2,7 +2,9 @@
 sidebar_position: 108
 ---
 
-# gitlab runner 特权身份运行
+# GitLab Runner 特权身份运行
+
+Gitlab Runner 使用特权身份运行
 
 ## 问题
 

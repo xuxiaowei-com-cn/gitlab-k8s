@@ -2,7 +2,9 @@
 sidebar_position: 601
 ---
 
-# gitlab 在 helm 中恢复数据
+# GitLab 在 helm 中恢复数据
+
+恢复 GitLab 历史备份数据
 
 ## 文档
 

@@ -2,7 +2,9 @@
 sidebar_position: 203
 ---
 
-# gitlab 自定义 pages 域名 和 SSL/TLS 证书
+# GitLab 自定义 Pages 域名、SSL/TLS 证书
+
+用于支持用户自定义 Pages 域名、SSL/TLS 域名证书
 
 ## 描述
 

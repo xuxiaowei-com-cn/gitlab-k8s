@@ -2,7 +2,9 @@
 sidebar_position: 106
 ---
 
-# gitlab runner 信任缓存域名证书配置
+# GitLab Runner 信任缓存域名证书
+
+Gitlab Runner 信任 MinIO 域名证书
 
 ## 问题参见：[gitlab runner 缓存域名配置](gitlab-runner-cache-host.md)
 

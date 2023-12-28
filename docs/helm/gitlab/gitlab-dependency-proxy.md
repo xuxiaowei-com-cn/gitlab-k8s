@@ -2,7 +2,9 @@
 sidebar_position: 801
 ---
 
-# gitlab 启用 依赖代理功能
+# GitLab 启用 依赖代理功能
+
+用于加速构建过程，用于代理 Docker Hub 仓库
 
 ## 文档
 
