@@ -60,10 +60,10 @@ sidebar_position: 2
         您希望如何向ACME CA进行身份验证？
         - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         1:在本地运行HTTP服务器，该服务器在下提供必要的验证文件
-        /.acme质询/请求路径。适用于没有HTTP的情况
+        /.well-known/acme-challenge/ 请求路径。适用于没有HTTP的情况
         服务器已在运行。仅HTTP质询（不支持通配符）。
         （独立）
-        2：将必要的验证文件保存到.acme挑战中/
+        2：将必要的验证文件保存到 .well-known/acme-challenge/
         指定的webroot路径中的目录。必须有一个单独的HTTP服务器
         从webroot路径运行和提供文件。仅HTTP质询（通配符
         不支持）。（webroot）
