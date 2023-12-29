@@ -1,8 +1,8 @@
 {
-  "label": "SSL（https）证书",
+  "label": "SSL/TLS/HTTPS 证书",
   "position": 1201,
   "link": {
     "type": "generated-index",
-    "description": "生成可通过认证的SSL（https）证书、泛域名证书"
+    "description": "生成可通过认证的 SSL/TLS/HTTPS 证书、泛域名证书"
   }
 }
