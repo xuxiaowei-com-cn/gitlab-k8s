@@ -336,14 +336,15 @@ global:
 
 ```shell
 # 如果需要修改 gitlab 配置，可修改配置文件后，执行下列命令进行更新
-helm upgrade -n $GITLAB_HELM_NS --install $GITLAB_HELM_NAME gitlab/gitlab --timeout 600s -f $GITLAB_HELM_NAME.yaml
+helm upgrade -n $GITLAB_HELM_NS --install $GITLAB_HELM_NAME gitlab/gitlab --timeout 600s -f $GITLAB_HELM_NAME.yaml --version 7.7.0
 
 # 或者直接使用 --set 设置新配置，使用 --version 设置新版本号
 # helm upgrade -n $GITLAB_HELM_NS --install $GITLAB_HELM_NAME gitlab/gitlab \
 #   --set 你需要设置的配置 \
 #   --version 新版本号 \
 #   -f $GITLAB_HELM_NAME.yaml \
-#   --timeout 600s
+#   --timeout 600s \
+#   --version 7.7.0
 ```
 
 ## 创建 PV、绑定 PVC

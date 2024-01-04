@@ -26,7 +26,7 @@ GitLab 启用静态网站，用于展示文档、演示产品、发布博客等
 2. 更新配置
 
     ```shell
-    helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab --timeout 600s -f my-gitlab.yaml --set global.pages.enabled=true
+    helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab --timeout 600s -f my-gitlab.yaml --set global.pages.enabled=true --version 7.7.0
     ```
 
 3. 等待所有 pod 更新完成

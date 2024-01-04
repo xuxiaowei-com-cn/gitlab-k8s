@@ -12,7 +12,7 @@ Gitlab Runner 使用特权身份运行
    如果已经设置了特权身份运行，则不会提示下方 GitLab Runner 警告，但是还是无法使用 `docker in docker`，会出现下一步的错误
 
     ```shell
-    [root@anolis-7-9 ~]# helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab -f my-gitlab.yaml --timeout 600s
+    [root@anolis-7-9 ~]# helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab -f my-gitlab.yaml --timeout 600s --version 7.7.0
     Release "my-gitlab" has been upgraded. Happy Helming!
     NAME: my-gitlab
     LAST DEPLOYED: Sat Dec 23 21:20:46 2023
@@ -132,7 +132,7 @@ Gitlab Runner 使用特权身份运行
 
    ```shell
    # GitLab Runner 使用特权身份运行
-   helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab --timeout 600s -f my-gitlab.yaml --set gitlab-runner.runners.privileged=true
+   helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab --timeout 600s -f my-gitlab.yaml --set gitlab-runner.runners.privileged=true --version 7.7.0
    ```
 
 5. 等待所有 `gitlab-runner` 旧 `pod` 删除完成，新 `pod` 正常运行时，重试流水线，即可使用 `docker in docker`

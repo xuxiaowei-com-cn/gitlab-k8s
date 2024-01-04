@@ -81,7 +81,7 @@ sidebar_position: 105
 4. 更新配置
 
    ```shell
-   helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab --timeout 600s -f my-gitlab.yaml
+   helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab --timeout 600s -f my-gitlab.yaml --version 7.7.0
    ```
 
 5. 等待所有 `gitlab-runner` 旧 `pod` 删除完成，新 `pod` 正常运行时，重试流水线，即可正确解析到 MinIO（缓存服务器）的 IP

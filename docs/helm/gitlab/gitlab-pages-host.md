@@ -20,7 +20,7 @@ GitLab Pages 使用独立于 GitLab 的根域名
    此处的根域名设置为：<strong><font color="red">test.helm.xuxiaowei.io</font></strong>
 
     ```shell
-    helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab --timeout 600s -f my-gitlab.yaml --set global.pages.host=test.helm.xuxiaowei.io
+    helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab --timeout 600s -f my-gitlab.yaml --set global.pages.host=test.helm.xuxiaowei.io --version 7.7.0
     ```
 
 3. 等待所有 pod 更新完成

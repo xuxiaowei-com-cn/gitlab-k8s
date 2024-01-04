@@ -39,7 +39,7 @@ sidebar_position: 801
 2. 更新配置
 
    ```shell
-   helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab --timeout 600s -f my-gitlab.yaml --set global.appConfig.dependencyProxy.enabled=true
+   helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab --timeout 600s -f my-gitlab.yaml --set global.appConfig.dependencyProxy.enabled=true --version 7.7.0
    ```
 
 3. 查看开启结果

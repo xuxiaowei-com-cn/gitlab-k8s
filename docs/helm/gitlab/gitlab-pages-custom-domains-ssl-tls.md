@@ -75,9 +75,9 @@ global:
 
 ### 更新配置
 
-    ```shell
-    helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab --timeout 600s -f my-gitlab.yaml
-    ```
+```shell
+helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab --timeout 600s -f my-gitlab.yaml --version 7.7.0
+```
 
 ### 等待所有 pod 更新完成
 
@@ -208,7 +208,7 @@ global:
 ### 更新配置
 
 ```shell
-helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab --timeout 600s -f my-gitlab.yaml
+helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab --timeout 600s -f my-gitlab.yaml --version 7.7.0
 ```
 
 ### 可以观察到 GitLab Pages 无法部署

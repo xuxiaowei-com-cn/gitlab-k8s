@@ -44,7 +44,8 @@ helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab \
   --set gitlab.toolbox.backups.cron.enabled=true \
   --set gitlab.toolbox.backups.cron.schedule="0 1 * * *" \
   -f my-gitlab.yaml \
-  --timeout 600s
+  --timeout 600s \
+  --version 7.7.0
 ```
 
 ```shell

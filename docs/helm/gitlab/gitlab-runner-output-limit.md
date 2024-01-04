@@ -78,7 +78,7 @@ gitlab-runner:
 ### 更新 helm gitlab 配置
 
 ```shell
-helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab -f my-gitlab.yaml --timeout 600s
+helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab -f my-gitlab.yaml --timeout 600s --version 7.7.0
 ```
 
 ### 查看修改结果

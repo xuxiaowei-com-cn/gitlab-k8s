@@ -376,7 +376,7 @@ sidebar_position: 104
 7. 更新 helm gitlab 配置
 
     ```shell
-    helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab -f my-gitlab.yaml --timeout 600s
+    helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab -f my-gitlab.yaml --timeout 600s --version 7.7.0
     ```
 
 8. 等待所有 `gitlab-runner` 旧 `pod` 删除完成，新 `pod` 正常运行时，重试流水线，查看一个 job 的详情

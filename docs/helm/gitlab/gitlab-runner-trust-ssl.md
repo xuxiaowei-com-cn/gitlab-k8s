@@ -95,7 +95,7 @@ Gitlab Runner 信任实例域名证书，用于注册注册 GitLab Runner。
     9. 更新 helm gitlab 配置
 
         ```shell
-        helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab -f my-gitlab.yaml --timeout 600s
+        helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab -f my-gitlab.yaml --timeout 600s --version 7.7.0
         ```
 
     10. 查看修改结果

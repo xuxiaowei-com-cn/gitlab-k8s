@@ -75,7 +75,7 @@ runners:
 ### 更新配置
 
 ```shell
-helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab --timeout 600s -f my-gitlab.yaml
+helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab --timeout 600s -f my-gitlab.yaml --version 7.7.0
 ```
 
 ### 等待所有旧 `pod` 删除完成，新 `pod` 正常运行时，重试流水线，即可正确解析到 registry（docker 仓库）的 IP
@@ -186,7 +186,7 @@ gitlab-runner:
 ### 更新 helm gitlab 配置
 
 ```shell
-helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab -f my-gitlab.yaml --timeout 600s
+helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab -f my-gitlab.yaml --timeout 600s --version 7.7.0
 ```
 
 ### 等待所有旧 `pod` 删除完成，新 `pod` 正常运行时，重试流水线，docker 即可正常 登录/推送镜像

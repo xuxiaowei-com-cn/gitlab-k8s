@@ -82,7 +82,7 @@ gitlab-runner:
 ### 重新配置 gitlab
 
 ```shell
-helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab -f my-gitlab.yaml --timeout 600s
+helm upgrade -n gitlab-test --install my-gitlab gitlab/gitlab -f my-gitlab.yaml --timeout 600s --version 7.7.0
 ```
 
 ### 查看 gitlab runner Deployment 配置
