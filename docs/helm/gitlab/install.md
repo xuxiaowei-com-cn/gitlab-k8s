@@ -399,11 +399,11 @@ mkdir -p /$GITLAB_HELM_NS/repo-data-$GITLAB_HELM_NAME-gitaly-0-pv
 如果需要清空数据请执行
 
 ```shell
-rm /$GITLAB_HELM_NS/data-$GITLAB_HELM_NAME-postgresql-0-pv/** -rf
-rm /$GITLAB_HELM_NS/$GITLAB_HELM_NAME-minio-pv/** -rf
-rm /$GITLAB_HELM_NS/$GITLAB_HELM_NAME-prometheus-server-pv/** -rf
-rm /$GITLAB_HELM_NS/redis-data-$GITLAB_HELM_NAME-redis-master-0-pv/** -rf
-rm /$GITLAB_HELM_NS/repo-data-$GITLAB_HELM_NAME-gitaly-0-pv/** -rf
+rm /$GITLAB_HELM_NS/data-$GITLAB_HELM_NAME-postgresql-0-pv -rf
+rm /$GITLAB_HELM_NS/$GITLAB_HELM_NAME-minio-pv -rf
+rm /$GITLAB_HELM_NS/$GITLAB_HELM_NAME-prometheus-server-pv -rf
+rm /$GITLAB_HELM_NS/redis-data-$GITLAB_HELM_NAME-redis-master-0-pv -rf
+rm /$GITLAB_HELM_NS/repo-data-$GITLAB_HELM_NAME-gitaly-0-pv -rf
 ```
 
 - 创建 PV、绑定 PVC
