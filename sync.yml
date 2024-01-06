@@ -12,6 +12,7 @@ sync-gitee:
     - git config --global user.name $GITLAB_USER_NAME
     - git config --global user.email
     - git config --global user.name
+    - git remote rm  gitee || echo
     - git remote add gitee https://xuxiaowei-com-cn:$GITEE_PRIVATE_TOKEN@gitee.com/$CI_PROJECT_PATH.git
     - echo 当前分支：$CI_COMMIT_BRANCH
     - echo 当前标签：$CI_COMMIT_TAG
@@ -45,6 +46,7 @@ sync-gitcode:
     - git config --global user.name $GITLAB_USER_NAME
     - git config --global user.email
     - git config --global user.name
+    - git remote rm  gitcode || echo
     - git remote add gitcode https://qq_32596527:$GITCODE_PRIVATE_TOKEN@gitcode.net/$CI_PROJECT_PATH.git
     - echo 当前分支：$CI_COMMIT_BRANCH
     - echo 当前标签：$CI_COMMIT_TAG
@@ -87,6 +89,7 @@ sync-gitlink:
     - git config --global user.name $GITLAB_USER_NAME
     - git config --global user.email
     - git config --global user.name
+    - git remote rm  gitlink || echo
     - git remote add gitlink git@code.gitlink.org.cn:$CI_PROJECT_PATH.git
     - echo 当前分支：$CI_COMMIT_BRANCH
     - echo 当前标签：$CI_COMMIT_TAG
@@ -121,6 +124,7 @@ sync-gitlab:
     - git config --global user.name $GITLAB_USER_NAME
     - git config --global user.email
     - git config --global user.name
+    - git remote rm  gitlab || echo
     - git remote add gitlab https://xuxiaowei-com-cn:$GITLAB_PRIVATE_TOKEN@gitlab.com/$CI_PROJECT_PATH.git
     - echo 当前分支：$CI_COMMIT_BRANCH
     - echo 当前标签：$CI_COMMIT_TAG
@@ -154,6 +158,7 @@ sync-github:
     - git config --global user.name $GITLAB_USER_NAME
     - git config --global user.email
     - git config --global user.name
+    - git remote rm  github || echo
     - git remote add github https://xuxiaowei-com-cn:$GITHUB_PRIVATE_TOKEN@github.com/$CI_PROJECT_PATH.git
     - echo 当前分支：$CI_COMMIT_BRANCH
     - echo 当前标签：$CI_COMMIT_TAG
@@ -187,6 +192,7 @@ sync-framagit:
     - git config --global user.name $GITLAB_USER_NAME
     - git config --global user.email
     - git config --global user.name
+    - git remote rm  framagit || echo
     - git remote add framagit https://xuxiaowei:$FRAMAGIT_PRIVATE_TOKEN@framagit.org/$CI_PROJECT_PATH.git
     - echo 当前分支：$CI_COMMIT_BRANCH
     - echo 当前标签：$CI_COMMIT_TAG

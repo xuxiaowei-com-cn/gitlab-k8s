@@ -78,6 +78,7 @@ publish-gitee-pages:
     - git checkout $CI_COMMIT_BRANCH || git checkout -b $CI_COMMIT_BRANCH
     - git add -f public/
     - git commit -m "发布 Gitee Pages"
+    - git remote rm  gitee || echo
     - git remote add gitee https://xuxiaowei-com-cn:$GITEE_PRIVATE_TOKEN@gitee.com/$CI_PROJECT_PATH.git
     - git push -f -u gitee $CI_COMMIT_BRANCH:pages
   rules:
