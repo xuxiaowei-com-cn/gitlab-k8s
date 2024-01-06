@@ -18,7 +18,7 @@ sync-gitee:
     - echo 当前标签：$CI_COMMIT_TAG
     - git status
     - if [ "$CI_COMMIT_BRANCH" ]; then
-      git checkout $CI_COMMIT_BRANCH || git checkout -b $CI_COMMIT_BRANCH;;
+      git checkout $CI_COMMIT_BRANCH || git checkout -b $CI_COMMIT_BRANCH;
       git pull --progress -v --no-rebase gitee $CI_COMMIT_BRANCH || echo 远端不存在$CI_COMMIT_BRANCH分支;
       git push -u gitee $CI_COMMIT_BRANCH;
       fi
@@ -52,7 +52,7 @@ sync-gitcode:
     - echo 当前标签：$CI_COMMIT_TAG
     - git status
     - if [ "$CI_COMMIT_BRANCH" ]; then
-      git checkout $CI_COMMIT_BRANCH || git checkout -b $CI_COMMIT_BRANCH;;
+      git checkout $CI_COMMIT_BRANCH || git checkout -b $CI_COMMIT_BRANCH;
       git pull --progress -v --no-rebase gitcode $CI_COMMIT_BRANCH || echo 远端不存在$CI_COMMIT_BRANCH分支;
       git push -u gitcode $CI_COMMIT_BRANCH;
       fi
@@ -96,7 +96,7 @@ sync-gitlink:
     - git status
     - ssh-keyscan -H code.gitlink.org.cn >> ~/.ssh/known_hosts
     - if [ "$CI_COMMIT_BRANCH" ]; then
-      git checkout $CI_COMMIT_BRANCH || git checkout -b $CI_COMMIT_BRANCH;;
+      git checkout $CI_COMMIT_BRANCH || git checkout -b $CI_COMMIT_BRANCH;
       git pull --progress -v --no-rebase gitlink $CI_COMMIT_BRANCH || echo 远端不存在$CI_COMMIT_BRANCH分支;
       git push -u gitlink $CI_COMMIT_BRANCH;
       fi
@@ -130,7 +130,7 @@ sync-gitlab:
     - echo 当前标签：$CI_COMMIT_TAG
     - git status
     - if [ "$CI_COMMIT_BRANCH" ]; then
-      git checkout $CI_COMMIT_BRANCH || git checkout -b $CI_COMMIT_BRANCH;;
+      git checkout $CI_COMMIT_BRANCH || git checkout -b $CI_COMMIT_BRANCH;
       git pull --progress -v --no-rebase gitlab $CI_COMMIT_BRANCH || echo 远端不存在$CI_COMMIT_BRANCH分支;
       git push -u gitlab $CI_COMMIT_BRANCH;
       fi
@@ -164,7 +164,7 @@ sync-github:
     - echo 当前标签：$CI_COMMIT_TAG
     - git status
     - if [ "$CI_COMMIT_BRANCH" ]; then
-      git checkout $CI_COMMIT_BRANCH || git checkout -b $CI_COMMIT_BRANCH;;
+      git checkout $CI_COMMIT_BRANCH || git checkout -b $CI_COMMIT_BRANCH;
       git pull --progress -v --no-rebase github $CI_COMMIT_BRANCH || echo 远端不存在$CI_COMMIT_BRANCH分支;
       git push -u github $CI_COMMIT_BRANCH;
       fi
@@ -198,7 +198,7 @@ sync-framagit:
     - echo 当前标签：$CI_COMMIT_TAG
     - git status
     - if [ "$CI_COMMIT_BRANCH" ]; then
-      git checkout $CI_COMMIT_BRANCH || git checkout -b $CI_COMMIT_BRANCH;;
+      git checkout $CI_COMMIT_BRANCH || git checkout -b $CI_COMMIT_BRANCH;
       git pull --progress -v --no-rebase framagit $CI_COMMIT_BRANCH || echo 远端不存在$CI_COMMIT_BRANCH分支;
       git push -u framagit $CI_COMMIT_BRANCH;
       fi
