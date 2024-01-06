@@ -75,7 +75,7 @@ publish-gitee-pages:
     - git config --global user.email
     - git config --global user.name
     - echo 当前分支：$CI_COMMIT_BRANCH
-    - git checkout -b $CI_COMMIT_BRANCH
+    - git checkout $CI_COMMIT_BRANCH || git checkout -b $CI_COMMIT_BRANCH
     - git add -f public/
     - git commit -m "发布 Gitee Pages"
     - git remote add gitee https://xuxiaowei-com-cn:$GITEE_PRIVATE_TOKEN@gitee.com/$CI_PROJECT_PATH.git
