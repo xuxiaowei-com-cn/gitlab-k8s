@@ -13,7 +13,7 @@ pages:
       - node_modules/
   script:
     - if [ $CI_SERVER_HOST == 'gitlab.helm.xuxiaowei.cn' ]; then
-      yarn config set registry https://registry.npmmirror.com
+      yarn config set registry https://registry.npmmirror.com;
       fi
     - yarn
     - yarn build
@@ -34,7 +34,7 @@ build:npm:
       - node_modules/
   script:
     - if [ $CI_SERVER_HOST == 'gitlab.helm.xuxiaowei.cn' ]; then
-      npm config set registry https://registry.npmmirror.com
+      npm config set registry https://registry.npmmirror.com;
       fi
     - npm install
     - npm run build
@@ -55,11 +55,11 @@ build:pnpm:
       - node_modules/
   script:
     - if [ $CI_SERVER_HOST == 'gitlab.helm.xuxiaowei.cn' ]; then
-      yarn config set registry https://registry.npmmirror.com
+      yarn config set registry https://registry.npmmirror.com;
       fi
     - yarn global add pnpm
     - if [ $CI_SERVER_HOST == 'gitlab.helm.xuxiaowei.cn' ]; then
-      pnpm config set registry https://registry.npmmirror.com
+      pnpm config set registry https://registry.npmmirror.com;
       fi
     - pnpm install
     - pnpm run build
