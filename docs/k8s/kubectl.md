@@ -137,7 +137,11 @@ The connection to the server localhost:8080 was refused - did you specify the ri
     1. 在 `C:\Windows\System32\WindowsPowerShell\v1.0` 文件夹下添加文件 `profile.ps1`，文件内容为
        `kubectl completion powershell | Out-String | Invoke-Expression`
 
-### 剩余配置参见：[在 k8s 集群的 Node 节点上运行 kubectl](#在-k8s-集群的-node-节点上运行-kubectl不推荐)
+### 配置文件
+
+1. 在当前用户文件夹下新建 `.kube` 文件夹，将 kubectl 配置文件放在 `.kube` 文件夹，名称修改为 `config`，注意：此文件没有后缀名
+2. 注意：如无法新建以 `.` 开头的文件夹，可以尝试使用命令 `mkdir .kube` 创建文件夹
+3. 将 kubectl 配置内容放在 `config` 文件即可
 
 ### 打开 `PowerShell` 即可使用 `kubectl` 命令自动提示了
 
