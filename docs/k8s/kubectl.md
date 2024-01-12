@@ -129,9 +129,13 @@ The connection to the server localhost:8080 was refused - did you specify the ri
 
 ### 配置自动提示
 
-1. 在 `C:\Users\%USERNAME%\Documents\WindowsPowerShell` 文件夹下添加文件 `Microsoft.PowerShell_profile.ps1`，文件内容为
-   `kubectl completion powershell | Out-String | Invoke-Expression`，
-   示例：[Microsoft.PowerShell_profile.ps1](static/Microsoft.PowerShell_profile.ps1)
+1. 高版本 Windows，如：22H2
+    1. 在 `C:\Users\%USERNAME%\Documents\WindowsPowerShell` 文件夹下添加文件 `Microsoft.PowerShell_profile.ps1`，文件内容为
+       `kubectl completion powershell | Out-String | Invoke-Expression`
+       示例：[Microsoft.PowerShell_profile.ps1](static/Microsoft.PowerShell_profile.ps1)
+2. 低版本 Windows，如：1809
+    1. 在 `C:\Windows\System32\WindowsPowerShell\v1.0` 文件夹下添加文件 `profile.ps1`，文件内容为
+       `kubectl completion powershell | Out-String | Invoke-Expression`
 
 ### 剩余配置参见：[在 k8s 集群的 Node 节点上运行 kubectl](#在-k8s-集群的-node-节点上运行-kubectl不推荐)
 
