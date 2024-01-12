@@ -66,9 +66,18 @@ metadata:
   namespace: $NAMESPACE_NAME
   name: $ROLE_NAME
 rules:
-- apiGroups: [""] # "" 标明 core API 组
-  resources: ["pods", "services", "secrets", "configmaps", "ingresses", "deployments"] # 根据自己的情况与需求设置。使用命令 kubectl api-resources 获取所有可选配置
+- apiGroups: [""] # "" 标明 核心 API 组
+  resources: ["pods", "pods/log", "pods/exec", "pods/attach", "services", "secrets", "configmaps", "replicationcontrollers"] # 根据自己的情况与需求设置。使用命令 kubectl api-resources 获取所有可选配置
   verbs: ["*"] # 根据自己的情况与需求设置。* 代表授予所有权限，可选配置如：get, watch, list, create, update, patch, delete, proxy
+- apiGroups: ["apps"]
+  resources: ["deployments", "replicasets", "statefulsets", "daemonsets"]
+  verbs: ["*"]
+- apiGroups: ["batch"]
+  resources: ["jobs", "cronjobs"]
+  verbs: ["*"]
+- apiGroups: ["networking.k8s.io"]
+  resources: ["ingresses"]
+  verbs: ["*"]
 
 EOF
 ```
