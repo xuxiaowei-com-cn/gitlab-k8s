@@ -142,6 +142,11 @@ The connection to the server localhost:8080 was refused - did you specify the ri
 4. 示例
     1. [Microsoft.PowerShell_profile.ps1](static/Microsoft.PowerShell_profile.ps1)
     2. [profile.ps1](static/profile.ps1)
+5. 重新打开 `Windows PowerShell`，输入 `kubectl`，按 `Tab` 键即可出现自动提示
+6. 如果出现无法加载上述添加的文件，出现如下错误，解决办法是尝试运行 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`，
+   参见官方文档：[about_Execution_Policies](https://learn.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_execution_policies)
+
+   ![kubectl-2.png](static/kubectl-2.png)
 
 ### 配置文件
 
