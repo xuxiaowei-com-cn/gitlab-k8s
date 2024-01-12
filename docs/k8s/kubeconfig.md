@@ -78,7 +78,9 @@ rules:
 - apiGroups: ["networking.k8s.io"]
   resources: ["ingresses"]
   verbs: ["*"]
-
+- apiGroups: ["metrics.k8s.io"]
+  resources: ["pods"]
+  verbs: ["*"]
 EOF
 ```
 
