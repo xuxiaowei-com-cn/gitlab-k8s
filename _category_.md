@@ -35,10 +35,11 @@
 | ssl                 | 1201     |
 | es                  | 1301     |
 
-| gitlab-ultimate     | position |
-|---------------------|----------|
-| intro               | 1        |
-| pipelines-quota-tab | 2        |
+| gitlab-ultimate                    | position |
+|------------------------------------|----------|
+| intro                              | 1        |
+| pipelines-quota-tab                | 2        |
+| repository-protected-branches-tags | 3        |
 
 | k8s                     | position |
 |-------------------------|----------|

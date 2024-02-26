@@ -16,3 +16,4 @@ sidebar_position: 1
 ### 权益
 
 1. `群组`中流水线配额 50000 分钟：[流水线使用量配额](pipelines-quota-tab.md)
+2. `受保护分支`、`受保护的标签` 的配置精确到`用户`，而不是只能设置到角色：[仓库受保护分支和标签](repository-protected-branches-tags.md)
