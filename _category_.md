@@ -40,6 +40,7 @@
 | intro                              | 1        |
 | pipelines-quota-tab                | 2        |
 | repository-protected-branches-tags | 3        |
+| oncall-schedules.md                | 4        |
 
 | k8s                     | position |
 |-------------------------|----------|

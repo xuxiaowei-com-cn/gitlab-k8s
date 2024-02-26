@@ -17,3 +17,9 @@ sidebar_position: 1
 
 1. `群组`中流水线配额 50000 分钟：[流水线使用量配额](pipelines-quota-tab.md)
 2. `受保护分支`、`受保护的标签` 的配置精确到`用户`，而不是只能设置到角色：[仓库受保护分支和标签](repository-protected-branches-tags.md)
+
+### 功能
+
+| 功能                            | 引入版本  | 功能标志 | 默认启用版本 | 移除功能标记 | UI 管理 | 中文文档(更新较慢)                                                                                 | 英文文档                                                                                      |
+|-------------------------------|-------|------|--------|--------|-------|--------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| [待命计划管理](oncall-schedules.md) | 13.11 |      |        |        |       | [极狐GitLab](https://docs.gitlab.cn/jh/operations/incident_management/oncall_schedules.html) | [GitLab](https://docs.gitlab.com/ee/operations/incident_management/oncall_schedules.html) |
