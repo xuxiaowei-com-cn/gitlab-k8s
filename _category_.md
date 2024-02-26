@@ -15,6 +15,7 @@
 | gitlab-packages     | 203      |
 | gitlab-runner       | 204      |
 | gitlab-dependabot   | 205      |
+| gitlab-ultimate     | 206      |
 | docker              | 301      |
 | k8s                 | 401      |
 | k8s-availability    | 402      |
@@ -33,6 +34,10 @@
 | download            | 1001     |
 | ssl                 | 1201     |
 | es                  | 1301     |
+
+| gitlab-ultimate  | position |
+|------------------|----------|
+| intro            | 1        |
 
 | k8s                     | position |
 |-------------------------|----------|
