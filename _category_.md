@@ -35,9 +35,10 @@
 | ssl                 | 1201     |
 | es                  | 1301     |
 
-| gitlab-ultimate  | position |
-|------------------|----------|
-| intro            | 1        |
+| gitlab-ultimate     | position |
+|---------------------|----------|
+| intro               | 1        |
+| pipelines-quota-tab | 2        |
 
 | k8s                     | position |
 |-------------------------|----------|
