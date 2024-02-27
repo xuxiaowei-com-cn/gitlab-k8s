@@ -42,6 +42,7 @@
 | repository-protected-branches-tags | 3        |
 | oncall-schedules                   | 4        |
 | audit-events                       | 5        |
+| dependency-list                    | 6        |
 
 | k8s                     | position |
 |-------------------------|----------|

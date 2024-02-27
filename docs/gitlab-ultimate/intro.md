@@ -20,7 +20,8 @@ sidebar_position: 1
 
 ### 功能
 
-| 功能                            | 引入版本  | 功能标志 | 默认启用版本 | 移除功能标记 | UI 管理 | 中文文档(更新较慢)                                                                                 | 英文文档                                                                                      |
-|-------------------------------|-------|------|--------|--------|-------|--------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| [待命计划管理](oncall-schedules.md) | 13.11 |      |        |        |       | [极狐GitLab](https://docs.gitlab.cn/jh/operations/incident_management/oncall_schedules.html) | [GitLab](https://docs.gitlab.com/ee/operations/incident_management/oncall_schedules.html) |
-| [审计事件](audit-events.md)       |       |      |        |        |       | [极狐GitLab](https://docs.gitlab.cn/jh/administration/audit_events.html)                     | [GitLab](https://docs.gitlab.com/ee/administration/audit_events.html)                     |
+| 功能                            | 引入版本  | 群组引入版本 | 功能标志 | 群组功能标志                   | 默认启用版本 | 移除功能标记 | UI 管理 | 中文文档(更新较慢)                                                                                  | 英文文档                                                                                      |
+|-------------------------------|-------|--------|------|--------------------------|--------|--------|-------|---------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
+| [待命计划管理](oncall-schedules.md) | 13.11 |        |      |                          |        |        |       | [极狐GitLab](https://docs.gitlab.cn/jh/operations/incident_management/oncall_schedules.html)  | [GitLab](https://docs.gitlab.com/ee/operations/incident_management/oncall_schedules.html) |
+| [审计事件](audit-events.md)       |       |        |      |                          |        |        |       | [极狐GitLab](https://docs.gitlab.cn/jh/administration/audit_events.html)                      | [GitLab](https://docs.gitlab.com/ee/administration/audit_events.html)                     |
+| [依赖列表](dependency-list.md)    | 14.6  | 16.2   |      | group_level_dependencies |        |        |       | [极狐GitLab](https://docs.gitlab.cn/jh/user/application_security/dependency_list/index.html)  | [GitLab](https://docs.gitlab.com/ee/user/application_security/dependency_list/index.html) |
