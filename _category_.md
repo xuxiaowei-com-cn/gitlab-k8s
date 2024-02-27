@@ -44,6 +44,7 @@
 | audit-events                       | 5        |
 | dependency-list                    | 6        |
 | security-dashboard                 | 7        |
+| vulnerability-report               | 8        |
 
 | k8s                     | position |
 |-------------------------|----------|
