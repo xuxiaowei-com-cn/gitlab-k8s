@@ -43,6 +43,7 @@
 | oncall-schedules                   | 4        |
 | audit-events                       | 5        |
 | dependency-list                    | 6        |
+| security-dashboard                 | 7        |
 
 | k8s                     | position |
 |-------------------------|----------|
