@@ -22,15 +22,20 @@ sidebar_position: 1
 ### 功能
 
 - 功能标志
-    - [极狐GitLab](https://docs.gitlab.cn/jh/operations/feature_flags.html)
-    - [GitLab](https://docs.gitlab.com/ee/operations/feature_flags.html)
+    - 文档
+        - [极狐GitLab](https://docs.gitlab.cn/jh/operations/feature_flags.html)
+        - [GitLab](https://docs.gitlab.com/ee/operations/feature_flags.html)
+    - 使用功能标志，您可以将应用程序的新功能小批量部署到生产环境中。
+    - 您可以为部分用户打开和关闭功能，帮助您实现持续交付。
+    - 功能标志有助于降低风险，允许您进行受控测试，并将功能交付与客户发布分开。
 - 群组配置
     - <strong><font color="red">`下方表格中带括号的代表群组相关配置`</font></strong>，如：
         1. 项目 `依赖列表` 引入于 GitLab 14.6
         2. 群组 `依赖列表` 引入于 GitLab 16.2，`默认禁用`，群组 `依赖列表` 功能标志是 `group_level_dependencies`
         3. 群组 `依赖列表` 默认启用于 GitLab 16.4
+- 中文文档更新较慢
 
-| 功能                              | 适用版本    | 引入版本       | 功能标志                       | 默认启用版本 | 中文(更新慢)/英文文档                                                                                                                                                                                                                                                            |
+| 功能                              | 适用版本    | 引入版本       | 功能标志                       | 默认启用版本 | 中文/英文文档                                                                                                                                                                                                                                                                 |
 |---------------------------------|---------|------------|----------------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [待命计划管理](oncall-schedules.md)   | 旗舰版、专业版 | 13.11      |                            |        | [中文](https://docs.gitlab.cn/jh/operations/incident_management/oncall_schedules.html)/[英文](https://docs.gitlab.com/ee/operations/incident_management/oncall_schedules.html)                                                                                              |
 | [审计事件](audit-events.md)         | 旗舰版、专业版 |            |                            |        | [中文](https://docs.gitlab.cn/jh/administration/audit_events.html)/[英文](https://docs.gitlab.com/ee/administration/audit_events.html)                                                                                                                                      |
