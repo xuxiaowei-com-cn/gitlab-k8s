@@ -49,3 +49,9 @@ sidebar_position: 5
     2. 点击漏洞，查看`漏洞描述`、`项目`、`位置`、`链接`、`解决方案`等信息
 
        ![dependency-list-4.png](static/dependency-list-4.png)
+
+### 安全配置说明
+
+当上述正确配置后，`安全配置`会显示`依赖项扫描`已`启用`
+
+![dependency-list-5.png](static/dependency-list-5.png)
