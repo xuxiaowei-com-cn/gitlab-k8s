@@ -46,6 +46,7 @@
 | security-dashboard                 | 7        |
 | vulnerability-report               | 8        |
 | license-compliance                 | 9        |
+| file-lock                          | 10       |
 
 | k8s                     | position |
 |-------------------------|----------|
