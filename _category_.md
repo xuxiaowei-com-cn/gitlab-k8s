@@ -47,6 +47,7 @@
 | vulnerability-report               | 8        |
 | license-compliance                 | 9        |
 | file-lock                          | 10       |
+| secret-detection                   | 11       |
 
 | k8s                     | position |
 |-------------------------|----------|
