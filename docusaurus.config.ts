@@ -77,7 +77,7 @@ const config = {
           position: 'left',
           label: '文档',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        {to: '/blog', label: '博客', position: 'left'},
         {
           href: 'https://gitee.com/xuxiaowei-com-cn/gitlab-k8s',
           label: 'Gitee',
@@ -131,7 +131,7 @@ const config = {
           title: '更多',
           items: [
             {
-              label: 'Blog',
+              label: '博客',
               to: '/blog',
             },
             {
