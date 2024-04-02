@@ -100,6 +100,10 @@ const config = {
               label: '文档介绍',
               to: '/docs/intro',
             },
+            {
+              label: '重构微服务文档',
+              href: 'https://xuxiaowei-cloud.gitee.io/spring-cloud-xuxiaowei/',
+            },
           ],
         },
         {
