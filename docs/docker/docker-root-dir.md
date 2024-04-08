@@ -29,26 +29,13 @@ sidebar_position: 2
     systemctl stop docker.service
     ```
 
-3. 修改为 `/data/docker`
-
-    ```shell
-    vim /etc/docker/daemon.json
-    ```
-
-   在 `/etc/docker/daemon.json` 文件中新增 `graph`
-
-    ```shell
-    {
-        "graph": "/data/docker"
-    }
-    ```
-4. 创建 `/data/docker` 文件夹
+3. 创建 `/data/docker` 文件夹
 
     ```shell
     mkdir -p /data/docker
     ```
 
-5. 查看文件夹结构（第一次）
+4. 查看文件夹结构（第一次）
 
     1. 查看 `/var/lib/docker/`
 
@@ -89,13 +76,13 @@ sidebar_position: 2
         [root@localhost ~]#
         ```
 
-6. 移动文件
+5. 移动文件
 
     ```shell
     mv /var/lib/docker/* /data/docker/
     ```
 
-7. 查看文件夹结构（第二次）
+6. 查看文件夹结构（第二次）
 
     1. 查看 `/var/lib/docker/`
 
@@ -136,14 +123,14 @@ sidebar_position: 2
         [root@localhost ~]#
         ```
 
-8. 建立软链接（删除 `/var/lib/docker` 文件夹）
+7. 建立软链接（删除 `/var/lib/docker` 文件夹）
 
     ```shell
     rm /var/lib/docker -rf
     ln -s /data/docker/ /var/lib/docker
     ```
 
-9. 查看文件夹结构（第三次）
+8. 查看文件夹结构（第三次）
 
     1. 查看 `/var/lib/docker/`
 
@@ -184,14 +171,14 @@ sidebar_position: 2
         [root@localhost ~]#
         ```
 
-10. 启动 docker
+9. 启动 docker
 
-     ```shell
-     systemctl start docker.socket
-     systemctl start docker.service
-     ```
+    ```shell
+    systemctl start docker.socket
+    systemctl start docker.service
+    ```
 
-11. 查看数据储存路径（第二次）
+10. 查看数据储存路径（第二次）
 
      ```shell
      docker info | grep "Docker Root Dir"
