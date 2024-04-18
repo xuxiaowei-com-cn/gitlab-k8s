@@ -17,6 +17,9 @@
     --with-openssl=<path>
     error while loading shared libraries: libssl.so.3: cannot open shared object file: No such file or directory
     ```
+    ```shell
+    configure: error: *** working libcrypto not found, check config.log
+    ```
    解决：
     ```shell
     sudo apt update
