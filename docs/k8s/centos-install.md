@@ -38,8 +38,8 @@ sidebar_position: 1
 19. Calico
     1. [Kubernetes 上的 Calico 快速入门](https://docs.tigera.io/calico/latest/getting-started/kubernetes/quickstart)
     2. 配置
-       1. [GitHub](https://github.com/projectcalico/calico/blob/master/manifests/calico.yaml)
-       2. [作者镜像仓库](https://framagit.org/mirrors-github/projectcalico/calico/-/blob/master/manifests/calico.yaml)
+        1. [GitHub](https://github.com/projectcalico/calico/blob/master/manifests/calico.yaml)
+        2. [作者镜像仓库](https://framagit.org/mirrors-github/projectcalico/calico/-/blob/master/manifests/calico.yaml)
 
 ## 说明
 
@@ -378,25 +378,41 @@ sidebar_position: 1
     ```
 
 9. 添加阿里云 k8s 镜像仓库
+    1. 老仓库配置，最高支持 k8s 1.28.x
 
-    ```shell
-    # 文档：https://developer.aliyun.com/mirror/kubernetes
-    
-    cat <<EOF > /etc/yum.repos.d/kubernetes.repo
-    [kubernetes]
-    name=Kubernetes
-    baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
-    # 是否开启本仓库
-    enabled=1
-    # 是否检查 gpg 签名文件
-    gpgcheck=0
-    # 是否检查 gpg 签名文件
-    repo_gpgcheck=0
-    gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
-    
-    EOF
-    ```
+        ```shell
+        # 文档：https://developer.aliyun.com/mirror/kubernetes
+        
+        cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+        [kubernetes]
+        name=Kubernetes
+        baseurl=https://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
+        # 是否开启本仓库
+        enabled=1
+        # 是否检查 gpg 签名文件
+        gpgcheck=0
+        # 是否检查 gpg 签名文件
+        repo_gpgcheck=0
+        gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
+        
+        EOF
+        ```
+    2. 新仓库，其中 `KUBERNETES_VERSION` 代表仓库版本，如：1.24、1.25、1.26、1.27、1.28、1.29、1.30 等
 
+        ```shell
+        # 文档：https://developer.aliyun.com/mirror/kubernetes
+        KUBERNETES_VERSION=1.30
+        
+        cat <<EOF | tee /etc/yum.repos.d/kubernetes.repo
+        [kubernetes]
+        name=Kubernetes
+        baseurl=https://mirrors.aliyun.com/kubernetes-new/core/stable/v$KUBERNETES_VERSION/rpm/
+        enabled=1
+        gpgcheck=1
+        gpgkey=https://mirrors.aliyun.com/kubernetes-new/core/stable/v$KUBERNETES_VERSION/rpm/repodata/repomd.xml.key
+        
+        EOF
+        ```
 10. 安装 k8s 1.25.3 所需依赖
 
     ```shell
