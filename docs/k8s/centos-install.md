@@ -638,7 +638,7 @@ sidebar_position: 1
     | 1.22、1.23、1.24、1.25      | 3.24      | https://docs.tigera.io/archive/v3.24/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.24/manifests/calico.yaml                           | https://framagit.org/mirrors-github/projectcalico/calico/-/raw/v3.24.0/manifests/calico.yaml |
     | 1.22、1.23、1.24           | 3.25      | https://docs.tigera.io/archive/v3.25/getting-started/kubernetes/requirements | https://docs.tigera.io/archive/v3.25/manifests/calico.yaml                           | https://framagit.org/mirrors-github/projectcalico/calico/-/raw/v3.25.0/manifests/calico.yaml |
     | 1.24、1.25、1.26、1.27、1.28 | 3.26      | https://docs.tigera.io/calico/3.26/getting-started/kubernetes/requirements   | https://raw.githubusercontent.com/projectcalico/calico/v3.26.4/manifests/calico.yaml | https://framagit.org/mirrors-github/projectcalico/calico/-/raw/v3.26.4/manifests/calico.yaml |
-    | 1.24、1.25、1.26、1.27、1.28 | 3.27      | https://docs.tigera.io/calico/latest/getting-started/kubernetes/requirements | https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/calico.yaml | https://framagit.org/mirrors-github/projectcalico/calico/-/raw/v3.27.0/manifests/calico.yaml |
+    | 1.27、1.28、1.29           | 3.27      | https://docs.tigera.io/calico/latest/getting-started/kubernetes/requirements | https://raw.githubusercontent.com/projectcalico/calico/v3.27.3/manifests/calico.yaml | https://framagit.org/mirrors-github/projectcalico/calico/-/raw/v3.27.3/manifests/calico.yaml |
 
     ```shell
     # 下载
