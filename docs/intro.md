@@ -34,4 +34,4 @@ sidebar_position: 1
 - [FramaGit Pages](https://xuxiaowei-com-cn.frama.io/gitlab-k8s)
 - [GitHub Pages](https://xuxiaowei-com-cn.github.io/gitlab-k8s)
 - [个人域名](https://gitlab-k8s.xuxiaowei.com.cn)
-- <a href="https://framagit.org/xuxiaowei-com-cn/k8s.sh"><strong><font color="red">Kubernetes（k8s）全自动安装配置脚本</font></strong></a>
+- <a href="https://gitee.com/xuxiaowei-com-cn/k8s.sh"><strong><font color="red">Kubernetes（k8s）全自动安装配置脚本</font></strong></a>
