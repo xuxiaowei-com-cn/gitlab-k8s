@@ -96,5 +96,6 @@
 ## 开始阅读
 
 - [Gitee Pages](https://xuxiaowei-com-cn.gitee.io/gitlab-k8s)
+- [FramaGit Pages](https://xuxiaowei-com-cn.frama.io/gitlab-k8s)
 - [GitHub Pages](https://xuxiaowei-com-cn.github.io/gitlab-k8s)
 - [个人域名](https://gitlab-k8s.xuxiaowei.com.cn)
