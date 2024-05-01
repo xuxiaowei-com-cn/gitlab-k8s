@@ -210,6 +210,7 @@ sync-framagit:
       when: never
     # 非 PR 时触发
     - if: $CI_SERVER_HOST == 'gitlab.helm.xuxiaowei.cn' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null
+    - if: $CI_SERVER_HOST == 'jihulab.com' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null
   retry: 2
   # 允许失败
   allow_failure: true
