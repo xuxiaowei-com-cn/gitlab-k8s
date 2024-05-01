@@ -10,7 +10,7 @@ const config = {
   plugins: ['./src/js/redirect.js', './src/js/baidu.js', "./src/js/beian.js"],
 
   // Set the production url of your site here
-  url: 'https://xuxiaowei-com-cn.gitee.io',
+  url: 'https://gitlab-k8s.xuxiaowei.com.cn',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/gitlab-k8s/',
