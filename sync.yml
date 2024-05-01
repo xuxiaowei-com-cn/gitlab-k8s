@@ -30,7 +30,7 @@ sync-gitee:
       # 不执行
       when: never
     # 非 PR 时触发
-    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null && $ENABLE_SYNC == "true"
   retry: 2
   # 允许失败
   allow_failure: true
@@ -63,7 +63,7 @@ sync-gitcode:
       # 不执行
       when: never
     # 非 PR 时触发
-    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null && $ENABLE_SYNC == "true"
   retry: 2
   # 允许失败
   allow_failure: true
@@ -106,7 +106,7 @@ sync-gitlink:
       # 不执行
       when: never
     # 非 PR 时触发
-    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null && $ENABLE_SYNC == "true"
   retry: 2
   # 允许失败
   allow_failure: true
@@ -139,7 +139,7 @@ sync-gitlab:
       # 不执行
       when: never
     # 非 PR 时触发
-    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null && $ENABLE_SYNC == "true"
   retry: 2
   # 允许失败
   allow_failure: true
@@ -172,7 +172,7 @@ sync-github:
       # 不执行
       when: never
     # 非 PR 时触发
-    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null && $ENABLE_SYNC == "true"
   retry: 2
   # 允许失败
   allow_failure: true
@@ -209,8 +209,7 @@ sync-framagit:
       # 不执行
       when: never
     # 非 PR 时触发
-    - if: $CI_SERVER_HOST == 'gitlab.helm.xuxiaowei.cn' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null
-    - if: $CI_SERVER_HOST == 'jihulab.com' && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null
+    - if: $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == null && $ENABLE_SYNC == "true"
   retry: 2
   # 允许失败
   allow_failure: true
