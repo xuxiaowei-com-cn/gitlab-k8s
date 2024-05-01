@@ -53,7 +53,7 @@ build:npm:
     paths:
       - public/
   rules:
-    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "main" && $ENABLE_DOCS == "true"
 
 build:pnpm:
   stage: pages
@@ -81,7 +81,7 @@ build:pnpm:
     paths:
       - public/
   rules:
-    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == "main" && $ENABLE_DOCS == "true"
 
 docker:build:
   stage: docker:build
