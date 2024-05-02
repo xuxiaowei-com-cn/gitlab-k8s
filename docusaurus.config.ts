@@ -144,7 +144,7 @@ const config = {
             },
             {
               label: '工具箱',
-              href: 'https://xuxiaowei-tools.gitee.io',
+              href: 'https://tools.xuxiaowei.com.cn',
             },
             {
               label: '程序开发常用网址',

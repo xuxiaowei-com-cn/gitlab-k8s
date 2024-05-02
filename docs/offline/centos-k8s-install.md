@@ -16,7 +16,7 @@ sidebar_position: 5
    安装成功后，使用命令 `ctr -n=k8s.io image list` 查询 k8s 安装成功后，当前使用的 Docker
    镜像，使用命令 `ctr -n=k8s.io image export 导出Docker镜像到磁盘的文件名 Docker镜像名`
 6. Docer 镜像导入：`ctr -n=k8s.io image import Docker镜像导出到磁盘的文件名 Docker镜像名`
-7. 一键生成所需命令参见：[Docker 镜像迁移](https://xuxiaowei-tools.gitee.io/#/docker/images/migrate)
+7. 一键生成所需命令参见：[Docker 镜像迁移](https://tools.xuxiaowei.com.cn/docker/images/migrate)
 
 ## 准备
 
