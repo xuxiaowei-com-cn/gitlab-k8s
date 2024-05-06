@@ -421,7 +421,8 @@ export default defineConfig({
     },
 
     footer: {
-      copyright: 'Copyright © 2023-present 徐晓伟 <a href="mailto:xuxiaowei@xuxiaowei.com.cn">xuxiaowei@xuxiaowei.com.cn</a>'
+      copyright: 'Copyright © 2023-present 徐晓伟 <a href="mailto:xuxiaowei@xuxiaowei.com.cn">xuxiaowei@xuxiaowei.com.cn</a>' +
+          '<br><a target="_blank" href="https://beian.miit.gov.cn">鲁ICP备19009036号-1</a>'
     }
   }
 })
