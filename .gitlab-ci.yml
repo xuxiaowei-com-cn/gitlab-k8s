@@ -23,7 +23,7 @@ pages:
       cat .vitepress/config.mts;
       fi
     - npm run docs:build
-    - mv .vitepress/dist/* public/
+    - cp -r .vitepress/dist/* public/
   artifacts:
     expire_in: 1 week
     paths:
