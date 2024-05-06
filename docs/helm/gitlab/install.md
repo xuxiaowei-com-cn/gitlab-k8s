@@ -138,7 +138,7 @@ kubectl create namespace $GITLAB_HELM_NS
     2. cert-manager 会从 Let’s Encrypt 申请证书，默认验证方式 `HTTP-01`，所以 `certmanager-issuer.email` 参数是必须的，否则将报错，
        如果你的 k8s 有公网IP，并且可以将域名解析到 k8s，推荐此方式
        （如果使用 `DNS01`，则需要满足 [DNS01 配置](https://cert-manager.io/docs/configuration/acme/dns01/)）
-    3. [证书信息](static/configureCertmanager-true.crt)
+    3. <a target="_blank" href="/configureCertmanager-true.crt">证书信息</a>
         ```shell
         [root@k8s ~]# openssl x509 -in configureCertmanager-true.crt -noout -text
         Certificate:
@@ -200,7 +200,7 @@ kubectl create namespace $GITLAB_HELM_NS
     4. 验证完成后，会使用 Let’s Encrypt 申请的证书
 2. `global.ingress.configureCertmanager=false`
     1. 不会从 Let’s Encrypt 申请证书，不用设置 `certmanager-issuer.email` 参数
-    2. [证书信息](static/configureCertmanager-false.crt)
+    2. <a target="_blank" href="/configureCertmanager-false.crt">证书信息</a>
         ```shell
         [root@k8s ~]# openssl x509 -in configureCertmanager-false.crt -noout -text
         Certificate:

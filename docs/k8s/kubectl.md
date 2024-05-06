@@ -24,7 +24,7 @@ Kubernetes 提供 kubectl 是使用 Kubernetes API 与 Kubernetes 集群的控�
 
 1. 个人建议仅在管理员直接操作集群时，才在 Control Plane（Master）节点上执行
 2. 流水线操作 k8s 时（比如：发布项目）参见下方：
-   [在 GitLab Runner 流水线中运行 kubectl](#在-dockerk8s-中运行-kubectl)
+   [在 GitLab Runner 流水线中运行 kubectl](#k8s-node-kubectl)
 
 ### <strong><font color="red">强烈不建议执行流水线</font></strong>时直接在 Control Plane（Master） 节点 上 运行
 
@@ -33,9 +33,9 @@ Kubernetes 提供 kubectl 是使用 Kubernetes API 与 Kubernetes 集群的控�
     1. 拥有流水线权限的人，如果在流水线中写了 `rm -rf /` 并运行了流水线，使宿主机文件被删除，导致宿主机数据丢失并宕机。如果是在容器内，将不会影响到宿主机的安全。
 
 2. 流水线操作 k8s 时（比如：发布项目）参见下方：
-   [在 GitLab Runner 流水线中运行 kubectl](#在-dockerk8s-中运行-kubectl)
+   [在 GitLab Runner 流水线中运行 kubectl](#k8s-node-kubectl)
 
-## 在 k8s 集群的 Node 节点上运行 kubectl（不推荐）
+## 在 k8s 集群的 Node 节点上运行 kubectl（不推荐）{id=k8s-node-kubectl}
 
 ### 方案1
 
@@ -108,7 +108,9 @@ The connection to the server localhost:8080 was refused - did you specify the ri
 [root@anolis ~]#
 ```
 
-### 剩余配置参见：[在 k8s 集群的 Node 节点上运行 kubectl](#在-k8s-集群的-node-节点上运行-kubectl不推荐)
+### 剩余配置参见：
+
+[在 k8s 集群的 Node 节点上运行 kubectl](#k8s-node-kubectl)
 
 ## 在 docker/k8s 中运行 kubectl
 
@@ -140,8 +142,8 @@ The connection to the server localhost:8080 was refused - did you specify the ri
     kubectl completion powershell | Out-String | Invoke-Expression
     ```
 4. 示例
-    1. [Microsoft.PowerShell_profile.ps1](static/Microsoft.PowerShell_profile.ps1)
-    2. [profile.ps1](static/profile.ps1)
+    1. <a href="Microsoft.PowerShell_profile.ps1">Microsoft.PowerShell_profile.ps1</a>
+    2. <a href="profile.ps1">profile.ps1</a>
 5. 重新打开 `Windows PowerShell`，输入 `kubectl`，按 `Tab` 键即可出现自动提示
 6. 如果出现无法加载上述添加的文件，出现如下错误，解决办法是尝试运行 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`，
    参见官方文档：[about_Execution_Policies](https://learn.microsoft.com/zh-cn/powershell/module/microsoft.powershell.core/about/about_execution_policies)

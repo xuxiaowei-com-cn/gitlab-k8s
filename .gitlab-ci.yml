@@ -5,77 +5,25 @@ stages:
   - sync
 
 variables:
-  DOCKER_TAG: 0.0.1
+  DOCKER_TAG: 1.0.0
 
 pages:
   stage: pages
-  image: node:18.17.1
+  image: node:20.12.0
   cache:
     key: "${CI_JOB_NAME}"
     paths:
       - node_modules/
   script:
-    - if [ $CI_SERVER_HOST == 'gitlab.helm.xuxiaowei.cn' ]; then
-      yarn config set registry https://registry.npmmirror.com;
+    - npm run pre:npm
+    - if [ $CI_SERVER_HOST == 'framagit.org' ]; then
+      cat .vitepress/config.mts;
+      sed -i 's#在 Gitee 上编辑此页面#在 FramaGit 上编辑#g' .vitepress/config.mts;
+      sed -i 's#https://gitee.com/xuxiaowei-com-cn/gitlab-k8s/edit/docs/#https://framagit.org/xuxiaowei-com-cn/gitlab-k8s/-/edit/docs/#g' .vitepress/config.mts;
+      cat .vitepress/config.mts;
       fi
-    - if [ $CI_SERVER_HOST == 'jihulab.com' ]; then
-      yarn config set registry https://registry.npmmirror.com;
-      fi
-    - yarn
-    - yarn build
-    - mv build/ public/
-  artifacts:
-    expire_in: 1 week
-    paths:
-      - public/
-  rules:
-    - if: $CI_COMMIT_BRANCH == "main" && $ENABLE_DOCS == "true"
-
-build:npm:
-  stage: pages
-  image: node:18.17.1
-  cache:
-    key: "${CI_JOB_NAME}"
-    paths:
-      - node_modules/
-  script:
-    - if [ $CI_SERVER_HOST == 'gitlab.helm.xuxiaowei.cn' ]; then
-      npm config set registry https://registry.npmmirror.com;
-      fi
-    - if [ $CI_SERVER_HOST == 'jihulab.com' ]; then
-      npm config set registry https://registry.npmmirror.com;
-      fi
-    - npm install
-    - npm run build
-    - mv build/ public/
-  artifacts:
-    expire_in: 1 week
-    paths:
-      - public/
-  rules:
-    - if: $CI_COMMIT_BRANCH == "main" && $ENABLE_DOCS == "true"
-
-build:pnpm:
-  stage: pages
-  image: node:18.17.1
-  cache:
-    key: "${CI_JOB_NAME}"
-    paths:
-      - node_modules/
-  script:
-    - if [ $CI_SERVER_HOST == 'gitlab.helm.xuxiaowei.cn' ]; then
-      yarn config set registry https://registry.npmmirror.com;
-      fi
-    - if [ $CI_SERVER_HOST == 'jihulab.com' ]; then
-      yarn config set registry https://registry.npmmirror.com;
-      fi
-    - yarn global add pnpm
-    - if [ $CI_SERVER_HOST == 'gitlab.helm.xuxiaowei.cn' ]; then
-      pnpm config set registry https://registry.npmmirror.com;
-      fi
-    - pnpm install
-    - pnpm run build
-    - mv build/ public/
+    - npm run docs:build
+    - mv .vitepress/dist/* public/
   artifacts:
     expire_in: 1 week
     paths:

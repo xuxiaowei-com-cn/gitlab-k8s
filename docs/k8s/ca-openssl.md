@@ -16,42 +16,42 @@ sidebar_position: 11
 2. 不推荐使用此方式，此方式要求对 k8s 配置文件比较了解
 3. 此方式仅用学习 `openssl` 相关命令
 4. k8s ca 原始文件、k8s 配置文件
-    1. [/etc/kubernetes/manifests/kube-apiserver.yaml](/ca/manifests/kube-apiserver.yaml)
-    2. [/etc/kubernetes/manifests/kube-controller-manager.yaml](/ca/manifests/kube-controller-manager.yaml)
-    3. [/etc/kubernetes/manifests/kube-scheduler.yaml](/ca/manifests/kube-scheduler.yaml)
-    4. [/etc/kubernetes/manifests/etcd.yaml](/ca/manifests/etcd.yaml)
-    5. [/etc/kubernetes/pki/etcd/ca.key](/ca/pki/etcd/ca.key)
-    6. [/etc/kubernetes/pki/etcd/ca.crt](/ca/pki/etcd/ca.crt)
-    7. [/etc/kubernetes/pki/etcd/server.key](/ca/pki/etcd/server.key)
-    8. [/etc/kubernetes/pki/etcd/server.crt](/ca/pki/etcd/server.crt)
-    9. [/etc/kubernetes/pki/etcd/peer.key](/ca/pki/etcd/peer.key)
-    10. [/etc/kubernetes/pki/etcd/peer.crt](/ca/pki/etcd/peer.crt)
-    11. [/etc/kubernetes/pki/etcd/healthcheck-client.key](/ca/pki/etcd/healthcheck-client.key)
-    12. [/etc/kubernetes/pki/etcd/healthcheck-client.crt](/ca/pki/etcd/healthcheck-client.crt)
-    13. [/etc/kubernetes/pki/ca.key](/ca/pki/ca.key)
-    14. [/etc/kubernetes/pki/ca.crt](/ca/pki/ca.crt)
-    15. [/etc/kubernetes/pki/apiserver.key](/ca/pki/apiserver.key)
-    16. [/etc/kubernetes/pki/apiserver.crt](/ca/pki/apiserver.crt)
-    17. [/etc/kubernetes/pki/apiserver-kubelet-client.key](/ca/pki/apiserver-kubelet-client.key)
-    18. [/etc/kubernetes/pki/apiserver-kubelet-client.crt](/ca/pki/apiserver-kubelet-client.crt)
-    19. [/etc/kubernetes/pki/front-proxy-ca.key](/ca/pki/front-proxy-ca.key)
-    20. [/etc/kubernetes/pki/front-proxy-ca.crt](/ca/pki/front-proxy-ca.crt)
-    21. [/etc/kubernetes/pki/front-proxy-client.key](/ca/pki/front-proxy-client.key)
-    22. [/etc/kubernetes/pki/front-proxy-client.crt](/ca/pki/front-proxy-client.crt)
-    23. [/etc/kubernetes/pki/apiserver-etcd-client.key](/ca/pki/apiserver-etcd-client.key)
-    24. [/etc/kubernetes/pki/apiserver-etcd-client.crt](/ca/pki/apiserver-etcd-client.crt)
-    25. [/etc/kubernetes/pki/sa.key](/ca/pki/sa.key)
-    26. [/etc/kubernetes/pki/sa.pub](/ca/pki/sa.pub)
-    27. [/etc/kubernetes/admin.conf](/ca/admin.conf)
-    28. [/etc/kubernetes/kubelet.conf](/ca/kubelet.conf)
-    29. [/etc/kubernetes/controller-manager.conf](/ca/controller-manager.conf)
-    30. [/etc/kubernetes/scheduler.conf](/ca/scheduler.conf)
+   1. <a target="_blank" href="/ca/manifests/kube-apiserver.yaml">/etc/kubernetes/manifests/kube-apiserver.yaml</a>
+   2. <a target="_blank" href="/ca/manifests/kube-controller-manager.yaml">/etc/kubernetes/manifests/kube-controller-manager.yaml</a>
+   3. <a target="_blank" href="/ca/manifests/kube-scheduler.yaml">/etc/kubernetes/manifests/kube-scheduler.yaml</a>
+   4. <a target="_blank" href="/ca/manifests/etcd.yaml">/etc/kubernetes/manifests/etcd.yaml</a>
+   5. <a target="_blank" href="/ca/pki/etcd/ca.key">/etc/kubernetes/pki/etcd/ca.key</a>
+   6. <a target="_blank" href="/ca/pki/etcd/ca.crt">/etc/kubernetes/pki/etcd/ca.crt</a>
+   7. <a target="_blank" href="/ca/pki/etcd/server.key">/etc/kubernetes/pki/etcd/server.key</a>
+   8. <a target="_blank" href="/ca/pki/etcd/server.crt">/etc/kubernetes/pki/etcd/server.crt</a>
+   9. <a target="_blank" href="/ca/pki/etcd/peer.key">/etc/kubernetes/pki/etcd/peer.key</a>
+   10. <a target="_blank" href="/ca/pki/etcd/peer.crt">/etc/kubernetes/pki/etcd/peer.crt</a>
+   11. <a target="_blank" href="/ca/pki/etcd/healthcheck-client.key">/etc/kubernetes/pki/etcd/healthcheck-client.key</a>
+   12. <a target="_blank" href="/ca/pki/etcd/healthcheck-client.crt">/etc/kubernetes/pki/etcd/healthcheck-client.crt</a>
+   13. <a target="_blank" href="/ca/pki/ca.key">/etc/kubernetes/pki/ca.key</a>
+   14. <a target="_blank" href="/ca/pki/ca.crt">/etc/kubernetes/pki/ca.crt</a>
+   15. <a target="_blank" href="/ca/pki/apiserver.key">/etc/kubernetes/pki/apiserver.key</a>
+   16. <a target="_blank" href="/ca/pki/apiserver.crt">/etc/kubernetes/pki/apiserver.crt</a>
+   17. <a target="_blank" href="/ca/pki/apiserver-kubelet-client.key">/etc/kubernetes/pki/apiserver-kubelet-client.key</a>
+   18. <a target="_blank" href="/ca/pki/apiserver-kubelet-client.crt">/etc/kubernetes/pki/apiserver-kubelet-client.crt</a>
+   19. <a target="_blank" href="/ca/pki/front-proxy-ca.key">/etc/kubernetes/pki/front-proxy-ca.key</a>
+   20. <a target="_blank" href="/ca/pki/front-proxy-ca.crt">/etc/kubernetes/pki/front-proxy-ca.crt</a>
+   21. <a target="_blank" href="/ca/pki/front-proxy-client.key">/etc/kubernetes/pki/front-proxy-client.key</a>
+   22. <a target="_blank" href="/ca/pki/front-proxy-client.crt">/etc/kubernetes/pki/front-proxy-client.crt</a>
+   23. <a target="_blank" href="/ca/pki/apiserver-etcd-client.key">/etc/kubernetes/pki/apiserver-etcd-client.key</a>
+   24. <a target="_blank" href="/ca/pki/apiserver-etcd-client.crt">/etc/kubernetes/pki/apiserver-etcd-client.crt</a>
+   25. <a target="_blank" href="/ca/pki/sa.key">/etc/kubernetes/pki/sa.key</a>
+   26. <a target="_blank" href="/ca/pki/sa.pub">/etc/kubernetes/pki/sa.pub</a>
+   27. <a target="_blank" href="/ca/admin.conf">/etc/kubernetes/admin.conf</a>
+   28. <a target="_blank" href="/ca/kubelet.conf">/etc/kubernetes/kubelet.conf</a>
+   29. <a target="_blank" href="/ca/controller-manager.conf">/etc/kubernetes/controller-manager.conf</a>
+   30. <a target="_blank" href="/ca/scheduler.conf">/etc/kubernetes/scheduler.conf</a>
 5. 证书之间的关系
    ![kleopatra-1.png](static/kleopatra-1.png)
 6. k8s 配置文件说明
     1. [/etc/kubernetes/admin.conf](/ca/admin.conf)
         - clusters.cluster.certificate-authority-data
-            1. [/etc/kubernetes/pki/ca.crt](/ca/pki/ca.crt) 文件内容计算 Base64 可得
+            1. <a target="_blank" href="/ca/pki/ca.crt">/etc/kubernetes/pki/ca.crt</a> 文件内容计算 Base64 可得
                 ```shell
                 cat /etc/kubernetes/pki/etcd/ca.crt | base64 -w 0
                 ```
@@ -63,7 +63,7 @@ sidebar_position: 11
             1. users.user.client-certificate-data 的秘钥
     2. [/etc/kubernetes/kubelet.conf](/ca/kubelet.conf)
         - clusters.cluster.certificate-authority-data
-            1. [/etc/kubernetes/pki/ca.crt](/ca/pki/ca.crt) 文件内容计算 Base64 可得
+            1. <a target="_blank" href="/ca/pki/ca.crt">/etc/kubernetes/pki/ca.crt</a> 文件内容计算 Base64 可得
                 ```shell
                 cat /etc/kubernetes/pki/etcd/ca.crt | base64 -w 0
                 ```
@@ -74,13 +74,13 @@ sidebar_position: 11
             1. users.user.client-certificate-data 的秘钥
     3. [/etc/kubernetes/controller-manager.conf](/ca/controller-manager.conf)
         - clusters.cluster.certificate-authority-data
-            1. [/etc/kubernetes/pki/ca.crt](/ca/pki/ca.crt) 文件内容计算 Base64 可得
+            1. <a target="_blank" href="/ca/pki/ca.crt">/etc/kubernetes/pki/ca.crt</a> 文件内容计算 Base64 可得
                 ```shell
                 cat /etc/kubernetes/pki/etcd/ca.crt | base64 -w 0
                 ```
     4. [/etc/kubernetes/scheduler.conf](/ca/scheduler.conf)
         - clusters.cluster.certificate-authority-data
-            1. [/etc/kubernetes/pki/ca.crt](/ca/pki/ca.crt) 文件内容计算 Base64 可得
+            1. <a target="_blank" href="/ca/pki/ca.crt">/etc/kubernetes/pki/ca.crt</a> 文件内容计算 Base64 可得
                 ```shell
                 cat /etc/kubernetes/pki/etcd/ca.crt | base64 -w 0
                 ```

@@ -1,8 +1,0 @@
-{
-  "label": "helm",
-  "position": 511,
-  "link": {
-    "type": "generated-index",
-    "description": "Helm 是一个用于 Kubernetes 应用程序的包管理工具。定义、安装和升级 Kubernetes 应用程序。"
-  }
-}

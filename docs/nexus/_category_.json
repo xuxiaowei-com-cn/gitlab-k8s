@@ -1,8 +1,0 @@
-{
-  "label": "Nexus 私库",
-  "position": 521,
-  "link": {
-    "type": "generated-index",
-    "description": "Nexus 私库：支持 apt (hosted)、apt (proxy)、bower (group)、bower (hosted)、bower (proxy)、cocoapods (proxy)、conan (proxy)、conda (proxy)、docker (group)、docker (hosted)、docker (proxy)、gitlfs (hosted)、go (group)、go (proxy)、helm (hosted)、helm (proxy)、maven2 (group)、maven2 (hosted)、maven2 (proxy)、npm (group)、npm (hosted)、npm (proxy)、nuget (group)、nuget (hosted)、nuget (proxy)、p2 (proxy)、pypi (group)、pypi (hosted)、pypi (proxy)、r (group)、r (hosted)、r (proxy)、raw (group)、raw (hosted)、raw (proxy)、rubygems (group)、rubygems (hosted)、rubygems (proxy)、yum (group)、yum (hosted)、yum (proxy) 等"
-  }
-}

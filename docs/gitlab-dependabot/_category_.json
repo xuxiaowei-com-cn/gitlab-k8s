@@ -1,8 +1,0 @@
-{
-  "label": "GitLab Dependabot",
-  "position": 205,
-  "link": {
-    "type": "generated-index",
-    "description": "GitLab 依赖机器人，自动创建依赖更新的 PR，支持 Webhook"
-  }
-}
