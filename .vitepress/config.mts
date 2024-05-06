@@ -421,7 +421,7 @@ export default defineConfig({
     },
 
     footer: {
-      copyright: 'Copyright © 2024-present 徐晓伟 <a href="mailto:xuxiaowei@xuxiaowei.com.cn">xuxiaowei@xuxiaowei.com.cn</a>'
+      copyright: 'Copyright © 2023-present 徐晓伟 <a href="mailto:xuxiaowei@xuxiaowei.com.cn">xuxiaowei@xuxiaowei.com.cn</a>'
     }
   }
 })
