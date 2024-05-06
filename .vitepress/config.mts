@@ -414,9 +414,9 @@ export default defineConfig({
     editLink: {
       text: '在 Gitee 上编辑此页面',
       pattern: ({ filePath }) => {
-        return `https://gitee.com/xuxiaowei-com-cn/gitlab-k8s/edit/docs/${filePath}`
-        // return `https://framagit.org/xuxiaowei-com-cn/gitlab-k8s/-/edit/docs/${filePath}`
-        // return `https://github.com/xuxiaowei-com-cn/gitlab-k8s/edit/docs/${filePath}`
+        return `https://gitee.com/xuxiaowei-com-cn/gitlab-k8s/edit/main/${filePath}`
+        // return `https://framagit.org/xuxiaowei-com-cn/gitlab-k8s/-/edit/main/${filePath}`
+        // return `https://github.com/xuxiaowei-com-cn/gitlab-k8s/edit/main/${filePath}`
       },
     },
 
