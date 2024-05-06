@@ -19,7 +19,7 @@ pages:
     - if [ $CI_SERVER_HOST == 'framagit.org' ]; then
       cat .vitepress/config.mts;
       sed -i 's#在 Gitee 上编辑此页面#在 FramaGit 上编辑#g' .vitepress/config.mts;
-      sed -i 's#https://gitee.com/xuxiaowei-com-cn/gitlab-k8s/edit/docs/#https://framagit.org/xuxiaowei-com-cn/gitlab-k8s/-/edit/docs/#g' .vitepress/config.mts;
+      sed -i 's#https://gitee.com/xuxiaowei-com-cn/gitlab-k8s/edit/main/#https://framagit.org/xuxiaowei-com-cn/gitlab-k8s/-/edit/main/#g' .vitepress/config.mts;
       cat .vitepress/config.mts;
       fi
     - npm run docs:build
