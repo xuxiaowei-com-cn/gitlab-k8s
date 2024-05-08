@@ -204,3 +204,4 @@ ps aux | grep gitlab-runner
 2. 需要在 GitLab Runner 执行器所在的宿主机安装 Docker 服务，并保持 Docker 正常运行
 3. 需要 GitLab Runner 运行时用户可正常执行 Docker 命令
 4. 支持 GitLab Runner 执行器：`shell`
+5. 具体配置请参见 [参考示例](#demo) 的 `shell` 分支
