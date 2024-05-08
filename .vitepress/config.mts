@@ -133,6 +133,7 @@ export default defineConfig({
           { text: 'GitLab Runner Kubernetes（k8s）配置', link: 'k8s-configuration' },
           { text: 'GitLab Runner Cache 缓存配置', link: 'cache-s3-configuration' },
           { text: 'Docker-in-Docker', link: 'docker-in-docker-configuration' },
+          { text: 'GitLab Runner 制作 Docker 镜像的 5 种方案', link: 'build-docker' },
           { text: 'fatal: git fetch-pack: expected shallow list', link: 'fatal-git-fetch-pack' },
         ]
       },
