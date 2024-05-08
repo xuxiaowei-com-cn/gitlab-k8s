@@ -55,6 +55,10 @@ export default defineConfig({
             link: 'https://gitee.com/xuxiaowei-com-cn/k8s.sh'
           },
           {
+            text: '根据 IP 获取地理信息',
+            link: 'https://ip.xuxiaowei.com.cn'
+          },
+          {
             text: '工具',
             link: 'https://tools.xuxiaowei.com.cn'
           },
