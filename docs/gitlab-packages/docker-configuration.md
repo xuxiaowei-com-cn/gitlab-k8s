@@ -4,19 +4,22 @@ GitLab Docker 私库开启配置与使用方式
 
 ## 文档
 
-1. GitLab 容器镜像库
+1. GitLab 容器镜像库管理
+    1. [gitlab-jh 中文文档](https://docs.gitlab.cn/ee/administration/packages/container_registry.html)
+    2. [gitlab-ee](https://docs.gitlab.com/ee/administration/packages/container_registry.html)
+2. GitLab 容器镜像库
     1. [gitlab-jh 中文文档](https://docs.gitlab.cn/jh/user/packages/container_registry/)
     2. [gitlab-ee](https://docs.gitlab.com/ee/user/packages/container_registry/)
-2. 容器镜像库身份验证
+3. 容器镜像库身份验证
     1. [gitlab-jh 中文文档](https://docs.gitlab.cn/jh/user/packages/container_registry/authenticate_with_container_registry.html)
     2. [gitlab-ee](https://docs.gitlab.com/ee/user/packages/container_registry/authenticate_with_container_registry.html)
-3. 构建容器镜像并将其推送到容器镜像库
+4. 构建容器镜像并将其推送到容器镜像库
     1. [gitlab-jh 中文文档](https://docs.gitlab.cn/jh/user/packages/container_registry/build_and_push_images.html)
     2. [gitlab-ee](https://docs.gitlab.com/ee/user/packages/container_registry/build_and_push_images.html)
-4. 从容器镜像库中删除容器镜像
+5. 从容器镜像库中删除容器镜像
     1. [gitlab-jh 中文文档](https://docs.gitlab.cn/jh/user/packages/container_registry/delete_container_registry_images.html)
     2. [gitlab-ee](https://docs.gitlab.com/ee/user/packages/container_registry/delete_container_registry_images.html)
-5. 减少容器镜像库存储
+6. 减少容器镜像库存储
     1. [gitlab-jh 中文文档](https://docs.gitlab.cn/jh/user/packages/container_registry/reduce_container_registry_storage.html)
     2. [gitlab-ee](https://docs.gitlab.com/ee/user/packages/container_registry/reduce_container_registry_storage.html)
 
