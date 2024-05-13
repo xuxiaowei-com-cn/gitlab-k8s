@@ -319,6 +319,7 @@ export default defineConfig({
         collapsed: true,
         base: '/docs/nexus/',
         items: [
+          { text: 'Nexus 简介', link: 'intro' },
           { text: '在 Docker 中安装 Nexus', link: 'docker-install-nexus' },
           { text: 'Docker 容器 Nexus 配置 SSL/https', link: 'docker-https-configuration' },
           { text: '使用 Maven 私库', link: 'use-maven-repository' },
