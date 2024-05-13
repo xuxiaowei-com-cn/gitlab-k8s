@@ -1,10 +1,8 @@
----
-sidebar_position: 2
----
+# Docker 容器 Nexus 配置 SSL/https {id=docker-https-configuration}
 
-# Docker 容器 Nexus 配置 SSL/https
+[[toc]]
 
-## 文档
+## 文档 {id=docs}
 
 1. [SSL证书指南](https://support.sonatype.com/hc/en-us/articles/213465768-SSL-Certificate-Guide)
 2. [windows/keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/keytool.html)
@@ -17,7 +15,7 @@ sidebar_position: 2
     4. [百度云SSL(https)证书免费申请](https://console.bce.baidu.com/cas/#/cas/purchased/common/list)
 6. [使用证书验证存储库客户端](https://docs.docker.com/engine/security/certificates/)
 
-## 配置
+## 配置 {id=config}
 
 1. 配置前的说明
     1. **/some/dir/nexus-data/** 为 Nexus 储存数据的目录
@@ -128,20 +126,25 @@ sidebar_position: 2
    [root@x99 ~]# 
    ```
 
-8. 如果需要在Linux上执行Docker时信任证书，请运行下列命令
-    1. 说明：
-        1. **证书颁布时，要正确颁布给指定的域名或IP才行，访问时，使用指定的域名或IP，否则在Docker拉取Nexus镜像时，会出现域名、IP
-           无法验证的情况**
-        2. **如果使用Nginx代理Nexus，在配置Nginx中SSL时，需要 .crt、.key 证书**
-        3. **如果使用配置Nexus中SSL时，需要 .jks 证书**
-        4. [GitLab https 配置](/docs/gitlab/https-configuration.md) 中的证书申请
-           （内涵颁布给域名、IP，证书类型为：**.crt、.key**）
-        5. 本文上方的生成域名的类型为：**.jks**
+## Docker 信任证书 {id=docker-certificate}
+
+1. 如果需要在 Linux 上执行 Docker 时信任证书，请运行下列操作
+
+2. <strong><font color="red">证书颁布时，要正确颁布给指定的域名或IP才行，访问时，使用指定的域名或IP，
+   否则在Docker拉取镜像（Nexus 镜像）时，会出现域名、IP 无法验证的情况</font></strong>
+
+### Docker 信任 Nexus Docker 私库证书 {id=docker-certificate-nexus}
+
+1. **如果使用Nginx代理Nexus，在配置Nginx中SSL时，需要 .crt、.key 证书**
+2. **如果使用配置Nexus中SSL时，需要 .jks 证书**
+3. [GitLab https 配置](/docs/gitlab/https-configuration.md) 中的证书申请
+   （内涵颁布给域名、IP，证书类型为：**.crt、.key**）
+4. 本文上方的生成域名的类型为：**.jks**
 
     ```shell
     # 如果出现 -bash: openssl: command not found，请安装 openssl：yum -y install openssl
     
-    # 填写你的域名，要求Linux系统能访问该域名
+    # 填写你的域名，要求Linux系统能访问该域名及端口
     domain_name=nexus.example.com
     # 填写你配置Docker私库的域名使用的端口，该端口现在可能还无法访问，给docker私库准备的
     docker_port=8000
@@ -167,7 +170,7 @@ sidebar_position: 2
     systemctl restart docker
     ```
 
-9. 虽然现在未配置docker私库，但是可以先测试证书是否被docker信任
+5. 虽然现在未配置docker私库，但是可以先测试证书是否被docker信任
 
     ```shell
     # 注意，此处的 8443 仅为 nexus 的端口
@@ -181,3 +184,34 @@ sidebar_position: 2
     Error response from daemon: error parsing HTTP 404 response body: invalid character '<' looking for beginning of value: "\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>404 - Nexus Repository Manager</title>\n  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"/>\n\n\n  <!--[if lt IE 9]>\n  <script>(new Image).src=\"../../../../favicon.ico?3.37.3-02\"</script>\n  <![endif]-->\n  <link rel=\"icon\" type=\"image/png\" href=\"../../../../favicon-32x32.png?3.37.3-02\" sizes=\"32x32\">\n  <link rel=\"mask-icon\" href=\"../../../../safari-pinned-tab.svg?3.37.3-02\" color=\"#5bbad5\">\n  <link rel=\"icon\" type=\"image/png\" href=\"../../../../favicon-16x16.png?3.37.3-02\" sizes=\"16x16\">\n  <link rel=\"shortcut icon\" href=\"../../../../favicon.ico?3.37.3-02\">\n  <meta name=\"msapplication-TileImage\" content=\"../../../../mstile-144x144.png?3.37.3-02\">\n  <meta name=\"msapplication-TileColor\" content=\"#00a300\">\n\n  <link rel=\"stylesheet\" type=\"text/css\" href=\"../../../../static/css/nexus-content.css?3.37.3-02\"/>\n</head>\n<body>\n<div class=\"nexus-header\">\n  <a href=\"../../../..\">\n    <div class=\"product-logo\">\n      <img src=\"../../../../static/rapture/resources/icons/x32/nexus-white.png?3.37.3-02\" alt=\"Product logo\"/>\n    </div>\n    <div class=\"product-id\">\n      <div class=\"product-id__line-1\">\n        <span class=\"product-name\">Nexus Repository Manager</span>\n      </div>\n      <div class=\"product-id__line-2\">\n        <span class=\"product-spec\">OSS 3.37.3-02</span>\n      </div>\n    </div>\n  </a>\n</div>\n\n<div class=\"nexus-body\">\n  <div class=\"content-header\">\n    <img src=\"../../../../static/rapture/resources/icons/x32/exclamation.png?3.37.3-02\" alt=\"Exclamation point\" aria-role=\"presentation\"/>\n    <span class=\"title\">Error 404</span>\n    <span class=\"description\">Not Found</span>\n  </div>\n  <div class=\"content-body\">\n    <div class=\"content-section\">\n      Not Found\n    </div>\n  </div>\n</div>\n</body>\n</html>\n\n"
     [root@x99 nexus.example.com:8443]# ll
     ```
+
+### Docker 信任 Docker 私库证书 {id=docker-certificate-docker}
+
+1. 与上面信任 nexus docker 私库证书相同，只不过简化了命令，防止新手看不懂
+
+   ```shell
+   # 如果出现 -bash: openssl: command not found，请安装 openssl：yum -y install openssl
+   
+   # 填写你的域名，要求Linux系统能访问该域名及端口
+   domain_name=register.example.com
+   # Docker 私库 https 端口
+   port=8443
+   
+   mkdir -p /etc/docker/certs.d/$domain_name:$port
+   cd /etc/docker/certs.d/$domain_name:$port
+   pwd
+   
+   # 下载证书到指定文件夹进行信任
+   openssl s_client -showcerts -connect $domain_name:$port -servername $domain_name < /dev/null 2>/dev/null | openssl x509 -outform PEM > /etc/docker/certs.d/$domain_name:$port/ca.crt
+   # 验证
+   echo | openssl s_client -CAfile /etc/docker/certs.d/$domain_name:$port/ca.crt -connect $domain_name:$port -servername $domain_name
+   
+   # 注意，如果是 443 端口，需要执行：
+   # cp -r /etc/docker/certs.d/$domain_name:$port /etc/docker/certs.d/$domain_name
+   ```
+
+2. 重启 Docker 即可
+   ```shell
+   # 重启 docker
+   systemctl restart docker
+   ```
