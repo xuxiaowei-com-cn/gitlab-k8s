@@ -215,3 +215,21 @@
    # 重启 docker
    systemctl restart docker
    ```
+
+### Docker 忽略域名证书验证 {id=docker-certificate-ignore}
+
+1. 编辑 Docker 配置文件，不存在时需要新建
+   ```shell
+   vim /etc/docker/daemon.json
+   ```
+2. 如果要信任 `register.example.com:8443` 修改内容如下
+   ```json
+   {
+      "insecure-registries" : ["register.example.com:8443"]
+   }
+   ```
+3. 重启 Docker 即可
+   ```shell
+   # 重启 docker
+   systemctl restart docker
+   ```
