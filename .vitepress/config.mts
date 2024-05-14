@@ -63,6 +63,10 @@ export default defineConfig({
             link: 'https://ip.xuxiaowei.com.cn'
           },
           {
+            text: '短网址',
+            link: 'https://xxw.ac.cn'
+          },
+          {
             text: '工具',
             link: 'https://tools.xuxiaowei.com.cn'
           },
