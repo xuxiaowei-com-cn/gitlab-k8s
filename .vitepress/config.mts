@@ -47,6 +47,10 @@ export default defineConfig({
         activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
         items: [
           {
+            text: '网盾',
+            link: 'https://gateway-shield.xuxiaowei.com.cn'
+          },
+          {
             text: '徐晓伟微服务',
             link: 'https://docs.xuxiaowei.cloud'
           },
