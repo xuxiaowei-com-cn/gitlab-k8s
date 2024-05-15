@@ -81,14 +81,18 @@ export default defineConfig({
       {
         text: '导读',
         collapsed: true,
-        base: '/docs/guide/',
+        // 由于下方链接使用了其他域名，所以此处不能使用基础地址
+        // base: '/docs/guide/',
         items: [
-          { text: 'GitLab 导读', link: 'gitlab' },
-          { text: 'GitLab Runner 导读', link: 'gitlab-runner' },
-          { text: 'Kubernetes（k8s） 导读', link: 'k8s' },
-          { text: '极狐GitLab 与 码云Gitee 价格对比', link: 'gitlab-gitee' },
-          { text: 'GitLab 部署方式对比', link: 'gitlab-install-compare' },
-          { text: '联系我们', link: 'contact-us' },
+          { text: 'GitLab 导读', link: '/docs/guide/gitlab' },
+          { text: 'GitLab Runner 导读', link: '/docs/guide/gitlab-runner' },
+          { text: 'Kubernetes（k8s） 导读', link: '/docs/guide/k8s' },
+          { text: '极狐GitLab 与 码云Gitee 价格对比', link: '/docs/guide/gitlab-gitee' },
+          { text: 'GitLab 部署方式对比', link: '/docs/guide/gitlab-install-compare' },
+          // 由于此处链接使用了其他域名，所以上方不能使用基础地址
+          { text: '联系我们', link: 'https://docs.xuxiaowei.cloud/spring-cloud-xuxiaowei/guide/contact-us.html' },
+          { text: '赞助', link: 'https://docs.xuxiaowei.cloud/spring-cloud-xuxiaowei/guide/contributes.html' },
+          { text: '视频', link: 'https://docs.xuxiaowei.cloud/spring-cloud-xuxiaowei/guide/video.html' },
         ]
       },
       {
