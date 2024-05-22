@@ -1,4 +1,5 @@
-FROM nginx:1.26.0
+# FROM nginx:1.26.0
+FROM registry.jihulab.com/xuxiaowei-jihu/xuxiaowei-cloud/spring-cloud-xuxiaowei/nginx:1.26.0
 
 LABEL maintainer="徐晓伟 <xuxiaowei@xuxiaowei.com.cn>"
 
