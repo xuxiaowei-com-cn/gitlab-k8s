@@ -44,6 +44,7 @@ docker:build:
   script:
     - echo $DOCKER_TAG
     - /kaniko/executor version
+    - /kaniko/executor --help
     - /kaniko/executor
       --context "${CI_PROJECT_DIR}"
       --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
