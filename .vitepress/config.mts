@@ -67,6 +67,10 @@ export default defineConfig({
             link: 'https://xxw.ac.cn'
           },
           {
+            text: 'markdown-it',
+            link: 'https://markdown-it.xuxiaowei.com.cn'
+          },
+          {
             text: '工具',
             link: 'https://tools.xuxiaowei.com.cn'
           },
