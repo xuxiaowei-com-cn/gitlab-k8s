@@ -341,6 +341,7 @@ export default defineConfig({
           { text: 'yum 私库 自定义配置', link: 'yum-repository' },
           { text: 'apt 私库 自定义配置', link: 'apt-repository' },
           { text: 'npm 私库 自定义配置（未完成）', link: 'npm-repository' },
+          { text: '压缩 Blob 存储区', link: 'compact-blob-store' },
         ]
       },
       {
