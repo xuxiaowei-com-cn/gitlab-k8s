@@ -60,7 +60,7 @@ docker:deploy:
   stage: docker:deploy
   needs:
     - job: docker:build
-  image: ${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/docker:26.1.1-cli
+  image: ${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/docker:26.1.3-cli
   variables:
     DOCKER_HOST: $DEPLOY_DOCKER_HOST
   script:
