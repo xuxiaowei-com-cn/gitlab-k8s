@@ -67,6 +67,10 @@ export default defineConfig({
             link: 'https://xxw.ac.cn'
           },
           {
+            text: 'Jenkins',
+            link: 'https://jenkins.xuxiaowei.com.cn'
+          },
+          {
             text: 'markdown-it',
             link: 'https://markdown-it.xuxiaowei.com.cn'
           },
