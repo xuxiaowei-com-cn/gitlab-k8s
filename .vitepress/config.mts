@@ -47,8 +47,8 @@ export default defineConfig({
         activeMatch: `^/(guide|style-guide|cookbook|examples)/`,
         items: [
           {
-            text: '网盾',
-            link: 'https://gateway-shield.xuxiaowei.com.cn'
+            text: '徐晓伟',
+            link: 'https://xuxiaowei.com.cn'
           },
           {
             text: '徐晓伟微服务',
@@ -59,12 +59,20 @@ export default defineConfig({
             link: 'https://gitee.com/xuxiaowei-com-cn/k8s.sh'
           },
           {
+            text: '网盾',
+            link: 'https://gateway-shield.xuxiaowei.com.cn'
+          },
+          {
             text: '根据 IP 获取地理信息',
             link: 'https://ip.xuxiaowei.com.cn'
           },
           {
             text: '短网址',
             link: 'https://xxw.ac.cn'
+          },
+          {
+            text: 'GitLab',
+            link: 'https://gitlab.xuxiaowei.com.cn/xuxiaowei-com-cn/readme/-/blob/main/README.md'
           },
           {
             text: 'Jenkins',
