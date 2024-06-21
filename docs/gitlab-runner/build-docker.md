@@ -81,6 +81,7 @@ ps aux | grep gitlab-runner
             ```
 4. 支持 GitLab Runner 执行器：`docker`、`docker+machine`、`kubernetes` 等等
 5. 具体配置请参见 [参考示例](#demo) 的 `using_docker_build` 分支
+6. 由于每次执行时，都是创建一个新的 docker 服务，因此无法使用历史镜像，如果基础镜像很大，每次构建都会重新拉取，影响构建速度
 
 ## 方案 2：使用 kaniko 构建 Docker 镜像 {id=plan-2}
 
@@ -106,6 +107,7 @@ ps aux | grep gitlab-runner
     1. 镜像标签名与原始标签保持一致即可
     2. 使用 GitLab [流水线](https://gitlab.com/xuxiaowei-com-cn/kaniko/-/pipelines) 每周自动同步一次，镜像内容未做任何修改
 7. 具体配置请参见 [参考示例](#demo) 的 `using_kaniko` 分支
+8. kaniko 无法使用历史镜像，如果基础镜像很大，每次构建都会重新拉取，影响构建速度
 
 ## 方案 3：使用 `DOCKER_HOST` 环境变量 指定现存的 Docker 服务 构建 Docker 镜像 {id=plan-3}
 
@@ -164,6 +166,7 @@ ps aux | grep gitlab-runner
         ```
 5. 支持 GitLab Runner 执行器：`docker`、`docker+machine`、`kubernetes` 等等
 6. 具体配置请参见 [参考示例](#demo) 的 `docker_host` 分支
+7. 可以使用历史镜像，基础镜像只会拉取一次，可有效提高构建速度
 
 ## 方案 4：使用宿主机 `docker.sock` 提供 Docker 服务 构建 Docker 镜像 {id=plan-4}
 
@@ -195,6 +198,7 @@ ps aux | grep gitlab-runner
         ```
 5. 支持 GitLab Runner 执行器：`docker`、`docker+machine`、`kubernetes` 等等
 6. 具体配置请参见 [参考示例](#demo) 的 `docker_sock` 分支
+7. 可以使用历史镜像，基础镜像只会拉取一次，可有效提高构建速度
 
 ## 方案 5：使用 Shell 直接构建 Docker 镜像 {id=plan-5}
 
@@ -205,3 +209,4 @@ ps aux | grep gitlab-runner
 3. 需要 GitLab Runner 运行时用户可正常执行 Docker 命令
 4. 支持 GitLab Runner 执行器：`shell`
 5. 具体配置请参见 [参考示例](#demo) 的 `shell` 分支
+6. 可以使用历史镜像，基础镜像只会拉取一次，可有效提高构建速度
