@@ -9,7 +9,7 @@ variables:
 
 pages:
   stage: pages
-  image: ${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/node:20.12.0
+  image: registry.cn-qingdao.aliyuncs.com/xuxiaoweicomcn/node:20.12.0
   cache:
     key: "${CI_JOB_NAME}"
     paths:
@@ -34,7 +34,7 @@ pages:
 docker:build:
   stage: docker:build
   image:
-    name: ${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/xuxiaoweicomcn/kaniko-project-executor:v1.22.0-debug
+    name: registry.cn-qingdao.aliyuncs.com/xuxiaoweicomcn/kaniko-project-executor:v1.23.1-debug
     entrypoint: [""]
   needs:
     - job: pages
@@ -60,7 +60,7 @@ docker:deploy:
   stage: docker:deploy
   needs:
     - job: docker:build
-  image: ${CI_DEPENDENCY_PROXY_DIRECT_GROUP_IMAGE_PREFIX}/docker:26.1.3-cli
+  image: registry.cn-qingdao.aliyuncs.com/xuxiaoweicomcn/docker:26.1.3-cli
   variables:
     DOCKER_HOST: $DEPLOY_DOCKER_HOST
   script:
