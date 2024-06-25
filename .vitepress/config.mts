@@ -119,6 +119,7 @@ export default defineConfig({
           { text: 'CentOS 7.9 中安装 GitLab', link: 'centos-7.9-install' },
           { text: 'Anolis 8.4 中安装 GitLab', link: 'anolis-8.4-install' },
           { text: 'Anolis 7.9 中安装 GitLab-jh', link: 'anolis-7.9-gitlab-jh-install' },
+          { text: 'GitLab 使用 Docker Compose 部署', link: 'gitlab-docker-compose' },
           { text: 'GitLab 配置 SSL/https', link: 'https-configuration' },
           { text: 'GitLab Pages 配置 SSL/https', link: 'pages-https-configuration' },
         ]
