@@ -17,10 +17,11 @@
 ## 说明 {id=description}
 
 1. 本文使用 `docker-compose.yml` 部署 GitLab、GitLab Runner
-2. 需要服务器上已安装 Docker、Docker Compose
-3. 由于本人使用的 Docker 版本比较新（26.1.3），在高版本的 Docker 中，`docker-compose.yml` 无需 `version` 关键字，
+2. 作者部署 GitLab 实例：https://gitlab.xuxiaowei.com.cn
+3. 需要服务器上已安装 Docker、Docker Compose
+4. 由于本人使用的 Docker 版本比较新（26.1.3），在高版本的 Docker 中，`docker-compose.yml` 无需 `version` 关键字，
    所以本文脚本不会携带 `version`
-4. 本人使用了 `TLS`/`SSL`，即：配置了 `https`，如果暂时不想使用 `https`，可将 脚本中的 `https` 修改为 `http`
+5. 本人使用了 `TLS`/`SSL`，即：配置了 `https`，如果暂时不想使用 `https`，可将 脚本中的 `https` 修改为 `http`
     1. <strong><font color="red">如果要 GitLab Docker 容器镜像仓库，必须配置 https</font></strong>
     2. 即使你使用权威机构颁发的证书（如：阿里、腾讯等云厂商免费或购买的证书，或者从其他第三方申请、购买的证书），或者自己生成的证书，一般在服务器中都需要配置证书信任
         1. 一个证书是否在当前操作系统中授信，取决于该证书链是否存在于当前系统的授信证书列表中
@@ -33,9 +34,9 @@
            如：自己创建域名证书是颁发给 `gitlab.xuxiaowei.cn`，而使用时用作 `registry.xuxiaowei.cn` 进行配置，这样无法进行信任。
         5. 自己生成证书时，推荐使用通配符证书，如：`*.xuxiaowei.cn`，可以用于 `gitlab.xuxiaowei.cn`、`registry.xuxiaowei.cn`
            等域名证书的配置
-5. 如果要启用 GitLab Pages 功能，需要使用与 GitLab 实例不同的 IP，
+6. 如果要启用 GitLab Pages 功能，需要使用与 GitLab 实例不同的 IP，
    参见文档：[GitLab Pages 管理](https://docs.gitlab.cn/jh/administration/pages/)，下方脚本已完成分配不同IP的配置
-6. 如果要启用 GitLab Docker 容器镜像仓库，也需要与 GitLab Pages 一样，与 GitLab 实例使用不同的 IP，下方脚本已完成分配不同IP的配置
+7. 如果要启用 GitLab Docker 容器镜像仓库，也需要与 GitLab Pages 一样，与 GitLab 实例使用不同的 IP，下方脚本已完成分配不同IP的配置
 
 ## 视频 {id=video}
 
