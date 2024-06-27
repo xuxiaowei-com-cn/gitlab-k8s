@@ -59,6 +59,10 @@ export default defineConfig({
             link: 'https://gitee.com/xuxiaowei-com-cn/k8s.sh'
           },
           {
+            text: 'Kubernetes（k8s）文档国内镜像',
+            link: 'https://kubernetes.xuxiaowei.com.cn/zh-cn/'
+          },
+          {
             text: '网盾',
             link: 'https://gateway-shield.xuxiaowei.com.cn'
           },
