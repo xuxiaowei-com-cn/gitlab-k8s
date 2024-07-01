@@ -75,6 +75,8 @@ docker:deploy:
   script:
     - docker info
     - docker compose up -d
+    - docker images | grep gitlab-k8s
+    - docker images | grep gitlab-k8s | awk '{print $3}' | xargs docker rmi || echo
   environment: production
   rules:
     - if: $CI_COMMIT_BRANCH == "main" && $ENABLE_DOCS_DOCKER_DEPLOY == "true"
