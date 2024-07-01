@@ -6,7 +6,7 @@ sync-gitee:
   stage: sync
   variables:
     GIT_DEPTH: 0 # 取消浅层克隆
-  image: bitnami/git:2.40.1
+  image: registry.cn-qingdao.aliyuncs.com/xuxiaoweicomcn/bitnami-git:2.45.2
   script:
     - git config --global user.email $GITLAB_USER_EMAIL
     - git config --global user.name $GITLAB_USER_NAME
@@ -39,7 +39,7 @@ sync-gitcode:
   stage: sync
   variables:
     GIT_DEPTH: 0 # 取消浅层克隆
-  image: bitnami/git:2.40.1
+  image: registry.cn-qingdao.aliyuncs.com/xuxiaoweicomcn/bitnami-git:2.45.2
   script:
     - git config --global user.email $GITLAB_USER_EMAIL
     - git config --global user.name $GITLAB_USER_NAME
@@ -72,7 +72,7 @@ sync-gitlink:
   stage: sync
   variables:
     GIT_DEPTH: 0 # 取消浅层克隆
-  image: bitnami/git:2.40.1
+  image: registry.cn-qingdao.aliyuncs.com/xuxiaoweicomcn/bitnami-git:2.45.2
   script:
     - mkdir -p ~/.ssh
     # 为了让GitLab隐藏变量 GITLINK_ID_RSA，所以添加 GITLINK_ID_RSA 时，去掉了开头、结尾与换行
@@ -115,7 +115,7 @@ sync-gitlab:
   stage: sync
   variables:
     GIT_DEPTH: 0 # 取消浅层克隆
-  image: bitnami/git:2.40.1
+  image: registry.cn-qingdao.aliyuncs.com/xuxiaoweicomcn/bitnami-git:2.45.2
   script:
     - git config --global user.email $GITLAB_USER_EMAIL
     - git config --global user.name $GITLAB_USER_NAME
@@ -148,7 +148,7 @@ sync-github:
   stage: sync
   variables:
     GIT_DEPTH: 0 # 取消浅层克隆
-  image: bitnami/git:2.40.1
+  image: registry.cn-qingdao.aliyuncs.com/xuxiaoweicomcn/bitnami-git:2.45.2
   script:
     - git config --global user.email $GITLAB_USER_EMAIL
     - git config --global user.name $GITLAB_USER_NAME
@@ -181,7 +181,7 @@ sync-framagit:
   stage: sync
   variables:
     GIT_DEPTH: 0 # 取消浅层克隆
-  image: bitnami/git:2.40.1
+  image: registry.cn-qingdao.aliyuncs.com/xuxiaoweicomcn/bitnami-git:2.45.2
   script:
     - git config --global user.email $GITLAB_USER_EMAIL
     - git config --global user.name $GITLAB_USER_NAME
