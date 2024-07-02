@@ -47,7 +47,18 @@
 
 若仅仅是续期证书，可只查看此节内容
 
-1. 查看证书有效期（`只能在主节点执行`）
+1. 证书过期时的错误
+    ```shell
+    [root@xuxiaowei-bili ~]# kubectl get pod -A
+    E0311 00:00:06.023685    5872 memcache.go:265] couldn't get current server API group list: Get "https://172.25.25.34:6443/api?timeout=32s": tls: failed to verify certificate: x509: certificate has expired or is not yet valid: current time 2025-03-11T00:00:06+08:00 is after 2025-03-09T13:28:43Z
+    E0311 00:00:06.026931    5872 memcache.go:265] couldn't get current server API group list: Get "https://172.25.25.34:6443/api?timeout=32s": tls: failed to verify certificate: x509: certificate has expired or is not yet valid: current time 2025-03-11T00:00:06+08:00 is after 2025-03-09T13:28:43Z
+    E0311 00:00:06.030140    5872 memcache.go:265] couldn't get current server API group list: Get "https://172.25.25.34:6443/api?timeout=32s": tls: failed to verify certificate: x509: certificate has expired or is not yet valid: current time 2025-03-11T00:00:06+08:00 is after 2025-03-09T13:28:43Z
+    E0311 00:00:06.034092    5872 memcache.go:265] couldn't get current server API group list: Get "https://172.25.25.34:6443/api?timeout=32s": tls: failed to verify certificate: x509: certificate has expired or is not yet valid: current time 2025-03-11T00:00:06+08:00 is after 2025-03-09T13:28:43Z
+    E0311 00:00:06.037254    5872 memcache.go:265] couldn't get current server API group list: Get "https://172.25.25.34:6443/api?timeout=32s": tls: failed to verify certificate: x509: certificate has expired or is not yet valid: current time 2025-03-11T00:00:06+08:00 is after 2025-03-09T13:28:43Z
+    Unable to connect to the server: tls: failed to verify certificate: x509: certificate has expired or is not yet valid: current time 2025-03-11T00:00:06+08:00 is after 2025-03-09T13:28:43Z
+    [root@xuxiaowei-bili ~]#
+    ```
+2. 查看证书有效期（`只能在主节点执行`）
     ```shell
     kubeadm certs check-expiration
     ```
@@ -76,7 +87,7 @@
     [root@xuxiaowei-bili ~]#
     ```
 
-2. 证书续期（`只能在主节点执行`，`每个主节点都需要执行`）
+3. 证书续期（`只能在主节点执行`，`每个主节点都需要执行`）
     ```shell
     kubeadm certs renew all
     ```
@@ -100,7 +111,7 @@
     Done renewing certificates. You must restart the kube-apiserver, kube-controller-manager, kube-scheduler and etcd, so that they can use the new certificates.
     ```
 
-3. 上述执行结果提示需要重启 `kube-apiserver`、`kube-controller-manager`、`kube-scheduler` 和 `etcd`
+4. 上述执行结果提示需要重启 `kube-apiserver`、`kube-controller-manager`、`kube-scheduler` 和 `etcd`
 
    使用容器部署的 `kube-apiserver`、`kube-controller-manager`、`kube-scheduler`、`etcd` 可以直接删除容器，
    `kubelet` 程序会检查容器的状态以及相关的配置文件
@@ -111,7 +122,7 @@
     kubectl -n kube-system delete pod etcd-<节点名称>
     ```
 
-4. 查看续期结果
+5. 查看续期结果
     ```shell
     kubeadm certs check-expiration
     ```
