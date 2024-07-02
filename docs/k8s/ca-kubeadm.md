@@ -113,7 +113,7 @@
 
 4. 查看续期结果
     ```shell
-    kubeadm certs renew all
+    kubeadm certs check-expiration
     ```
     ```shell
     [root@xuxiaowei-bili ~]# kubeadm certs check-expiration
