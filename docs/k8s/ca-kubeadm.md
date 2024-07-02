@@ -43,6 +43,70 @@
         Jul 08 13:35:44 k8s kubelet[1786]: E0708 13:35:44.450765    1786 kubelet_node_status.go:540] "Error updating node status, will retry" err="error getting node \"k8s\": Get \"https://192.168.80.5:6443/api/v1/nodes/k8s?timeout=10s\": dial tcp 192.168.80.5:6443: connect: no route to host"
         ```
 
+## 时区 {id=timedatectl}
+
+用于修改时间时的测试
+
+1. 查看时区
+    ```shell
+    timedatectl
+    ```
+    ```shell
+    [root@xuxiaowei-bili ~]# timedatectl
+    Local time: Tue 2024-07-02 20:01:14 CST # 本地时间：中国标准时间：China Standard Time UTC+8
+    Universal time: Tue 2024-07-02 12:01:14 UTC # 世界标准时间：协调世界时：Coordinated Universal Time
+    RTC time: Tue 2024-07-02 12:01:13 # RTC（实时时钟）的当前时间，计算机硬件时间
+    Time zone: Asia/Shanghai (CST, +0800) # 时区：亚洲上海（中国标准时间 CST，偏移量为 +0800 小时）
+    NTP enabled: yes # 网络时间协议是否开启：开启
+    NTP synchronized: yes # 系统时钟是否与NTP服务器同步：已同步
+    RTC in local TZ: no # RTC（实时时钟）是否在本地时区
+    DST active: n/a # 夏令时是否激活：未激活，不适用于中国
+    [root@xuxiaowei-bili ~]#
+    ```
+2. 修改时区
+    ```shell
+    # 中国时区通常用亚洲上海
+    # 如果已经是亚洲上海，则无需设置
+    sudo timedatectl set-timezone Asia/Shanghai
+    ```
+3. 修改时间
+    ```shell
+    sudo timedatectl set-time "2024-07-02 12:00:00"
+    ```
+   如果修改时间时提示异常
+    ```shell
+    Failed to set time: Automatic time synchronization is enabled
+    ```
+   需要关闭 `NTP`（即：上述查看时区命令 `timedatectl` 返回的 `NTP enabled: yes` 修改为 `NTP enabled: no`）
+    ```shell
+    sudo timedatectl set-ntp no
+    
+    # 恢复命令：sudo timedatectl set-ntp yes
+    ```
+4. 查看修改结果
+    ```shell
+    [root@xuxiaowei-bili ~]# sudo timedatectl set-time "2024-07-02 12:00:00"
+    [root@xuxiaowei-bili ~]# timedatectl
+    Local time: Tue 2024-07-02 12:00:01 CST
+    Universal time: Tue 2024-07-02 04:00:01 UTC
+    RTC time: Tue 2024-07-02 04:00:02
+    Time zone: Asia/Shanghai (CST, +0800)
+    NTP enabled: no
+    NTP synchronized: no
+    RTC in local TZ: no
+    DST active: n/a
+    [root@xuxiaowei-bili ~]#
+    ```
+5. 恢复时间
+    ```shell
+    # 使用阿里云的 NTP 同步本机时间
+    sudo ntpdate ntp.aliyun.com
+    ```
+    ```shell
+    # 本机时间同步到计算机硬件时间
+    sudo hwclock --systohc
+    ```
+
 ## 仅证书续期 {id=only-certs-renew}
 
 若仅仅是续期证书，可只查看此节内容
