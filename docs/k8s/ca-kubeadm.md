@@ -1,20 +1,13 @@
----
-sidebar_position: 12
----
+# 使用 kubeadm 生成 Kubernetes（k8s） 新证书 {id=ca-kubeadm}
 
-# 使用 kubeadm 生成 Kubernetes（k8s） 新证书
+[[toc]]
 
-续期证书、更改 IP 时重新生成证书与配置文件
-
-1. 可用于直接更新证书
-2. 可用于 k8s 主节点 IP 切换时重新根据新 IP 生成新证书
-
-## 说明
+## 说明 {id=description}
 
 - [PKI 证书和要求](https://kubernetes.io/zh-cn/docs/setup/best-practices/certificates/)
 
 - [kubeadm certs](https://kubernetes.io/zh-cn/docs/reference/setup-tools/kubeadm/kubeadm-certs/)
-    1. kubeadm certs 提供管理证书的工具。
+    1. `kubeadm certs` 提供管理证书的工具。
     2. 关于如何使用这些命令的细节，可参见
        [使用 kubeadm 管理证书](https://kubernetes.io/zh-cn/docs/tasks/administer-cluster/kubeadm/kubeadm-certs/)。
 
@@ -33,8 +26,10 @@ sidebar_position: 12
        一致，后台都使用相同的代码。
 
 - 本文主要演示从旧 IP 更新为新 IP 后，如何更新证书与配置文件
-    1. 192.168.80.5 是旧IP
-    2. 192.168.80.201 是新IP
+    1. `192.168.80.5` 是旧IP
+    2. `192.168.80.201` 是新IP
+
+- <strong><font color="red">本文档仅适用于非二进制安装的 k8s</font></strong>
 
 - 查看日志
     ```shell
@@ -43,12 +38,109 @@ sidebar_position: 12
 
     1. 如果切换了新 IP，可能会出现日志
 
-       旧 IP 是 192.168.80.5，切换成新 IP 后，旧 IP 无法访问了
+       旧 IP 是 `192.168.80.5`，切换成新 IP 后，旧 IP 无法访问了
         ```
         Jul 08 13:35:44 k8s kubelet[1786]: E0708 13:35:44.450765    1786 kubelet_node_status.go:540] "Error updating node status, will retry" err="error getting node \"k8s\": Get \"https://192.168.80.5:6443/api/v1/nodes/k8s?timeout=10s\": dial tcp 192.168.80.5:6443: connect: no route to host"
         ```
 
-## 配置
+## 仅证书续期 {id=only-certs-renew}
+
+若仅仅是续期证书，可只查看此节内容
+
+1. 查看证书有效期（`只能在主节点执行`）
+    ```shell
+    kubeadm certs check-expiration
+    ```
+    ```shell
+    [root@xuxiaowei-bili ~]# kubeadm certs check-expiration
+    [check-expiration] Reading configuration from the cluster...
+    [check-expiration] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -o yaml'
+    
+    CERTIFICATE                EXPIRES                  RESIDUAL TIME   CERTIFICATE AUTHORITY   EXTERNALLY MANAGED
+    admin.conf                 Mar 09, 2025 13:28 UTC   250d            ca                      no      
+    apiserver                  Mar 09, 2025 13:28 UTC   250d            ca                      no      
+    apiserver-etcd-client      Mar 09, 2025 13:28 UTC   250d            etcd-ca                 no      
+    apiserver-kubelet-client   Mar 09, 2025 13:28 UTC   250d            ca                      no      
+    controller-manager.conf    Mar 09, 2025 13:28 UTC   250d            ca                      no      
+    etcd-healthcheck-client    Mar 09, 2025 13:28 UTC   250d            etcd-ca                 no      
+    etcd-peer                  Mar 09, 2025 13:28 UTC   250d            etcd-ca                 no      
+    etcd-server                Mar 09, 2025 13:28 UTC   250d            etcd-ca                 no      
+    front-proxy-client         Mar 09, 2025 13:28 UTC   250d            front-proxy-ca          no      
+    scheduler.conf             Mar 09, 2025 13:28 UTC   250d            ca                      no      
+    super-admin.conf           Mar 09, 2025 13:28 UTC   250d            ca                      no
+    
+    CERTIFICATE AUTHORITY   EXPIRES                  RESIDUAL TIME   EXTERNALLY MANAGED
+    ca                      Mar 07, 2034 13:28 UTC   9y              no      
+    etcd-ca                 Mar 07, 2034 13:28 UTC   9y              no      
+    front-proxy-ca          Mar 07, 2034 13:28 UTC   9y              no      
+    [root@xuxiaowei-bili ~]#
+    ```
+
+2. 证书续期（`只能在主节点执行`，`每个主节点都需要执行`）
+    ```shell
+    kubeadm certs renew all
+    ```
+    ```shell
+    [root@xuxiaowei-bili ~]# kubeadm certs renew all
+    [renew] Reading configuration from the cluster...
+    [renew] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -o yaml'
+    
+    certificate embedded in the kubeconfig file for the admin to use and for kubeadm itself renewed
+    certificate for serving the Kubernetes API renewed
+    certificate the apiserver uses to access etcd renewed
+    certificate for the API server to connect to kubelet renewed
+    certificate embedded in the kubeconfig file for the controller manager to use renewed
+    certificate for liveness probes to healthcheck etcd renewed
+    certificate for etcd nodes to communicate with each other renewed
+    certificate for serving etcd renewed
+    certificate for the front proxy client renewed
+    certificate embedded in the kubeconfig file for the scheduler manager to use renewed
+    certificate embedded in the kubeconfig file for the super-admin renewed
+    
+    Done renewing certificates. You must restart the kube-apiserver, kube-controller-manager, kube-scheduler and etcd, so that they can use the new certificates.
+    ```
+
+3. 上述执行结果提示需要重启 `kube-apiserver`、`kube-controller-manager`、`kube-scheduler` 和 `etcd`
+
+   使用容器部署的 `kube-apiserver`、`kube-controller-manager`、`kube-scheduler`、`etcd` 可以直接删除容器，
+   `kubelet` 程序会检查容器的状态以及相关的配置文件
+    ```shell
+    kubectl -n kube-system delete pod kube-apiserver-<节点名称>
+    kubectl -n kube-system delete pod kube-controller-manager-<节点名称>
+    kubectl -n kube-system delete pod kube-scheduler-<节点名称>
+    kubectl -n kube-system delete pod etcd-<节点名称>
+    ```
+
+4. 查看续期结果
+    ```shell
+    kubeadm certs renew all
+    ```
+    ```shell
+    [root@xuxiaowei-bili ~]# kubeadm certs check-expiration
+    [check-expiration] Reading configuration from the cluster...
+    [check-expiration] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -o yaml'
+    
+    CERTIFICATE                EXPIRES                  RESIDUAL TIME   CERTIFICATE AUTHORITY   EXTERNALLY MANAGED
+    admin.conf                 Jul 02, 2025 09:14 UTC   364d            ca                      no      
+    apiserver                  Jul 02, 2025 09:14 UTC   364d            ca                      no      
+    apiserver-etcd-client      Jul 02, 2025 09:14 UTC   364d            etcd-ca                 no      
+    apiserver-kubelet-client   Jul 02, 2025 09:14 UTC   364d            ca                      no      
+    controller-manager.conf    Jul 02, 2025 09:14 UTC   364d            ca                      no      
+    etcd-healthcheck-client    Jul 02, 2025 09:14 UTC   364d            etcd-ca                 no      
+    etcd-peer                  Jul 02, 2025 09:14 UTC   364d            etcd-ca                 no      
+    etcd-server                Jul 02, 2025 09:14 UTC   364d            etcd-ca                 no      
+    front-proxy-client         Jul 02, 2025 09:14 UTC   364d            front-proxy-ca          no      
+    scheduler.conf             Jul 02, 2025 09:14 UTC   364d            ca                      no      
+    super-admin.conf           Jul 02, 2025 09:14 UTC   364d            ca                      no
+    
+    CERTIFICATE AUTHORITY   EXPIRES                  RESIDUAL TIME   EXTERNALLY MANAGED
+    ca                      Mar 07, 2034 13:28 UTC   9y              no      
+    etcd-ca                 Mar 07, 2034 13:28 UTC   9y              no      
+    front-proxy-ca          Mar 07, 2034 13:28 UTC   9y              no      
+    [root@xuxiaowei-bili ~]#
+    ```
+
+## 修改IP后重新生成证书 {id=init-phase-kubeconfig}
 
 1. 生成默认初始化配置
     ```shell
@@ -76,7 +168,7 @@ sidebar_position: 12
     kubeadm init phase certs all --config init.yaml
     ```
 
-6. 生成新配置文件，包含：admin.conf、controller-manager.conf、kubelet.conf、scheduler.conf
+6. 生成新配置文件，包含：`admin.conf`、`controller-manager.conf`、`kubelet.conf`、`scheduler.conf`
     ```shell
     kubeadm init phase kubeconfig all --config init.yaml
     ```
@@ -115,9 +207,9 @@ sidebar_position: 12
 
     修改 `/etc/kubernetes/manifests/` 文件夹中的文件，对应的容器会重启
 
-    192.168.80.5 是旧IP
+    `192.168.80.5` 是旧IP
 
-    192.168.80.201 是新IP
+    `192.168.80.201` 是新IP
     ```shell
     # 注意转译
     sudo sed -i 's/192\.168\.80\.5/192.168.80.201/g' /etc/kubernetes/manifests/etcd.yaml
