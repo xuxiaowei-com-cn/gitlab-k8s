@@ -45,7 +45,7 @@
 
 ## 时区 {id=timedatectl}
 
-用于修改时间时的测试
+<strong><font color="red">用于修改时间时的测试</font></strong>
 
 1. 查看时区
     ```shell
