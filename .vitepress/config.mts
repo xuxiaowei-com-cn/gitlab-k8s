@@ -63,6 +63,10 @@ export default defineConfig({
             link: 'https://kubernetes.xuxiaowei.com.cn/zh-cn/'
           },
           {
+            text: 'Docker 文档国内镜像',
+            link: 'https://docker-docs.xuxiaowei.com.cn'
+          },
+          {
             text: '网盾',
             link: 'https://gateway-shield.xuxiaowei.com.cn'
           },
