@@ -11,6 +11,7 @@
 
    | 系统       | 下载地址                                           | 下载地址                                                          |
    |----------|------------------------------------------------|---------------------------------------------------------------|
+   | 7.9.2207 | https://vault.centos.org/7.9.2009/isos/x86_64/ | https://archive.kernel.org/centos-vault/7.9.2009/isos/x86_64/ |
    | 7.9.2009 | https://vault.centos.org/7.9.2009/isos/x86_64/ | https://archive.kernel.org/centos-vault/7.9.2009/isos/x86_64/ |
    | 7.8.2003 | https://vault.centos.org/7.8.2003/isos/x86_64/ | https://archive.kernel.org/centos-vault/7.8.2003/isos/x86_64/ |
    | 7.7.1908 | https://vault.centos.org/7.7.1908/isos/x86_64/ | https://archive.kernel.org/centos-vault/7.7.1908/isos/x86_64/ |
@@ -39,10 +40,18 @@
     |----------|------------------------------------------------|
     | 8.5.2111 | https://vault.centos.org/8-stream/isos/x86_64/ |
 
-5. 版本说明
+5. 阿里云下载
+
+   | 系统       | 下载地址                                                    |
+   |----------|---------------------------------------------------------| 
+   | 7.9.2207 | https://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/ |
+   | 7.9.2009 | https://mirrors.aliyun.com/centos/7.9.2009/isos/x86_64/ |
+   | 8.5.2111 | https://mirrors.aliyun.com/centos/8.5.2111/isos/x86_64/ |
+
+6. 版本说明
    1. 前面两个数字：代表版本号
    2. 后面四位数字：代表年份和月份
-6. **身为一个程序员一定要对URL敏感**
+7. **身为一个程序员一定要对URL敏感**
    1. NetInstall 网络安装版
    2. Minimal 最小化版
       1. 常用
