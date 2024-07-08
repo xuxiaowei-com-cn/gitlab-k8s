@@ -7,18 +7,11 @@
 ## 说明
 
 1. [CentOS Vault Mirror](https://vault.centos.org/)
-
-2. CentOS 7/8 最新版（含各大云厂商的镜像）
-
-   | 系统       | 下载地址                                                |
-      |----------|-----------------------------------------------------|
-   | CentOS 7 | http://isoredirect.centos.org/centos/7/isos/x86_64/ |
-   | CentOS 8 | http://isoredirect.centos.org/centos/8/isos/x86_64/ |
-
-3. CentOS 7 历史版本下载
+2. CentOS 7 历史版本下载
 
    | 系统       | 下载地址                                           | 下载地址                                                          |
-      |----------|------------------------------------------------|---------------------------------------------------------------|
+   |----------|------------------------------------------------|---------------------------------------------------------------|
+   | 7.9.2009 | https://vault.centos.org/7.9.2009/isos/x86_64/ | https://archive.kernel.org/centos-vault/7.9.2009/isos/x86_64/ |
    | 7.8.2003 | https://vault.centos.org/7.8.2003/isos/x86_64/ | https://archive.kernel.org/centos-vault/7.8.2003/isos/x86_64/ |
    | 7.7.1908 | https://vault.centos.org/7.7.1908/isos/x86_64/ | https://archive.kernel.org/centos-vault/7.7.1908/isos/x86_64/ |
    | 7.6.1810 | https://vault.centos.org/7.6.1810/isos/x86_64/ | https://archive.kernel.org/centos-vault/7.6.1810/isos/x86_64/ |
@@ -29,16 +22,22 @@
    | 7.1.1503 | https://vault.centos.org/7.1.1503/isos/x86_64/ | https://archive.kernel.org/centos-vault/7.1.1503/isos/x86_64/ |
    | 7.0.1406 | https://vault.centos.org/7.0.1406/isos/x86_64/ | https://archive.kernel.org/centos-vault/7.0.1406/isos/x86_64/ |
 
-4. CentOS 8 历史版本下载
+3. CentOS 8 历史版本下载
 
    | 系统       | 下载地址                                           | 下载地址                                                          |
-      |----------|------------------------------------------------|---------------------------------------------------------------|
+   |----------|------------------------------------------------|---------------------------------------------------------------|
    | 8.5.2111 | https://vault.centos.org/8.5.2111/isos/x86_64/ | https://archive.kernel.org/centos-vault/8.5.2111/isos/x86_64/ |
    | 8.4.2105 | https://vault.centos.org/8.4.2105/isos/x86_64/ | https://archive.kernel.org/centos-vault/8.4.2105/isos/x86_64/ |
    | 8.3.2011 | https://vault.centos.org/8.3.2011/isos/x86_64/ | https://archive.kernel.org/centos-vault/8.3.2011/isos/x86_64/ |
    | 8.2.2004 | https://vault.centos.org/8.2.2004/isos/x86_64/ | https://archive.kernel.org/centos-vault/8.2.2004/isos/x86_64/ |
    | 8.1.1911 | https://vault.centos.org/8.1.1911/isos/x86_64/ | https://archive.kernel.org/centos-vault/8.1.1911/isos/x86_64/ |
    | 8.0.1905 | https://vault.centos.org/8.0.1905/isos/x86_64/ | https://archive.kernel.org/centos-vault/8.0.1905/isos/x86_64/ |
+
+4. CentOS 8 Stream 版本下载
+
+    | 系统       | 下载地址                                           |
+    |----------|------------------------------------------------|
+    | 8.5.2111 | https://vault.centos.org/8-stream/isos/x86_64/ |
 
 5. 版本说明
    1. 前面两个数字：代表版本号
