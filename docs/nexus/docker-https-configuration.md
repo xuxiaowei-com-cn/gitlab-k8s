@@ -88,14 +88,15 @@
 4. 修改配置文件，填写 SSL 证书的文件名与秘钥
    如果证书放在 **/some/dir/nexus-data**/etc/ssl 中，文件名为 **keystore.jks** 就不需要更改证书的配置了。
    如果证书的密码为 **password**，也不用修改了。
-   如果修改了 docker nexus 镜像的版本，需要重新设置一下密码。
+
+   <strong><font color="red">如果修改了 docker nexus 镜像的版本，需要重新设置一下密码。</font></strong>
 
    ```shell
    # 设置你的nexus容器的名字
    nexus_container_name=nexus
    
    # 修改上述指定容器内部的 /opt/sonatype/nexus/etc/jetty/jetty-https.xml 文件
-   vim $(docker inspect $(docker ps -a|grep $nexus_container_name |awk '{print $1}') |  sed 's/,/\n/g' | grep "MergedDir" | sed 's/:/\n/g' | sed '1d' | sed 's/"//g')/opt/sonatype/nexus/etc/jetty/jetty-https.xml
+   vim $(docker inspect $nexus_container_name |  sed 's/,/\n/g' | grep "MergedDir" | sed 's/:/\n/g' | sed '1d' | sed 's/"//g')/opt/sonatype/nexus/etc/jetty/jetty-https.xml
    ```
 
    将 keystore.jks 修改为你的证书名称
