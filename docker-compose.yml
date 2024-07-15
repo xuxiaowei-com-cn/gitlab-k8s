@@ -1,6 +1,6 @@
 services:
   gitlab-k8s:
-    image: ${CI_REGISTRY_IMAGE}:${DOCKER_TAG}-${CI_PIPELINE_ID}
+    image: registry.cn-qingdao.aliyuncs.com/xuxiaoweicomcn/gitlab-k8s:${DOCKER_TAG}-${CI_PIPELINE_ID}
     restart: always
     ports:
       - ${GITLAB_K8S_PORT:-45650}:80

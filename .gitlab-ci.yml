@@ -5,7 +5,7 @@ stages:
   - sync
 
 variables:
-  DOCKER_TAG: 1.0.0
+  DOCKER_TAG: 1.0.1
 
 pages:
   stage: pages
@@ -40,7 +40,7 @@ docker:build:
     - job: pages
       artifacts: true
   before_script:
-    - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(printf "%s:%s" "${CI_REGISTRY_USER}" "${CI_REGISTRY_PASSWORD}" | base64 | tr -d '\n')\"},\"https://index.docker.io/v1/\":{\"auth\":\"$(printf "%s:%s" ${DOCKER_USERNAME} "${DOCKER_PASSWORD}" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
+    - echo "{\"auths\":{\"registry.cn-qingdao.aliyuncs.com\":{\"auth\":\"$(printf "%s:%s" "${ACR_REGISTRY_USER}" "${ACR_REGISTRY_PASSWORD}" | base64 | tr -d '\n')\"},\"https://index.docker.io/v1/\":{\"auth\":\"$(printf "%s:%s" ${DOCKER_USERNAME} "${DOCKER_PASSWORD}" | base64 | tr -d '\n')\"}}}" > /kaniko/.docker/config.json
   script:
     - echo $DOCKER_TAG
     - /kaniko/executor version
@@ -50,8 +50,8 @@ docker:build:
       --context "${CI_PROJECT_DIR}"
       --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
       --build-arg "CI_PIPELINE_URL=${CI_PIPELINE_URL}"
-      --destination "${CI_REGISTRY_IMAGE}:${DOCKER_TAG}"
-      --destination "${CI_REGISTRY_IMAGE}:${DOCKER_TAG}-${CI_PIPELINE_ID}"
+      --destination "registry.cn-qingdao.aliyuncs.com/xuxiaoweicomcn/gitlab-k8s:${DOCKER_TAG}"
+      --destination "registry.cn-qingdao.aliyuncs.com/xuxiaoweicomcn/gitlab-k8s:${DOCKER_TAG}-${CI_PIPELINE_ID}"
       --destination "xuxiaoweicomcn/gitlab-k8s:${DOCKER_TAG}"
       --destination "xuxiaoweicomcn/gitlab-k8s:${DOCKER_TAG}-${CI_PIPELINE_ID}";
       else
@@ -59,8 +59,8 @@ docker:build:
       --context "${CI_PROJECT_DIR}"
       --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
       --build-arg "CI_PIPELINE_URL=${CI_PIPELINE_URL}"
-      --destination "${CI_REGISTRY_IMAGE}:${DOCKER_TAG}"
-      --destination "${CI_REGISTRY_IMAGE}:${DOCKER_TAG}-${CI_PIPELINE_ID}";
+      --destination "registry.cn-qingdao.aliyuncs.com/xuxiaoweicomcn/gitlab-k8s:${DOCKER_TAG}"
+      --destination "registry.cn-qingdao.aliyuncs.com/xuxiaoweicomcn/gitlab-k8s:${DOCKER_TAG}-${CI_PIPELINE_ID}";
       fi
   rules:
     - if: $CI_COMMIT_BRANCH == "main" && $ENABLE_DOCS_DOCKER == "true"
