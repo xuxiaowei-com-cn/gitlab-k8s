@@ -62,8 +62,8 @@ GitLab pages（静态页面相关文件）使用对象储存 S3（MinIO）
      # 其中 192.168.80.4:9000 就是 URL 拼接的 host
      'endpoint' => 'http://192.168.80.4:9000',
      # URL 拼接方式
-     # true：host/bucket_name/object，如：http://192.168.80.4:9000/gitlab-uploads/object
-     # false：bucket_name.host/object，如：http://gitlab-uploads.192.168.80.4:9000/object
+     # true：host/bucket_name/object，如：http://192.168.80.4:9000/gitlab-pages/object
+     # false：bucket_name.host/object，如：http://gitlab-pages.192.168.80.4:9000/object
      'path_style' => true
    }
    ```
