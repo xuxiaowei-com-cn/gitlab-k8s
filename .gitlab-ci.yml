@@ -23,6 +23,9 @@ pages:
       cat .vitepress/config.mts;
       fi
     - npm run docs:build
+    # https://docs.gitlab.com/ee/user/project/pages/introduction.html#serving-compressed-assets
+    - find .vitepress/dist -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|css\)$' -exec gzip -f -k {} \;
+    #- find .vitepress/dist -type f -regex '.*\.\(htm\|html\|txt\|text\|js\|css\)$' -exec brotli -f -k {} \;
     - cp -r .vitepress/dist/* public/
   artifacts:
     expire_in: 1 week
