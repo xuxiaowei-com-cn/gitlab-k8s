@@ -62,14 +62,14 @@ GitLab Runner Cache 缓存 支持 S3 标准协议，如：OSS、OOS 等等
             # 如果不共享，则会根据 [[runners]] 中的 token 前 8 位创建文件夹，每个 [[runners]] 缓存仅自己能使用
             Shared = false
             [runners.cache.s3]
-                # 缓存服务器的地址+端口
+              # 缓存服务器的地址+端口
               ServerAddress = "192.168.80.14:9000"
               # Access Keys 账户凭证
-                    AccessKey = "hCfpQlQuEXtBYEAw"
+              AccessKey = "hCfpQlQuEXtBYEAw"
               SecretKey = "kHH5RwzCRiRUtujKlNRZZZFpuANm6Yr1"
-                # 创建的 Buckets 名称
+              # 创建的 Buckets 名称
               BucketName = "bucket-1"
-                # 设置为 true 代表不使用 https
+              # 设置为 true 代表不使用 https
               Insecure = true
         ```
 
@@ -87,11 +87,11 @@ GitLab Runner Cache 缓存 支持 S3 标准协议，如：OSS、OOS 等等
              # 此处以青岛地区为例，这里不填写协议
              ServerAddress = "oss-cn-qingdao.aliyuncs.com"
              # Access Keys 账户凭证
-                   AccessKey = ""
+             AccessKey = ""
              SecretKey = ""
-               # 创建的 Buckets 名称
+             # 创建的 Buckets 名称
              BucketName = ""
-               # 设置为 false 代表使用 https
+             # 设置为 false 代表使用 https
              Insecure = false
        ```
 
@@ -111,11 +111,11 @@ GitLab Runner Cache 缓存 支持 S3 标准协议，如：OSS、OOS 等等
              # 此处以青岛地区为例，这里不填写协议
              ServerAddress = "oos-sdqd.ctyunapi.cn"
              # Access Keys 账户凭证
-                   AccessKey = ""
+             AccessKey = ""
              SecretKey = ""
-               # 创建的 Buckets 名称
+             # 创建的 Buckets 名称
              BucketName = ""
-               # 设置为 false 代表使用 https
+             # 设置为 false 代表使用 https
              Insecure = false
              # 填写区域，不填写无法使用
              # 此处以山东青岛地区为例
