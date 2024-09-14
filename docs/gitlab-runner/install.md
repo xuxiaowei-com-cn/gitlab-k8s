@@ -54,6 +54,34 @@ EOF
 sudo yum -y install gitlab-runner
 ```
 
+```shell [清华大学源]
+cat <<EOF | tee /etc/yum.repos.d/runner_gitlab-runner.repo 
+[runner_gitlab-runner]
+name=runner_gitlab-runner
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/gitlab-runner/yum/el\$releasever-\$basearch
+repo_gpgcheck=0
+gpgcheck=0
+enabled=1
+
+EOF
+
+sudo yum -y install gitlab-runner
+```
+
+```shell [南京大学源]
+cat <<EOF | tee /etc/yum.repos.d/runner_gitlab-runner.repo 
+[runner_gitlab-runner]
+name=runner_gitlab-runner
+baseurl=https://mirrors.nju.edu.cn/gitlab-runner/yum/el\$releasever-\$basearch
+repo_gpgcheck=0
+gpgcheck=0
+enabled=1
+
+EOF
+
+sudo yum -y install gitlab-runner
+```
+
 ```shell [官方源]
 curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.rpm.sh | sudo bash
 sudo yum -y install gitlab-runner
@@ -104,6 +132,34 @@ sudo yum -y install gitlab-runner
    sudo yum -y install gitlab-runner
    ```
 
+   ```shell [清华大学源]
+   cat <<EOF | tee /etc/yum.repos.d/runner_gitlab-runner.repo 
+   [runner_gitlab-runner]
+   name=runner_gitlab-runner
+   baseurl=https://mirrors.tuna.tsinghua.edu.cn/gitlab-runner/yum/el7-\$basearch
+   repo_gpgcheck=0
+   gpgcheck=0
+   enabled=1
+   
+   EOF
+   
+   sudo yum -y install gitlab-runner
+   ```
+
+   ```shell [南京大学源]
+   cat <<EOF | tee /etc/yum.repos.d/runner_gitlab-runner.repo 
+   [runner_gitlab-runner]
+   name=runner_gitlab-runner
+   baseurl=https://mirrors.nju.edu.cn/gitlab-runner/yum/el7-\$basearch
+   repo_gpgcheck=0
+   gpgcheck=0
+   enabled=1
+   
+   EOF
+   
+   sudo yum -y install gitlab-runner
+   ```
+
    ```shell [官方源]
    sudo curl 'https://packages.gitlab.com/install/repositories/runner/gitlab-runner/config_file.repo?os=centos&dist=7&source=script' --header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36' > /etc/yum.repos.d/runner_gitlab-runner.repo
    sudo yum -y install gitlab-runner
@@ -120,6 +176,20 @@ sudo yum -y install gitlab-runner
    [runner_gitlab-runner]
    name=runner_gitlab-runner
    baseurl=https://packages.gitlab.cn/repository/runner-rpm/el/8/\$basearch
+   repo_gpgcheck=0
+   gpgcheck=0
+   enabled=1
+   
+   EOF
+   
+   sudo yum -y install gitlab-runner
+   ```
+
+   ```shell [南京大学源]
+   cat <<EOF | tee /etc/yum.repos.d/runner_gitlab-runner.repo 
+   [runner_gitlab-runner]
+   name=runner_gitlab-runner
+   baseurl=https://mirrors.nju.edu.cn/gitlab-runner/yum/el8-\$basearch
    repo_gpgcheck=0
    gpgcheck=0
    enabled=1
@@ -159,6 +229,34 @@ sudo yum -y install gitlab-runner
    [runner_gitlab-runner]
    name=runner_gitlab-runner
    baseurl=https://mirrors.cloud.tencent.com/gitlab-runner/yum/el9-\$basearch
+   repo_gpgcheck=0
+   gpgcheck=0
+   enabled=1
+   
+   EOF
+   
+   sudo yum -y install gitlab-runner
+   ```
+
+   ```shell [清华大学源]
+   cat <<EOF | tee /etc/yum.repos.d/runner_gitlab-runner.repo 
+   [runner_gitlab-runner]
+   name=runner_gitlab-runner
+   baseurl=https://mirrors.tuna.tsinghua.edu.cn/gitlab-runner/yum/el9-\$basearch
+   repo_gpgcheck=0
+   gpgcheck=0
+   enabled=1
+   
+   EOF
+   
+   sudo yum -y install gitlab-runner
+   ```
+
+   ```shell [南京大学源]
+   cat <<EOF | tee /etc/yum.repos.d/runner_gitlab-runner.repo 
+   [runner_gitlab-runner]
+   name=runner_gitlab-runner
+   baseurl=https://mirrors.nju.edu.cn/gitlab-runner/yum/el9-\$basearch
    repo_gpgcheck=0
    gpgcheck=0
    enabled=1
