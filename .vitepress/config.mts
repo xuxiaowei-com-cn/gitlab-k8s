@@ -165,8 +165,7 @@ export default defineConfig({
         collapsed: true,
         base: '/docs/gitlab-runner/',
         items: [
-          { text: 'CentOS 安装 GitLab Runner', link: 'centos-install' },
-          { text: 'Anolis 8 安装 GitLab Runner', link: 'anolis-8-install' },
+          { text: 'GitLab Runner 安装', link: 'install' },
           { text: 'GitLab Runner Kubernetes（k8s）配置', link: 'k8s-configuration' },
           { text: 'GitLab Runner Cache 缓存配置', link: 'cache-s3-configuration' },
           { text: 'Docker-in-Docker', link: 'docker-in-docker-configuration' },
