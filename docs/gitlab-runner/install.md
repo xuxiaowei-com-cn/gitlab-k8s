@@ -24,6 +24,15 @@
 
 ## CentOS 安装 GitLab Runner {id=centos-install-gitlab-runner}
 
+::: warning 警告
+
+1. 可能存在国内镜像未同步对应系统版本的情况，如：腾讯、清华大学只同步了 CentOS 7 和 9，没有同步 CentOS 8。
+   根据自身情况，选择接近的版本或使用其他镜像，根据作者的经验，选择 GitLab Runner 版本时，可选择低于当前系统版本的软件，
+   如：CentOS 8 可以安装针对于 CentOS 7 平台编译的 GitLab Runner
+2. 国内镜像同步可能存在不及时的情况
+
+:::
+
 ::: code-group
 
 ```shell [极狐源]
@@ -37,6 +46,7 @@ enabled=1
 
 EOF
 
+sudo yum clean all
 sudo yum -y install gitlab-runner
 ```
 
@@ -51,6 +61,7 @@ enabled=1
 
 EOF
 
+sudo yum clean all
 sudo yum -y install gitlab-runner
 ```
 
@@ -65,6 +76,7 @@ enabled=1
 
 EOF
 
+sudo yum clean all
 sudo yum -y install gitlab-runner
 ```
 
@@ -79,6 +91,7 @@ enabled=1
 
 EOF
 
+sudo yum clean all
 sudo yum -y install gitlab-runner
 ```
 
@@ -115,6 +128,7 @@ sudo yum -y install gitlab-runner
    
    EOF
    
+   sudo yum clean all
    sudo yum -y install gitlab-runner
    ```
 
@@ -129,6 +143,7 @@ sudo yum -y install gitlab-runner
    
    EOF
    
+   sudo yum clean all
    sudo yum -y install gitlab-runner
    ```
 
@@ -143,6 +158,7 @@ sudo yum -y install gitlab-runner
    
    EOF
    
+   sudo yum clean all
    sudo yum -y install gitlab-runner
    ```
 
@@ -157,6 +173,7 @@ sudo yum -y install gitlab-runner
    
    EOF
    
+   sudo yum clean all
    sudo yum -y install gitlab-runner
    ```
 
@@ -182,6 +199,7 @@ sudo yum -y install gitlab-runner
    
    EOF
    
+   sudo yum clean all
    sudo yum -y install gitlab-runner
    ```
 
@@ -196,6 +214,7 @@ sudo yum -y install gitlab-runner
    
    EOF
    
+   sudo yum clean all
    sudo yum -y install gitlab-runner
    ```
 
@@ -221,6 +240,7 @@ sudo yum -y install gitlab-runner
    
    EOF
    
+   sudo yum clean all
    sudo yum -y install gitlab-runner
    ```
 
@@ -235,6 +255,7 @@ sudo yum -y install gitlab-runner
    
    EOF
    
+   sudo yum clean all
    sudo yum -y install gitlab-runner
    ```
 
@@ -249,6 +270,7 @@ sudo yum -y install gitlab-runner
    
    EOF
    
+   sudo yum clean all
    sudo yum -y install gitlab-runner
    ```
 
@@ -263,6 +285,7 @@ sudo yum -y install gitlab-runner
    
    EOF
    
+   sudo yum clean all
    sudo yum -y install gitlab-runner
    ```
 
