@@ -204,6 +204,8 @@ ps aux | grep gitlab-runner
 
 ## 配置证书信任 {id=trust-certificate}
 
+### 异常 {id=runner-exception}
+
 ```shell
 # 自己生成的证书，如果不进行信任，注册时可能出现的问题：
 # ERROR: Registering runner... failed                 runner=6iuLhyWx status=couldn't execute POST against https://gitlab.example.com/api/v4/runners: Post "https://gitlab.example.com/api/v4/runners": x509: certificate is not valid for any names, but wanted to match gitlab.example.com
@@ -224,10 +226,11 @@ ps aux | grep gitlab-runner
 
 # 如果域名证书未生效，或者已过期，会出现下面的错误
 # x509: certificate has expired or is not yet valid: current time 2022-11-15T20:45:12+08:00 is before 2022-11-15T19:49:27Z
+```
 
-#
-#
+### 信任域名命令 {id=trust-certificate-command}
 
+```shell
 sudo mkdir -p /etc/gitlab-runner/certs
 
 # 本文使用域名是IP：192.168.80.14
@@ -241,6 +244,10 @@ openssl s_client -showcerts -connect 192.168.80.14:443 -servername 192.168.80.14
 echo | openssl s_client -CAfile /etc/gitlab-runner/certs/192.168.80.14.crt -connect 192.168.80.14:443 -servername 192.168.80.14
 # echo | openssl s_client -CAfile /etc/gitlab-runner/certs/gitlab.example.com.crt -connect gitlab.example.com:443 -servername gitlab.example.com
 ```
+
+### 自动生成信任域名命令 {id=automatically-trust-certificate-command}
+
+<GitLabRunnerTrustCertificate />
 
 ## 注册 GitLab Runner {id=gitlab-runner-register}
 
