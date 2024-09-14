@@ -179,6 +179,8 @@ sudo yum -y install gitlab-runner
 
    ```shell [官方源]
    sudo curl 'https://packages.gitlab.com/install/repositories/runner/gitlab-runner/config_file.repo?os=centos&dist=7&source=script' --header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36' > /etc/yum.repos.d/runner_gitlab-runner.repo
+   
+   sudo yum clean all
    sudo yum -y install gitlab-runner
    ```
 
@@ -220,6 +222,8 @@ sudo yum -y install gitlab-runner
 
    ```shell [官方源]
    sudo curl 'https://packages.gitlab.com/install/repositories/runner/gitlab-runner/config_file.repo?os=centos&dist=8&source=script' --header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36' > /etc/yum.repos.d/runner_gitlab-runner.repo
+   
+   sudo yum clean all
    sudo yum -y install gitlab-runner
    ```
 
@@ -291,6 +295,8 @@ sudo yum -y install gitlab-runner
 
    ```shell [官方源]
    sudo curl 'https://packages.gitlab.com/install/repositories/runner/gitlab-runner/config_file.repo?os=centos&dist=9&source=script' --header 'User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36' > /etc/yum.repos.d/runner_gitlab-runner.repo
+   
+   sudo yum clean all
    sudo yum -y install gitlab-runner
    ```
 
