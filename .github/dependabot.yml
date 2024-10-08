@@ -13,7 +13,6 @@ version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "/"
-    auto-merge: true
     # 默认：5
     open-pull-requests-limit: 5
     schedule:
