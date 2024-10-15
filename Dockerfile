@@ -1,5 +1,5 @@
-# FROM nginx:1.27.0
-FROM registry.cn-qingdao.aliyuncs.com/xuxiaoweicomcn/nginx:1.27.0
+# FROM nginx:1.27.2
+FROM registry.cn-qingdao.aliyuncs.com/xuxiaoweicomcn/nginx:1.27.2
 
 LABEL maintainer="徐晓伟 <xuxiaowei@xuxiaowei.com.cn>"
 
