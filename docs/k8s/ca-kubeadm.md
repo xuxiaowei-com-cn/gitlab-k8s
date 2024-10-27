@@ -59,10 +59,18 @@
     [root@xuxiaowei-bili ~]#
     ```
 2. 查看证书有效期（`只能在主节点执行`）
-    ```shell
+
+   ::: code-group
+
+    ```shell [查看证书有效期]
     kubeadm certs check-expiration
     ```
-    ```shell
+
+   :::
+
+   ::: code-group
+
+    ```shell [证书未过期]
     [root@xuxiaowei-bili ~]# kubeadm certs check-expiration
     [check-expiration] Reading configuration from the cluster...
     [check-expiration] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -o yaml'
@@ -86,6 +94,33 @@
     front-proxy-ca          Mar 07, 2034 13:28 UTC   9y              no      
     [root@xuxiaowei-bili ~]#
     ```
+
+    ```shell [证书已过期]
+    [root@k8s ~]# kubeadm certs check-expiration
+    [check-expiration] Reading configuration from the cluster...
+    [check-expiration] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -o yaml'
+    [check-expiration] Error reading configuration from the Cluster. Falling back to default configuration
+    
+    CERTIFICATE                EXPIRES                  RESIDUAL TIME   CERTIFICATE AUTHORITY   EXTERNALLY MANAGED
+    admin.conf                 Sep 07, 2024 16:11 UTC   <invalid>       ca                      no      
+    apiserver                  Sep 07, 2024 16:10 UTC   <invalid>       ca                      no      
+    apiserver-etcd-client      Sep 07, 2024 16:11 UTC   <invalid>       etcd-ca                 no      
+    apiserver-kubelet-client   Sep 07, 2024 16:10 UTC   <invalid>       ca                      no      
+    controller-manager.conf    Sep 07, 2024 16:11 UTC   <invalid>       ca                      no      
+    etcd-healthcheck-client    Sep 07, 2024 16:11 UTC   <invalid>       etcd-ca                 no      
+    etcd-peer                  Sep 07, 2024 16:10 UTC   <invalid>       etcd-ca                 no      
+    etcd-server                Sep 07, 2024 16:10 UTC   <invalid>       etcd-ca                 no      
+    front-proxy-client         Sep 07, 2024 16:10 UTC   <invalid>       front-proxy-ca          no      
+    scheduler.conf             Sep 07, 2024 16:11 UTC   <invalid>       ca                      no
+    
+    CERTIFICATE AUTHORITY   EXPIRES                  RESIDUAL TIME   EXTERNALLY MANAGED
+    ca                      Sep 05, 2033 16:10 UTC   8y              no      
+    etcd-ca                 Sep 05, 2033 16:10 UTC   8y              no      
+    front-proxy-ca          Sep 05, 2033 16:10 UTC   8y              no      
+    [root@k8s ~]#
+    ```
+
+   :::
 
 3. 证书续期（`只能在主节点执行`，`每个主节点都需要执行`）
     ```shell
@@ -113,8 +148,13 @@
 
 4. 上述执行结果提示需要重启 `kube-apiserver`、`kube-controller-manager`、`kube-scheduler` 和 `etcd`
 
-   使用容器部署的 `kube-apiserver`、`kube-controller-manager`、`kube-scheduler`、`etcd` 可以直接删除容器，
-   `kubelet` 程序会检查容器的状态以及相关的配置文件
+   ::: warning 警告
+
+    1. 如果使用容器部署的 `kube-apiserver`、`kube-controller-manager`、`kube-scheduler`、`etcd` 可以直接删除容器，
+       `kubelet` 程序会检查容器的状态以及相关的配置文件
+
+   :::
+
     ```shell
     kubectl -n kube-system delete pod kube-apiserver-<节点名称>
     kubectl -n kube-system delete pod kube-controller-manager-<节点名称>
@@ -158,7 +198,7 @@
     kubeadm config print init-defaults > init.yaml
     ```
 
-2. 如果主节点 IP 变更，将 init.yaml 中的 advertiseAddress 修改为新 IP，<strong><font color="red">如果 k8s
+2. 如果主节点 IP 变更，将 init.yaml 中的 `advertiseAddress` 修改为新 IP，<strong><font color="red">如果 k8s
    安装初始化时有特别自定义，请在此处做同步修改</font></strong>（可选）
     ```shell
     vim init.yaml
