@@ -209,7 +209,7 @@
     mv /etc/kubernetes/pki /etc/kubernetes/pki-bak
     ```
 
-4. 备份配置文件，包含：admin.conf、controller-manager.conf、kubelet.conf、scheduler.conf
+4. 备份配置文件，包含：`admin.conf`、`controller-manager.conf`、`kubelet.conf`、`scheduler.conf`
     ```shell
     for file in admin.conf controller-manager.conf kubelet.conf scheduler.conf; do mv -f "/etc/kubernetes/$file" "/etc/kubernetes/$file.bak"; done
     ```
