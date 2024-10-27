@@ -339,13 +339,11 @@
 
     `192.168.80.201` 是新IP
     ```shell
-    # 注意转译
-    sudo sed -i 's/192\.168\.80\.5/192.168.80.201/g' /etc/kubernetes/manifests/etcd.yaml
+    sudo sed -i 's#192.168.80.5#192.168.80.201#' /etc/kubernetes/manifests/etcd.yaml
     ```
 
     ```shell
-    # 注意转译
-    sudo sed -i 's/192\.168\.80\.5/192.168.80.201/g' /etc/kubernetes/manifests/kube-apiserver.yaml
+    sudo sed -i 's#192.168.80.5#192.168.80.201#' /etc/kubernetes/manifests/kube-apiserver.yaml
     ```
 
 11. 重启 `kubelet`，验证所有配置是否修改完成
