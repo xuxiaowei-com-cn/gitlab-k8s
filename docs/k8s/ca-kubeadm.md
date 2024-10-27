@@ -29,7 +29,7 @@
     1. `192.168.80.5` 是旧IP
     2. `192.168.80.201` 是新IP
 
-- <strong><font color="red">本文档仅适用于非二进制安装的 k8s</font></strong>
+- <strong><font color="red">本文档仅适用于使用 kubeadm（非二进制）安装的 k8s</font></strong>
 
 - 查看日志
     ```shell
@@ -62,13 +62,9 @@
 
    ::: code-group
 
-    ```shell [查看证书有效期]
+    ```shell [查看证书有效期命令]
     kubeadm certs check-expiration
     ```
-
-   :::
-
-   ::: code-group
 
     ```shell [证书未过期]
     [root@xuxiaowei-bili ~]# kubeadm certs check-expiration
@@ -123,10 +119,14 @@
    :::
 
 3. 证书续期（`只能在主节点执行`，`每个主节点都需要执行`）
-    ```shell
+
+   ::: code-group
+
+    ```shell [证书续期命令]
     kubeadm certs renew all
     ```
-    ```shell
+
+    ```shell [证书续期执行结果]
     [root@xuxiaowei-bili ~]# kubeadm certs renew all
     [renew] Reading configuration from the cluster...
     [renew] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -o yaml'
@@ -145,6 +145,7 @@
     
     Done renewing certificates. You must restart the kube-apiserver, kube-controller-manager, kube-scheduler and etcd, so that they can use the new certificates.
     ```
+   :::
 
 4. 上述执行结果提示需要重启 `kube-apiserver`、`kube-controller-manager`、`kube-scheduler` 和 `etcd`
 
@@ -163,10 +164,12 @@
     ```
 
 5. 查看续期结果
-    ```shell
+
+   ::: code-group
+    ```shell [查看证书有效期命令]
     kubeadm certs check-expiration
     ```
-    ```shell
+    ```shell [查看证书有效期结果]
     [root@xuxiaowei-bili ~]# kubeadm certs check-expiration
     [check-expiration] Reading configuration from the cluster...
     [check-expiration] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -o yaml'
@@ -190,6 +193,7 @@
     front-proxy-ca          Mar 07, 2034 13:28 UTC   9y              no      
     [root@xuxiaowei-bili ~]#
     ```
+   :::
 
 ## 修改IP后重新生成证书 {id=init-phase-kubeconfig}
 
@@ -215,14 +219,87 @@
     ```
 
 5. 生成新证书（重新生成 `/etc/kubernetes/pki` 文件夹中的证书）
-    ```shell
+   ::: code-group
+    ```shell [生成新证书命令]
     kubeadm init phase certs all --config init.yaml
     ```
+    ```shell [可选生成新证书范围]
+    [root@k8s ~]# kubeadm init phase certs --help
+    This command is not meant to be run on its own. See list of available subcommands.
+    
+    Usage:
+    kubeadm init phase certs [flags]
+    kubeadm init phase certs [command]
+    
+    Available Commands:
+    all                      Generate all certificates
+    apiserver                Generate the certificate for serving the Kubernetes API
+    apiserver-etcd-client    Generate the certificate the apiserver uses to access etcd
+    apiserver-kubelet-client Generate the certificate for the API server to connect to kubelet
+    ca                       Generate the self-signed Kubernetes CA to provision identities for other Kubernetes components
+    etcd-ca                  Generate the self-signed CA to provision identities for etcd
+    etcd-healthcheck-client  Generate the certificate for liveness probes to healthcheck etcd
+    etcd-peer                Generate the certificate for etcd nodes to communicate with each other
+    etcd-server              Generate the certificate for serving etcd
+    front-proxy-ca           Generate the self-signed CA to provision identities for front proxy
+    front-proxy-client       Generate the certificate for the front proxy client
+    sa                       Generate a private key for signing service account tokens along with its public key
+    
+    Flags:
+    -h, --help   help for certs
+    
+    Global Flags:
+    --add-dir-header           If true, adds the file directory to the header of the log messages
+    --log-file string          If non-empty, use this log file (no effect when -logtostderr=true)
+    --log-file-max-size uint   Defines the maximum size a log file can grow to (no effect when -logtostderr=true). Unit is megabytes. If the value is 0, the maximum file size is unlimited. (default 1800)
+    --one-output               If true, only write logs to their native severity level (vs also writing to each lower severity level; no effect when -logtostderr=true)
+    --rootfs string            [EXPERIMENTAL] The path to the 'real' host root filesystem.
+    --skip-headers             If true, avoid header prefixes in the log messages
+    --skip-log-headers         If true, avoid headers when opening log files (no effect when -logtostderr=true)
+    -v, --v Level                  number for the log level verbosity
+    
+    Use "kubeadm init phase certs [command] --help" for more information about a command.
+    [root@k8s ~]#
+    ```
+   :::
 
 6. 生成新配置文件，包含：`admin.conf`、`controller-manager.conf`、`kubelet.conf`、`scheduler.conf`
-    ```shell
+   ::: code-group
+    ```shell [生成新配置文件命令]
     kubeadm init phase kubeconfig all --config init.yaml
     ```
+    ```shell [可选生成新配置范围]
+    [root@k8s ~]# kubeadm init phase kubeconfig --help
+    This command is not meant to be run on its own. See list of available subcommands.
+    
+    Usage:
+    kubeadm init phase kubeconfig [flags]
+    kubeadm init phase kubeconfig [command]
+    
+    Available Commands:
+    admin              Generate a kubeconfig file for the admin to use and for kubeadm itself
+    all                Generate all kubeconfig files
+    controller-manager Generate a kubeconfig file for the controller manager to use
+    kubelet            Generate a kubeconfig file for the kubelet to use *only* for cluster bootstrapping purposes
+    scheduler          Generate a kubeconfig file for the scheduler to use
+    
+    Flags:
+    -h, --help   help for kubeconfig
+    
+    Global Flags:
+    --add-dir-header           If true, adds the file directory to the header of the log messages
+    --log-file string          If non-empty, use this log file (no effect when -logtostderr=true)
+    --log-file-max-size uint   Defines the maximum size a log file can grow to (no effect when -logtostderr=true). Unit is megabytes. If the value is 0, the maximum file size is unlimited. (default 1800)
+    --one-output               If true, only write logs to their native severity level (vs also writing to each lower severity level; no effect when -logtostderr=true)
+    --rootfs string            [EXPERIMENTAL] The path to the 'real' host root filesystem.
+    --skip-headers             If true, avoid header prefixes in the log messages
+    --skip-log-headers         If true, avoid headers when opening log files (no effect when -logtostderr=true)
+    -v, --v Level                  number for the log level verbosity
+    
+    Use "kubeadm init phase kubeconfig [command] --help" for more information about a command.
+    [root@k8s ~]#
+    ```
+   :::
 
 7. 修改用户配置
     1. 如果你使用环境变量 `export KUBECONFIG=/etc/kubernetes/admin.conf` 指定的配置，则可以忽略此步骤
