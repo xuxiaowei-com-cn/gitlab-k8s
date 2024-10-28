@@ -223,8 +223,8 @@ export default defineConfig({
           { text: 'Ingress 安装', link: 'ingress-install' },
           { text: 'Containerd 镜像配置', link: 'containerd-mirrors' },
           { text: '批量删除 k8s（ctr）使用的历史镜像', link: 'containerd-rm' },
-          { text: '使用 openssl 生成 Kubernetes（k8s） 新证书', link: 'ca-openssl' },
-          { text: '使用 kubeadm 生成 Kubernetes（k8s） 新证书', link: 'ca-kubeadm' },
+          { text: '使用 openssl 生成 Kubernetes 新证书', link: 'ca-openssl' },
+          { text: '使用 kubeadm 生成 Kubernetes 新证书', link: 'ca-kubeadm' },
           { text: '创建指定命名空间权限的 KUBECONFIG 文件', link: 'kubeconfig' },
         ]
       },
