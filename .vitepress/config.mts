@@ -59,6 +59,10 @@ export default defineConfig({
             link: 'https://gitee.com/xuxiaowei-com-cn/k8s.sh'
           },
           {
+            text: 'kubernetes（k8s）一键安装交互式网站',
+            link: 'https://k8s-sh.xuxiaowei.com.cn'
+          },
+          {
             text: 'Kubernetes（k8s）文档国内镜像',
             link: 'https://kubernetes.xuxiaowei.com.cn/zh-cn/'
           },
