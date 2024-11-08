@@ -387,6 +387,45 @@ sidebar_position: 8
     kubectl -n ingress-nginx patch configmap ingress-nginx-controller --type merge -p '{"data":{"allow-snippet-annotations":"true"}}'
     ```
 
+    ```yml
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      annotations:
+        nginx.ingress.kubernetes.io/server-snippet: |
+          location ~ /(.*) {
+            rewrite ^/(.*) /$1 break;
+            proxy_http_version 1.1;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection "Upgrade";
+            proxy_set_header X-real-ip $remote_addr;
+            proxy_set_header X-Forwarded-For $remote_addr;
+            proxy_pass http://10.97.181.24:8080;
+            proxy_connect_timeout 60s;
+            proxy_read_timeout 3600s;
+            proxy_send_timeout 3600s;
+          }
+      name: im-example-com-ingress
+      namespace: test
+    spec:
+      ingressClassName: nginx
+      rules:
+        - host: im.example.com
+          http:
+            paths:
+              - backend:
+                  service:
+                    name: im-example-service
+                    port:
+                      number: 8080
+                path: /(.*)
+                pathType: ImplementationSpecific
+      tls:
+        - hosts:
+            - im.example.com
+          secretName: im.example.com
+    ```
+
 8. 相关命令
     1. 获取所有的 ingress
 
